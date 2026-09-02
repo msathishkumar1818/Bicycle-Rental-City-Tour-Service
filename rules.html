@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Velo City — Rules, Security Deposit &amp; Rider Protection</title>
+  <meta name="description" content="Transparent zero-deposit rental terms. Learn about our $0 credit card hold, full insurance coverage, city cycling laws, ABUS security protocols, and rental extensions." />
+  
+  <!-- OpenGraph Meta -->
+  <meta property="og:title" content="Velo City — Rules &amp; Zero Security Deposit" />
+  <meta property="og:description" content="Transparent rental terms with $0 credit hold and comprehensive insurance coverage." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/images/rules-lock-secure.jpg" />
+
+  <!-- Tailwind CSS CDN with configuration -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              50: '#F7F9F7',
+              100: '#E6EFE8',
+              200: '#C7DEC9',
+              300: '#9EBEA1',
+              400: '#5E8F63',
+              500: '#28552E',
+              600: '#173A20',
+              700: '#12301B',
+              800: '#0E2716',
+              900: '#0B2415',
+              950: '#06160D',
+            },
+            lime: {
+              300: '#E4EE60',
+              400: '#D7E53B',
+              500: '#C8D62C',
+              600: '#AAB81D',
+            },
+            yellow: {
+              400: '#FCE04D',
+              500: '#F4D21F',
+              600: '#D9B70F',
+            },
+            charcoal: {
+              400: '#8A968D',
+              500: '#5C6960',
+              600: '#3D4740',
+              700: '#262D28',
+              800: '#1C211E',
+              900: '#171A18',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            display: ['"Space Grotesk"', '"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body class="bg-[#FFFFFF] dark:bg-[#0B2415] text-[#171A18] dark:text-white selection:bg-[#C8D62C] selection:text-[#171A18] transition-colors duration-300">
+
+  <!-- ========================================================================= -->
+  <!-- GLOBAL PAGE LOADER                                                        -->
+  <!-- ========================================================================= -->
+  <div id="global-page-loader" role="status" aria-label="Loading Velo City Rules">
+    <div class="relative flex flex-col items-center gap-4">
+      <div class="loader-spinner-ring"></div>
+      <span class="font-display font-bold text-xs tracking-widest uppercase text-[#C8D62C] animate-pulse">VELO CITY &bull; RULES</span>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- FLOATING BACK TO TOP BUTTON                                               -->
+  <!-- ========================================================================= -->
+  <button type="button" id="back-to-top-btn" aria-label="Scroll back to top" title="Back to top">
+    <svg class="w-5 h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- ========================================================================= -->
+  <!-- HEADER & NAVIGATION (Forest Green Theme)                                  -->
+  <!-- ========================================================================= -->
+  <header class="sticky top-0 z-50 nav-sky-header" id="main-header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="h-16 sm:h-[68px] flex items-center justify-between gap-2 lg:gap-4">
+        
+        <!-- Brand Logo -->
+        <a href="index.html" class="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C8D62C] rounded-lg p-1 shrink-0" aria-label="Velo City Homepage">
+          <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#173A20] dark:bg-[#C8D62C] flex items-center justify-center text-[#C8D62C] dark:text-[#171A18] shadow-sm group-hover:scale-105 transition-transform duration-200">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="5.5" cy="17.5" r="3.5"/>
+              <circle cx="18.5" cy="17.5" r="3.5"/>
+              <path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 11.5L9 6H4m11 11.5L12 9l3-3h3"/>
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-display font-bold text-base sm:text-lg tracking-tight uppercase text-[#171A18] dark:text-white leading-none">VELO CITY</span>
+            <span class="text-[9px] font-mono tracking-widest text-[#28552E] dark:text-[#C8D62C] uppercase font-semibold mt-0.5">Rules &amp; Deposit</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Bar -->
+        <nav class="hidden lg:flex items-center gap-1 xl:gap-2 text-xs xl:text-sm font-semibold text-[#171A18] dark:text-white" aria-label="Main Navigation">
+          
+          <!-- Home Dropdown Container -->
+          <div class="relative home-dropdown-container">
+            <button type="button" id="desktop-home-nav-trigger" class="home-dropdown-trigger inline-flex items-center gap-1.5 px-2.5 xl:px-3 py-1.5 rounded-md hover:text-[#28552E] dark:hover:text-[#C8D62C] hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] transition-colors" aria-expanded="false">
+              <span>Home</span>
+              <svg class="w-3.5 h-3.5 stroke-current transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+
+            <!-- Dropdown Menu Box -->
+            <div class="home-dropdown-menu">
+              <a href="index.html" id="dropdown-link-home1" class="home-dropdown-item group">
+                <div class="w-7 h-7 rounded-lg bg-[#F7F7F2] dark:bg-[#173A20] text-[#28552E] dark:text-[#C8D62C] flex items-center justify-center font-bold text-xs">
+                  &bull;
+                </div>
+                <div class="flex flex-col">
+                  <span class="font-display font-bold text-xs text-[#171A18] dark:text-white group-hover:text-[#28552E] dark:group-hover:text-[#C8D62C]">Home 1 (Classic)</span>
+                  <small class="text-[10px] text-[#171A18] dark:text-white">Urban Exploration &amp; Fleet</small>
+                </div>
+              </a>
+
+              <a href="home-2.html" id="dropdown-link-home2" class="home-dropdown-item group mt-1">
+                <div class="w-7 h-7 rounded-lg bg-[#F7F7F2] dark:bg-[#173A20] text-[#28552E] dark:text-[#C8D62C] flex items-center justify-center font-bold text-xs">
+                  &bull;
+                </div>
+                <div class="flex flex-col">
+                  <span class="font-display font-bold text-xs text-[#171A18] dark:text-white group-hover:text-[#28552E] dark:group-hover:text-[#C8D62C]">Home 2 (E-Mobility)</span>
+                  <small class="text-[10px] text-[#171A18] dark:text-white">Full Hero &amp; Transit Matrix</small>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <a href="fleet.html" id="desktop-nav-fleet" class="px-2.5 xl:px-3 py-1.5 rounded-md hover:text-[#28552E] dark:hover:text-[#C8D62C] hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] transition-colors">Fleet</a>
+          <a href="tours.html" id="desktop-nav-tours" class="px-2.5 xl:px-3 py-1.5 rounded-md hover:text-[#28552E] dark:hover:text-[#C8D62C] hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] transition-colors">Guided Tours</a>
+          <a href="locations.html" id="desktop-nav-locations" class="px-2.5 xl:px-3 py-1.5 rounded-md hover:text-[#28552E] dark:hover:text-[#C8D62C] hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] transition-colors">Pickup Locations</a>
+          <a href="rules.html" id="desktop-nav-rules" class="px-2.5 xl:px-3 py-1.5 rounded-md text-[#28552E] dark:text-[#C8D62C] font-bold hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] transition-colors">Rules &amp; Deposit</a>
+          <a href="contact.html" id="desktop-nav-contact" class="px-2.5 xl:px-3 py-1.5 rounded-md hover:text-[#28552E] dark:hover:text-[#C8D62C] hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] transition-colors">Contact</a>
+          <a href="dashboard.html" id="desktop-nav-dashboard" class="px-2.5 xl:px-3 py-1.5 rounded-md hover:text-[#28552E] dark:hover:text-[#C8D62C] hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] transition-colors">Dashboard</a>
+        </nav>
+
+        <!-- Right Side Actions: Login -> Theme/RTL Controls -->
+        <div class="hidden lg:flex items-center gap-2 xl:gap-2.5 shrink-0">
+          
+          <!-- Login Button -->
+          <a href="login.html" id="desktop-action-login" class="btn-primary inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold shadow-md">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+            <span>Login</span>
+          </a>
+
+          <!-- Theme Toggle -->
+          <button type="button" class="theme-toggle-btn p-1.5 rounded-lg border border-[#D9DDD8] dark:border-white/20 hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] text-[#171A18] dark:text-white transition-colors" title="Toggle Dark/Light Mode" aria-label="Toggle theme">
+            <svg class="theme-icon-sun hidden w-4 h-4 text-amber-400 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+            <svg class="theme-icon-moon w-4 h-4 text-[#171A18] dark:text-white stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 0 1 1-9-9Z"/></svg>
+          </button>
+
+          <!-- Direction Toggle -->
+          <button type="button" class="dir-toggle-btn inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-mono font-semibold rounded-lg border border-[#D9DDD8] dark:border-white/20 hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] text-[#171A18] dark:text-white transition-colors" title="Toggle Layout Direction (LTR/RTL)">
+            <span class="dir-toggle-label">LTR</span>
+          </button>
+        </div>
+
+        <!-- Mobile Menu Trigger -->
+        <div class="flex items-center gap-2 lg:hidden">
+          <button type="button" id="mobile-menu-open-btn" class="p-2 rounded-lg border border-[#D9DDD8] dark:border-white/20 text-[#171A18] dark:text-white hover:bg-[#F7F7F2]" aria-expanded="false" aria-label="Open Mobile Navigation Menu">
+            <svg class="w-5 h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Backdrop -->
+  <div id="mobile-drawer-backdrop" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden"></div>
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobile-drawer" class="fixed top-0 right-0 bottom-0 z-50 w-full max-w-sm bg-white dark:bg-[#173A20] border-l border-[#D9DDD8] dark:border-white/10 p-6 flex flex-col justify-between translate-x-full pointer-events-none transition-transform duration-300 ease-in-out lg:hidden overflow-y-auto">
+    <div>
+      <div class="flex items-center justify-between pb-4 border-b border-[#D9DDD8] dark:border-white/10">
+        <span class="font-display font-bold text-sm uppercase tracking-widest text-[#28552E] dark:text-[#C8D62C]">Menu Navigation</span>
+        <button type="button" id="mobile-menu-close-btn" class="p-1.5 rounded-md text-[#171A18] dark:text-white hover:text-[#28552E] dark:hover:text-[#C8D62C]" aria-label="Close Mobile Menu">
+          <svg class="w-5 h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <nav class="flex flex-col gap-1 mt-4">
+        <!-- Mobile Home Accordion -->
+        <div class="border-b border-[#D9DDD8] dark:border-white/10 pb-2">
+          <button type="button" id="mobile-home-accordion-btn" class="w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-semibold text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5" aria-expanded="false">
+            <span>Home Variations</span>
+            <svg class="accordion-chevron w-4 h-4 stroke-current transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div id="mobile-home-accordion-menu" class="pl-3 space-y-1 mt-1 hidden">
+            <a href="index.html" class="mobile-nav-link block px-3 py-1.5 text-xs font-semibold text-[#171A18] dark:text-white hover:text-[#28552E] dark:hover:text-[#C8D62C] rounded-md">Home 1 (Classic Exploration)</a>
+            <a href="home-2.html" class="mobile-nav-link block px-3 py-1.5 text-xs font-semibold text-[#171A18] dark:text-white hover:text-[#28552E] dark:hover:text-[#C8D62C] rounded-md">Home 2 (E-Mobility Edition)</a>
+          </div>
+        </div>
+
+        <a href="fleet.html" class="mobile-nav-link px-3 py-2 rounded-lg text-sm font-semibold text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5">Fleet Catalog</a>
+        <a href="tours.html" class="mobile-nav-link px-3 py-2 rounded-lg text-sm font-semibold text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5">Guided Tours</a>
+        <a href="locations.html" class="mobile-nav-link px-3 py-2 rounded-lg text-sm font-semibold text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5">Pickup Locations</a>
+        <a href="rules.html" class="mobile-nav-link px-3 py-2 rounded-lg text-sm font-semibold text-[#28552E] dark:text-[#C8D62C] bg-[#F7F7F2] dark:bg-[#0B2415]/40 font-bold">Rules &amp; Deposit</a>
+        <a href="contact.html" class="mobile-nav-link px-3 py-2 rounded-lg text-sm font-semibold text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5">Contact</a>
+        <a href="dashboard.html" class="mobile-nav-link px-3 py-2 rounded-lg text-sm font-semibold text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5">Dashboard</a>
+      </nav>
+    </div>
+
+    <!-- Mobile Controls (Dark Mode + RTL inside drawer) -->
+    <div class="pt-4 border-t border-[#D9DDD8] dark:border-white/10 space-y-2.5">
+      <div class="flex items-center justify-between">
+        <span class="text-xs font-medium text-[#171A18] dark:text-white">Theme Display</span>
+        <button type="button" class="theme-toggle-btn inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-[#D9DDD8] dark:border-white/20 text-xs font-mono font-semibold text-[#171A18] dark:text-white">
+          <svg class="theme-icon-sun hidden w-3.5 h-3.5 text-amber-400 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2"/></svg>
+          <svg class="theme-icon-moon w-3.5 h-3.5 stroke-current text-[#171A18] dark:text-white" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 0 1 1-9-9Z"/></svg>
+          <span class="theme-status-label">Theme</span>
+        </button>
+      </div>
+
+      <div class="flex items-center justify-between">
+        <span class="text-xs font-medium text-[#171A18] dark:text-white">Direction (LTR / RTL)</span>
+        <button type="button" class="dir-toggle-btn inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-mono font-semibold rounded-lg border border-[#D9DDD8] dark:border-white/20 text-[#171A18] dark:text-white">
+          <span class="dir-toggle-label">LTR</span>
+        </button>
+      </div>
+
+      <a href="login.html" class="mobile-nav-link btn-primary w-full inline-flex items-center justify-center gap-2 py-2 rounded-lg text-xs font-bold text-center shadow-md">
+        <span>Login</span>
+      </a>
+    </div>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- MAIN RULES & DEPOSIT CONTENT                                              -->
+  <!-- ========================================================================= -->
+  <main id="main-content">
+
+    <!-- ======================================================================= -->
+    <!-- SECTION 1 — RULES HERO & TRANSPARENCY BANNER                            -->
+    <!-- ======================================================================= -->
+    <section class="relative pt-10 pb-12 lg:pt-16 lg:pb-16 bg-[#F7F7F2] dark:bg-[#173A20] border-b border-[#D9DDD8] dark:border-white/10 transition-colors duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl space-y-4 reveal-on-scroll">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#173A20]/10 dark:bg-[#C8D62C]/20 border border-[#28552E]/30 text-[#173A20] dark:text-[#C8D62C] text-xs font-mono font-bold uppercase tracking-wider">
+            <span>Transparent Mobility &bull; Zero Hidden Costs</span>
+          </div>
+
+          <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-[#171A18] dark:text-white leading-[1.1]">
+            $0 Deposit. Total Peace of Mind.
+          </h1>
+
+          <p class="text-base sm:text-lg text-[#171A18] dark:text-white leading-relaxed">
+            We believe urban exploration should be effortless. We never hold five-hundred dollar security deposits on your credit card. Learn how our Swiss digital verification and comprehensive coverage keep you protected on every ride.
+          </p>
+
+          <!-- Core Transparency Stats Pills -->
+          <div class="pt-2 flex flex-wrap items-center gap-4 text-xs font-mono text-[#171A18] dark:text-white">
+            <span class="flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-[#C8D62C]"></span>
+              <strong class="text-[#171A18] dark:text-white">Zero Pre-Authorization</strong>
+            </span>
+            <span>&bull;</span>
+            <span>ABUS Bordo Lock Included</span>
+            <span>&bull;</span>
+            <span>Full Third-Party Liability Included</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================================= -->
+    <!-- SECTION 2 — 3 TIERS OF RIDER INSURANCE COVERAGE                         -->
+    <!-- ======================================================================= -->
+    <section class="py-14 lg:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16 space-y-3 reveal-on-scroll">
+          <div class="text-xs font-mono font-bold tracking-widest text-[#28552E] dark:text-[#C8D62C] uppercase">Rider Protection Plans</div>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-[#171A18] dark:text-white">
+            Choose Your Protection Level
+          </h2>
+          <p class="text-sm sm:text-base text-[#171A18] dark:text-white">
+            Every rental includes standard third-party liability automatically. Upgrade for zero-deductible theft and damage coverage.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-on-scroll">
+          
+          <!-- Plan 1: Standard Included -->
+          <div class="velo-card p-7 space-y-6 flex flex-col justify-between shadow-sm relative">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md bg-[#F7F7F2] dark:bg-[#0B2415] text-[#171A18] dark:text-white text-xs font-mono font-bold uppercase border border-[#D9DDD8] dark:border-white/10">
+                  STANDARD (INCLUDED)
+                </span>
+                <span class="font-mono font-extrabold text-2xl text-[#171A18] dark:text-white">$0 <span class="text-xs font-normal text-[#171A18] dark:text-white">/ day</span></span>
+              </div>
+              
+              <h3 class="font-display font-bold text-xl text-[#171A18] dark:text-white">Basic Mobility Cover</h3>
+              <p class="text-xs text-[#171A18] dark:text-white leading-relaxed">
+                Standard statutory liability protection covering third-party bodily injury and property damage.
+              </p>
+
+              <ul class="space-y-2.5 text-xs font-mono text-[#171A18] dark:text-white pt-2 border-t border-[#D9DDD8] dark:border-white/10">
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <span>$5,000,000 Third-Party Liability</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <span>24/7 Roadside Mechanical Support</span>
+                </li>
+                <li class="flex items-center gap-2 text-[#171A18] dark:text-white">
+                  <svg class="w-4 h-4 stroke-current shrink-0" fill="none" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                  <span>Theft Deductible: $150 Max</span>
+                </li>
+                <li class="flex items-center gap-2 text-[#171A18] dark:text-white">
+                  <svg class="w-4 h-4 stroke-current shrink-0" fill="none" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                  <span>Accidental Rim / Frame Damage: $80</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="pt-4 border-t border-[#D9DDD8] dark:border-white/10">
+              <span class="block text-center text-xs font-mono text-[#171A18] dark:text-white font-bold">Default included on all rentals</span>
+            </div>
+          </div>
+
+          <!-- Plan 2: Complete Protection (Popular) -->
+          <div class="velo-card p-7 space-y-6 flex flex-col justify-between shadow-lg relative border-2 border-[#C8D62C]">
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#C8D62C] text-[#171A18] font-mono font-bold text-[10px] uppercase px-3 py-1 rounded-full tracking-wider shadow-sm">
+              RECOMMENDED OPTION
+            </div>
+
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md bg-[#173A20]/10 dark:bg-[#C8D62C]/20 text-[#28552E] dark:text-[#C8D62C] text-xs font-mono font-bold uppercase border border-[#D9DDD8] dark:border-[#C8D62C]/30">
+                  PLUS SHIELD
+                </span>
+                <span class="font-mono font-extrabold text-2xl text-[#28552E] dark:text-[#C8D62C]">+$3 <span class="text-xs font-normal text-[#171A18] dark:text-white">/ day</span></span>
+              </div>
+              
+              <h3 class="font-display font-bold text-xl text-[#171A18] dark:text-white">Zero Deductible Shield</h3>
+              <p class="text-xs text-[#171A18] dark:text-white leading-relaxed">
+                Eliminates all out-of-pocket repair costs for punctured tires, bent rims, brake wear, and paint scuffs.
+              </p>
+
+              <ul class="space-y-2.5 text-xs font-mono text-[#171A18] dark:text-white pt-2 border-t border-[#D9DDD8] dark:border-white/10">
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <span><strong>$0 Deductible</strong> on Accidental Damage</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <span>Free Puncture &amp; Flat Tire Swaps</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <span>Theft Deductible Capped at $50</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <span>Express Roadside Van Replacement</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="pt-4 border-t border-[#D9DDD8] dark:border-white/10">
+              <a href="fleet.html" class="btn-primary w-full py-2.5 rounded-lg text-xs font-bold inline-flex items-center justify-center gap-2 text-center">
+                <span>Select with Bicycle</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Plan 3: Complete Comprehensive -->
+          <div class="velo-card p-7 space-y-6 flex flex-col justify-between shadow-sm relative">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md bg-[#F7F7F2] dark:bg-[#0B2415] text-[#171A18] dark:text-white text-xs font-mono font-bold uppercase border border-[#D9DDD8] dark:border-white/10">
+                  TOTAL PEACE
+                </span>
+                <span class="font-mono font-extrabold text-2xl text-[#171A18] dark:text-white">+$6 <span class="text-xs font-normal text-[#171A18] dark:text-white">/ day</span></span>
+              </div>
+              
+              <h3 class="font-display font-bold text-xl text-[#171A18] dark:text-white">Complete Total Shield</h3>
+              <p class="text-xs text-[#171A18] dark:text-white leading-relaxed">
+                Total zero-liability coverage including theft, accessories, water immersion, and complimentary taxi transfer.
+              </p>
+
+              <ul class="space-y-2.5 text-xs font-mono text-[#171A18] dark:text-white pt-2 border-t border-[#D9DDD8] dark:border-white/10">
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <span><strong>$0 Total Deductible</strong> (Even for Theft)</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <span>Full Helmet &amp; Accessory Coverage</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <span>Free Hotel Key Delivery Service</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <span>Emergency Ride-Home Taxi Reimbursement</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="pt-4 border-t border-[#D9DDD8] dark:border-white/10">
+              <a href="fleet.html" class="btn-outline-white w-full py-2.5 rounded-lg text-xs font-bold inline-flex items-center justify-center gap-2 text-center">
+                <span>Select Total Shield</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================================= -->
+    <!-- SECTION 3 — CITY CYCLING TRAFFIC LAWS & ESSENTIAL PROTOCOLS             -->
+    <!-- ======================================================================= -->
+    <section class="py-16 lg:py-24 bg-[#F7F7F2] dark:bg-[#173A20] border-y border-[#D9DDD8] dark:border-white/10 transition-colors duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16 space-y-3 reveal-on-scroll">
+          <div class="text-xs font-mono font-bold tracking-widest text-[#28552E] dark:text-[#C8D62C] uppercase">City Highway Code</div>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-[#171A18] dark:text-white">
+            Local Cycling Laws &amp; Etiquette
+          </h2>
+          <p class="text-sm sm:text-base text-[#171A18] dark:text-white">
+            Switzerland and European cities maintain strict, well-regulated cycle infrastructure. Keep yourself safe and legal with these essential guidelines.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal-on-scroll">
+          
+          <div class="velo-card p-6 space-y-3">
+            <div class="w-10 h-10 rounded-lg bg-[#173A20]/10 dark:bg-[#C8D62C]/20 text-[#28552E] dark:text-[#C8D62C] flex items-center justify-center font-mono font-bold text-sm">
+              &bull;
+            </div>
+            <h3 class="font-display font-bold text-base text-[#171A18] dark:text-white">Separated Cycle Tracks</h3>
+            <p class="text-xs text-[#171A18] dark:text-white leading-relaxed">
+              Always use marked red cycle lanes or separated bike paths where available. Riding on pedestrian sidewalks is prohibited by law.
+            </p>
+          </div>
+
+          <div class="velo-card p-6 space-y-3">
+            <div class="w-10 h-10 rounded-lg bg-[#173A20]/10 dark:bg-[#C8D62C]/20 text-[#28552E] dark:text-[#C8D62C] flex items-center justify-center font-mono font-bold text-sm">
+              &bull;
+            </div>
+            <h3 class="font-display font-bold text-base text-[#171A18] dark:text-white">Automatic LED Lighting</h3>
+            <p class="text-xs text-[#171A18] dark:text-white leading-relaxed">
+              All Velo City bicycles feature hub-dynamo front and rear LED lights that remain illuminated automatically dusk till dawn.
+            </p>
+          </div>
+
+          <div class="velo-card p-6 space-y-3">
+            <div class="w-10 h-10 rounded-lg bg-[#173A20]/10 dark:bg-[#C8D62C]/20 text-[#28552E] dark:text-[#C8D62C] flex items-center justify-center font-mono font-bold text-sm">
+              &bull;
+            </div>
+            <h3 class="font-display font-bold text-base text-[#171A18] dark:text-white">Tram Track Crossing</h3>
+            <p class="text-xs text-[#171A18] dark:text-white leading-relaxed">
+              When traversing tram rails on street junctions, always cross at a sharp <strong>right angle</strong> to avoid catching your wheels in track grooves.
+            </p>
+          </div>
+
+          <div class="velo-card p-6 space-y-3">
+            <div class="w-10 h-10 rounded-lg bg-[#173A20]/10 dark:bg-[#C8D62C]/20 text-[#28552E] dark:text-[#C8D62C] flex items-center justify-center font-mono font-bold text-sm">
+              &bull;
+            </div>
+            <h3 class="font-display font-bold text-base text-[#171A18] dark:text-white">Strict Zero-Alcohol Limit</h3>
+            <p class="text-xs text-[#171A18] dark:text-white leading-relaxed">
+              The municipal legal blood alcohol limit for operating standard and electric assist bicycles matches strict automotive regulations.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================================= -->
+    <!-- SECTION 4 — ANTI-THEFT & ABUS BORDO LOCK PROTOCOL                       -->
+    <!-- ======================================================================= -->
+    <section class="py-16 lg:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          
+          <div class="lg:col-span-6 space-y-6 reveal-on-scroll">
+            <div class="text-xs font-mono font-bold tracking-widest text-[#28552E] dark:text-[#C8D62C] uppercase">German Security Engineering</div>
+            <h2 class="font-display font-bold text-3xl sm:text-4xl text-[#171A18] dark:text-white leading-tight">
+              Securing Your Bicycle with ABUS Bordo
+            </h2>
+            <p class="text-base text-[#171A18] dark:text-white leading-relaxed">
+              Every bike comes mounted with a hardened 5mm steel ABUS Bordo folding lock. Whenever you step away to visit a coffee shop, museum, or market, follow our simple locking protocol.
+            </p>
+
+            <div class="space-y-4 text-xs font-mono">
+              <div class="flex items-start gap-3 p-3 rounded-xl bg-[#F7F7F2] dark:bg-[#0B2415]">
+                <span class="w-6 h-6 rounded-full bg-[#173A20]/10 dark:bg-[#C8D62C]/20 text-[#28552E] dark:text-[#C8D62C] font-bold flex items-center justify-center shrink-0">&bull;</span>
+                <div>
+                  <strong class="text-[#171A18] dark:text-white block font-sans">Lock Through Frame and Fixed Post</strong>
+                  <span class="text-[#171A18] dark:text-white font-sans">Unfold the steel segments and loop through the main bicycle frame and a dedicated steel bike rack.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3 p-3 rounded-xl bg-[#F7F7F2] dark:bg-[#0B2415]">
+                <span class="w-6 h-6 rounded-full bg-[#173A20]/10 dark:bg-[#C8D62C]/20 text-[#28552E] dark:text-[#C8D62C] font-bold flex items-center justify-center shrink-0">&bull;</span>
+                <div>
+                  <strong class="text-[#171A18] dark:text-white block font-sans">Engage Mechanical Cylinder</strong>
+                  <span class="text-[#171A18] dark:text-white font-sans">Push the lock bolt into the cylinder until you hear the positive mechanical latch click.</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3 p-3 rounded-xl bg-[#F7F7F2] dark:bg-[#0B2415]">
+                <span class="w-6 h-6 rounded-full bg-[#173A20]/10 dark:bg-[#C8D62C]/20 text-[#28552E] dark:text-[#C8D62C] font-bold flex items-center justify-center shrink-0">&bull;</span>
+                <div>
+                  <strong class="text-[#171A18] dark:text-white block font-sans">Smart App Pause Mode</strong>
+                  <span class="text-[#171A18] dark:text-white font-sans">Tap "Pause Ride" in your mobile app to keep your reservation active without incurring dock return fees.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 reveal-on-scroll">
+            <div class="aspect-video sm:aspect-square rounded-2xl overflow-hidden shadow-md border border-[#D9DDD8] dark:border-white/10 relative">
+              <img src="assets/images/rules-lock-secure.jpg" alt="Secured Velo Bicycle" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================================= -->
+    <!-- SECTION 5 — RENTAL EXTENSIONS & FULL-STATION GRACE POLICY               -->
+    <!-- ======================================================================= -->
+    <section class="py-16 lg:py-24 bg-[#F7F7F2] dark:bg-[#173A20] border-y border-[#D9DDD8] dark:border-white/10 transition-colors duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="velo-card p-8 sm:p-12 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-center reveal-on-scroll">
+          
+          <div class="lg:col-span-7 space-y-5">
+            <span class="px-3 py-1 rounded-md bg-[#173A20]/10 dark:bg-[#C8D62C]/20 text-[#28552E] dark:text-[#C8D62C] text-xs font-mono font-bold uppercase border border-[#D9DDD8] dark:border-[#C8D62C]/30">
+              Extension Flexibility
+            </span>
+            <h2 class="font-display font-bold text-3xl sm:text-4xl text-[#171A18] dark:text-white leading-tight">
+              Keep Riding with One-Tap App Extensions
+            </h2>
+            <p class="text-sm sm:text-base text-[#171A18] dark:text-white leading-relaxed">
+              Having too much fun on the sunset river promenade? Extend your rental duration directly from your smartphone at the flat rate of <strong>$4 per hour</strong> without needing to return to a station dock.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono pt-2">
+              <div class="flex items-center gap-2 text-[#171A18] dark:text-white font-semibold">
+                <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Automatic 15-Minute Full Dock Grace</span>
+              </div>
+              <div class="flex items-center gap-2 text-[#171A18] dark:text-white font-semibold">
+                <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Zero Late Penalty if Extended in App</span>
+              </div>
+              <div class="flex items-center gap-2 text-[#171A18] dark:text-white font-semibold">
+                <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Instant Digital Invoice Sent to Email</span>
+              </div>
+              <div class="flex items-center gap-2 text-[#171A18] dark:text-white font-semibold">
+                <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Roadside Battery Swaps on Long Rides</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 bg-[#FFFFFF] dark:bg-[#0B2415] p-6 rounded-xl border border-[#D9DDD8] dark:border-white/10 space-y-4">
+            <h3 class="font-display font-bold text-lg text-[#171A18] dark:text-white">Emergency Support Dispatch</h3>
+            <p class="text-xs text-[#171A18] dark:text-white">
+              Encountered a puncture, lost key, or mechanical difficulty? Our rapid response van reaches you quickly.
+            </p>
+            <a href="tel:+41442155000" class="btn-primary w-full py-3 rounded-lg text-xs font-bold inline-flex items-center justify-center gap-2 text-center">
+              <span>Roadside Dispatch Hotline</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================================= -->
+    <!-- SECTION 6 — DIGITAL RENTAL AGREEMENT PREVIEW & PDF                      -->
+    <!-- ======================================================================= -->
+    <section class="py-16 lg:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-14 space-y-3 reveal-on-scroll">
+          <div class="text-xs font-mono font-bold tracking-widest text-[#28552E] dark:text-[#C8D62C] uppercase">Legal Transparency</div>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-[#171A18] dark:text-white">
+            Digital Rental Agreement Sample
+          </h2>
+          <p class="text-sm text-[#171A18] dark:text-white">
+            Read our simple, plain-English terms before booking.
+          </p>
+        </div>
+
+        <div class="velo-card p-6 sm:p-8 max-w-4xl mx-auto space-y-6 reveal-on-scroll">
+          <div class="flex items-center justify-between border-b border-[#D9DDD8] dark:border-white/10 pb-4">
+            <div>
+              <span class="text-[10px] font-mono text-[#171A18] dark:text-white font-bold uppercase">DOCUMENT PREVIEW</span>
+              <h3 class="font-display font-bold text-lg text-[#171A18] dark:text-white">Standard Rider Agreement (Summary)</h3>
+            </div>
+            <span class="text-xs font-mono text-[#28552E] dark:text-[#C8D62C] font-bold">Standard Terms</span>
+          </div>
+
+          <div class="space-y-4 text-xs font-mono text-[#171A18] dark:text-white leading-relaxed max-h-60 overflow-y-auto pr-2">
+            <p><strong>1. Authorization to Ride:</strong> The customer confirms they are at least 16 years of age (or 14 with an approved moped permit for electric assistance models) and physically capable of safely operating a two-wheeled vehicle in urban traffic.</p>
+            <p><strong>2. Deposit &amp; Payment:</strong> Velo City requires no initial credit card deposit hold. Standard rental charges and selected insurance additions are processed upon reservation confirmation.</p>
+            <p><strong>3. Maintenance &amp; Condition:</strong> Every bicycle is checked and sanitized prior to dock release. The rider agrees to inspect tires and brakes before departing the station dock and report any defects immediately.</p>
+            <p><strong>4. Anti-Theft Responsibility:</strong> When temporarily leaving the bicycle unattended outside station docks, the rider must engage the supplied ABUS Bordo lock to an immovable anchor. Unlocked theft voids coverage.</p>
+          </div>
+
+          <div class="pt-4 border-t border-[#D9DDD8] dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <span class="text-xs text-[#171A18] dark:text-white font-mono font-bold">Agreed electronically upon QR pass creation.</span>
+            <a href="fleet.html" class="btn-primary px-6 py-2.5 rounded-lg text-xs font-bold">
+              <span>Accept &amp; Choose Bicycle</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================================= -->
+    <!-- SECTION 7 — RULES & DEPOSIT FAQS (ACCORDION)                            -->
+    <!-- ======================================================================= -->
+    <section class="py-16 lg:py-24 bg-[#F7F7F2] dark:bg-[#173A20] border-y border-[#D9DDD8] dark:border-white/10 transition-colors duration-300">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-14 space-y-3 reveal-on-scroll">
+          <div class="text-xs font-mono font-bold tracking-widest text-[#28552E] dark:text-[#C8D62C] uppercase">Frequently Asked Questions</div>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-[#171A18] dark:text-white">
+            Rules &amp; Deposit Questions
+          </h2>
+          <p class="text-sm text-[#171A18] dark:text-white">
+            Clear, honest answers regarding deposits, insurance, and cancellations.
+          </p>
+        </div>
+
+        <!-- FAQ Container -->
+        <div class="space-y-4 faq-container reveal-on-scroll">
+          
+          <div class="velo-card overflow-hidden shadow-sm">
+            <button type="button" class="faq-accordion-btn w-full p-5 text-left flex items-center justify-between gap-4 font-display font-bold text-base text-[#171A18] dark:text-white hover:text-[#28552E] dark:hover:text-[#C8D62C] transition-colors" aria-expanded="false">
+              <span>Why doesn't Velo City charge a security deposit like other services?</span>
+              <svg class="faq-icon w-5 h-5 stroke-current shrink-0 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-panel px-5 pb-5 text-xs sm:text-sm text-[#171A18] dark:text-white leading-relaxed border-t border-[#D9DDD8] dark:border-white/10 pt-3 hidden">
+              We verify user identity digitally during the quick registration flow. Combined with our German ABUS smart lock ecosystem and dock GPS telemetry, we don't need to freeze security deposit holds on your travel budget.
+            </div>
+          </div>
+
+          <div class="velo-card overflow-hidden shadow-sm">
+            <button type="button" class="faq-accordion-btn w-full p-5 text-left flex items-center justify-between gap-4 font-display font-bold text-base text-[#171A18] dark:text-white hover:text-[#28552E] dark:hover:text-[#C8D62C] transition-colors" aria-expanded="false">
+              <span>What happens if the bicycle is stolen while I am inside a museum?</span>
+              <svg class="faq-icon w-5 h-5 stroke-current shrink-0 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-panel px-5 pb-5 text-xs sm:text-sm text-[#171A18] dark:text-white leading-relaxed border-t border-[#D9DDD8] dark:border-white/10 pt-3 hidden">
+              As long as the bicycle was properly locked to a municipal fixture using the provided ABUS Bordo lock and you file a report, your liability is strictly capped at $150 (or $0 with Premium Complete Shield).
+            </div>
+          </div>
+
+          <div class="velo-card overflow-hidden shadow-sm">
+            <button type="button" class="faq-accordion-btn w-full p-5 text-left flex items-center justify-between gap-4 font-display font-bold text-base text-[#171A18] dark:text-white hover:text-[#28552E] dark:hover:text-[#C8D62C] transition-colors" aria-expanded="false">
+              <span>What is the minimum age requirement for renting e-bikes?</span>
+              <svg class="faq-icon w-5 h-5 stroke-current shrink-0 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-panel px-5 pb-5 text-xs sm:text-sm text-[#171A18] dark:text-white leading-relaxed border-t border-[#D9DDD8] dark:border-white/10 pt-3 hidden">
+              Riders must be at least sixteen years old to operate standard pedal bicycles and electric assist bikes. For high-speed models, a valid moped or driver’s license is required.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    
+
+  </main>
+
+
+  <!-- ========================================================================= -->
+  <!-- COMPREHENSIVE 5-COLUMN FOOTER (Dark Green #0B2415 Background)             -->
+  <!-- ========================================================================= -->
+  <footer class="bg-[#0B2415] border-t border-white/10 pt-16 pb-12 text-white transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+        
+        <div class="lg:col-span-4 space-y-4">
+          <a href="index.html" class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-[#C8D62C] text-[#171A18] flex items-center justify-center font-bold">
+              <svg class="w-5 h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 11.5L9 6H4m11 11.5L12 9l3-3h3"/></svg>
+            </div>
+            <span class="font-display font-bold text-lg tracking-tight uppercase text-white">VELO CITY</span>
+          </a>
+          <p class="text-sm text-white max-w-sm leading-relaxed">
+            Leading the clean urban mobility movement. Zero-emission e-bikes, tandem exploration, and smart city docking networks.
+          </p>
+        </div>
+
+        <div class="lg:col-span-2 space-y-3">
+          <h4 class="font-display font-bold text-sm text-white uppercase tracking-wider">Pages</h4>
+          <ul class="space-y-2 text-sm text-white">
+            <li><a href="index.html" class="hover:text-[#C8D62C] transition-colors">Home 1 (Classic)</a></li>
+            <li><a href="home-2.html" class="hover:text-[#C8D62C] transition-colors">Home 2 (E-Mobility)</a></li>
+            <li><a href="fleet.html" class="hover:text-[#C8D62C] transition-colors">Fleet Catalog</a></li>
+            <li><a href="tours.html" class="hover:text-[#C8D62C] transition-colors">Guided Tours</a></li>
+            <li><a href="locations.html" class="hover:text-[#C8D62C] transition-colors">Pickup Locations</a></li>
+            <li><a href="rules.html" class="hover:text-[#C8D62C] transition-colors font-bold text-[#C8D62C]">Rules &amp; Deposit</a></li>
+                       <li><a href="contact.html" class="hover:text-[#C8D62C] transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-2 space-y-3">
+          <h4 class="font-display font-bold text-sm text-white uppercase tracking-wider">Stations</h4>
+          <ul class="space-y-2 text-sm text-white">
+            <li><a href="locations.html" class="hover:text-[#C8D62C] transition-colors">Central Hub</a></li>
+            <li><a href="locations.html" class="hover:text-[#C8D62C] transition-colors">Old Town Plaza</a></li>
+            <li><a href="locations.html" class="hover:text-[#C8D62C] transition-colors">Marina Waterfront</a></li>
+            <li><a href="locations.html" class="hover:text-[#C8D62C] transition-colors">Battery Swaps</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-2 space-y-3">
+          <h4 class="font-display font-bold text-sm text-white uppercase tracking-wider">Fleet Lines</h4>
+          <ul class="space-y-2 text-sm text-white">
+            <li><a href="fleet.html" class="hover:text-[#C8D62C] transition-colors">City Classic</a></li>
+            <li><a href="fleet.html" class="hover:text-[#C8D62C] transition-colors">E-Commuter Pro</a></li>
+            <li><a href="fleet.html" class="hover:text-[#C8D62C] transition-colors">Duo Tandem</a></li>
+            <li><a href="fleet.html" class="hover:text-[#C8D62C] transition-colors">Family Cargo</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-2 space-y-3">
+          <div class="flex items-center gap-2">
+            
+            <h4 class="font-display font-bold text-sm text-white uppercase tracking-wider">Concierge</h4>
+          </div>
+          <div class="space-y-4 text-xs font-mono text-white">
+
+  <!-- Hotline -->
+  <div>
+    <span class="flex items-center gap-2 text-white font-bold">
+      <i class="fa-solid fa-phone text-[#C8D62C]"></i>
+      24/7 ROADSIDE HOTLINE
+    </span>
+
+    <a href="tel:+41442155000"
+       class="font-bold text-[#C8D62C] hover:underline block text-sm mt-1 pl-6">
+      +41 44 215 5000
+    </a>
+  </div>
+
+  <!-- Headquarters -->
+  <div>
+    <span class="flex items-center gap-2 text-white font-bold">
+      <i class="fa-solid fa-location-dot text-[#C8D62C]"></i>
+      HEADQUARTERS
+    </span>
+
+    <span class="text-white block mt-1 pl-6">
+      Bahnhofstrasse 42, 8001 City
+    </span>
+  </div>
+
+</div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white font-mono">
+        <div>&copy; 2026 VELO CITY Mobility AG. All rights reserved.</div>
+        <div class="flex items-center gap-4">
+          <a href="#" class="hover:text-white">Privacy</a>
+          <span>&bull;</span>
+          <a href="#" class="hover:text-white">Terms</a>
+          <span>&bull;</span>
+          <a href="#" class="hover:text-white">Status</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Main JavaScript Engine -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="h-full overflow-hidden scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Velo City — Rider Dashboard &amp; Telemetry Command Center</title>
+  <meta name="description" content="Manage your active bicycle rentals, monitor real-time e-bike battery range, execute 1-tap rental extensions, and track telemetry." />
+  
+  <!-- OpenGraph Meta -->
+  <meta property="og:title" content="Velo City — Rider Dashboard &amp; Telemetry" />
+  <meta property="og:description" content="Live telemetry, active rental timer, remote ABUS lock, and PDF receipts." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/images/dashboard-active-bike.jpg" />
+
+  <!-- Tailwind CSS CDN with configuration -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              50: '#F7F9F7',
+              100: '#E6EFE8',
+              200: '#C7DEC9',
+              300: '#9EBEA1',
+              400: '#5E8F63',
+              500: '#28552E',
+              600: '#173A20',
+              700: '#12301B',
+              800: '#0E2716',
+              900: '#0B2415',
+              950: '#06160D',
+            },
+            lime: {
+              300: '#E4EE60',
+              400: '#D7E53B',
+              500: '#C8D62C',
+              600: '#AAB81D',
+            },
+            yellow: {
+              400: '#FCE04D',
+              500: '#F4D21F',
+              600: '#D9B70F',
+            },
+            charcoal: {
+              400: '#8A968D',
+              500: '#5C6960',
+              600: '#3D4740',
+              700: '#262D28',
+              800: '#1C211E',
+              900: '#171A18',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            display: ['"Space Grotesk"', '"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body class="bg-[#F7F7F2] dark:bg-[#0B2415] text-[#171A18] dark:text-white selection:bg-[#C8D62C] selection:text-[#171A18] transition-colors duration-300 h-screen w-screen overflow-hidden flex flex-col font-sans">
+
+  <!-- ========================================================================= -->
+  <!-- GLOBAL PAGE LOADER                                                        -->
+  <!-- ========================================================================= -->
+  <div id="global-page-loader" role="status" aria-label="Loading Velo City Dashboard">
+    <div class="relative flex flex-col items-center gap-4">
+      <div class="loader-spinner-ring"></div>
+      <span class="font-display font-bold text-xs tracking-widest uppercase text-[#C8D62C] animate-pulse">VELO CITY &bull; DASHBOARD</span>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- FLOATING BACK TO TOP BUTTON                                               -->
+  <!-- ========================================================================= -->
+  <button type="button" id="back-to-top-btn" aria-label="Scroll back to top" title="Back to top">
+    <svg class="w-5 h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+
+  <!-- ========================================================================= -->
+  <!-- 1. FULL-WIDTH DASHBOARD HEADER                                            -->
+  <!-- ========================================================================= -->
+  <header class="fixed top-0 inset-x-0 z-40 h-16 sm:h-[68px] bg-white/95 dark:bg-[#173A20]/95 backdrop-blur-md border-b border-[#D9DDD8] dark:border-white/10 px-4 sm:px-6 lg:px-8 flex items-center justify-between shadow-sm transition-colors duration-300">
+    
+    <!-- Left: Brand Logo -->
+    <div class="flex items-center gap-3">
+      <a href="index.html" class="flex items-center gap-2.5 group focus:outline-none" aria-label="Velo City Home">
+        <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#173A20] dark:bg-[#C8D62C] text-[#C8D62C] dark:text-[#171A18] flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform duration-200">
+          <svg class="w-4 h-4 sm:w-5 sm:h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="5.5" cy="17.5" r="3.5"/>
+            <circle cx="18.5" cy="17.5" r="3.5"/>
+            <path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 11.5L9 6H4m11 11.5L12 9l3-3h3"/>
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display font-extrabold text-sm sm:text-base tracking-tight uppercase text-[#171A18] dark:text-white leading-none">VELO CITY</span>
+          <span class="text-[9px] font-mono tracking-widest text-[#28552E] dark:text-[#C8D62C] uppercase font-semibold mt-0.5">DASHBOARD</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Right Header Controls: Theme -> RTL -> User Profile Dropdown -> Mobile Menu Button on RIGHT -->
+    <div class="flex items-center gap-2 sm:gap-2.5">
+      
+      <!-- Theme Toggle -->
+      <button type="button" class="theme-toggle-btn p-1.5 sm:p-2 rounded-xl border border-[#D9DDD8] dark:border-white/20 hover:bg-[#F7F7F2] dark:hover:bg-[#0B2415] text-[#171A18] dark:text-white transition-colors" title="Toggle Dark/Light Mode" aria-label="Toggle theme">
+        <svg class="theme-icon-sun hidden w-4 h-4 text-amber-400 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="theme-icon-moon w-4 h-4 text-[#171A18] dark:text-white stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 0 1 1-9-9Z"/></svg>
+      </button>
+
+      <!-- Direction Toggle -->
+      <button type="button" class="dir-toggle-btn inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-mono font-semibold rounded-xl border border-[#D9DDD8] dark:border-white/20 hover:bg-[#F7F7F2] dark:hover:bg-[#0B2415] text-[#171A18] dark:text-white transition-colors" title="Toggle Layout Direction (LTR/RTL)">
+        <span class="dir-toggle-label">RTL</span>
+      </button>
+
+      <!-- User Profile Header Dropdown Menu -->
+      <div class="relative">
+        <button type="button" id="dash-header-profile-btn" class="flex items-center gap-2 p-1.5 sm:px-2.5 sm:py-1.5 rounded-xl border border-[#D9DDD8] dark:border-white/20 hover:bg-[#F7F7F2] dark:hover:bg-[#0B2415] text-[#171A18] dark:text-white transition-colors focus:outline-none" aria-expanded="false" aria-haspopup="true" aria-label="Open User Profile Menu">
+          <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-[#C8D62C] text-[#171A18] flex items-center justify-center font-display font-extrabold text-[11px] shrink-0 shadow-sm">
+            AM
+          </div>
+          <span class="hidden md:inline text-xs font-mono font-bold text-[#171A18] dark:text-white">Alexandre</span>
+          <svg class="w-3.5 h-3.5 stroke-current text-[#171A18] dark:text-white hidden sm:block transition-transform duration-200" id="dash-profile-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+
+        <!-- Dropdown Menu Box -->
+        <div id="dash-header-profile-dropdown" class="absolute right-0 top-full mt-2 w-56 bg-white dark:bg-[#173A20] border border-[#D9DDD8] dark:border-white/10 rounded-2xl shadow-xl p-1.5 z-50 transition-all duration-200 ease-out origin-top-right transform opacity-0 scale-95 pointer-events-none" role="menu" aria-label="User Account Menu">
+          
+          <!-- User info header inside dropdown -->
+          <div class="px-3 py-2 border-b border-[#D9DDD8] dark:border-white/10">
+            <span class="font-display font-bold text-xs text-[#171A18] dark:text-white block">Alexandre Meyer</span>
+            <span class="text-[10px] font-mono text-[#171A18] dark:text-white block truncate">alex.rider@velocity.ch</span>
+          </div>
+
+          <div class="py-1 space-y-0.5 text-xs font-mono">
+            <!-- 1. My Profile -->
+            <button type="button" data-tab="profile" class="dash-sidebar-btn w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/10 font-semibold transition-colors text-left" role="menuitem">
+              <svg class="w-4 h-4 shrink-0 stroke-current text-[#171A18] dark:text-white" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <span>My Profile</span>
+            </button>
+
+            <!-- 2. Settings -->
+            <button type="button" data-tab="settings" class="dash-sidebar-btn w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/10 font-semibold transition-colors text-left" role="menuitem">
+              <svg class="w-4 h-4 shrink-0 stroke-current text-[#171A18] dark:text-white" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              <span>Settings</span>
+            </button>
+          </div>
+
+          <!-- Divider -->
+          <div class="border-t border-[#D9DDD8] dark:border-white/10 pt-1">
+            <!-- 3. Logout Action -->
+            <button type="button" data-tab="logout" class="dash-sidebar-btn w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/30 font-bold transition-colors text-left" role="menuitem">
+              <svg class="w-4 h-4 shrink-0 stroke-current text-rose-600" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+              <span>Logout</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Mobile Menu Button on the RIGHT Side (Always Visible on Mobile/Tablet) -->
+      <button type="button" id="dash-sidebar-open-btn" class="lg:hidden inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#C8D62C] hover:bg-[#F4D21F] text-[#171A18] text-xs font-mono font-bold shadow-sm transition-colors focus:outline-none" aria-label="Open Dashboard Sidebar Drawer">
+        <svg class="w-4 h-4 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <span>MENU</span>
+      </button>
+
+    </div>
+  </header>
+
+
+  <!-- ========================================================================= -->
+  <!-- MOBILE SIDEBAR BACKDROP (z-40 Overlay Behind Drawer)                      -->
+  <!-- ========================================================================= -->
+  <div id="dash-sidebar-backdrop" class="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden"></div>
+
+
+  <!-- ========================================================================= -->
+  <!-- 2. COMPACT 230PX FIXED SIDEBAR (Mobile 280px / 80-85vw Slide from Right)  -->
+  <!-- ========================================================================= -->
+  <aside id="dash-sidebar" class="fixed top-0 right-0 bottom-0 z-50 w-[280px] max-w-[85vw] h-screen bg-white dark:bg-[#173A20] border-l border-[#D9DDD8] dark:border-white/10 text-[#171A18] dark:text-white p-3.5 sm:p-4 flex flex-col justify-between translate-x-full lg:translate-x-0 lg:start-0 lg:right-auto lg:top-[68px] lg:w-[230px] lg:h-[calc(100vh-68px)] lg:border-l-0 lg:border-r transition-transform duration-300 ease-in-out shadow-2xl lg:shadow-none overflow-hidden select-none shrink-0" aria-label="Dashboard Sidebar Navigation">
+    
+    <div class="space-y-3.5">
+      
+      <!-- Mobile Sidebar Header with Close Button -->
+      <div class="flex items-center justify-between pb-2.5 border-b border-[#D9DDD8] dark:border-white/10 lg:hidden">
+        <div class="flex items-center gap-2">
+          <div class="w-6 h-6 rounded-lg bg-[#C8D62C] text-[#171A18] flex items-center justify-center font-extrabold text-xs">AM</div>
+          <span class="font-display font-extrabold text-xs uppercase tracking-tight text-[#171A18] dark:text-white">Rider Portal</span>
+        </div>
+        <button type="button" id="dash-sidebar-close-btn" class="p-1.5 rounded-lg border border-slate-200 dark:border-white/10 text-[#171A18] dark:text-white hover:bg-slate-100 dark:hover:bg-white/10" aria-label="Close Sidebar">
+          <svg class="w-4 h-4 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <!-- Compact User Profile Box -->
+      <div class="p-2.5 rounded-xl bg-[#F7F7F2] dark:bg-white/5 border border-[#D9DDD8] dark:border-white/10 flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-lg bg-[#C8D62C] text-[#171A18] flex items-center justify-center font-display font-extrabold text-xs shrink-0 shadow-sm">
+          AM
+        </div>
+        <div class="truncate min-w-0">
+          <span class="text-[8.5px] font-mono uppercase tracking-wider text-[#171A18] dark:text-white block font-bold">WELCOME BACK,</span>
+          <span class="font-display font-bold text-xs text-[#171A18] dark:text-white truncate block">Alexandre Meyer</span>
+        </div>
+      </div>
+
+      <!-- Compact Sidebar Navigation Menu (Zero Text Wrapping) -->
+      <nav class="space-y-1 text-[11.5px] font-mono" aria-label="Dashboard Tabs">
+        
+        <!-- 1. Dashboard Overview -->
+        <button type="button" data-tab="overview" class="dash-sidebar-btn active w-full flex items-center gap-2.5 px-3 py-2 rounded-xl font-bold bg-[#C8D62C] text-[#171A18] transition-colors shadow-sm text-left truncate">
+          <svg class="w-4 h-4 shrink-0 stroke-current text-[#171A18]" viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span class="truncate">Dashboard</span>
+        </button>
+
+        <!-- 2. Active Rental -->
+        <button type="button" data-tab="rentals" class="dash-sidebar-btn w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5 font-semibold transition-colors text-left truncate">
+          <svg class="w-4 h-4 shrink-0 stroke-current text-[#171A18] dark:text-white" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 11.5L9 6H4m11 11.5L12 9l3-3h3"/></svg>
+          <span class="truncate">Active Rental</span>
+        </button>
+
+        <!-- 3. Passes & Deposit -->
+        <button type="button" data-tab="passes" class="dash-sidebar-btn w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5 font-semibold transition-colors text-left truncate">
+          <svg class="w-4 h-4 shrink-0 stroke-current text-[#171A18] dark:text-white" viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          <span class="truncate">Passes &amp; Deposit</span>
+        </button>
+
+        <!-- 4. Billing & Receipts -->
+        <button type="button" data-tab="invoices" class="dash-sidebar-btn w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5 font-semibold transition-colors text-left truncate">
+          <svg class="w-4 h-4 shrink-0 stroke-current text-[#171A18] dark:text-white" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <span class="truncate">Invoices &amp; Ledger</span>
+        </button>
+
+        <!-- 5. Profile & NFC -->
+        <button type="button" data-tab="profile" class="dash-sidebar-btn w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5 font-semibold transition-colors text-left truncate">
+          <svg class="w-4 h-4 shrink-0 stroke-current text-[#171A18] dark:text-white" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span class="truncate">Profile &amp; NFC</span>
+        </button>
+
+        <!-- 6. Vehicle Fleet Hub -->
+        <button type="button" data-tab="fleet" class="dash-sidebar-btn w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5 font-semibold transition-colors text-left truncate">
+          <svg class="w-4 h-4 shrink-0 stroke-current text-[#171A18] dark:text-white" viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <span class="truncate">Vehicle Fleet</span>
+        </button>
+
+        <!-- 7. Deposit & Shield -->
+        <button type="button" data-tab="protection" class="dash-sidebar-btn w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5 font-semibold transition-colors text-left truncate">
+          <svg class="w-4 h-4 shrink-0 stroke-current text-[#171A18] dark:text-white" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span class="truncate">Deposit &amp; Shield</span>
+        </button>
+
+        <!-- 8. GPS Live Tracking -->
+        <button type="button" data-tab="tracking" class="dash-sidebar-btn w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5 font-semibold transition-colors text-left truncate">
+          <svg class="w-4 h-4 shrink-0 stroke-current text-[#171A18] dark:text-white" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span class="truncate">GPS Tracking</span>
+        </button>
+
+        <!-- 9. Roadside Support -->
+        <button type="button" data-tab="support" class="dash-sidebar-btn w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5 font-semibold transition-colors text-left truncate">
+          <svg class="w-4 h-4 shrink-0 stroke-current text-[#171A18] dark:text-white" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span class="truncate">Support Desk</span>
+        </button>
+
+        <!-- 10. Settings -->
+        <button type="button" data-tab="settings" class="dash-sidebar-btn w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5 font-semibold transition-colors text-left truncate">
+          <svg class="w-4 h-4 shrink-0 stroke-current text-[#171A18] dark:text-white" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          <span class="truncate">Settings</span>
+        </button>
+
+        <!-- 11. Logout Button -->
+        <button type="button" data-tab="logout" class="dash-sidebar-btn w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/30 font-bold transition-colors text-left pt-1.5 truncate">
+          <svg class="w-4 h-4 shrink-0 stroke-current text-rose-600" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          <span class="truncate">Logout</span>
+        </button>
+
+      </nav>
+
+    </div>
+
+    <!-- Hotline Footnote in Sidebar -->
+    <div class="mt-3 pt-2.5 border-t border-[#D9DDD8] dark:border-white/10 text-[9.5px] font-mono text-[#171A18] dark:text-white">
+      <span class="block uppercase tracking-wider font-bold text-[#171A18] dark:text-white">CONCIERGE</span>
+      <a href="tel:+41442155000" class="text-[#28552E] dark:text-[#C8D62C] hover:underline font-bold">+41 44 215 5000</a>
+    </div>
+
+  </aside>
+
+
+  <!-- ========================================================================= -->
+  <!-- 3. SCROLLABLE DASHBOARD CONTENT AREA (Auto-Expanded Offset 230px)         -->
+  <!-- ========================================================================= -->
+  <div id="dash-main-scroll-container" class="flex-1 lg:ms-[230px] pt-16 sm:pt-[68px] h-screen overflow-y-auto overflow-x-hidden flex flex-col min-w-0 bg-[#F7F7F2] dark:bg-[#0B2415] transition-colors duration-300">
+
+    <main id="main-content" class="flex-1 p-4 sm:p-6 lg:p-7 space-y-6 max-w-7xl w-full mx-auto pb-16">
+
+      <!-- ===================================================================== -->
+      <!-- TAB PANEL 1: DASHBOARD OVERVIEW & ACTIVE TELEMETRY                    -->
+      <!-- ===================================================================== -->
+      <div id="dash-panel-overview" class="dash-content-panel space-y-6">
+        
+        <!-- Welcome Card Banner -->
+        <section class="p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#173A20] border border-[#D9DDD8] dark:border-white/10 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-colors">
+          <div class="flex items-center gap-3.5">
+            <div class="w-12 h-12 rounded-2xl bg-[#173A20]/10 dark:bg-[#C8D62C]/20 text-[#28552E] dark:text-[#C8D62C] flex items-center justify-center font-display font-extrabold text-base shadow-sm shrink-0">
+              AM
+            </div>
+            <div>
+              <span class="text-[10px] font-mono uppercase tracking-widest text-[#171A18] dark:text-white font-bold block">WELCOME BACK,</span>
+              <h1 class="font-display font-extrabold text-2xl text-[#171A18] dark:text-white tracking-tight">Alexandre Meyer</h1>
+            </div>
+          </div>
+
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#173A20]/10 dark:bg-[#C8D62C]/10 border border-[#28552E]/30 dark:border-[#C8D62C]/30 text-xs font-mono text-[#28552E] dark:text-[#C8D62C] font-semibold self-start sm:self-auto">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Active Rental: E-Commuter Pro #EB-402</span>
+          </div>
+        </section>
+
+        <!-- Live Status Tracker Hero Card -->
+        <section class="p-6 sm:p-7 rounded-2xl bg-[#173A20] dark:bg-[#0B2415] text-white shadow-md flex flex-col md:flex-row md:items-center justify-between gap-5 relative overflow-hidden border border-[#28552E]/40">
+          <div class="space-y-1.5 z-10">
+            <span class="text-[10px] font-mono tracking-widest uppercase text-[#C8D62C] font-bold block">
+              LIVE STATUS TRACKER
+            </span>
+            <h2 class="font-display font-extrabold text-xl sm:text-2xl text-white tracking-tight">
+              Order #EB-402 is Out for Active Ride
+            </h2>
+            <p class="text-xs font-mono text-white">
+              Corridor: <span class="text-white font-semibold">Waterfront Promenade (Pier 3)</span> &bull; 78% Battery (62 km Range)
+            </p>
+          </div>
+
+          <div class="flex items-center gap-3 z-10 shrink-0">
+            <button type="button" id="dash-track-btn" onclick="alert('GPS Telemetry: Bicycle located at Pier 3 docking boundary. Satellite fix locked.')" class="btn-primary px-5 py-2.5 rounded-xl text-xs font-mono font-bold shadow-md transition-colors">
+              Track Live GPS
+            </button>
+          </div>
+
+          <!-- Ambient Glow -->
+          <div class="absolute right-0 top-0 w-72 h-full bg-[#C8D62C]/10 blur-2xl pointer-events-none"></div>
+        </section>
+
+        <!-- 4 Metric Stats Cards Grid -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-5">
+          <div class="p-5 rounded-2xl bg-white dark:bg-[#173A20] border border-[#D9DDD8] dark:border-white/10 shadow-sm space-y-3">
+            <div class="w-8 h-8 rounded-lg bg-[#F7F7F2] dark:bg-[#0B2415] flex items-center justify-center text-[#28552E] dark:text-[#C8D62C]">
+              <svg class="w-4 h-4 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <div>
+              <div class="font-display font-extrabold text-2xl text-[#171A18] dark:text-white">Active</div>
+              <span class="text-xs font-mono text-[#171A18] dark:text-white font-bold">Active Rental</span>
+            </div>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white dark:bg-[#173A20] border border-[#D9DDD8] dark:border-white/10 shadow-sm space-y-3">
+            <div class="w-8 h-8 rounded-lg bg-[#F7F7F2] dark:bg-[#0B2415] flex items-center justify-center text-emerald-500">
+              <svg class="w-4 h-4 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="font-display font-extrabold text-2xl text-emerald-600 dark:text-emerald-400">In Progress</div>
+              <span class="text-xs font-mono text-[#171A18] dark:text-white font-bold">Ride In Progress (1h 42m)</span>
+            </div>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white dark:bg-[#173A20] border border-[#D9DDD8] dark:border-white/10 shadow-sm space-y-3">
+            <div class="w-8 h-8 rounded-lg bg-[#F7F7F2] dark:bg-[#0B2415] flex items-center justify-center text-[#28552E] dark:text-[#C8D62C]">
+              <svg class="w-4 h-4 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 11.5L9 6H4m11 11.5L12 9l3-3h3"/></svg>
+            </div>
+            <div>
+              <div class="font-display font-extrabold text-2xl text-[#171A18] dark:text-white">142.8 km</div>
+              <span class="text-xs font-mono text-[#171A18] dark:text-white font-bold">Total Distance Cycled</span>
+            </div>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white dark:bg-[#173A20] border border-[#D9DDD8] dark:border-white/10 shadow-sm space-y-3">
+            <div class="w-8 h-8 rounded-lg bg-[#F7F7F2] dark:bg-[#0B2415] flex items-center justify-center text-[#28552E] dark:text-[#C8D62C]">
+              <svg class="w-4 h-4 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            </div>
+            <div>
+              <div class="font-display font-extrabold text-2xl text-[#171A18] dark:text-white">$0.00</div>
+              <span class="text-xs font-mono text-[#171A18] dark:text-white font-bold">Security Deposit (No Hold)</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Two-Column Lower Deck -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <div class="lg:col-span-8 p-6 sm:p-7 rounded-2xl bg-white dark:bg-[#173A20] border border-[#D9DDD8] dark:border-white/10 shadow-sm space-y-5">
+            <div class="flex items-center justify-between">
+              <h3 class="font-display font-bold text-lg text-[#171A18] dark:text-white">Vehicle Spotlight</h3>
+              <button type="button" onclick="document.querySelector('.dash-sidebar-btn[data-tab=\'rentals\']').click()" class="text-xs font-mono font-semibold text-[#28552E] dark:text-[#C8D62C] hover:underline">Manage Rentals &rarr;</button>
+            </div>
+
+            <div class="p-5 rounded-xl bg-[#F7F7F2] dark:bg-[#0B2415] border border-[#D9DDD8] dark:border-white/10 space-y-4">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div>
+                  <h4 class="font-display font-extrabold text-xl text-[#171A18] dark:text-white">Velo E-Commuter Pro 85Nm</h4>
+                  <p class="text-xs font-mono text-[#171A18] dark:text-white mt-0.5">
+                    Vehicle ID: <strong class="text-[#171A18] dark:text-white">#EB-402</strong> &bull; Unlocked at Central Hub (Bay 14)
+                  </p>
+                </div>
+                <div class="text-right">
+                  <span class="text-[10px] font-mono text-[#171A18] dark:text-white block uppercase font-bold">ELAPSED TIME</span>
+                  <span class="font-mono font-extrabold text-sm text-[#28552E] dark:text-[#C8D62C]">01h 42m 15s</span>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-2 text-[11px] font-mono">
+                <span class="px-2.5 py-1 rounded-md bg-white dark:bg-[#173A20] border border-[#D9DDD8] dark:border-white/10 text-[#171A18] dark:text-white font-semibold">
+                  Bosch CX 85Nm
+                </span>
+                <span class="px-2.5 py-1 rounded-md bg-white dark:bg-[#173A20] border border-[#D9DDD8] dark:border-white/10 text-[#171A18] dark:text-white font-semibold">
+                  625Wh Battery (78%)
+                </span>
+                <span class="px-2.5 py-1 rounded-md bg-white dark:bg-[#173A20] border border-[#D9DDD8] dark:border-white/10 text-[#171A18] dark:text-white font-semibold">
+                  $0 Deductible Shield
+                </span>
+                <span class="px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-bold border border-emerald-500/20">
+                  ABUS GPS Linked
+                </span>
+              </div>
+
+              <div class="pt-3 border-t border-[#D9DDD8] dark:border-white/10 flex flex-wrap items-center gap-2.5">
+                <button type="button" id="dash-extend-rental-btn" class="btn-primary px-4 py-2 rounded-xl text-xs font-bold shadow-sm">
+                  + Extend (+1h &bull; $4)
+                </button>
+                <button type="button" id="dash-pause-lock-btn" class="px-4 py-2 rounded-xl border border-[#D9DDD8] dark:border-white/20 text-xs font-mono font-bold hover:bg-white dark:hover:bg-white/10 text-[#171A18] dark:text-white transition-colors">
+                  Pause ABUS Lock
+                </button>
+                <button type="button" id="dash-return-dock-btn" class="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-mono font-bold transition-colors ml-auto">
+                  End Ride &amp; Return
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-4 p-6 sm:p-7 rounded-2xl bg-white dark:bg-[#173A20] border border-[#D9DDD8] dark:border-white/10 shadow-sm space-y-5 flex flex-col justify-between">
+            <div class="space-y-4">
+              <h3 class="font-display font-bold text-lg text-[#171A18] dark:text-white">Payment Details</h3>
+              <div class="p-4 rounded-xl bg-[#F7F7F2] dark:bg-[#0B2415] border border-[#D9DDD8] dark:border-white/10 space-y-2">
+                <div class="flex items-center justify-between text-xs font-mono">
+                  <span class="font-bold text-[#171A18] dark:text-white">Primary Visa / MC</span>
+                  <span class="font-bold text-[#28552E] dark:text-[#C8D62C]">&bull;&bull;&bull;&bull; 4920</span>
+                </div>
+                <p class="text-[11px] text-[#171A18] dark:text-white font-sans leading-relaxed">
+                  Billing coordinated automatically with zero-deposit ride plan.
+                </p>
+              </div>
+            </div>
+            <button type="button" onclick="document.querySelector('.dash-sidebar-btn[data-tab=\'protection\']').click()" class="w-full py-2.5 rounded-xl bg-[#F7F7F2] dark:bg-white/10 hover:bg-[#C8D62C]/20 text-[#171A18] dark:text-white text-xs font-mono font-bold transition-colors text-center border border-[#D9DDD8] dark:border-white/10">
+              Modify Billing Card
+            </button>
+          </div>
+        </section>
+
+      </div>
+
+
+      <!-- ===================================================================== -->
+      <!-- TAB PANEL 2: MY TRIPS & ACTIVE RENTALS                                -->
+      <!-- ===================================================================== -->
+      <div id="dash-panel-rentals" class="dash-content-panel space-y-6 hidden">
+        <section class="p-6 sm:p-8 bg-white dark:bg-[#173A20] border border-[#D9DDD8] dark:border-white/10 rounded-2xl shadow-sm space-y-6">
+          <div class="flex items-center justify-between border-b border-[#D9DDD8] dark:border-white/10 pb-4">
+            <div>
+              <h2 class="font-display font-extrabold text-2xl text-[#171A18] dark:text-white">My Trips &amp; Active Rentals</h2>
+              <p class="text-xs font-mono text-[#171A18] dark:text-white mt-1">Live ride telemetry and downloadable digital trip receipts.</p>
+            </div>
+            <button type="button" id="dash-return-dock-btn-2" onclick="document.getElementById('dash-return-dock-btn').click()" class="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-mono font-bold transition-colors">
+              End Active Ride
+            </button>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs font-mono">
+              <thead>
+                <tr class="border-b border-[#D9DDD8] dark:border-white/10 text-[#171A18] dark:text-white uppercase text-[10px] font-bold">
+                  <th class="py-3 px-2">Date &amp; Model</th>
+                  <th class="py-3 px-2">Corridor / Route</th>
+                  <th class="py-3 px-2">Duration</th>
+                  <th class="py-3 px-2">Distance</th>
+                  <th class="py-3 px-2">Amount</th>
+                  <th class="py-3 px-2 text-right">Receipt</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-[#D9DDD8] dark:divide-white/5">
+                <tr class="bg-[#173A20]/10 dark:bg-[#C8D62C]/10">
+                  <td class="py-4 px-2">
+                    <span class="inline-flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-bold text-[11px]">
+                      <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> IN PROGRESS
+                    </span>
+                    <strong class="text-[#171A18] dark:text-white block mt-0.5">Velo E-Commuter Pro 85Nm (#EB-402)</strong>
+                  </td>
+                  <td class="py-4 px-2 text-[#171A18] dark:text-white">Central Hub &rarr; Waterfront Pier 3</td>
+                  <td class="py-4 px-2 font-bold text-[#28552E] dark:text-[#C8D62C]">1h 42m</td>
+                  <td class="py-4 px-2 text-[#171A18] dark:text-white">14.6 km</td>
+                  <td class="py-4 px-2 font-bold text-[#171A18] dark:text-white">$4.00</td>
+                  <td class="py-4 px-2 text-right">
+                    <span class="text-[10px] text-[#171A18] dark:text-white font-mono font-bold">Live</span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="py-4 px-2">
+                    <strong class="text-[#171A18] dark:text-white block">Velo City Cruiser Classic</strong>
+                    <span class="text-[#171A18] dark:text-white text-[10px]">28 Aug 2026 &bull; #CC-108</span>
+                  </td>
+                  <td class="py-4 px-2 text-[#171A18] dark:text-white">Central Station &rarr; Old Town Plaza</td>
+                  <td class="py-4 px-2 text-[#171A18] dark:text-white">1h 15m</td>
+                  <td class="py-4 px-2 text-[#171A18] dark:text-white">8.4 km</td>
+                  <td class="py-4 px-2 font-bold text-[#28552E] dark:text-[#C8D62C]">$18.00</td>
+                  <td class="py-4 px-2 text-right">
+                    <button type="button" onclick="alert('Downloading VAT Invoice Receipt #VELO-INV-8912 (PDF)...')" class="px-3 py-1.5 rounded-lg border border-[#D9DDD8] dark:border-white/10 hover:bg-[#C8D62C]/20 text-[#28552E] dark:text-[#C8D62C] font-bold">
+                      PDF &darr;
+                    </button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="py-4 px-2">
+                    <strong class="text-[#171A18] dark:text-white block">Velo Duo Tandem Grand</strong>
+                    <span class="text-[#171A18] dark:text-white text-[10px]">22 Aug 2026 &bull; #TD-204</span>
+                  </td>
+                  <td class="py-4 px-2 text-[#171A18] dark:text-white">Old Town Plaza &rarr; Waterfront Marina</td>
+                  <td class="py-4 px-2 text-[#171A18] dark:text-white">2h 30m</td>
+                  <td class="py-4 px-2 text-[#171A18] dark:text-white">16.2 km</td>
+                  <td class="py-4 px-2 font-bold text-[#28552E] dark:text-[#C8D62C]">$28.00</td>
+                  <td class="py-4 px-2 text-right">
+                    <button type="button" onclick="alert('Downloading VAT Invoice Receipt #VELO-INV-8401 (PDF)...')" class="px-3 py-1.5 rounded-lg border border-[#D9DDD8] dark:border-white/10 hover:bg-[#C8D62C]/20 text-[#28552E] dark:text-[#C8D62C] font-bold">
+                      PDF &darr;
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+
+
+      <!-- ===================================================================== -->
+      <!-- TAB PANEL 3: RIDER PROFILE                                            -->
+      <!-- ===================================================================== -->
+      <div id="dash-panel-profile" class="dash-content-panel space-y-6 hidden">
+        <section class="p-6 sm:p-8 bg-white dark:bg-[#173A20] border border-[#D9DDD8] dark:border-white/10 rounded-2xl shadow-sm space-y-6">
+          <div class="flex items-center justify-between border-b border-[#D9DDD8] dark:border-white/10 pb-4">
+            <div>
+              <h2 class="font-display font-extrabold text-2xl text-[#171A18] dark:text-white">Rider Profile &amp; Preferences</h2>
+              <p class="text-xs font-mono text-[#171A18] dark:text-white mt-1">Manage personal credentials, contactless SwissPass keys, and auto-fit presets.</p>
+            </div>
+            <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-mono text-xs font-bold border border-emerald-500/30">
+              &check; Verified Rider
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs font-mono">
+            <div class="p-5 rounded-xl bg-[#F7F7F2] dark:bg-[#0B2415] space-y-2">
+              <span class="text-[#171A18] dark:text-white uppercase text-[10px] block font-bold">FULL LEGAL NAME</span>
+              <strong class="font-display font-bold text-base text-[#171A18] dark:text-white block">Alexandre Meyer</strong>
+              <span class="text-[#171A18] dark:text-white text-[11px]">Primary Email: alex.rider@velocity.ch</span>
+            </div>
+
+            <div class="p-5 rounded-xl bg-[#F7F7F2] dark:bg-[#0B2415] space-y-2">
+              <span class="text-[#171A18] dark:text-white uppercase text-[10px] block font-bold">SWISSPASS / NFC TRANSIT KEY</span>
+              <div class="flex items-center justify-between">
+                <strong class="font-bold text-[#171A18] dark:text-white text-sm">CH-NFC-9842-01</strong>
+                <span class="text-emerald-500 font-bold">&check; Linked &amp; Active</span>
+              </div>
+              <p class="text-[10px] text-[#171A18] dark:text-white">Tap your SwissPass card on any dock terminal to unlock in 1 second.</p>
+            </div>
+
+            <div class="p-5 rounded-xl bg-[#F7F7F2] dark:bg-[#0B2415] space-y-2">
+              <span class="text-[#171A18] dark:text-white uppercase text-[10px] block font-bold">PREFERRED SADDLE FIT</span>
+              <div class="flex items-center justify-between">
+                <strong class="font-bold text-[#171A18] dark:text-white">Height: 178 cm &bull; Size M Frame</strong>
+                <span class="text-[#28552E] dark:text-[#C8D62C] font-bold">Auto-Fit Calibrated</span>
+              </div>
+              <p class="text-[10px] text-[#171A18] dark:text-white">Station docks pre-set electronic seat posts based on your height profile.</p>
+            </div>
+
+            <div class="p-5 rounded-xl bg-[#F7F7F2] dark:bg-[#0B2415] space-y-2">
+              <span class="text-[#171A18] dark:text-white uppercase text-[10px] block font-bold">EMERGENCY CONTACT</span>
+              <div class="flex items-center justify-between">
+                <strong class="font-bold text-[#171A18] dark:text-white">Clara Meyer (+41 79 402 1188)</strong>
+                <span class="text-emerald-500 font-bold">&check; Verified</span>
+              </div>
+              <p class="text-[10px] text-[#171A18] dark:text-white">Automated SMS dispatch notification in case of crash sensor trigger.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+
+      <!-- ===================================================================== -->
+      <!-- TAB PANEL 4: VEHICLE FLEET HUB                                        -->
+      <!-- ===================================================================== -->
+      <div id="dash-panel-fleet" class="dash-content-panel space-y-6 hidden">
+        <section class="p-6 sm:p-8 bg-white dark:bg-[#173A20] border border-[#D9DDD8] dark:border-white/10 rounded-2xl shadow-sm space-y-6">
+          <div class="flex items-center justify-between border-b border-[#D9DDD8] dark:border-white/10 pb-4">
+            <div>
+              <h2 class="font-display font-extrabold text-2xl text-[#171A18] dark:text-white">Vehicle Fleet Hub</h2>
+              <p class="text-xs font-mono text-[#171A18] dark:text-white mt-1">Real-time dock availability and instant reservation across connected stations.</p>
+            </div>
+            <a href="fleet.html" class="btn-secondary px-4 py-2 rounded-xl text-xs font-bold">
+              Full Catalog
+            </a>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div class="p-5 rounded-2xl bg-[#F7F7F2] dark:bg-[#0B2415] border border-[#D9DDD8] dark:border-white/10 space-y-3">
+              <div class="flex items-center justify-between">
+                <h4 class="font-display font-bold text-lg text-[#171A18] dark:text-white">Velo City Cruiser Classic</h4>
+                <span class="text-xs font-mono font-bold text-[#28552E] dark:text-[#C8D62C]">$6 / hr</span>
+              </div>
+              <p class="text-xs text-[#171A18] dark:text-white">Shimano 7-Speed &bull; Integrated Front Basket &bull; Available at Central Station</p>
+              <button type="button" onclick="alert('Bicycle #CC-109 reserved at Central Hub Bay 04. Valid for 15 minutes.')" class="btn-primary w-full py-2.5 rounded-xl text-xs font-bold shadow-sm">
+                Reserve Instantly (Bay 04)
+              </button>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-[#F7F7F2] dark:bg-[#0B2415] border border-[#D9DDD8] dark:border-white/10 space-y-3">
+              <div class="flex items-center justify-between">
+                <h4 class="font-display font-bold text-lg text-[#171A18] dark:text-white">Velo E-Commuter Pro 85Nm</h4>
+                <span class="text-xs font-mono font-bold text-[#28552E] dark:text-[#C8D62C]">$12 / hr</span>
+              </div>
+              <p class="text-xs text-[#171A18] dark:text-white">Bosch CX Performance &bull; 625Wh Battery &bull; Available at Central Station</p>
+              <button type="button" onclick="alert('E-Bike #EB-408 reserved at Central Hub Bay 11. Valid for 15 minutes.')" class="btn-primary w-full py-2.5 rounded-xl text-xs font-bold shadow-sm">
+                Reserve Instantly (Bay 11)
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+
+      <!-- ===================================================================== -->
+      <!-- TAB PANEL 5: DEPOSIT & PROTECTION                                     -->
+      <!-- ===================================================================== -->
+      <div id="dash-panel-protection" class="dash-content-panel space-y-6 hidden">
+        <section class="p-6 sm:p-8 bg-white dark:bg-[#173A20] border border-[#D9DDD8] dark:border-white/10 rounded-2xl shadow-sm space-y-6">
+          <div class="flex items-center justify-between border-b border-[#D9DDD8] dark:border-white/10 pb-4">
+            <div>
+              <h2 class="font-display font-extrabold text-2xl text-[#171A18] dark:text-white">Deposit Status &amp; Protection Shield</h2>
+              <p class="text-xs font-mono text-[#171A18] dark:text-white mt-1">Zero-deposit waiver, accidental damage waivers, and theft coverage terms.</p>
+            </div>
+            <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-mono text-xs font-bold border border-emerald-500/30">
+              Active Shield ($0 Hold)
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs font-mono">
+            <div class="p-5 rounded-xl bg-[#173A20]/10 dark:bg-[#C8D62C]/10 border border-[#28552E]/40 space-y-3">
+              <span class="text-[#171A18] dark:text-white block uppercase text-[10px] font-bold">SECURITY DEPOSIT GUARANTEE</span>
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-xl text-[#28552E] dark:text-[#C8D62C]">$0.00 ZERO-HOLD</span>
+                <span class="text-emerald-500 font-bold">&check; Verified</span>
+              </div>
+              <p class="text-[11px] text-[#171A18] dark:text-white">Your SwissPass identity verification completely waives card holds.</p>
+            </div>
+
+            <div class="p-5 rounded-xl bg-[#F7F7F2] dark:bg-[#0B2415] border border-[#D9DDD8] dark:border-white/10 space-y-3">
+              <span class="text-[#171A18] dark:text-white block uppercase text-[10px] font-bold">DAMAGE DEDUCTIBLE</span>
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-xl text-[#171A18] dark:text-white">$0 DEDUCTIBLE</span>
+                <span class="text-[#28552E] dark:text-[#C8D62C] font-bold">Complete Cover</span>
+              </div>
+              <p class="text-[11px] text-[#171A18] dark:text-white">Punctures, chain slips, and rim bends are repaired free of charge.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+
+      <!-- ===================================================================== -->
+      <!-- TAB PANEL 6: GPS LIVE TRACKING                                        -->
+      <!-- ===================================================================== -->
+      <div id="dash-panel-tracking" class="dash-content-panel space-y-6 hidden">
+        <section class="p-6 sm:p-8 bg-white dark:bg-[#173A20] border border-[#D9DDD8] dark:border-white/10 rounded-2xl shadow-sm space-y-6">
+          <div class="flex items-center justify-between border-b border-[#D9DDD8] dark:border-white/10 pb-4">
+            <div>
+              <h2 class="font-display font-extrabold text-2xl text-[#171A18] dark:text-white">GPS Live Tracking Radar</h2>
+              <p class="text-xs font-mono text-[#171A18] dark:text-white mt-1">Satellite corridor telemetry, elevation profile, and docking proximities.</p>
+            </div>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-mono text-xs font-bold border border-emerald-500/30">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span> Live Signal Locked
+            </span>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-[#0B2415] text-white space-y-4 relative overflow-hidden border border-[#28552E]/40">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div>
+                <span class="text-[10px] font-mono uppercase text-[#C8D62C] tracking-widest font-bold">ACTIVE SATELLITE FIX</span>
+                <h4 class="font-display font-bold text-xl text-white">Pier 3 Waterfront Corridor &bull; Lat 47.3769° N, Lon 8.5417° E</h4>
+              </div>
+              <button type="button" onclick="alert('ABUS Beacon Ping sent. Rear optical LED strobe flashing for 30 seconds.')" class="btn-primary px-4 py-2 rounded-xl text-xs font-bold shadow-md">
+                Flash Bike Beacon
+              </button>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white/5 border border-white/10 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-mono text-center">
+              <div>
+                <span class="text-[10px] text-white uppercase block font-bold">CURRENT SPEED</span>
+                <strong class="text-base text-white">19.4 km/h</strong>
+              </div>
+              <div>
+                <span class="text-[10px] text-white uppercase block font-bold">ELEVATION GAIN</span>
+                <strong class="text-base text-[#C8D62C]">+48 meters</strong>
+              </div>
+              <div>
+                <span class="text-[10px] text-white uppercase block font-bold">BATTERY CELLS</span>
+                <strong class="text-base text-emerald-400">78% (Healthy)</strong>
+              </div>
+              <div>
+                <span class="text-[10px] text-white uppercase block font-bold">NEAREST DOCK</span>
+                <strong class="text-base text-white">Pier 4 Hub</strong>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+
+      <!-- ===================================================================== -->
+      <!-- TAB PANEL 7: INVOICES & TRIP HISTORY                                  -->
+      <!-- ===================================================================== -->
+      <div id="dash-panel-invoices" class="dash-content-panel space-y-6 hidden">
+        <section class="p-6 sm:p-8 bg-white dark:bg-[#173A20] border border-[#D9DDD8] dark:border-white/10 rounded-2xl shadow-sm space-y-6">
+          <div class="flex items-center justify-between border-b border-[#D9DDD8] dark:border-white/10 pb-4">
+            <div>
+              <h2 class="font-display font-extrabold text-2xl text-[#171A18] dark:text-white">Monthly VAT Statements &amp; Invoices</h2>
+              <p class="text-xs font-mono text-[#171A18] dark:text-white mt-1">Download consolidated monthly invoices for corporate accounting.</p>
+            </div>
+            <button type="button" onclick="alert('Exporting full 2026 ride ledger (CSV & PDF)...')" class="btn-secondary px-4 py-2 rounded-xl text-xs font-bold">
+              Export All (CSV)
+            </button>
+          </div>
+
+          <div class="space-y-3 text-xs font-mono">
+            <div class="p-4 rounded-xl bg-[#F7F7F2] dark:bg-[#0B2415] flex items-center justify-between">
+              <div>
+                <strong class="text-[#171A18] dark:text-white block text-sm">August 2026 Monthly Statement (#VELO-2026-AUG)</strong>
+                <span class="text-[#171A18] dark:text-white text-[10px]">3 completed trips &bull; 31.4 km &bull; Total: $80.00 (VAT incl.)</span>
+              </div>
+              <button type="button" onclick="alert('Downloading Statement #VELO-2026-AUG (PDF)...')" class="px-3.5 py-1.5 rounded-lg border border-[#D9DDD8] dark:border-white/10 hover:bg-[#C8D62C]/20 text-[#28552E] dark:text-[#C8D62C] font-bold">
+                Download PDF
+              </button>
+            </div>
+
+            <div class="p-4 rounded-xl bg-[#F7F7F2] dark:bg-[#0B2415] flex items-center justify-between">
+              <div>
+                <strong class="text-[#171A18] dark:text-white block text-sm">July 2026 Monthly Statement (#VELO-2026-JUL)</strong>
+                <span class="text-[#171A18] dark:text-white text-[10px]">5 completed trips &bull; 64.2 km &bull; Total: $142.00 (VAT incl.)</span>
+              </div>
+              <button type="button" onclick="alert('Downloading Statement #VELO-2026-JUL (PDF)...')" class="px-3.5 py-1.5 rounded-lg border border-[#D9DDD8] dark:border-white/10 hover:bg-[#C8D62C]/20 text-[#28552E] dark:text-[#C8D62C] font-bold">
+                Download PDF
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+
+      <!-- ===================================================================== -->
+      <!-- TAB PANEL 8: ROADSIDE SUPPORT DESK                                    -->
+      <!-- ===================================================================== -->
+      <div id="dash-panel-support" class="dash-content-panel space-y-6 hidden">
+        <section class="p-6 sm:p-8 bg-white dark:bg-[#173A20] border border-[#D9DDD8] dark:border-white/10 rounded-2xl shadow-sm space-y-6">
+          <div class="flex items-center justify-between border-b border-[#D9DDD8] dark:border-white/10 pb-4">
+            <div>
+              <h2 class="font-display font-extrabold text-2xl text-[#171A18] dark:text-white">24/7 Roadside Assistance Desk</h2>
+              <p class="text-xs font-mono text-[#171A18] dark:text-white mt-1">Mobile technicians arrive quickly for punctures, lock issues, or battery swaps.</p>
+            </div>
+            <a href="tel:+41442155000" class="btn-primary px-4 py-2 rounded-xl text-xs font-bold shadow-md">
+              Call Concierge (+41 44 215 5000)
+            </a>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-[#173A20]/10 dark:bg-[#C8D62C]/10 border border-[#28552E]/40 space-y-3">
+            <h4 class="font-display font-bold text-lg text-[#28552E] dark:text-[#C8D62C]">Request One-Tap Mobile Van Dispatch</h4>
+            <p class="text-xs text-[#171A18] dark:text-white font-sans leading-relaxed">
+              Experiencing an issue with active bicycle #EB-402? Our automated roadside dispatch locates your GPS position and sends the nearest technician.
+            </p>
+            <button type="button" onclick="alert('🚨 Mobile Service Van Dispatched to your GPS location (Pier 3)! Estimated arrival: 11 minutes.')" class="btn-primary px-5 py-2.5 rounded-xl text-xs font-bold shadow-sm">
+              Dispatch Roadside Van to Current GPS
+            </button>
+          </div>
+        </section>
+      </div>
+
+
+      <!-- ===================================================================== -->
+      <!-- TAB PANEL 9: SETTINGS                                                 -->
+      <!-- ===================================================================== -->
+      <div id="dash-panel-settings" class="dash-content-panel space-y-6 hidden">
+        <section class="p-6 sm:p-8 bg-white dark:bg-[#173A20] border border-[#D9DDD8] dark:border-white/10 rounded-2xl shadow-sm space-y-6">
+          <div class="flex items-center justify-between border-b border-[#D9DDD8] dark:border-white/10 pb-4">
+            <div>
+              <h2 class="font-display font-extrabold text-2xl text-[#171A18] dark:text-white">Rider Account Settings</h2>
+              <p class="text-xs font-mono text-[#171A18] dark:text-white mt-1">Control notifications, e-bike assist modes, and docking automation.</p>
+            </div>
+            <button type="button" onclick="alert('Settings preferences updated successfully!')" class="btn-primary px-4 py-2 rounded-xl text-xs font-bold">
+              Save Preferences
+            </button>
+          </div>
+
+          <div class="space-y-4 text-xs font-mono">
+            <div class="p-4 rounded-xl bg-[#F7F7F2] dark:bg-[#0B2415] flex items-center justify-between">
+              <div>
+                <strong class="text-[#171A18] dark:text-white block text-sm">SMS Roadside Dispatch Alerts</strong>
+                <span class="text-[#171A18] dark:text-white text-[10px]">Receive live GPS updates when roadside mechanic is en route</span>
+              </div>
+              <input type="checkbox" checked class="w-4 h-4 accent-[#C8D62C] cursor-pointer" />
+            </div>
+
+            <div class="p-4 rounded-xl bg-[#F7F7F2] dark:bg-[#0B2415] flex items-center justify-between">
+              <div>
+                <strong class="text-[#171A18] dark:text-white block text-sm">Automatic Helmet Compartment Release</strong>
+                <span class="text-[#171A18] dark:text-white text-[10px]">Pop open sanitized helmet lid automatically upon dock tap</span>
+              </div>
+              <input type="checkbox" checked class="w-4 h-4 accent-[#C8D62C] cursor-pointer" />
+            </div>
+
+            <div class="p-4 rounded-xl bg-[#F7F7F2] dark:bg-[#0B2415] flex items-center justify-between">
+              <div>
+                <strong class="text-[#171A18] dark:text-white block text-sm">E-Bike Assist Preset</strong>
+                <span class="text-[#171A18] dark:text-white text-[10px]">Standard 25 km/h vs Sport 32 km/h Assist</span>
+              </div>
+              <select class="px-2.5 py-1 rounded bg-white dark:bg-[#173A20] border border-[#D9DDD8] dark:border-white/10 font-mono text-xs text-[#171A18] dark:text-white">
+                <option>Sport Mode (32 km/h)</option>
+                <option>Eco Range (25 km/h)</option>
+              </select>
+            </div>
+          </div>
+        </section>
+      </div>
+
+    </main>
+
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- MODAL — RETURN CONFIRMATION & DIGITAL RECEIPT                             -->
+  <!-- ========================================================================= -->
+  <div id="dash-return-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300" role="dialog" aria-modal="true" aria-labelledby="return-modal-title">
+    <div id="return-modal-backdrop" class="fixed inset-0 bg-black/70 backdrop-blur-sm"></div>
+
+    <div class="relative w-full max-w-lg bg-white dark:bg-[#173A20] border border-[#D9DDD8] dark:border-white/10 rounded-2xl p-6 sm:p-8 shadow-2xl space-y-6 z-10">
+      
+      <div class="flex items-center justify-between border-b border-[#D9DDD8] dark:border-white/10 pb-4">
+        <div>
+          <span class="text-[10px] font-mono text-emerald-500 font-bold uppercase">&check; Dock Magnetic Lock Latched</span>
+          <h3 id="return-modal-title" class="font-display font-bold text-2xl text-[#171A18] dark:text-white">Trip Summary &amp; Digital Invoice</h3>
+        </div>
+        <button type="button" id="close-return-modal-btn" class="p-2 text-[#171A18] dark:text-white hover:text-[#28552E] dark:hover:text-[#C8D62C] rounded-lg">
+          <svg class="w-5 h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <!-- Itemized Ride Metrics -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono text-center">
+        <div class="p-3 rounded-xl bg-[#F7F7F2] dark:bg-[#0B2415]">
+          <span class="text-[10px] text-[#171A18] dark:text-white block uppercase font-bold">TOTAL TIME</span>
+          <strong class="font-display font-bold text-base text-[#171A18] dark:text-white">1h 42m</strong>
+        </div>
+        <div class="p-3 rounded-xl bg-[#F7F7F2] dark:bg-[#0B2415]">
+          <span class="text-[10px] text-[#171A18] dark:text-white block uppercase font-bold">DISTANCE</span>
+          <strong class="font-display font-bold text-base text-[#171A18] dark:text-white">14.6 km</strong>
+        </div>
+        <div class="p-3 rounded-xl bg-[#F7F7F2] dark:bg-[#0B2415]">
+          <span class="text-[10px] text-[#171A18] dark:text-white block uppercase font-bold">AVG SPEED</span>
+          <strong class="font-display font-bold text-base text-[#171A18] dark:text-white">19.2 km/h</strong>
+        </div>
+        <div class="p-3 rounded-xl bg-[#F7F7F2] dark:bg-[#0B2415]">
+          <span class="text-[10px] text-[#171A18] dark:text-white block uppercase font-bold">CO2 SAVED</span>
+          <strong class="font-display font-bold text-base text-emerald-500">2.04 kg</strong>
+        </div>
+      </div>
+
+      <!-- Billing Breakdown -->
+      <div class="p-4 rounded-xl bg-[#F7F7F2] dark:bg-[#0B2415] space-y-2 text-xs font-mono">
+        <div class="flex items-center justify-between text-[#171A18] dark:text-white">
+          <span>E-Mobility Pro Base Rate</span>
+          <span>Included ($0.00)</span>
+        </div>
+        <div class="flex items-center justify-between text-[#171A18] dark:text-white">
+          <span>Extended Ride Duration (+42m)</span>
+          <span>$4.00</span>
+        </div>
+        <div class="flex items-center justify-between text-[#171A18] dark:text-white">
+          <span>One-Way Docking Fee</span>
+          <span class="text-emerald-500 font-bold">Free ($0.00)</span>
+        </div>
+        <div class="flex items-center justify-between border-t border-[#D9DDD8] dark:border-white/10 pt-2 font-bold text-sm text-[#171A18] dark:text-white">
+          <span>Total Charged</span>
+          <span class="text-[#28552E] dark:text-[#C8D62C]">$4.00</span>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center gap-3">
+        <button type="button" onclick="alert('PDF Receipt #VELO-2026-9912 saved to your downloads!')" class="btn-primary w-full py-3 rounded-xl text-xs font-bold shadow-md">
+          Download PDF Invoice Receipt
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Main JavaScript Engine -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,3491 @@
+/* ==========================================================================
+   VELO CITY — Forest Green & Lime-Yellow Design System
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Reference Palette: Forest Green + Lime/Yellow Design System */
+  --green-deep-forest: #173A20;
+  --green-dark: #0B2415;
+  --green-forest: #28552E;
+  --lime-accent: #C8D62C;
+  --yellow-bright: #F4D21F;
+  --off-white: #F7F7F2;
+  --white: #FFFFFF;
+  --charcoal-dark: #171A18;
+  --gray-soft: #D9DDD8;
+  
+  --primary-accent: #C8D62C;
+  --primary-accent-dark: #28552E;
+  --primary-accent-glow: rgba(200, 214, 44, 0.40);
+  
+  /* Light Theme Surfaces */
+  --bg-body: #FFFFFF;
+  --bg-surface: #FFFFFF;
+  --bg-alt: #F7F7F2;
+  --bg-elevated: #F7F7F2;
+  
+  --text-main: #171A18;
+  --text-muted: #171A18;
+  --text-subtle: #171A18;
+  
+  --border-subtle: #D9DDD8;
+  --border-medium: #C5CCC4;
+  --border-strong: #A3B0A1;
+  
+  --header-bg: rgba(255, 255, 255, 0.95);
+  --header-border: #D9DDD8;
+  
+  --card-shadow: 0 4px 20px -2px rgba(11, 36, 21, 0.06);
+  --card-shadow-hover: 0 14px 35px -5px rgba(40, 85, 46, 0.22);
+  --glass-bg: rgba(255, 255, 255, 0.92);
+  --glass-border: rgba(200, 214, 44, 0.25);
+}
+
+/* Dark Theme (Forest Green / Dark Green & Charcoal) */
+html.dark {
+  --bg-body: #0B2415;
+  --bg-surface: #173A20;
+  --bg-alt: #102B1A;
+  --bg-elevated: #1F4A2B;
+  
+  --text-main: #FFFFFF;
+  --text-muted: #FFFFFF;
+  --text-subtle: #FFFFFF;
+  
+  --border-subtle: rgba(200, 214, 44, 0.15);
+  --border-medium: rgba(255, 255, 255, 0.18);
+  --border-strong: rgba(200, 214, 44, 0.35);
+  
+  --header-bg: rgba(11, 36, 21, 0.95);
+  --header-border: rgba(200, 214, 44, 0.20);
+  
+  --card-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.7);
+  --card-shadow-hover: 0 16px 40px -5px rgba(200, 214, 44, 0.25);
+  --glass-bg: rgba(23, 58, 32, 0.90);
+  --glass-border: rgba(200, 214, 44, 0.20);
+}
+
+/* Base Document Setup */
+html {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6,
+p, span, small, strong, em,
+label, legend, dt, dd, th, td,
+blockquote, input, select, textarea {
+  color: inherit;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Global Page Loader                                                         */
+/* -------------------------------------------------------------------------- */
+#pageLoader,
+#global-page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: var(--bg-body);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#pageLoader.loader-hidden,
+#global-page-loader.loader-hidden,
+#pageLoader.loaded,
+#global-page-loader.loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-spinner-ring {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 3px solid rgba(200, 214, 44, 0.20);
+  border-top-color: var(--lime-accent);
+  border-right-color: var(--green-forest);
+  animation: loaderSpin 0.75s linear infinite;
+}
+
+@keyframes loaderSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Floating Back to Top Button                                                */
+/* -------------------------------------------------------------------------- */
+#back-to-top-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 45;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--lime-accent);
+  color: #171A18;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px -2px rgba(200, 214, 44, 0.50);
+  border: 1px solid rgba(23, 58, 32, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px) scale(0.9);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+#back-to-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+#back-to-top-btn:hover {
+  background: var(--yellow-bright);
+  transform: translateY(-3px) scale(1.06);
+  box-shadow: 0 10px 25px -2px rgba(244, 210, 31, 0.65);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Rock-Solid Sticky Header                                                   */
+/* -------------------------------------------------------------------------- */
+.nav-sky-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: var(--header-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--header-border);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Desktop Home Dropdown */
+.home-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 290px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: 14px;
+  box-shadow: 0 18px 45px -10px rgba(11, 36, 21, 0.18);
+  padding: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px) scale(0.96);
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s ease;
+  z-index: 60;
+}
+
+.home-dropdown-container.open .home-dropdown-menu,
+.home-dropdown-container:hover .home-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.home-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  transition: all 0.15s ease;
+}
+
+.home-dropdown-item:hover {
+  background-color: var(--bg-alt);
+}
+
+.home-dropdown-item.active {
+  background-color: var(--lime-accent);
+  color: #171A18 !important;
+}
+
+.home-dropdown-item.active span,
+.home-dropdown-item.active small {
+  color: #171A18 !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Buttons & Interactive Elements                                             */
+/* -------------------------------------------------------------------------- */
+.btn-primary {
+  background-color: var(--lime-accent);
+  color: #171A18;
+  border: 1px solid transparent;
+  font-weight: 700;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px -2px var(--primary-accent-glow);
+}
+
+.btn-primary:hover {
+  background-color: var(--yellow-bright);
+  color: #171A18;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px -2px rgba(244, 210, 31, 0.55);
+}
+
+.btn-outline-white {
+  background-color: transparent;
+  color: #FFFFFF;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  font-weight: 600;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-outline-white:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: var(--bg-surface);
+  color: var(--text-main);
+  border: 1px solid var(--border-medium);
+  font-weight: 600;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-secondary:hover {
+  border-color: var(--lime-accent);
+  color: var(--green-deep-forest);
+  background-color: var(--bg-alt);
+  transform: translateY(-2px);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Cards & Containers (Equal Default, Highlight on Hover)                     */
+/* -------------------------------------------------------------------------- */
+.velo-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.velo-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--lime-accent);
+  box-shadow: var(--card-shadow-hover);
+}
+
+/* Fleet Cards */
+.fleet-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.fleet-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--lime-accent);
+  box-shadow: 0 16px 36px -6px rgba(40, 85, 46, 0.25);
+}
+
+/* Filter Pills */
+.fleet-filter-btn {
+  background-color: var(--bg-surface);
+  color: var(--text-muted);
+  border: 1px solid var(--border-medium);
+  transition: all 0.2s ease;
+}
+
+.fleet-filter-btn:hover {
+  border-color: var(--lime-accent);
+  color: var(--green-deep-forest);
+}
+
+.fleet-filter-btn.active {
+  background-color: var(--lime-accent) !important;
+  color: #171A18 !important;
+  border-color: var(--lime-accent) !important;
+  box-shadow: 0 4px 14px -2px var(--primary-accent-glow);
+}
+
+/* Sizing Range Slider */
+input[type="range"].sizing-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--border-strong);
+  outline: none;
+}
+
+input[type="range"].sizing-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--lime-accent);
+  cursor: pointer;
+  border: 3px solid var(--green-deep-forest);
+  box-shadow: 0 2px 8px rgba(200, 214, 44, 0.5);
+  transition: transform 0.15s ease;
+}
+
+input[type="range"].sizing-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.25);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Full-Width Hero Background Slow Zoom Animation                             */
+/* -------------------------------------------------------------------------- */
+.hero-bg-zoom {
+  animation: heroBgZoom 26s ease-in-out infinite alternate;
+}
+
+@keyframes heroBgZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.07); }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Transit Comparison Progress Bars                                           */
+/* -------------------------------------------------------------------------- */
+.transit-bar-ebike {
+  background: linear-gradient(90deg, #C8D62C 0%, #28552E 100%);
+}
+
+.transit-bar-metro {
+  background: linear-gradient(90deg, #5C6960 0%, #8A968D 100%);
+}
+
+.transit-bar-car {
+  background: linear-gradient(90deg, #D9DDD8 0%, #A3B0A1 100%);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Direction (RTL) Utilities                                                  */
+/* -------------------------------------------------------------------------- */
+[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Custom Scrollbars                                                          */
+/* -------------------------------------------------------------------------- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-body);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--lime-accent);
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+
+
+
+/* ============================================================
+   INITIAL STATES
+============================================================ */
+
+.tour-eyebrow,
+.tour-title,
+.tour-meta,
+.tour-small-title,
+.tour-main-copy,
+.tour-bottom,
+.tour-dot,
+.tour-vertical-text {
+  opacity: 0;
+}
+
+
+/* ============================================================
+   CINEMATIC IMAGE REVEAL
+============================================================ */
+
+.tour-stage {
+  clip-path: inset(12% 0 12% 0 round 28px);
+  opacity: 0;
+}
+
+.tour-image {
+  transform: scale(1.18);
+  transition:
+    transform 1.8s cubic-bezier(.16,1,.3,1);
+}
+
+
+/* ============================================================
+   ACTIVE ANIMATION
+============================================================ */
+
+.tour-stage.is-visible {
+  animation: stageReveal 1.25s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+.tour-stage.is-visible .tour-image {
+  transform: scale(1);
+}
+
+
+.tour-eyebrow.is-visible {
+  animation: fadeUp .8s .05s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+
+.tour-title.is-visible {
+  animation: titleReveal 1.2s .15s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+
+.tour-meta.is-visible {
+  animation: fadeUp .9s .35s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+
+.tour-small-title.is-visible {
+  animation: fadeUp .8s .45s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+
+.tour-main-copy.is-visible {
+  animation: cinematicText 1.1s .55s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+
+.tour-bottom.is-visible {
+  animation: fadeUp 1s .7s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+
+.tour-dot.is-visible {
+  animation: pulseDot 1.2s .7s ease-out forwards;
+}
+
+
+.tour-vertical-text.is-visible {
+  animation: verticalReveal 1s .8s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+
+/* ============================================================
+   KEYFRAMES
+============================================================ */
+
+@keyframes stageReveal {
+
+  0% {
+    opacity: 0;
+    clip-path: inset(12% 8% 12% 8% round 28px);
+    transform: scale(.96);
+  }
+
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0 round 28px);
+    transform: scale(1);
+  }
+
+}
+
+
+@keyframes fadeUp {
+
+  0% {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+@keyframes titleReveal {
+
+  0% {
+    opacity: 0;
+    transform: translateY(90px);
+    clip-path: inset(100% 0 0 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    clip-path: inset(0 0 0 0);
+  }
+
+}
+
+
+@keyframes cinematicText {
+
+  0% {
+    opacity: 0;
+    transform: translateY(70px) scale(.96);
+    filter: blur(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+
+}
+
+
+@keyframes pulseDot {
+
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+}
+
+
+@keyframes verticalReveal {
+
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+/* ============================================================
+   BACKGROUND NUMBER
+============================================================ */
+
+.story-number {
+  animation: numberFloat 8s ease-in-out infinite;
+}
+
+@keyframes numberFloat {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(20px) rotate(-2deg);
+  }
+
+}
+
+
+/* ============================================================
+   SCROLL LINE
+============================================================ */
+
+.scroll-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -100%;
+  width: 100%;
+  height: 50%;
+  background: #C8D62C;
+  animation: scrollMove 2s ease-in-out infinite;
+}
+
+@keyframes scrollMove {
+
+  0% {
+    top: -60%;
+  }
+
+  100% {
+    top: 120%;
+  }
+
+}
+
+
+/* ============================================================
+   IMAGE HOVER
+============================================================ */
+
+.tour-stage:hover .tour-image {
+  transform: scale(1.045);
+}
+
+
+/* ============================================================
+   MOVING BOTTOM LINE
+============================================================ */
+
+.moving-line {
+  background-size: 200% 100%;
+  animation: lineMove 5s linear infinite;
+}
+
+@keyframes lineMove {
+
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 200% 50%;
+  }
+
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 640px) {
+
+  .tour-stage {
+    clip-path: inset(8% 0 8% 0 round 22px);
+  }
+
+  .tour-stage.is-visible {
+    animation-name: stageRevealMobile;
+  }
+
+  .tour-image {
+    transform: scale(1.1);
+  }
+
+  .tour-stage:hover .tour-image {
+    transform: scale(1.02);
+  }
+
+}
+
+
+@keyframes stageRevealMobile {
+
+  0% {
+    opacity: 0;
+    clip-path: inset(10% 4% 10% 4% round 22px);
+  }
+
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0 round 22px);
+  }
+
+}
+
+
+/* ============================================================
+   REDUCED MOTION
+============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+}
+
+
+
+
+
+
+/* ===================================================================== */
+/* HEADER ANIMATION */
+/* ===================================================================== */
+
+.ride-header {
+  opacity: 0;
+  transform: translateY(25px);
+}
+
+.ride-header.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+
+  transition:
+    opacity .7s ease,
+    transform .8s cubic-bezier(.16,1,.3,1);
+}
+
+
+.ride-eyebrow {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+
+.ride-header.is-visible .ride-eyebrow {
+  opacity: 1;
+  transform: translateX(0);
+
+  transition:
+    opacity .6s ease .1s,
+    transform .7s cubic-bezier(.16,1,.3,1);
+}
+
+
+.ride-title {
+  opacity: 0;
+  transform: translateY(35px);
+}
+
+
+.ride-header.is-visible .ride-title {
+  opacity: 1;
+  transform: translateY(0);
+
+  transition:
+    opacity .7s ease .15s,
+    transform .8s cubic-bezier(.16,1,.3,1);
+}
+
+
+.ride-intro {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+
+.ride-header.is-visible .ride-intro {
+  opacity: 1;
+  transform: translateY(0);
+
+  transition:
+    opacity .7s ease .3s,
+    transform .8s cubic-bezier(.16,1,.3,1);
+}
+
+
+
+/* ===================================================================== */
+/* TIMER */
+/* ===================================================================== */
+
+.timer-wrapper {
+  opacity: 0;
+  transform: scale(.88);
+}
+
+
+.timer-wrapper.is-visible {
+  opacity: 1;
+  transform: scale(1);
+
+  transition:
+    opacity .8s ease,
+    transform 1s cubic-bezier(.16,1,.3,1);
+}
+
+
+.timer-inner-ring {
+  animation:
+    innerRotate 18s linear infinite;
+}
+
+
+@keyframes innerRotate {
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+
+.timer-orbit {
+  animation:
+    orbitFloat 9s ease-in-out infinite;
+}
+
+
+.timer-orbit-two {
+  animation-duration: 12s;
+  animation-direction: reverse;
+}
+
+
+@keyframes orbitFloat {
+
+  0%,
+  100% {
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      scale(1.035);
+  }
+
+}
+
+
+.orbit-dot {
+  animation:
+    dotOrbit 5s linear infinite;
+}
+
+
+@keyframes dotOrbit {
+
+  from {
+    transform:
+      translateX(-50%)
+      rotate(0deg)
+      translateY(-165px)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      translateX(-50%)
+      rotate(360deg)
+      translateY(-165px)
+      rotate(-360deg);
+  }
+
+}
+
+
+
+/* ===================================================================== */
+/* SIDES */
+/* ===================================================================== */
+
+.ride-side-left,
+.ride-side-right {
+  opacity: 0;
+}
+
+
+.ride-side-left {
+  transform: translateX(-25px);
+}
+
+
+.ride-side-right {
+  transform: translateX(25px);
+}
+
+
+.ride-side-left.is-visible,
+.ride-side-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+
+  transition:
+    opacity .8s ease .25s,
+    transform .9s cubic-bezier(.16,1,.3,1);
+}
+
+
+
+/* ===================================================================== */
+/* STEP BUTTONS */
+/* ===================================================================== */
+
+.ride-step-button {
+  position: relative;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+
+  font-family: monospace;
+  font-size: 10px;
+  font-weight: 700;
+
+  color: var(--text-main);
+
+  transition:
+    color .3s ease,
+    transform .3s ease;
+}
+
+
+.ride-step-button::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 2px;
+
+  border-radius: 999px;
+
+  border: 1px solid
+    rgba(40,85,46,.16);
+
+  opacity: 0;
+
+  transform: scale(.7);
+
+  transition:
+    opacity .35s ease,
+    transform .45s cubic-bezier(.16,1,.3,1);
+}
+
+
+.dark .ride-step-button::before {
+  border-color:
+    rgba(200,214,44,.22);
+}
+
+
+.ride-step-button:hover {
+  color: #28552E;
+  transform: translateY(-2px);
+}
+
+
+.dark .ride-step-button:hover {
+  color: #C8D62C;
+}
+
+
+.ride-step-button.active {
+  color: #28552E;
+}
+
+
+.dark .ride-step-button.active {
+  color: #C8D62C;
+}
+
+
+.ride-step-button.active::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+
+/* ===================================================================== */
+/* CONTENT CHANGE */
+/* ===================================================================== */
+
+.step-content-change {
+  animation:
+    stepReveal
+    .5s
+    cubic-bezier(.16,1,.3,1);
+}
+
+
+@keyframes stepReveal {
+
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+    filter: blur(5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+}
+
+
+
+/* ===================================================================== */
+/* MARQUEE */
+/* ===================================================================== */
+
+.ride-marquee {
+  animation:
+    marqueeMove
+    22s
+    linear
+    infinite;
+}
+
+
+@keyframes marqueeMove {
+
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-45%);
+  }
+
+}
+
+
+
+/* ===================================================================== */
+/* MOBILE */
+/* ===================================================================== */
+
+@media (max-width: 1023px) {
+
+  .ride-side-left,
+  .ride-side-right,
+  .timer-wrapper {
+    opacity: 1;
+    transform: none;
+  }
+
+  .ride-side-right {
+    text-align: center;
+  }
+
+  .ride-side-right .flex {
+    justify-content: center;
+  }
+
+}
+
+
+@media (max-width: 640px) {
+
+  .ride-header {
+    margin-bottom: 24px;
+  }
+
+  .ride-stage {
+    min-height: 0;
+  }
+
+  .timer-wrapper {
+    width: 255px;
+    height: 255px;
+  }
+
+  .ride-timer-area {
+    margin-bottom: 20px;
+  }
+
+  .orbit-dot {
+    display: none;
+  }
+
+}
+
+
+
+/* ===================================================================== */
+/* REDUCED MOTION */
+/* ===================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .ride-header,
+  .ride-eyebrow,
+  .ride-title,
+  .ride-intro,
+  .timer-wrapper,
+  .ride-side-left,
+  .ride-side-right {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .timer-orbit,
+  .timer-inner-ring,
+  .orbit-dot,
+  .ride-marquee {
+    animation: none !important;
+  }
+
+}
+
+
+/* <!-- ===================================================================== -->
+<!-- SECTION 6 CSS                                                         -->
+<!-- ===================================================================== --> */
+
+
+
+/* ===================================================================== */
+/* MAP HOTSPOT */
+/* ===================================================================== */
+
+.map-hotspot {
+  position: absolute;
+
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  z-index: 10;
+
+  transition:
+    transform .35s cubic-bezier(.16,1,.3,1);
+}
+
+
+.map-hotspot:hover {
+  transform: scale(1.12);
+}
+
+
+.hotspot-core {
+  position: relative;
+  z-index: 3;
+
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+
+  background: #28552E;
+
+  color: white;
+
+  font-family: monospace;
+  font-size: 9px;
+  font-weight: 800;
+
+  border: 2px solid
+    #F7F7F2;
+
+  box-shadow:
+    0 5px 20px
+    rgba(23, 26, 24, .15);
+
+  transition:
+    background-color .35s ease,
+    color .35s ease,
+    transform .35s ease;
+}
+
+
+.dark .hotspot-core {
+  border-color: #173A20;
+}
+
+
+.map-hotspot.active .hotspot-core {
+  background: #C8D62C;
+  color: #171A18;
+  transform: scale(1.12);
+}
+
+
+.hotspot-pulse {
+  position: absolute;
+
+  width: 38px;
+  height: 38px;
+
+  border-radius: 999px;
+
+  background: #C8D62C;
+
+  opacity: 0;
+
+  transform: scale(.4);
+
+  pointer-events: none;
+}
+
+
+.map-hotspot.active .hotspot-pulse {
+  animation:
+    hotspotPulse
+    2s
+    ease-out
+    infinite;
+}
+
+
+@keyframes hotspotPulse {
+
+  0% {
+    opacity: .35;
+    transform: scale(.5);
+  }
+
+  70% {
+    opacity: 0;
+    transform: scale(1.8);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.8);
+  }
+
+}
+
+
+.hotspot-label {
+  position: absolute;
+
+  left: 50%;
+  top: calc(100% + 7px);
+
+  transform:
+    translateX(-50%)
+    translateY(4px);
+
+  white-space: nowrap;
+
+  padding: 4px 7px;
+
+  background: rgba(247,247,242,.9);
+
+  border: 1px solid
+    rgba(217,221,216,.8);
+
+  backdrop-filter: blur(6px);
+
+  color: var(--text-main);
+
+  font-family: monospace;
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+
+  opacity: 0;
+
+  transition:
+    opacity .3s ease,
+    transform .3s ease;
+}
+
+
+.dark .hotspot-label {
+  background: rgba(23,58,32,.9);
+  border-color: rgba(255,255,255,.08);
+  color: #C8D62C;
+}
+
+
+.map-hotspot:hover .hotspot-label,
+.map-hotspot.active .hotspot-label {
+  opacity: 1;
+  transform:
+    translateX(-50%)
+    translateY(0);
+}
+
+
+
+/* ===================================================================== */
+/* MAP MOVEMENT */
+/* ===================================================================== */
+
+#locations-section svg {
+  animation:
+    mapDrift
+    16s
+    ease-in-out
+    infinite alternate;
+}
+
+
+@keyframes mapDrift {
+
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.025);
+  }
+
+}
+
+
+
+/* ===================================================================== */
+/* CONTENT TRANSITION */
+/* ===================================================================== */
+
+.station-changing {
+  animation:
+    stationReveal
+    .45s
+    cubic-bezier(.16,1,.3,1);
+}
+
+
+@keyframes stationReveal {
+
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(4px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+}
+
+
+
+/* ===================================================================== */
+/* MOBILE */
+/* ===================================================================== */
+
+@media (max-width: 640px) {
+
+  #locations-section .map-hotspot {
+    transform: scale(.9);
+  }
+
+  #locations-section .map-hotspot:hover {
+    transform: scale(1);
+  }
+
+  #locations-section .hotspot-label {
+    display: none;
+  }
+
+}
+
+
+
+/* ===================================================================== */
+/* REDUCED MOTION */
+/* ===================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  #locations-section svg,
+  .map-hotspot.active .hotspot-pulse {
+    animation: none !important;
+  }
+
+}
+
+
+
+/* 
+<!-- ======================================================================= -->
+<!-- SECTION 4 — ADVANCED ANIMATION CSS                                     -->
+<!-- ======================================================================= -->
+ */
+
+
+/* ========================================================================
+   ORBITS
+========================================================================= */
+
+.experience-orbit {
+  position: absolute;
+  border: 1px dashed rgba(40,85,46,.14);
+  border-radius: 9999px;
+  pointer-events: none;
+}
+
+.dark .experience-orbit {
+  border-color: rgba(200,214,44,.08);
+}
+
+
+.experience-orbit-one {
+  width: 520px;
+  height: 520px;
+  right: -280px;
+  top: 8%;
+  animation: orbitRotate 24s linear infinite;
+}
+
+
+.experience-orbit-two {
+  width: 300px;
+  height: 300px;
+  left: -170px;
+  bottom: 3%;
+  animation: orbitRotateReverse 17s linear infinite;
+}
+
+
+@keyframes orbitRotate {
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+
+@keyframes orbitRotateReverse {
+
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+
+}
+
+
+/* ========================================================================
+   GLOW
+========================================================================= */
+
+.experience-glow {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(70px);
+  pointer-events: none;
+}
+
+
+.experience-glow-one {
+  width: 180px;
+  height: 180px;
+  right: 12%;
+  top: 20%;
+  background: rgba(200,214,44,.08);
+  animation: glowMoveOne 8s ease-in-out infinite;
+}
+
+
+.experience-glow-two {
+  width: 160px;
+  height: 160px;
+  left: 8%;
+  bottom: 12%;
+  background: rgba(40,85,46,.08);
+  animation: glowMoveTwo 10s ease-in-out infinite;
+}
+
+
+@keyframes glowMoveOne {
+
+  0%,100% {
+    transform: translate(0,0) scale(1);
+  }
+
+  50% {
+    transform: translate(-35px,25px) scale(1.2);
+  }
+
+}
+
+
+@keyframes glowMoveTwo {
+
+  0%,100% {
+    transform: translate(0,0) scale(1);
+  }
+
+  50% {
+    transform: translate(30px,-30px) scale(1.15);
+  }
+
+}
+
+
+/* ========================================================================
+   INTRO PING
+========================================================================= */
+
+.experience-ping {
+
+  animation:
+    experiencePing 2s cubic-bezier(0,0,.2,1) infinite;
+
+}
+
+
+@keyframes experiencePing {
+
+  0% {
+    transform: scale(1);
+    opacity:.8;
+  }
+
+  75%,100% {
+    transform: scale(3);
+    opacity:0;
+  }
+
+}
+
+
+/* ========================================================================
+   TITLE FLOAT
+========================================================================= */
+
+.experience-title-highlight {
+
+  display:inline-block;
+
+  animation:
+    titleFloat 5s ease-in-out infinite;
+
+}
+
+
+@keyframes titleFloat {
+
+  0%,100% {
+    transform:translateY(0);
+  }
+
+  50% {
+    transform:translateY(-4px);
+  }
+
+}
+
+
+/* ========================================================================
+   TIMELINE ENERGY
+========================================================================= */
+
+.timeline-energy {
+
+  position:absolute;
+
+  left:0;
+  top:-90px;
+
+  width:100%;
+  height:90px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(200,214,44,.1),
+      #C8D62C,
+      rgba(200,214,44,.1),
+      transparent
+    );
+
+  filter:
+    drop-shadow(
+      0 0 8px
+      rgba(200,214,44,.75)
+    );
+
+  animation:
+    energyTravel 3.8s linear infinite;
+
+}
+
+
+@keyframes energyTravel {
+
+  0% {
+    transform:translateY(0);
+    opacity:0;
+  }
+
+  10% {
+    opacity:1;
+  }
+
+  85% {
+    opacity:1;
+  }
+
+  100% {
+    transform:translateY(720px);
+    opacity:0;
+  }
+
+}
+
+
+/* ========================================================================
+   ROW
+========================================================================= */
+
+.experience-row {
+
+  position:relative;
+
+  transition:
+    transform .6s cubic-bezier(.16,1,.3,1);
+
+}
+
+
+.experience-row:hover {
+
+  transform:
+    translateX(5px);
+
+}
+
+
+/* ========================================================================
+   YEAR
+========================================================================= */
+
+.experience-year {
+
+  display:inline-block;
+
+  transform-origin:right center;
+
+  transition:
+    transform .55s cubic-bezier(.16,1,.3,1),
+    letter-spacing .45s ease,
+    color .4s ease;
+
+}
+
+
+.experience-row:hover .experience-year {
+
+  transform:
+    translateX(-8px)
+    scale(1.12);
+
+  letter-spacing:.07em;
+
+  color:#28552E;
+
+}
+
+
+.dark .experience-row:hover .experience-year {
+
+  color:#C8D62C;
+
+}
+
+
+/* ========================================================================
+   YEAR WRAPPER
+========================================================================= */
+
+.experience-year-wrap {
+
+  transition:
+    transform .55s cubic-bezier(.16,1,.3,1);
+
+}
+
+
+.experience-row:hover .experience-year-wrap {
+
+  transform:
+    translateX(-4px);
+
+}
+
+
+/* ========================================================================
+   NODE
+========================================================================= */
+
+.experience-node {
+
+  transition:
+    transform .5s cubic-bezier(.16,1,.3,1),
+    box-shadow .5s ease;
+
+}
+
+
+.experience-row:hover .experience-node {
+
+  transform:scale(1.35);
+
+  box-shadow:
+    0 0 0 7px
+    rgba(200,214,44,.12);
+
+}
+
+
+/* ========================================================================
+   NODE RIPPLE
+========================================================================= */
+
+.node-ripple {
+
+  position:absolute;
+
+  inset:-5px;
+
+  border-radius:9999px;
+
+  border:1px solid #C8D62C;
+
+  opacity:0;
+
+}
+
+
+.experience-row:hover .node-ripple {
+
+  animation:
+    nodeRipple 1.1s ease-out;
+
+}
+
+
+@keyframes nodeRipple {
+
+  0% {
+    transform:scale(.5);
+    opacity:.8;
+  }
+
+  100% {
+    transform:scale(3);
+    opacity:0;
+  }
+
+}
+
+
+/* ========================================================================
+   CURRENT NODE
+========================================================================= */
+
+.experience-node-current {
+
+  animation:
+    currentNodePulse 2.2s ease-in-out infinite;
+
+}
+
+
+.experience-node-current span {
+
+  position:absolute;
+
+  inset:-5px;
+
+  border-radius:9999px;
+
+  border:1px solid #C8D62C;
+
+  animation:
+    currentRadar 2.2s ease-out infinite;
+
+}
+
+
+@keyframes currentNodePulse {
+
+  0%,100% {
+    transform:scale(1);
+  }
+
+  50% {
+    transform:scale(1.18);
+  }
+
+}
+
+
+@keyframes currentRadar {
+
+  0% {
+    transform:scale(.7);
+    opacity:.8;
+  }
+
+  100% {
+    transform:scale(3.4);
+    opacity:0;
+  }
+
+}
+
+
+/* ========================================================================
+   STORY HEADING
+========================================================================= */
+
+.experience-heading {
+
+  position:relative;
+
+  width:fit-content;
+
+  transition:
+    transform .55s cubic-bezier(.16,1,.3,1);
+
+}
+
+
+.experience-row:hover .experience-heading {
+
+  transform:
+    translateX(8px);
+
+}
+
+
+/* ========================================================================
+   MINI LINE
+========================================================================= */
+
+.experience-mini-line {
+
+  transition:
+    width .65s cubic-bezier(.16,1,.3,1);
+
+}
+
+
+.experience-row:hover .experience-mini-line {
+
+  width:46px;
+
+}
+
+
+/* ========================================================================
+   TAGS
+========================================================================= */
+
+.experience-tag {
+
+  display:inline-block;
+
+  font-size:10px;
+
+  line-height:1;
+
+  font-family:monospace;
+
+  letter-spacing:.05em;
+
+  color:#64706A;
+
+  transition:
+    transform .35s ease,
+    color .35s ease;
+
+}
+
+
+.dark .experience-tag {
+
+  color:#9CA8A1;
+
+}
+
+
+.experience-row:hover .experience-tag {
+
+  transform:
+    translateX(-4px);
+
+  color:#28552E;
+
+}
+
+
+.dark .experience-row:hover .experience-tag {
+
+  color:#C8D62C;
+
+}
+
+
+.experience-tag-active {
+
+  color:#28552E;
+
+}
+
+
+.dark .experience-tag-active {
+
+  color:#C8D62C;
+
+}
+
+
+/* ========================================================================
+   STATS
+========================================================================= */
+
+.experience-stat {
+
+  transition:
+    transform .4s cubic-bezier(.16,1,.3,1);
+
+}
+
+
+.experience-stat:hover {
+
+  transform:
+    translateY(-3px);
+
+}
+
+
+/* ========================================================================
+   ICON
+========================================================================= */
+
+.experience-icon {
+
+  transition:
+    transform .5s cubic-bezier(.16,1,.3,1);
+
+}
+
+
+.experience-icon:hover {
+
+  transform:
+    rotate(12deg)
+    scale(1.1);
+
+}
+
+
+/* ========================================================================
+   SCROLL REVEAL
+========================================================================= */
+
+.reveal-experience {
+
+  opacity:0;
+
+  transform:
+    translateY(35px)
+    scale(.985);
+
+  filter:blur(5px);
+
+  transition:
+    opacity .85s ease,
+    transform .9s cubic-bezier(.16,1,.3,1),
+    filter .8s ease;
+
+}
+
+
+.reveal-experience.is-visible {
+
+  opacity:1;
+
+  transform:
+    translateY(0)
+    scale(1);
+
+  filter:blur(0);
+
+}
+
+
+/* ========================================================================
+   STAGGER
+========================================================================= */
+
+.experience-row:nth-child(1) {
+  transition-delay:.05s;
+}
+
+.experience-row:nth-child(2) {
+  transition-delay:.15s;
+}
+
+.experience-row:nth-child(3) {
+  transition-delay:.25s;
+}
+
+.experience-row:nth-child(4) {
+  transition-delay:.35s;
+}
+
+.experience-row:nth-child(5) {
+  transition-delay:.45s;
+}
+
+
+/* ========================================================================
+   MOBILE
+========================================================================= */
+
+@media (max-width:640px) {
+
+  .experience-orbit,
+  .experience-glow {
+    display:none;
+  }
+
+
+  .experience-row {
+    padding-top:17px;
+    padding-bottom:17px;
+  }
+
+
+  .experience-row:hover {
+    transform:translateX(2px);
+  }
+
+
+  .experience-row:hover .experience-heading {
+    transform:translateX(3px);
+  }
+
+
+  .experience-row:hover .experience-year {
+    transform:
+      translateX(-3px)
+      scale(1.06);
+  }
+
+
+  .timeline-energy {
+    animation-duration:3s;
+  }
+
+}
+
+
+/* ========================================================================
+   REDUCED MOTION
+========================================================================= */
+
+@media (prefers-reduced-motion:reduce) {
+
+  #experience *,
+  #experience::before,
+  #experience::after {
+
+    animation:none !important;
+    transition:none !important;
+
+  }
+
+}
+
+
+
+/* <!-- ======================================================================= -->
+<!-- SECTION 8 — MANIFESTO ANIMATION                                         -->
+<!-- ======================================================================= --> */
+
+
+  /* ============================================================
+     REVEAL
+  ============================================================ */
+
+  .manifesto-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(6px);
+    transition:
+      opacity .9s ease,
+      transform .9s cubic-bezier(.16,1,.3,1),
+      filter .9s ease;
+  }
+
+  .manifesto-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+
+  /* ============================================================
+     TITLE LINES
+  ============================================================ */
+
+  .manifesto-line {
+    opacity: 0;
+    transform: translateX(-45px);
+    animation: manifestoTitle .9s
+               cubic-bezier(.16,1,.3,1)
+               forwards;
+  }
+
+  .manifesto-line:nth-child(1) {
+    animation-delay: .15s;
+  }
+
+  .manifesto-line:nth-child(2) {
+    animation-delay: .3s;
+  }
+
+  .manifesto-line:nth-child(3) {
+    animation-delay: .45s;
+  }
+
+  @keyframes manifestoTitle {
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+  }
+
+
+  /* ============================================================
+     OUTLINE / SHIFT EFFECT
+  ============================================================ */
+
+  .manifesto-outline {
+    transition:
+      transform .5s ease,
+      letter-spacing .5s ease;
+  }
+
+  .manifesto-outline:hover {
+    transform: translateX(18px);
+    letter-spacing: -0.04em;
+  }
+
+
+  /* ============================================================
+     ROAD DASH ANIMATION
+  ============================================================ */
+
+  .manifesto-road-dashes {
+    animation: roadDashes 1.5s linear infinite;
+  }
+
+  @keyframes roadDashes {
+
+    from {
+      transform:
+        translateY(-50%)
+        translateX(0);
+    }
+
+    to {
+      transform:
+        translateY(-50%)
+        translateX(-45px);
+    }
+
+  }
+
+
+  /* ============================================================
+     MOVING BIKE
+  ============================================================ */
+
+  .manifesto-bike {
+    position: absolute;
+    top: 50%;
+    left: 0;
+
+    transform:
+      translate(-50%, -50%);
+
+    animation:
+      bikeTravel 6s
+      cubic-bezier(.65,0,.35,1)
+      infinite;
+
+    filter:
+      drop-shadow(
+        0 0 10px
+        rgba(200,214,44,.5)
+      );
+
+    z-index: 5;
+  }
+
+  @keyframes bikeTravel {
+
+    0% {
+      left: 0%;
+      transform:
+        translate(-50%, -50%)
+        rotate(0deg);
+    }
+
+    45% {
+      transform:
+        translate(-50%, -50%)
+        rotate(-2deg);
+    }
+
+    50% {
+      left: 50%;
+    }
+
+    95% {
+      transform:
+        translate(-50%, -50%)
+        rotate(2deg);
+    }
+
+    100% {
+      left: 100%;
+      transform:
+        translate(-50%, -50%)
+        rotate(0deg);
+    }
+
+  }
+
+
+  /* ============================================================
+     WAYPOINTS
+  ============================================================ */
+
+  .manifesto-waypoint {
+    position: absolute;
+    top: 50%;
+
+    width: 10px;
+    height: 10px;
+
+    transform:
+      translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+      #F7F7F2;
+
+    border:
+      2px solid #28552E;
+
+    z-index: 3;
+  }
+
+  .dark .manifesto-waypoint {
+    background: #173A20;
+    border-color: #C8D62C;
+  }
+
+  .waypoint-one {
+    left: 28%;
+  }
+
+  .waypoint-two {
+    left: 63%;
+  }
+
+  .waypoint-three {
+    left: 84%;
+  }
+
+
+  /* ============================================================
+     BACKGROUND LINES
+  ============================================================ */
+
+  .manifesto-lines span {
+    position: absolute;
+    display: block;
+
+    width: 180px;
+    height: 1px;
+
+    background:
+      #28552E;
+
+    opacity: .08;
+
+    transform:
+      rotate(-25deg);
+
+    animation:
+      lineFloat 8s
+      ease-in-out
+      infinite alternate;
+  }
+
+  .dark .manifesto-lines span {
+    background: #C8D62C;
+    opacity: .07;
+  }
+
+  .manifesto-lines span:nth-child(1) {
+    top: 20%;
+    left: 4%;
+  }
+
+  .manifesto-lines span:nth-child(2) {
+    top: 35%;
+    left: 28%;
+    animation-delay: 1s;
+  }
+
+  .manifesto-lines span:nth-child(3) {
+    top: 70%;
+    left: 52%;
+    animation-delay: 2s;
+  }
+
+  .manifesto-lines span:nth-child(4) {
+    top: 25%;
+    right: 10%;
+    animation-delay: 3s;
+  }
+
+  .manifesto-lines span:nth-child(5) {
+    bottom: 15%;
+    right: 28%;
+    animation-delay: 4s;
+  }
+
+  @keyframes lineFloat {
+
+    from {
+      transform:
+        translateX(-25px)
+        rotate(-25deg);
+    }
+
+    to {
+      transform:
+        translateX(35px)
+        rotate(-25deg);
+    }
+
+  }
+
+
+  /* ============================================================
+     ORBIT
+  ============================================================ */
+
+  .animate-manifesto-orbit {
+    animation:
+      manifestoOrbit 16s
+      linear
+      infinite;
+  }
+
+  @keyframes manifestoOrbit {
+
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+
+  }
+
+
+  /* ============================================================
+     BUTTON SHINE
+  ============================================================ */
+
+  .manifesto-main-btn {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .manifesto-main-btn::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: -120%;
+
+    width: 80%;
+    height: 100%;
+
+    background:
+      linear-gradient(
+        110deg,
+        transparent,
+        rgba(255,255,255,.18),
+        transparent
+      );
+
+    transform: skewX(-20deg);
+
+    transition:
+      left .7s ease;
+  }
+
+  .manifesto-main-btn:hover::before {
+    left: 140%;
+  }
+
+
+  /* ============================================================
+     MOBILE
+  ============================================================ */
+
+  @media (max-width: 640px) {
+
+    .manifesto-road {
+      height: 75px;
+    }
+
+    .manifesto-bike {
+      animation-duration: 5s;
+    }
+
+  }
+
+
+  /* ============================================================
+     REDUCED MOTION
+  ============================================================ */
+
+  @media (prefers-reduced-motion: reduce) {
+
+    .manifesto-line,
+    .manifesto-bike,
+    .manifesto-road-dashes,
+    .animate-manifesto-orbit,
+    .manifesto-lines span {
+
+      animation: none !important;
+
+    }
+
+    .manifesto-line,
+    .manifesto-reveal {
+
+      opacity: 1;
+      transform: none;
+      filter: none;
+
+    }
+
+  }
+
+/* <!-- ======================================================================= -->
+<!-- STYLES                                                                  -->
+<!-- ======================================================================= --> */
+
+
+
+  /* ---------------------------------------------------------
+     REVEAL
+  --------------------------------------------------------- */
+
+  .gear-reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    filter: blur(4px);
+    transition:
+      opacity .75s ease,
+      transform .75s ease,
+      filter .75s ease;
+  }
+
+  .gear-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+
+  /* ---------------------------------------------------------
+     ORBIT
+  --------------------------------------------------------- */
+
+  .gear-orbit {
+    animation: gearOrbit 14s linear infinite;
+  }
+
+  @keyframes gearOrbit {
+    from {
+      transform:
+        translate(-50%, -50%)
+        rotate(0deg);
+    }
+
+    to {
+      transform:
+        translate(-50%, -50%)
+        rotate(360deg);
+    }
+  }
+
+
+  /* ---------------------------------------------------------
+     PRODUCT IMAGE
+  --------------------------------------------------------- */
+
+  .gear-product-image {
+    opacity: 1;
+    transform: scale(1);
+    transition:
+      opacity .3s ease,
+      transform .45s cubic-bezier(.2,.8,.2,1);
+  }
+
+  .gear-product-image.changing {
+    opacity: 0;
+    transform: scale(.92) rotate(-3deg);
+  }
+
+
+  /* ---------------------------------------------------------
+     LIVE DOT
+  --------------------------------------------------------- */
+
+  .gear-live-dot {
+    animation: gearPulse 1.8s ease-in-out infinite;
+  }
+
+  @keyframes gearPulse {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(200,214,44,.45);
+    }
+
+    50% {
+      box-shadow: 0 0 0 7px rgba(200,214,44,0);
+    }
+  }
+
+
+  /* ---------------------------------------------------------
+     SELECTOR
+  --------------------------------------------------------- */
+
+  .gear-select {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(23,26,24,.10);
+    transition:
+      background-color .3s ease,
+      padding-left .3s ease;
+  }
+
+  .dark .gear-select {
+    border-color: rgba(255,255,255,.10);
+  }
+
+  .gear-select:hover {
+    padding-left: 1.8rem;
+    background: rgba(200,214,44,.08);
+  }
+
+  .gear-select.active {
+    background: rgba(200,214,44,.13);
+    padding-left: 1.8rem;
+  }
+
+
+  /* ---------------------------------------------------------
+     ICON
+  --------------------------------------------------------- */
+
+  .gear-select-icon {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(40,85,46,.10);
+    color: #28552E;
+    transition:
+      transform .3s ease,
+      background .3s ease;
+  }
+
+  .dark .gear-select-icon {
+    background: rgba(200,214,44,.12);
+    color: #C8D62C;
+  }
+
+  .gear-select-icon.optional {
+    background: rgba(200,214,44,.22);
+  }
+
+  .gear-select:hover .gear-select-icon,
+  .gear-select.active .gear-select-icon {
+    transform: rotate(-5deg) scale(1.06);
+  }
+
+
+  /* ---------------------------------------------------------
+     ARROW
+  --------------------------------------------------------- */
+
+  .gear-check {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #28552E;
+    opacity: .35;
+    transition:
+      opacity .3s ease,
+      transform .3s ease;
+  }
+
+  .dark .gear-check {
+    color: #C8D62C;
+  }
+
+  .gear-select:hover .gear-check,
+  .gear-select.active .gear-check {
+    opacity: 1;
+    transform: translateX(4px);
+  }
+
+
+  /* ---------------------------------------------------------
+     MOBILE
+  --------------------------------------------------------- */
+
+  @media (max-width: 640px) {
+
+    .gear-select {
+      padding: 1rem;
+    }
+
+    .gear-select:hover,
+    .gear-select.active {
+      padding-left: 1.15rem;
+    }
+
+    .gear-select-icon {
+      width: 38px;
+      height: 38px;
+    }
+
+    .gear-check {
+      display: none;
+    }
+
+  }
+
+
+  /* ---------------------------------------------------------
+     REDUCED MOTION
+  --------------------------------------------------------- */
+
+  @media (prefers-reduced-motion: reduce) {
+
+    .gear-orbit,
+    .gear-live-dot {
+      animation: none;
+    }
+
+    .gear-reveal,
+    .gear-product-image,
+    .gear-select,
+    .gear-select-icon,
+    .gear-check {
+      transition: none;
+    }
+
+  }
+
+/* <!-- ======================================================================= -->
+<!-- SECTION 4 — STYLES                                                      -->
+<!-- ======================================================================= --> */
+
+
+  /* ============================================================
+     REVEAL
+  ============================================================ */
+
+  .blueprint-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity .7s ease,
+      transform .7s ease;
+  }
+
+  .blueprint-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+
+  /* ============================================================
+     BLUEPRINT GRID
+  ============================================================ */
+
+  .blueprint-grid {
+    background-image:
+      linear-gradient(
+        rgba(200,214,44,.09) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        rgba(200,214,44,.09) 1px,
+        transparent 1px
+      );
+
+    background-size: 42px 42px;
+
+    mask-image:
+      radial-gradient(
+        circle at center,
+        black 0%,
+        transparent 75%
+      );
+  }
+
+
+  /* ============================================================
+     ROTATING RING
+  ============================================================ */
+
+  .blueprint-ring {
+    animation: blueprintRotate 18s linear infinite;
+  }
+
+  @keyframes blueprintRotate {
+
+    from {
+      transform:
+        translate(-50%, -50%)
+        rotate(0deg);
+    }
+
+    to {
+      transform:
+        translate(-50%, -50%)
+        rotate(360deg);
+    }
+
+  }
+
+
+  /* ============================================================
+     BIKE FLOAT
+  ============================================================ */
+
+  .blueprint-bike {
+    animation: bikeFloat 4s ease-in-out infinite;
+  }
+
+  @keyframes bikeFloat {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+
+  }
+
+
+  /* ============================================================
+     ANNOTATION LINES
+  ============================================================ */
+
+  .blueprint-line {
+    width: 32px;
+    height: 1px;
+    margin-top: 8px;
+    flex-shrink: 0;
+    background: #C8D62C;
+    position: relative;
+  }
+
+  .blueprint-line::after {
+    content: "";
+    position: absolute;
+    right: -4px;
+    top: -3px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #C8D62C;
+    box-shadow:
+      0 0 0 5px rgba(200,214,44,.10);
+  }
+
+
+  /* ============================================================
+     LIVE PULSE
+  ============================================================ */
+
+  .blueprint-pulse {
+    animation: blueprintPulse 1.8s ease-in-out infinite;
+  }
+
+  @keyframes blueprintPulse {
+
+    0%,
+    100% {
+      box-shadow:
+        0 0 0 0 rgba(200,214,44,.5);
+    }
+
+    50% {
+      box-shadow:
+        0 0 0 7px rgba(200,214,44,0);
+    }
+
+  }
+
+
+  /* ============================================================
+     TABLET
+  ============================================================ */
+
+  @media (max-width: 1024px) {
+
+    #equipment-blueprint .absolute.w-48,
+    #equipment-blueprint .absolute.w-56 {
+      width: 180px;
+    }
+
+  }
+
+
+  /* ============================================================
+     MOBILE
+  ============================================================ */
+
+  @media (max-width: 640px) {
+
+    #equipment-blueprint .min-h-\[580px\] {
+      min-height: 720px;
+    }
+
+    #equipment-blueprint .absolute.w-\[250px\] {
+      width: 210px;
+    }
+
+    #equipment-blueprint .absolute.left-5 {
+      left: 1rem;
+    }
+
+    #equipment-blueprint .absolute.right-5 {
+      right: 1rem;
+    }
+
+    #equipment-blueprint .absolute.top-\[38\%\] {
+      top: 35%;
+    }
+
+    #equipment-blueprint .absolute.top-\[32\%\] {
+      top: 35%;
+    }
+
+    #equipment-blueprint .absolute.bottom-8 {
+      bottom: 2rem;
+    }
+
+    #equipment-blueprint .absolute.w-48,
+    #equipment-blueprint .absolute.w-56 {
+      width: 145px;
+    }
+
+    #equipment-blueprint h3 {
+      font-size: .95rem;
+    }
+
+    #equipment-blueprint p {
+      font-size: .68rem;
+      line-height: 1.35rem;
+    }
+
+    #equipment-blueprint .blueprint-line {
+      width: 18px;
+    }
+
+  }
+
+
+  /* ============================================================
+     REDUCED MOTION
+  ============================================================ */
+
+  @media (prefers-reduced-motion: reduce) {
+
+    .blueprint-ring,
+    .blueprint-bike,
+    .blueprint-pulse {
+      animation: none;
+    }
+
+    .blueprint-reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+  }
+
+
+/* <!-- =========================================================
+     SECTION 5 CSS
+========================================================= --> */
+
+
+  /* ================================
+     INTRO REVEAL
+  ================================= */
+  .ride-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(5px);
+
+    transition:
+      opacity .7s ease,
+      transform .7s cubic-bezier(.2,.7,.2,1),
+      filter .7s ease;
+  }
+
+  .ride-reveal.ride-visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+
+  /* ================================
+     MAIN PANEL
+  ================================= */
+  .ride-panel {
+    opacity: 0;
+    transform: translateY(22px);
+
+    transition:
+      opacity .8s ease,
+      transform .8s cubic-bezier(.2,.7,.2,1);
+  }
+
+  .ride-panel.ride-panel-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+
+  /* ================================
+     FLOW ICON
+  ================================= */
+  .ride-flow-icon {
+
+    width: 47px;
+    min-width: 47px;
+    height: 47px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    z-index: 3;
+
+    background: #173A20;
+
+    border: 1px solid rgba(255,255,255,.13);
+
+    color: #C8D62C;
+
+    font-size: 13px;
+
+    transition:
+      transform .35s ease,
+      background .35s ease,
+      border-color .35s ease,
+      color .35s ease;
+
+  }
+
+
+  .ride-flow-item:hover .ride-flow-icon {
+
+    transform: translateX(5px) rotate(6deg);
+
+    background: #C8D62C;
+
+    border-color: #C8D62C;
+
+    color: #0B2415;
+
+  }
+
+
+  /* ================================
+     FLOW ANIMATION
+  ================================= */
+  .ride-flow-item {
+
+    opacity: 0;
+    transform: translateX(24px);
+
+    transition:
+      opacity .65s ease,
+      transform .65s cubic-bezier(.2,.7,.2,1);
+
+  }
+
+
+  .ride-panel-visible .ride-flow-item {
+
+    opacity: 1;
+    transform: translateX(0);
+
+  }
+
+
+  .ride-panel-visible .ride-flow-item:nth-child(1) {
+    transition-delay: .15s;
+  }
+
+  .ride-panel-visible .ride-flow-item:nth-child(2) {
+    transition-delay: .28s;
+  }
+
+  .ride-panel-visible .ride-flow-item:nth-child(3) {
+    transition-delay: .41s;
+  }
+
+  .ride-panel-visible .ride-flow-item:nth-child(4) {
+    transition-delay: .54s;
+  }
+
+
+  /* ================================
+     ENERGY LINE
+  ================================= */
+  .ride-energy-line {
+
+    animation:
+      rideEnergyMove 2.5s linear infinite;
+
+  }
+
+
+  @keyframes rideEnergyMove {
+
+    0% {
+      transform: translateY(-120%);
+    }
+
+    100% {
+      transform: translateY(430%);
+    }
+
+  }
+
+
+  /* ================================
+     METRIC HOVER
+  ================================= */
+  .ride-metric {
+
+    transition:
+      transform .3s ease;
+
+  }
+
+
+  .ride-metric:hover {
+
+    transform: translateX(5px);
+
+  }
+
+
+  /* ================================
+     BOTTOM INFO
+  ================================= */
+  .ride-info-item {
+
+    transition:
+      background .3s ease,
+      transform .3s ease;
+
+  }
+
+
+  .ride-info-item:hover {
+
+    background: rgba(200,214,44,.08);
+
+  }
+
+
+  /* ================================
+     GLOW MOVEMENT
+  ================================= */
+  .ride-glow-one,
+  .ride-glow-two {
+
+    transition:
+      transform .4s ease;
+
+  }
+
+
+  /* ================================
+     TABLET / MOBILE
+  ================================= */
+  @media (max-width: 1023px) {
+
+    .ride-panel {
+
+      min-height: auto;
+
+    }
+
+    .ride-flow-item {
+
+      transform: translateY(20px);
+
+    }
+
+    .ride-panel-visible .ride-flow-item {
+
+      transform: translateY(0);
+
+    }
+
+  }
+
+
+  /* ================================
+     SMALL MOBILE
+  ================================= */
+  @media (max-width: 640px) {
+
+    #ride-intelligence {
+
+      padding-top: 32px;
+      padding-bottom: 32px;
+
+    }
+
+    .ride-flow-icon {
+
+      width: 42px;
+      min-width: 42px;
+      height: 42px;
+
+    }
+
+  }
+
+
+  /* ================================
+     REDUCED MOTION
+  ================================= */
+  @media (prefers-reduced-motion: reduce) {
+
+    .ride-reveal,
+    .ride-panel,
+    .ride-flow-item {
+
+      opacity: 1;
+      transform: none;
+      filter: none;
+      transition: none;
+
+    }
+
+    .ride-energy-line {
+
+      animation: none;
+
+    }
+
+  }
+
+
+/* <!-- =========================================================
+     SECTION 6 STYLES
+========================================================= --> */
+
+
+  @keyframes slowRotate {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+
+  .reveal-rhythm {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(4px);
+    transition:
+      opacity 0.7s ease,
+      transform 0.7s ease,
+      filter 0.7s ease;
+  }
+
+
+  .reveal-rhythm.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+
+  .rhythm-row {
+    position: relative;
+    transition:
+      background-color 0.35s ease,
+      padding-left 0.35s ease,
+      padding-right 0.35s ease;
+  }
+
+
+  .rhythm-row::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 0;
+    height: 2px;
+    background: #C8D62C;
+    transition: width 0.55s ease;
+  }
+
+
+  .rhythm-row:hover::after {
+    width: 100%;
+  }
+
+
+  .rhythm-row:hover {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+
+  .rhythm-icon {
+    flex-shrink: 0;
+  }
+
+
+  @media (max-width: 640px) {
+
+    .rhythm-row:hover {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+
+  }
+
+
+  @media (prefers-reduced-motion: reduce) {
+
+    .reveal-rhythm {
+      opacity: 1;
+      transform: none;
+      filter: none;
+      transition: none;
+    }
+
+    .rhythm-row,
+    .rhythm-icon,
+    .rhythm-row::after {
+      transition: none;
+    }
+
+  }
+
+/* ==========================================================================
+   Global Consistent Container & Layout System Utilities
+   ========================================================================== */
+.velo-container {
+  width: 100%;
+  max-width: 80rem; /* 1280px / max-w-7xl */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .velo-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .velo-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Step Timeline Utilities */
+.timeline-track-vertical {
+  position: relative;
+}
+
+.timeline-track-vertical::before {
+  content: '';
+  position: absolute;
+  top: 2rem;
+  bottom: 2rem;
+  left: 1.75rem;
+  width: 2px;
+  background: linear-gradient(to bottom, #C8D62C, rgba(200, 214, 44, 0.2));
+}
+
+html[dir="rtl"] .timeline-track-vertical::before {
+  left: auto;
+  right: 1.75rem;
+}
+
+.timeline-step-node {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.timeline-step-node:hover {
+  transform: translateY(-2px);
+}
+
+/* Statistics Ribbon */
+.stat-metric-card {
+  border-radius: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #D9DDD8;
+  transition: all 0.3s ease;
+}
+
+html.dark .stat-metric-card {
+  background: #173A20;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.stat-metric-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px -4px rgba(40, 85, 46, 0.18);
+}
+
+/* High-Contrast Badge */
+.contrast-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: rgba(23, 58, 32, 0.08);
+  border: 1px solid rgba(40, 85, 46, 0.25);
+  color: #173A20;
+}
+
+html.dark .contrast-badge {
+  background: rgba(200, 214, 44, 0.15);
+  border-color: rgba(200, 214, 44, 0.35);
+  color: #C8D62C;
+}
+
