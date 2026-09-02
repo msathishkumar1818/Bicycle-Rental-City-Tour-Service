@@ -3489,3 +3489,31 @@ html.dark .contrast-badge {
   color: #C8D62C;
 }
 
+/* ========================================================================== */
+/* Mobile Menu Viewport, Scroll Locking & RTL Refinements                     */
+/* ========================================================================== */
+body.mobile-menu-open {
+  overflow: hidden !important;
+  touch-action: none;
+}
+
+#mobile-drawer {
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100dvh;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+[dir="rtl"] #mobile-drawer {
+  left: 0;
+  right: auto;
+  border-left: none;
+  border-right: 1px solid #D9DDD8;
+}
+
+html.dark[dir="rtl"] #mobile-drawer {
+  border-right-color: rgba(255, 255, 255, 0.1);
+}
+
+

@@ -850,21 +850,18 @@
 
 
     <!-- ================================================================ -->
-    <!-- BLUEPRINT AREA -->
+    <!-- BLUEPRINT AREA (Responsive: Grid on Mobile/Tablet, Blueprint on Desktop) -->
     <!-- ================================================================ -->
 
-    <div class="relative min-h-[580px]
+    <!-- Desktop Blueprint View (lg and up) -->
+    <div class="hidden lg:block relative min-h-[580px]
                 bg-[#173A20] dark:bg-[#0B2415]
-                overflow-hidden blueprint-reveal">
-
+                rounded-3xl overflow-hidden blueprint-reveal border border-[#D9DDD8] dark:border-white/10 shadow-lg">
 
       <!-- Blueprint grid -->
-
       <div class="absolute inset-0 blueprint-grid"></div>
 
-
       <!-- Technical circles -->
-
       <div class="absolute
                   w-[480px] h-[480px]
                   rounded-full
@@ -882,17 +879,11 @@
                   -translate-x-1/2 -translate-y-1/2">
       </div>
 
-
-      <!-- ============================================================ -->
       <!-- CENTER BIKE VISUAL -->
-      <!-- ============================================================ -->
-
       <div class="absolute inset-0
                   flex items-center justify-center
                   pointer-events-none">
-
-        <div class="relative w-[250px] sm:w-[320px] lg:w-[290px]">
-
+        <div class="relative w-[290px]">
           <img
             src="assets/images/p10.jpg"
             alt="Velo City bicycle equipment"
@@ -900,229 +891,226 @@
                    mix-blend-screen
                    opacity-90
                    blueprint-bike">
-
         </div>
-
       </div>
 
-
-      <!-- ============================================================ -->
       <!-- TOP LEFT LABEL -->
-      <!-- ============================================================ -->
-
-      <div class="absolute top-6 left-6 sm:top-8 sm:left-8">
-
-        <span class="block text-[9px] font-mono
+      <div class="absolute top-8 left-8">
+        <span class="block text-xs font-mono
                      uppercase tracking-[0.18em]
-                     text-[#C8D62C]">
+                     text-[#C8D62C] font-bold">
           Standard configuration
         </span>
-
-        <span class="block mt-1 text-sm font-bold text-white">
+        <span class="block mt-1 text-base font-bold text-white">
           Prepared before departure
         </span>
-
       </div>
 
-
-      <!-- ============================================================ -->
       <!-- TOP RIGHT STATUS -->
-      <!-- ============================================================ -->
-
-      <div class="absolute top-6 right-6 sm:top-8 sm:right-8
+      <div class="absolute top-8 right-8
                   flex items-center gap-2">
-
-        <span class="w-2 h-2 rounded-full
+        <span class="w-2.5 h-2.5 rounded-full
                      bg-[#C8D62C]
                      blueprint-pulse">
         </span>
-
-        <span class="text-[9px] font-mono uppercase
+        <span class="text-xs font-mono font-bold uppercase
                      tracking-widest text-white">
           Ready to ride
         </span>
-
       </div>
 
-
-      <!-- ============================================================ -->
       <!-- LEFT ANNOTATION -->
-      <!-- ============================================================ -->
-
       <div class="absolute
-                  left-5 sm:left-8
+                  left-8
                   top-[38%]
-                  w-48 sm:w-56">
-
+                  w-56">
         <div class="flex items-start gap-3">
-
           <div class="blueprint-line"></div>
-
           <div>
-
-            <span class="block text-[9px]
-                         font-mono uppercase
+            <span class="block text-xs
+                         font-mono uppercase font-bold
                          tracking-widest
                          text-[#C8D62C]">
               Security
             </span>
-
             <h3 class="mt-1 font-display font-bold
                        text-lg text-white">
               ABUS Bordo Lock
             </h3>
-
-            <p class="mt-2 text-xs leading-5 text-white">
+            <p class="mt-1 text-xs leading-5 text-white/90">
               Hardened folding steel protection with
               a compact frame-mounted bracket.
             </p>
-
           </div>
-
         </div>
-
       </div>
 
-
-      <!-- ============================================================ -->
       <!-- RIGHT ANNOTATION -->
-      <!-- ============================================================ -->
-
       <div class="absolute
-                  right-5 sm:right-8
+                  right-8
                   top-[32%]
-                  w-48 sm:w-56">
-
+                  w-56">
         <div class="flex items-start gap-3">
-
           <div class="blueprint-line"></div>
-
           <div>
-
-            <span class="block text-[9px]
-                         font-mono uppercase
+            <span class="block text-xs
+                         font-mono uppercase font-bold
                          tracking-widest
                          text-[#C8D62C]">
               Protection
             </span>
-
             <h3 class="mt-1 font-display font-bold
                        text-lg text-white">
               Giro Safety Helmet
             </h3>
-
-            <p class="mt-2 text-xs leading-5 text-white">
+            <p class="mt-1 text-xs leading-5 text-white/90">
               Comfortable protection with reflective
               detailing and professional cleaning.
             </p>
-
           </div>
-
         </div>
-
       </div>
 
-
-      <!-- ============================================================ -->
       <!-- LOWER LEFT -->
-      <!-- ============================================================ -->
-
       <div class="absolute
-                  left-5 sm:left-8
+                  left-8
                   bottom-8
-                  w-48 sm:w-56">
-
+                  w-56">
         <div class="flex items-start gap-3">
-
           <div class="blueprint-line"></div>
-
           <div>
-
-            <span class="block text-[9px]
-                         font-mono uppercase
+            <span class="block text-xs
+                         font-mono uppercase font-bold
                          tracking-widest
                          text-[#C8D62C]">
               Optional
             </span>
-
             <h3 class="mt-1 font-display font-bold
                        text-lg text-white">
               Ortlieb Pannier
             </h3>
-
-            <p class="mt-2 text-xs leading-5 text-white">
+            <p class="mt-1 text-xs leading-5 text-white/90">
               Waterproof storage for work gear,
               groceries and everything between.
             </p>
-
           </div>
-
         </div>
-
       </div>
 
-
-      <!-- ============================================================ -->
       <!-- LOWER RIGHT -->
-      <!-- ============================================================ -->
-
       <div class="absolute
-                  right-5 sm:right-8
+                  right-8
                   bottom-8
-                  w-48 sm:w-56">
-
+                  w-56">
         <div class="flex items-start gap-3">
-
           <div class="blueprint-line"></div>
-
           <div>
-
-            <span class="block text-[9px]
-                         font-mono uppercase
+            <span class="block text-xs
+                         font-mono uppercase font-bold
                          tracking-widest
                          text-[#C8D62C]">
               Optional
             </span>
-
             <h3 class="mt-1 font-display font-bold
                        text-lg text-white">
               QuadLock Mount
             </h3>
-
-            <p class="mt-2 text-xs leading-5 text-white">
+            <p class="mt-1 text-xs leading-5 text-white/90">
               Secure handlebar mounting for effortless
               turn-by-turn city navigation.
             </p>
-
           </div>
-
         </div>
-
       </div>
 
-
-      <!-- ============================================================ -->
       <!-- CENTER LABEL -->
-      <!-- ============================================================ -->
-
       <div class="absolute left-1/2 bottom-6
-                  -translate-x-1/2
-                  hidden sm:block">
-
-        <span class="px-4 py-2
+                  -translate-x-1/2">
+        <span class="px-4 py-1.5 rounded-full
                      border border-[#C8D62C]/40
-                     text-[9px] font-mono
+                     text-xs font-mono font-bold
                      uppercase tracking-widest
                      text-[#C8D62C]
-                     bg-[#173A20]/70
+                     bg-[#173A20]/80
                      backdrop-blur-sm">
-
           City-ready equipment system
-
         </span>
+      </div>
+    </div>
 
+    <!-- Mobile & Tablet Responsive Card Layout (< 1024px) -->
+    <div class="lg:hidden bg-[#173A20] dark:bg-[#0B2415] rounded-3xl p-6 sm:p-8 border border-[#D9DDD8] dark:border-white/10 shadow-lg space-y-6">
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-white/10">
+        <div>
+          <span class="block text-xs font-mono uppercase tracking-wider text-[#C8D62C] font-bold">
+            Standard configuration
+          </span>
+          <h3 class="text-xl sm:text-2xl font-display font-extrabold text-white mt-1">
+            Prepared before departure
+          </h3>
+        </div>
+        <div class="inline-flex items-center gap-2 self-start sm:self-auto px-3 py-1 rounded-full bg-[#C8D62C]/20 border border-[#C8D62C]/30 text-xs font-mono text-[#C8D62C] font-bold">
+          <span class="w-2 h-2 rounded-full bg-[#C8D62C] animate-pulse"></span>
+          <span>Ready to ride</span>
+        </div>
       </div>
 
+      <!-- Equipment Visual Center Card -->
+      <div class="relative flex items-center justify-center p-6 rounded-2xl bg-[#0B2415]/60 border border-white/10 overflow-hidden">
+        <div class="absolute inset-0 blueprint-grid opacity-30"></div>
+        <img
+          src="assets/images/p10.jpg"
+          alt="Velo City bicycle equipment"
+          class="relative z-10 w-full max-w-[260px] sm:max-w-[320px] h-auto object-contain mix-blend-screen opacity-95">
+      </div>
+
+      <!-- 4 Equipment Items in Clean Responsive Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- Item 1: Security -->
+        <div class="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+          <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-[#C8D62C]">
+            &bull; Security
+          </span>
+          <h4 class="font-display font-bold text-base sm:text-lg text-white">ABUS Bordo Lock</h4>
+          <p class="text-xs text-white/80 leading-relaxed">
+            Hardened folding steel protection with a compact frame-mounted bracket.
+          </p>
+        </div>
+
+        <!-- Item 2: Protection -->
+        <div class="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+          <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-[#C8D62C]">
+            &bull; Protection
+          </span>
+          <h4 class="font-display font-bold text-base sm:text-lg text-white">Giro Safety Helmet</h4>
+          <p class="text-xs text-white/80 leading-relaxed">
+            Comfortable protection with reflective detailing and professional sanitization.
+          </p>
+        </div>
+
+        <!-- Item 3: Storage -->
+        <div class="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+          <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-[#C8D62C]">
+            &bull; Optional Add-On
+          </span>
+          <h4 class="font-display font-bold text-base sm:text-lg text-white">Ortlieb Pannier</h4>
+          <p class="text-xs text-white/80 leading-relaxed">
+            Waterproof storage for work laptops, groceries, and full-day city gear.
+          </p>
+        </div>
+
+        <!-- Item 4: Phone Mount -->
+        <div class="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+          <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-[#C8D62C]">
+            &bull; Optional Add-On
+          </span>
+          <h4 class="font-display font-bold text-base sm:text-lg text-white">QuadLock Mount</h4>
+          <p class="text-xs text-white/80 leading-relaxed">
+            Secure handlebar mounting for effortless turn-by-turn city navigation.
+          </p>
+        </div>
+      </div>
     </div>
 
 
