@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Velo City — E-Mobility &amp; Smart Transit Edition</title>
-  <meta name="description" content="Next-generation urban electric mobility. High-torque Bosch e-bikes, keyless smart locks, signature river trails, and commuter monthly passes." />
-  
+  <meta name="description"
+    content="Next-generation urban electric mobility. High-torque Bosch e-bikes, keyless smart locks, signature river trails, and commuter monthly passes." />
+
   <!-- Favicon / Title Icon -->
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
   <link rel="alternate icon" href="assets/images/favicon.svg" />
   <link rel="apple-touch-icon" href="assets/images/favicon.svg" />
-  
+
   <!-- OpenGraph Meta -->
   <meta property="og:title" content="Velo City — E-Mobility &amp; Smart Transit" />
   <meta property="og:description" content="Experience high-torque electric commuting and smart contactless unlocks." />
@@ -68,13 +70,13 @@
       }
     }
   </script>
-<link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
-<body class="has-fixed-header bg-[#FFFFFF] dark:bg-[#0B2415] text-[#171A18] dark:text-white selection:bg-[#C8D62C] selection:text-[#171A18] transition-colors duration-300">
+<body
+  class="has-fixed-header bg-[#FFFFFF] dark:bg-[#0B2415] text-[#171A18] dark:text-white selection:bg-[#C8D62C] selection:text-[#171A18] transition-colors duration-300">
 
   <!-- ========================================================================= -->
   <!-- GLOBAL PAGE LOADER                                                        -->
@@ -82,7 +84,8 @@
   <div id="global-page-loader" role="status" aria-label="Loading Velo City">
     <div class="relative flex flex-col items-center gap-4">
       <div class="loader-spinner-ring"></div>
-      <span class="font-display font-bold text-xs tracking-widest uppercase text-[#C8D62C] animate-pulse">VELO CITY &bull; E-MOBILITY</span>
+      <span class="font-display font-bold text-xs tracking-widest uppercase text-[#C8D62C] animate-pulse">VELO CITY
+        &bull; E-MOBILITY</span>
     </div>
   </div>
 
@@ -90,7 +93,8 @@
   <!-- FLOATING BACK TO TOP BUTTON                                               -->
   <!-- ========================================================================= -->
   <button type="button" id="back-to-top-btn" aria-label="Scroll back to top" title="Back to top">
-    <svg class="w-5 h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <svg class="w-5 h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+      stroke-linejoin="round">
       <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
   </button>
@@ -101,46 +105,65 @@
   <header class="sticky top-0 z-50 nav-sky-header" id="main-header">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="h-16 sm:h-[68px] flex items-center justify-between gap-2 lg:gap-4">
-        
+
         <!-- Brand Logo -->
-        <a href="index.html" class="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C8D62C] rounded-lg p-1 shrink-0" aria-label="Velo City Homepage">
-          <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#C8D62C] text-[#171A18] flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform duration-200">
-            <svg class="w-4 h-4 sm:w-5 sm:h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="5.5" cy="17.5" r="3.5"/>
-              <circle cx="18.5" cy="17.5" r="3.5"/>
-              <path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 11.5L9 6H4m11 11.5L12 9l3-3h3"/>
+        <a href="index.html"
+          class="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C8D62C] rounded-lg p-1 shrink-0"
+          aria-label="Velo City Homepage">
+          <div
+            class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#173A20] dark:bg-[#C8D62C] flex items-center justify-center text-[#C8D62C] dark:text-[#171A18] shadow-sm group-hover:scale-105 transition-transform duration-200">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="5.5" cy="17.5" r="3.5" />
+              <circle cx="18.5" cy="17.5" r="3.5" />
+              <path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 11.5L9 6H4m11 11.5L12 9l3-3h3" />
             </svg>
           </div>
           <div class="flex flex-col">
-            <span class="font-display font-bold text-base sm:text-lg tracking-tight uppercase text-[#171A18] dark:text-white leading-none">VELO CITY</span>
-            <span class="text-[9px] font-mono tracking-widest text-[#28552E] dark:text-[#C8D62C] uppercase font-semibold mt-0.5">E-Mobility Edition</span>
+            <span
+              class="font-display font-bold text-base sm:text-lg tracking-tight uppercase text-[#171A18] dark:text-white leading-none">VELO
+              CITY</span>
+            <span
+              class="text-[9px] font-mono tracking-widest text-[#28552E] dark:text-[#C8D62C] uppercase font-semibold mt-0.5">E-Mobility
+              Edition</span>
           </div>
         </a>
 
         <!-- Desktop Navigation Bar -->
-        <nav class="hidden xl:flex items-center gap-1 xl:gap-1.5 2xl:gap-2 text-xs xl:text-[13px] 2xl:text-sm font-semibold text-[#171A18] dark:text-white" aria-label="Main Navigation">
-          
+        <nav
+          class="hidden xl:flex items-center gap-1 xl:gap-1.5 2xl:gap-2 text-xs xl:text-[13px] 2xl:text-sm font-semibold text-[#171A18] dark:text-white"
+          aria-label="Main Navigation">
+
           <!-- Home Dropdown Container -->
           <div class="relative home-dropdown-container">
-            <button type="button" id="desktop-home-nav-trigger" class="home-dropdown-trigger inline-flex items-center gap-1.5 px-2 xl:px-2.5 2xl:px-3 py-1.5 rounded-md text-[#28552E] dark:text-[#C8D62C] font-bold hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] transition-colors whitespace-nowrap" aria-expanded="false">
+            <button type="button" id="desktop-home-nav-trigger"
+              class="home-dropdown-trigger inline-flex items-center gap-1.5 px-2 xl:px-2.5 2xl:px-3 py-1.5 rounded-md text-[#28552E] dark:text-[#C8D62C] font-bold hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] transition-colors whitespace-nowrap"
+              aria-expanded="false">
               <span>Home</span>
-              <svg class="w-3.5 h-3.5 stroke-current transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              <svg class="w-3.5 h-3.5 stroke-current transition-transform duration-200" viewBox="0 0 24 24" fill="none"
+                stroke-width="2">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
             </button>
 
             <!-- Dropdown Menu Box -->
             <div class="home-dropdown-menu">
               <a href="index.html" id="dropdown-link-home1" class="home-dropdown-item group">
-                <div class="w-7 h-7 rounded-lg bg-[#F7F7F2] dark:bg-[#173A20] text-[#28552E] dark:text-[#C8D62C] flex items-center justify-center font-bold text-xs">
+                <div
+                  class="w-7 h-7 rounded-lg bg-[#F7F7F2] dark:bg-[#173A20] text-[#28552E] dark:text-[#C8D62C] flex items-center justify-center font-bold text-xs">
                   &bull;
                 </div>
                 <div class="flex flex-col">
-                  <span class="font-display font-bold text-xs text-[#171A18] dark:text-white group-hover:text-[#28552E] dark:group-hover:text-[#C8D62C]">Home 1 (Classic)</span>
+                  <span
+                    class="font-display font-bold text-xs text-[#171A18] dark:text-white group-hover:text-[#28552E] dark:group-hover:text-[#C8D62C]">Home
+                    1 (Classic)</span>
                   <small class="text-[10px] text-[#171A18] dark:text-white">Urban Exploration &amp; Fleet</small>
                 </div>
               </a>
 
               <a href="home-2.html" id="dropdown-link-home2" class="home-dropdown-item active group mt-1">
-                <div class="w-7 h-7 rounded-lg bg-[#173A20] text-[#C8D62C] flex items-center justify-center font-bold text-xs">
+                <div
+                  class="w-7 h-7 rounded-lg bg-[#173A20] text-[#C8D62C] flex items-center justify-center font-bold text-xs">
                   &bull;
                 </div>
                 <div class="flex flex-col">
@@ -151,31 +174,49 @@
             </div>
           </div>
 
-          <a href="fleet.html" id="desktop-nav-fleet" class="px-2 xl:px-2.5 2xl:px-3 py-1.5 rounded-md hover:text-[#28552E] dark:hover:text-[#C8D62C] hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] transition-colors whitespace-nowrap">Fleet</a>
-          <a href="tours.html" id="desktop-nav-tours" class="px-2 xl:px-2.5 2xl:px-3 py-1.5 rounded-md hover:text-[#28552E] dark:hover:text-[#C8D62C] hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] transition-colors whitespace-nowrap">Guided Tours</a>
-          <a href="locations.html" id="desktop-nav-locations" class="px-2 xl:px-2.5 2xl:px-3 py-1.5 rounded-md hover:text-[#28552E] dark:hover:text-[#C8D62C] hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] transition-colors whitespace-nowrap">Pickup Locations</a>
-          <a href="rules.html" id="desktop-nav-rules" class="px-2 xl:px-2.5 2xl:px-3 py-1.5 rounded-md hover:text-[#28552E] dark:hover:text-[#C8D62C] hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] transition-colors whitespace-nowrap">Rules &amp; Deposit</a>
-          <a href="contact.html" id="desktop-nav-contact" class="px-2 xl:px-2.5 2xl:px-3 py-1.5 rounded-md hover:text-[#28552E] dark:hover:text-[#C8D62C] hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] transition-colors whitespace-nowrap">Contact</a>
-          <a href="dashboard.html" id="desktop-nav-dashboard" class="px-2 xl:px-2.5 2xl:px-3 py-1.5 rounded-md hover:text-[#28552E] dark:hover:text-[#C8D62C] hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] transition-colors whitespace-nowrap">Dashboard</a>
+          <a href="fleet.html" id="desktop-nav-fleet"
+            class="px-2 xl:px-2.5 2xl:px-3 py-1.5 rounded-md hover:text-[#28552E] dark:hover:text-[#C8D62C] hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] transition-colors whitespace-nowrap">Fleet</a>
+          <a href="tours.html" id="desktop-nav-tours"
+            class="px-2 xl:px-2.5 2xl:px-3 py-1.5 rounded-md hover:text-[#28552E] dark:hover:text-[#C8D62C] hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] transition-colors whitespace-nowrap">Guided
+            Tours</a>
+          <a href="locations.html" id="desktop-nav-locations"
+            class="px-2 xl:px-2.5 2xl:px-3 py-1.5 rounded-md hover:text-[#28552E] dark:hover:text-[#C8D62C] hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] transition-colors whitespace-nowrap">Pickup
+            Locations</a>
+          <a href="rules.html" id="desktop-nav-rules"
+            class="px-2 xl:px-2.5 2xl:px-3 py-1.5 rounded-md hover:text-[#28552E] dark:hover:text-[#C8D62C] hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] transition-colors whitespace-nowrap">Rules
+            &amp; Deposit</a>
+          <a href="contact.html" id="desktop-nav-contact"
+            class="px-2 xl:px-2.5 2xl:px-3 py-1.5 rounded-md hover:text-[#28552E] dark:hover:text-[#C8D62C] hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] transition-colors whitespace-nowrap">Contact</a>
+          <a href="dashboard.html" id="desktop-nav-dashboard"
+            class="px-2 xl:px-2.5 2xl:px-3 py-1.5 rounded-md hover:text-[#28552E] dark:hover:text-[#C8D62C] hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] transition-colors whitespace-nowrap">Dashboard</a>
         </nav>
 
         <!-- Right Side Actions: Login -> Theme/RTL Controls -->
         <div class="hidden xl:flex items-center gap-2 xl:gap-2.5 shrink-0">
-          
+
           <!-- Login Button -->
-          <a href="login.html" id="desktop-action-login" class="btn-primary inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold shadow-md">
-            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+          <a href="login.html" id="desktop-action-login"
+            class="btn-primary inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold shadow-md">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+              <polyline points="10 17 15 12 10 7" />
+              <line x1="15" y1="12" x2="3" y2="12" />
+            </svg>
             <span>Login</span>
           </a>
 
           <!-- Theme Toggle -->
-          <button type="button" class="theme-toggle-btn w-9 h-9 flex items-center justify-center rounded-lg border border-[#D9DDD8] dark:border-white/20 hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] text-[#171A18] dark:text-white transition-colors cursor-pointer" title="Switch to Dark Mode" aria-label="Toggle theme">
+          <button type="button"
+            class="theme-toggle-btn w-9 h-9 flex items-center justify-center rounded-lg border border-[#D9DDD8] dark:border-white/20 hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] text-[#171A18] dark:text-white transition-colors cursor-pointer"
+            title="Switch to Dark Mode" aria-label="Toggle theme">
             <i class="fa-solid fa-moon theme-icon-moon text-sm"></i>
             <i class="fa-solid fa-sun theme-icon-sun hidden text-amber-400 text-sm"></i>
           </button>
 
           <!-- Direction Toggle -->
-          <button type="button" class="dir-toggle-btn inline-flex items-center gap-1.5 px-2.5 h-9 text-xs font-mono font-bold rounded-lg border border-[#D9DDD8] dark:border-white/20 hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] text-[#171A18] dark:text-white transition-colors cursor-pointer" title="Switch to RTL Direction" aria-label="Toggle layout direction">
+          <button type="button"
+            class="dir-toggle-btn inline-flex items-center gap-1.5 px-2.5 h-9 text-xs font-mono font-bold rounded-lg border border-[#D9DDD8] dark:border-white/20 hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] text-[#171A18] dark:text-white transition-colors cursor-pointer"
+            title="Switch to RTL Direction" aria-label="Toggle layout direction">
             <i class="fa-solid fa-right-left text-xs text-[#28552E] dark:text-[#C8D62C] dir-toggle-icon"></i>
             <span class="dir-toggle-label">LTR</span>
           </button>
@@ -183,8 +224,14 @@
 
         <!-- Mobile Menu Trigger -->
         <div class="flex items-center gap-2 xl:hidden">
-          <button type="button" id="mobile-menu-open-btn" class="p-2 rounded-lg border border-[#D9DDD8] dark:border-white/20 text-[#171A18] dark:text-white hover:bg-[#F7F7F2]" aria-expanded="false" aria-label="Open Mobile Navigation Menu">
-            <svg class="w-5 h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+          <button type="button" id="mobile-menu-open-btn"
+            class="p-2 rounded-lg border border-[#D9DDD8] dark:border-white/20 text-[#171A18] dark:text-white hover:bg-[#F7F7F2]"
+            aria-expanded="false" aria-label="Open Mobile Navigation Menu">
+            <svg class="w-5 h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2">
+              <line x1="4" y1="6" x2="20" y2="6" />
+              <line x1="4" y1="12" x2="20" y2="12" />
+              <line x1="4" y1="18" x2="20" y2="18" />
+            </svg>
           </button>
         </div>
 
@@ -193,37 +240,65 @@
   </header>
 
   <!-- Mobile Drawer Backdrop -->
-  <div id="mobile-drawer-backdrop" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 xl:hidden"></div>
+  <div id="mobile-drawer-backdrop"
+    class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 xl:hidden">
+  </div>
 
   <!-- Mobile Navigation Drawer -->
-  <div id="mobile-drawer" class="fixed top-0 right-0 bottom-0 z-50 w-full max-w-sm bg-white dark:bg-[#173A20] border-l border-[#D9DDD8] dark:border-white/10 p-6 flex flex-col justify-between translate-x-full pointer-events-none transition-transform duration-300 ease-in-out xl:hidden overflow-y-auto">
+  <div id="mobile-drawer"
+    class="fixed top-0 right-0 bottom-0 z-50 w-full max-w-sm bg-white dark:bg-[#173A20] border-l border-[#D9DDD8] dark:border-white/10 p-6 flex flex-col justify-between translate-x-full pointer-events-none transition-transform duration-300 ease-in-out xl:hidden overflow-y-auto">
     <div>
       <div class="flex items-center justify-between pb-4 border-b border-[#D9DDD8] dark:border-white/10">
-        <span class="font-display font-bold text-sm uppercase tracking-widest text-[#28552E] dark:text-[#C8D62C]">Menu Navigation</span>
-        <button type="button" id="mobile-menu-close-btn" class="p-1.5 rounded-md text-[#171A18] dark:text-white hover:text-[#28552E] dark:hover:text-[#C8D62C]" aria-label="Close Mobile Menu">
-          <svg class="w-5 h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <span class="font-display font-bold text-sm uppercase tracking-widest text-[#28552E] dark:text-[#C8D62C]">Menu
+          Navigation</span>
+        <button type="button" id="mobile-menu-close-btn"
+          class="p-1.5 rounded-md text-[#171A18] dark:text-white hover:text-[#28552E] dark:hover:text-[#C8D62C]"
+          aria-label="Close Mobile Menu">
+          <svg class="w-5 h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
         </button>
       </div>
 
       <nav class="flex flex-col gap-1 mt-4">
         <!-- Mobile Home Accordion -->
         <div class="border-b border-[#D9DDD8] dark:border-white/10 pb-2">
-          <button type="button" id="mobile-home-accordion-btn" class="w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-semibold text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5" aria-expanded="false">
+          <button type="button" id="mobile-home-accordion-btn"
+            class="w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-semibold text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5"
+            aria-expanded="false">
             <span>Home Variations</span>
-            <svg class="accordion-chevron w-4 h-4 stroke-current transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            <svg class="accordion-chevron w-4 h-4 stroke-current transition-transform duration-200" viewBox="0 0 24 24"
+              fill="none" stroke-width="2">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
           </button>
           <div id="mobile-home-accordion-menu" class="pl-3 space-y-1 mt-1 hidden">
-            <a href="index.html" class="mobile-nav-link block px-3 py-1.5 text-xs font-semibold text-[#171A18] dark:text-white hover:text-[#28552E] dark:hover:text-[#C8D62C] rounded-md">Home 1 (Classic Exploration)</a>
-            <a href="home-2.html" class="mobile-nav-link block px-3 py-1.5 text-xs font-semibold text-[#28552E] dark:text-[#C8D62C] bg-[#F7F7F2] dark:bg-[#0B2415]/40 rounded-md">Home 2 (E-Mobility Edition)</a>
+            <a href="index.html"
+              class="mobile-nav-link block px-3 py-1.5 text-xs font-semibold text-[#171A18] dark:text-white hover:text-[#28552E] dark:hover:text-[#C8D62C] rounded-md">Home
+              1 (Classic Exploration)</a>
+            <a href="home-2.html"
+              class="mobile-nav-link block px-3 py-1.5 text-xs font-semibold text-[#28552E] dark:text-[#C8D62C] bg-[#F7F7F2] dark:bg-[#0B2415]/40 rounded-md">Home
+              2 (E-Mobility Edition)</a>
           </div>
         </div>
 
-        <a href="fleet.html" class="mobile-nav-link px-3 py-2 rounded-lg text-sm font-semibold text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5">Fleet Catalog</a>
-        <a href="tours.html" class="mobile-nav-link px-3 py-2 rounded-lg text-sm font-semibold text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5">Guided Tours</a>
-        <a href="locations.html" class="mobile-nav-link px-3 py-2 rounded-lg text-sm font-semibold text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5">Pickup Locations</a>
-        <a href="rules.html" class="mobile-nav-link px-3 py-2 rounded-lg text-sm font-semibold text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5">Rules &amp; Deposit</a>
-        <a href="contact.html" class="mobile-nav-link px-3 py-2 rounded-lg text-sm font-semibold text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5">Contact</a>
-        <a href="dashboard.html" class="mobile-nav-link px-3 py-2 rounded-lg text-sm font-semibold text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5">Dashboard</a>
+        <a href="fleet.html"
+          class="mobile-nav-link px-3 py-2 rounded-lg text-sm font-semibold text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5">Fleet
+          Catalog</a>
+        <a href="tours.html"
+          class="mobile-nav-link px-3 py-2 rounded-lg text-sm font-semibold text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5">Guided
+          Tours</a>
+        <a href="locations.html"
+          class="mobile-nav-link px-3 py-2 rounded-lg text-sm font-semibold text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5">Pickup
+          Locations</a>
+        <a href="rules.html"
+          class="mobile-nav-link px-3 py-2 rounded-lg text-sm font-semibold text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5">Rules
+          &amp; Deposit</a>
+        <a href="contact.html"
+          class="mobile-nav-link px-3 py-2 rounded-lg text-sm font-semibold text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5">Contact</a>
+        <a href="dashboard.html"
+          class="mobile-nav-link px-3 py-2 rounded-lg text-sm font-semibold text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5">Dashboard</a>
       </nav>
     </div>
 
@@ -231,7 +306,8 @@
     <div class="pt-4 border-t border-[#D9DDD8] dark:border-white/10 space-y-2.5">
       <div class="flex items-center justify-between">
         <span class="text-xs font-medium text-[#171A18] dark:text-white">Theme Mode</span>
-        <button type="button" class="theme-toggle-btn inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-[#D9DDD8] dark:border-white/20 text-xs font-mono font-semibold text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5 transition-colors">
+        <button type="button"
+          class="theme-toggle-btn inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-[#D9DDD8] dark:border-white/20 text-xs font-mono font-semibold text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5 transition-colors">
           <i class="fa-solid fa-moon theme-icon-moon text-xs"></i>
           <i class="fa-solid fa-sun theme-icon-sun hidden text-amber-400 text-xs"></i>
           <span class="theme-status-label">Light Mode</span>
@@ -240,13 +316,15 @@
 
       <div class="flex items-center justify-between">
         <span class="text-xs font-medium text-[#171A18] dark:text-white">Direction (LTR / RTL)</span>
-        <button type="button" class="dir-toggle-btn inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-semibold rounded-lg border border-[#D9DDD8] dark:border-white/20 text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5 transition-colors">
+        <button type="button"
+          class="dir-toggle-btn inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-semibold rounded-lg border border-[#D9DDD8] dark:border-white/20 text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5 transition-colors">
           <i class="fa-solid fa-right-left text-xs text-[#28552E] dark:text-[#C8D62C] dir-toggle-icon"></i>
           <span class="dir-toggle-label">LTR</span>
         </button>
       </div>
 
-      <a href="login.html" class="mobile-nav-link btn-primary w-full inline-flex items-center justify-center gap-2 py-2 rounded-lg text-xs font-bold text-center shadow-md">
+      <a href="login.html"
+        class="mobile-nav-link btn-primary w-full inline-flex items-center justify-center gap-2 py-2 rounded-lg text-xs font-bold text-center shadow-md">
         <span>Login</span>
       </a>
     </div>
@@ -261,35 +339,44 @@
     <!-- ======================================================================= -->
     <!-- SECTION 1 — IMMERSIVE FULL-WIDTH IMAGE HERO (FOREST GREEN + LIME)       -->
     <!-- ======================================================================= -->
-    <section class="relative min-h-[88vh] flex items-center justify-center py-20 lg:py-28 overflow-hidden text-white border-b border-black/10 dark:border-white/10">
-      
+    <section
+      class="relative min-h-[88vh] flex items-center justify-center py-20 lg:py-28 overflow-hidden text-white border-b border-black/10 dark:border-white/10">
+
       <!-- Full-Width Background Photo with Forest Green Overlay & Slow Zoom -->
-      <div class="absolute inset-0 bg-cover bg-center hero-bg-zoom opacity-20 scale-105" style="background-image: url('assets/images/home2-hero-bg.jpg');"></div>
+      <div class="absolute inset-0 bg-cover bg-center hero-bg-zoom opacity-20 scale-105"
+        style="background-image: url('assets/images/home2-hero-bg.jpg');"></div>
       <div class="absolute inset-0 bg-gradient-to-t from-[#0B2415] via-[#173A20]/70 to-[#28552E]/60"></div>
 
       <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
+
           <!-- Hero Headline (Left) -->
           <div class="lg:col-span-7 space-y-6 reveal-on-scroll">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#C8D62C]/20 border border-[#C8D62C]/40 text-[#C8D62C] text-xs font-mono font-bold uppercase tracking-wider">
+            <div
+              class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#C8D62C]/20 border border-[#C8D62C]/40 text-[#C8D62C] text-xs font-mono font-bold uppercase tracking-wider">
               <span>Next-Gen E-Mobility &bull; 85Nm Bosch Power</span>
             </div>
 
-            <h1 class="font-display font-extrabold text-4xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-white">
+            <h1
+              class="font-display font-extrabold text-4xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-white">
               The City Moves <span class="text-[#C8D62C]">With You.</span>
             </h1>
 
             <p class="text-base sm:text-xl text-white max-w-xl leading-relaxed">
-              Quiet. Powerful. Effortless. Glide past traffic jams on precision electric commuters powered by 85Nm Bosch motors and 24-station smart docks.
+              Quiet. Powerful. Effortless. Glide past traffic jams on precision electric commuters powered by 85Nm Bosch
+              motors and 24-station smart docks.
             </p>
 
             <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-              <a href="#emobility-section" class="btn-primary px-8 py-4 rounded-xl text-base font-bold inline-flex items-center justify-center gap-2 shadow-xl">
+              <a href="#emobility-section"
+                class="btn-primary px-8 py-4 rounded-xl text-base font-bold inline-flex items-center justify-center gap-2 shadow-xl">
                 <span>See Transit Comparison</span>
-                <svg class="w-4 h-4 rtl-flip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                <svg class="w-4 h-4 rtl-flip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
               </a>
-              <a href="fleet.html" class="btn-outline-white px-6 py-4 rounded-xl text-sm font-semibold inline-flex items-center justify-center gap-2">
+              <a href="fleet.html"
+                class="btn-outline-white px-6 py-4 rounded-xl text-sm font-semibold inline-flex items-center justify-center gap-2">
                 <span>View 16 Fleet Models</span>
               </a>
             </div>
@@ -297,7 +384,8 @@
 
           <!-- Quick Dock Live Reservation Card (Right) -->
           <div class="lg:col-span-5 reveal-on-scroll">
-            <div class="bg-[#173A20]/95 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-white/15 shadow-2xl text-white space-y-5">
+            <div
+              class="bg-[#173A20]/95 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-white/15 shadow-2xl text-white space-y-5">
               <div class="flex items-center justify-between border-b border-white/10 pb-4">
                 <div>
                   <span class="text-[10px] font-mono font-bold uppercase text-[#C8D62C]">CONTACTLESS DOCK UNLOCK</span>
@@ -309,7 +397,8 @@
               <div class="space-y-4 text-xs font-mono">
                 <div>
                   <label for="h2-station-select" class="block text-white mb-1 font-semibold">DEPARTURE HUB</label>
-                  <select id="h2-station-select" class="w-full px-3 py-2.5 rounded-lg bg-[#0B2415] border border-white/15 text-white">
+                  <select id="h2-station-select"
+                    class="w-full px-3 py-2.5 rounded-lg bg-[#0B2415] border border-white/15 text-white">
                     <option>Central Station Hub &bull; 42 Bikes Ready</option>
                     <option>Old Town Plaza Hub &bull; 18 Bikes Ready</option>
                     <option>Waterfront Promenade &bull; 29 Bikes Ready</option>
@@ -318,7 +407,8 @@
 
                 <div>
                   <label for="h2-model-select" class="block text-white mb-1 font-semibold">PREFERRED CLASS</label>
-                  <select id="h2-model-select" class="w-full px-3 py-2.5 rounded-lg bg-[#0B2415] border border-white/15 text-white">
+                  <select id="h2-model-select"
+                    class="w-full px-3 py-2.5 rounded-lg bg-[#0B2415] border border-white/15 text-white">
                     <option>Velo E-Commuter Pro 85Nm ($34/day)</option>
                     <option>Velo City Cruiser Classic ($18/day)</option>
                     <option>Velo Duo Tandem Grand ($28/day)</option>
@@ -326,9 +416,14 @@
                 </div>
               </div>
 
-              <a href="fleet.html" class="btn-primary w-full py-3.5 rounded-lg text-xs font-bold inline-flex items-center justify-center gap-2 shadow-md">
+              <a href="fleet.html"
+                class="btn-primary w-full py-3.5 rounded-lg text-xs font-bold inline-flex items-center justify-center gap-2 shadow-md">
                 <span>Unlock Bike in 15 Seconds</span>
-                <svg class="w-3.5 h-3.5 rtl-flip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                <svg class="w-3.5 h-3.5 rtl-flip" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
               </a>
             </div>
           </div>
@@ -341,29 +436,36 @@
     <!-- ======================================================================= -->
     <!-- SECTION 2 — EDITORIAL INTRO & URBAN TRANSIT BENCHMARK                   -->
     <!-- ======================================================================= -->
-    <section id="emobility-section" class="py-16 lg:py-24 bg-[#F7F7F2] dark:bg-[#173A20] border-b border-[#D9DDD8] dark:border-white/10 transition-colors duration-300">
+    <section id="emobility-section"
+      class="py-16 lg:py-24 bg-[#F7F7F2] dark:bg-[#173A20] border-b border-[#D9DDD8] dark:border-white/10 transition-colors duration-300">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          
+
           <div class="lg:col-span-5 space-y-5 reveal-on-scroll">
-            <div class="text-xs font-mono font-bold tracking-widest text-[#28552E] dark:text-[#C8D62C] uppercase">Urban Commute Benchmark</div>
+            <div class="text-xs font-mono font-bold tracking-widest text-[#28552E] dark:text-[#C8D62C] uppercase">Urban
+              Commute Benchmark</div>
             <h2 class="font-display font-bold text-3xl sm:text-4xl text-black dark:text-white leading-tight">
               Faster Than the Metro. Cheaper Than Taxis.
             </h2>
             <p class="text-sm sm:text-base text-black dark:text-white leading-relaxed">
-              During peak morning and evening rush hours, city cyclists consistently beat subway transit and cars by utilizing dedicated separated bike corridors without traffic delays.
+              During peak morning and evening rush hours, city cyclists consistently beat subway transit and cars by
+              utilizing dedicated separated bike corridors without traffic delays.
             </p>
-            <div class="p-4 rounded-xl bg-white dark:bg-[#0B2415] border border-[#D9DDD8] dark:border-white/10 text-xs font-mono">
-              <span class="text-black dark:text-white block uppercase font-bold text-[10px]">VERIFIED COMMUTE METRIC</span>
-              <span class="font-bold text-black dark:text-white">5.2 km Downtown Transit Test:</span> Velo E-Bike arrived 14 min ahead of car traffic.
+            <div
+              class="p-4 rounded-xl bg-white dark:bg-[#0B2415] border border-[#D9DDD8] dark:border-white/10 text-xs font-mono">
+              <span class="text-black dark:text-white block uppercase font-bold text-[10px]">VERIFIED COMMUTE
+                METRIC</span>
+              <span class="font-bold text-black dark:text-white">5.2 km Downtown Transit Test:</span> Velo E-Bike
+              arrived 14 min ahead of car traffic.
             </div>
           </div>
 
           <!-- Transit Benchmark Progress Bars (Right) -->
           <div class="lg:col-span-7 velo-card p-6 sm:p-8 space-y-6 reveal-on-scroll">
             <div class="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-4">
-              <h3 class="font-display font-bold text-lg text-black dark:text-white">Rush Hour Transit Comparison (5.2 km Route)</h3>
+              <h3 class="font-display font-bold text-lg text-black dark:text-white">Rush Hour Transit Comparison (5.2 km
+                Route)</h3>
               <span class="text-xs font-mono text-[#28552E] dark:text-[#C8D62C] font-bold">Live Telemetry</span>
             </div>
 
@@ -412,9 +514,10 @@
     <!-- ======================================================================= -->
     <section id="matrix-section" class="py-16 lg:py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <div class="text-center max-w-2xl mx-auto mb-14 space-y-3 reveal-on-scroll">
-          <div class="text-xs font-mono font-bold tracking-widest text-[#28552E] dark:text-[#C8D62C] uppercase">Engineering Breakdown</div>
+          <div class="text-xs font-mono font-bold tracking-widest text-[#28552E] dark:text-[#C8D62C] uppercase">
+            Engineering Breakdown</div>
           <h2 class="font-display font-bold text-3xl sm:text-4xl text-[#171A18] dark:text-white">
             Fleet Specification Matrix
           </h2>
@@ -449,7 +552,8 @@
               <tr>
                 <td class="py-3.5 px-4 font-bold">Drivetrain</td>
                 <td class="py-3.5 px-4">7-Speed Nexus Hub</td>
-                <td class="py-3.5 px-4 text-[#28552E] dark:text-[#C8D62C] font-bold">Gates Carbon Belt (Grease-Free)</td>
+                <td class="py-3.5 px-4 text-[#28552E] dark:text-[#C8D62C] font-bold">Gates Carbon Belt (Grease-Free)
+                </td>
                 <td class="py-3.5 px-4">10-Speed Deore Wide-Range</td>
               </tr>
               <tr>
@@ -475,54 +579,69 @@
     <!-- ======================================================================= -->
     <!-- SECTION 4 — REVERSED EVOLUTION JOURNEY                                  -->
     <!-- ======================================================================= -->
-    <section id="experience" class="relative overflow-hidden py-12 sm:py-14 lg:py-16 bg-[#F7F7F2] dark:bg-[#173A20] border-y border-[#D9DDD8] dark:border-white/10 transition-colors duration-300">
+    <section id="experience"
+      class="relative overflow-hidden py-12 sm:py-14 lg:py-16 bg-[#F7F7F2] dark:bg-[#173A20] border-y border-[#D9DDD8] dark:border-white/10 transition-colors duration-300">
       <div class="absolute inset-0 pointer-events-none overflow-hidden">
         <div class="experience-orbit experience-orbit-one"></div>
         <div class="experience-orbit experience-orbit-two"></div>
         <div class="experience-glow experience-glow-one"></div>
         <div class="experience-glow experience-glow-two"></div>
-        <div class="absolute inset-0 opacity-[0.035] dark:opacity-[0.045]" style="background-image: linear-gradient(#28552E 1px, transparent 1px), linear-gradient(90deg, #28552E 1px, transparent 1px); background-size: 42px 42px;"></div>
+        <div class="absolute inset-0 opacity-[0.035] dark:opacity-[0.045]"
+          style="background-image: linear-gradient(#28552E 1px, transparent 1px), linear-gradient(90deg, #28552E 1px, transparent 1px); background-size: 42px 42px;">
+        </div>
       </div>
 
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="grid lg:grid-cols-12 gap-6 lg:gap-10 items-end mb-8 sm:mb-10 reveal-experience">
           <div class="lg:col-span-7">
             <div class="flex items-center gap-3 mb-3">
-              <span class="relative flex w-2.5 h-2.5 rounded-full bg-[#C8D62C]"><span class="absolute inset-0 rounded-full bg-[#C8D62C] experience-ping"></span></span>
-              <span class="text-[10px] sm:text-xs font-mono font-bold tracking-[0.22em] uppercase text-[#28552E] dark:text-[#C8D62C]">Five Years of Experience</span>
+              <span class="relative flex w-2.5 h-2.5 rounded-full bg-[#C8D62C]"><span
+                  class="absolute inset-0 rounded-full bg-[#C8D62C] experience-ping"></span></span>
+              <span
+                class="text-[10px] sm:text-xs font-mono font-bold tracking-[0.22em] uppercase text-[#28552E] dark:text-[#C8D62C]">Five
+                Years of Experience</span>
             </div>
-            <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl leading-[0.95] tracking-tight text-[#171A18] dark:text-white">Five years of <span class="text-[#28552E] dark:text-[#C8D62C]">moving cities.</span></h2>
+            <h2
+              class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl leading-[0.95] tracking-tight text-[#171A18] dark:text-white">
+              Five years of <span class="text-[#28552E] dark:text-[#C8D62C]">moving cities.</span></h2>
           </div>
           <div class="lg:col-span-5">
-            <p class="text-sm sm:text-[15px] leading-6 text-[#171A18] dark:text-white max-w-xl lg:ml-auto">From a small urban mobility experiment to a connected bicycle network, every year has added a smarter way to move through the city.</p>
+            <p class="text-sm sm:text-[15px] leading-6 text-[#171A18] dark:text-white max-w-xl lg:ml-auto">From a small
+              urban mobility experiment to a connected bicycle network, every year has added a smarter way to move
+              through the city.</p>
           </div>
         </div>
 
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-y-4 gap-x-5 py-5 mb-7 border-y border-[#D9DDD8] dark:border-white/10 reveal-experience">
+        <div
+          class="grid grid-cols-2 lg:grid-cols-4 gap-y-4 gap-x-5 py-5 mb-7 border-y border-[#D9DDD8] dark:border-white/10 reveal-experience">
           <div class="experience-stat">
             <div class="flex items-baseline gap-2">
-              <span class="experience-counter text-2xl sm:text-3xl font-display font-bold text-[#171A18] dark:text-white">05</span>
+              <span
+                class="experience-counter text-2xl sm:text-3xl font-display font-bold text-[#171A18] dark:text-white">05</span>
               <span class="text-[9px] font-mono uppercase tracking-widest text-[#171A18] dark:text-white">Years</span>
             </div>
             <p class="text-[10px] sm:text-xs text-[#171A18] dark:text-white">Urban Mobility</p>
           </div>
           <div class="experience-stat">
             <div class="flex items-baseline gap-2">
-              <span class="experience-counter text-2xl sm:text-3xl font-display font-bold text-[#171A18] dark:text-white">24</span>
+              <span
+                class="experience-counter text-2xl sm:text-3xl font-display font-bold text-[#171A18] dark:text-white">24</span>
               <span class="text-[9px] font-mono uppercase tracking-widest text-[#171A18] dark:text-white">Hubs</span>
             </div>
             <p class="text-[10px] sm:text-xs text-[#171A18] dark:text-white">Connected Stations</p>
           </div>
           <div class="experience-stat">
             <div class="flex items-baseline gap-2">
-              <span class="experience-counter text-2xl sm:text-3xl font-display font-bold text-[#171A18] dark:text-white">186+</span>
+              <span
+                class="experience-counter text-2xl sm:text-3xl font-display font-bold text-[#171A18] dark:text-white">186+</span>
               <span class="text-[9px] font-mono uppercase tracking-widest text-[#171A18] dark:text-white">Bikes</span>
             </div>
             <p class="text-[10px] sm:text-xs text-[#171A18] dark:text-white">Active Fleet</p>
           </div>
           <div class="experience-stat">
             <div class="flex items-baseline gap-2">
-              <span class="experience-counter text-2xl sm:text-3xl font-display font-bold text-[#171A18] dark:text-white">98%</span>
+              <span
+                class="experience-counter text-2xl sm:text-3xl font-display font-bold text-[#171A18] dark:text-white">98%</span>
               <span class="text-[9px] font-mono uppercase tracking-widest text-[#171A18] dark:text-white">Uptime</span>
             </div>
             <p class="text-[10px] sm:text-xs text-[#171A18] dark:text-white">Network Reliability</p>
@@ -530,138 +649,207 @@
         </div>
 
         <div class="relative">
-          <div class="absolute left-[17px] sm:left-[24px] top-0 bottom-0 w-[2px] bg-[#D9DDD8] dark:bg-white/10 overflow-hidden"><div class="timeline-energy"></div></div>
-          
+          <div
+            class="absolute left-[17px] sm:left-[24px] top-0 bottom-0 w-[2px] bg-[#D9DDD8] dark:bg-white/10 overflow-hidden">
+            <div class="timeline-energy"></div>
+          </div>
+
           <article class="experience-row relative pl-11 sm:pl-16 py-4 sm:py-5 reveal-experience" data-year="2022">
-            <div class="experience-node absolute left-[8px] sm:left-[15px] top-6 w-[20px] h-[20px] rounded-full bg-[#F7F7F2] dark:bg-[#173A20] border-[4px] border-[#28552E] dark:border-[#C8D62C] z-20"></div>
-            <div class="grid lg:grid-cols-12 gap-3 lg:gap-6 items-center">
-              <div class="lg:col-span-3 lg:pr-4 lg:text-right lg:order-1">
-                <div class="flex flex-wrap lg:justify-end gap-x-4 gap-y-1.5">
+            <div
+              class="experience-node absolute left-[8px] sm:left-[15px] top-6 w-[20px] h-[20px] rounded-full bg-[#F7F7F2] dark:bg-[#173A20] border-[4px] border-[#28552E] dark:border-[#C8D62C] z-20">
+            </div>
+            <div class="grid lg:grid-cols-12 gap-4 lg:gap-8 items-center">
+              <div class="lg:col-span-4 lg:pr-6 lg:text-right lg:order-1">
+                <div class="flex flex-wrap lg:justify-end gap-x-5 gap-y-2">
                   <span class="experience-tag text-[#171A18] dark:text-white">Pilot Fleet</span>
                   <span class="experience-tag text-[#171A18] dark:text-white">Initial Hub</span>
                   <span class="experience-tag text-[#171A18] dark:text-white">Keyless Concept</span>
                 </div>
               </div>
               <div class="lg:col-span-6 lg:order-2">
-                <div class="flex items-center gap-2 mb-1"><span class="text-[9px] font-mono font-bold tracking-[0.18em] text-[#28552E] dark:text-[#C8D62C]">THE BEGINNING</span><span class="experience-mini-line block h-px w-7 bg-[#C8D62C]"></span></div>
-                <h3 class="experience-heading text-lg sm:text-xl font-display font-bold text-[#171A18] dark:text-white">One city. One simple idea.</h3>
-                <p class="mt-1 text-xs sm:text-sm leading-relaxed text-[#171A18] dark:text-white">Velo City began with a clear mission: make short urban journeys faster than walking, simpler than driving and easier than owning a bicycle.</p>
+                <div class="flex items-center gap-2 mb-1"><span
+                    class="text-[9px] font-mono font-bold tracking-[0.18em] text-[#28552E] dark:text-[#C8D62C]">THE
+                    BEGINNING</span><span class="experience-mini-line block h-px w-7 bg-[#C8D62C]"></span></div>
+                <h3
+                  class="experience-heading text-xl sm:text-2xl font-display font-bold text-[#171A18] dark:text-white">
+                  One city. One simple idea.</h3>
+                <p class="mt-1 text-xs sm:text-sm leading-5 text-[#171A18] dark:text-white">Velo City began with a clear
+                  mission: make short urban journeys faster than walking, simpler than driving and easier than owning a
+                  bicycle.</p>
               </div>
-              <div class="lg:col-span-3 lg:order-3 lg:text-right">
+              <div class="lg:col-span-2 lg:order-3 lg:text-right">
                 <div class="experience-year-wrap flex lg:justify-end items-baseline gap-2">
-                  <span class="experience-year text-lg sm:text-xl lg:text-2xl font-display font-bold leading-none text-[#171A18] dark:text-white whitespace-nowrap">Year One</span>
-                  <span class="text-[10px] sm:text-xs font-mono font-bold tracking-widest text-[#28552E] dark:text-[#C8D62C] shrink-0">2022</span>
+                  <span
+                    class="experience-year text-4xl sm:text-5xl font-display font-bold leading-none text-[#171A18] dark:text-white">Year
+                    One</span>
+                  <span
+                    class="text-[10px] font-mono font-bold tracking-widest text-[#28552E] dark:text-[#C8D62C]">2022</span>
                 </div>
               </div>
             </div>
           </article>
 
           <article class="experience-row relative pl-11 sm:pl-16 py-4 sm:py-5 reveal-experience" data-year="2023">
-            <div class="experience-node absolute left-[8px] sm:left-[15px] top-6 w-[20px] h-[20px] rounded-full bg-[#F7F7F2] dark:bg-[#173A20] border-[4px] border-[#28552E] dark:border-[#C8D62C] z-20"></div>
-            <div class="grid lg:grid-cols-12 gap-3 lg:gap-6 items-center">
-              <div class="lg:col-span-3 lg:pr-4 lg:text-right lg:order-1">
-                <div class="flex flex-wrap lg:justify-end gap-x-4 gap-y-1.5">
+            <div
+              class="experience-node absolute left-[8px] sm:left-[15px] top-6 w-[20px] h-[20px] rounded-full bg-[#F7F7F2] dark:bg-[#173A20] border-[4px] border-[#28552E] dark:border-[#C8D62C] z-20">
+            </div>
+            <div class="grid lg:grid-cols-12 gap-4 lg:gap-8 items-center">
+              <div class="lg:col-span-4 lg:pr-6 lg:text-right lg:order-1">
+                <div class="flex flex-wrap lg:justify-end gap-x-5 gap-y-2">
                   <span class="experience-tag text-[#171A18] dark:text-white">Expanding Hubs</span>
                   <span class="experience-tag text-[#171A18] dark:text-white">Fleet Expansion</span>
                   <span class="experience-tag text-[#171A18] dark:text-white">Rider App</span>
                 </div>
               </div>
               <div class="lg:col-span-6 lg:order-2">
-                <div class="flex items-center gap-2 mb-1"><span class="text-[9px] font-mono font-bold tracking-[0.18em] text-[#28552E] dark:text-[#C8D62C]">FIRST SCALE</span><span class="experience-mini-line block h-px w-7 bg-[#C8D62C]"></span></div>
-                <h3 class="experience-heading text-lg sm:text-xl font-display font-bold text-[#171A18] dark:text-white">From pilot to daily commute.</h3>
-                <p class="mt-1 text-xs sm:text-sm leading-relaxed text-[#171A18] dark:text-white">More pickup points, smarter locks and a growing rider community transformed the early experiment into a dependable everyday transport option.</p>
+                <div class="flex items-center gap-2 mb-1"><span
+                    class="text-[9px] font-mono font-bold tracking-[0.18em] text-[#28552E] dark:text-[#C8D62C]">FIRST
+                    SCALE</span><span class="experience-mini-line block h-px w-7 bg-[#C8D62C]"></span></div>
+                <h3
+                  class="experience-heading text-xl sm:text-2xl font-display font-bold text-[#171A18] dark:text-white">
+                  From pilot to daily commute.</h3>
+                <p class="mt-1 text-xs sm:text-sm leading-5 text-[#171A18] dark:text-white">More pickup points, smarter
+                  locks and a growing rider community transformed the early experiment into a dependable everyday
+                  transport option.</p>
               </div>
-              <div class="lg:col-span-3 lg:order-3 lg:text-right">
+              <div class="lg:col-span-2 lg:order-3 lg:text-right">
                 <div class="experience-year-wrap flex lg:justify-end items-baseline gap-2">
-                  <span class="experience-year text-lg sm:text-xl lg:text-2xl font-display font-bold leading-none text-[#171A18] dark:text-white whitespace-nowrap">Year Two</span>
-                  <span class="text-[10px] sm:text-xs font-mono font-bold tracking-widest text-[#28552E] dark:text-[#C8D62C] shrink-0">2023</span>
+                  <span
+                    class="experience-year text-4xl sm:text-5xl font-display font-bold leading-none text-[#171A18] dark:text-white">Year
+                    Two</span>
+                  <span
+                    class="text-[10px] font-mono font-bold tracking-widest text-[#28552E] dark:text-[#C8D62C]">2023</span>
                 </div>
               </div>
             </div>
           </article>
 
           <article class="experience-row relative pl-11 sm:pl-16 py-4 sm:py-5 reveal-experience" data-year="2024">
-            <div class="experience-node absolute left-[8px] sm:left-[15px] top-6 w-[20px] h-[20px] rounded-full bg-[#F7F7F2] dark:bg-[#173A20] border-[4px] border-[#28552E] dark:border-[#C8D62C] z-20"></div>
-            <div class="grid lg:grid-cols-12 gap-3 lg:gap-6 items-center">
-              <div class="lg:col-span-3 lg:pr-4 lg:text-right lg:order-1">
-                <div class="flex flex-wrap lg:justify-end gap-x-4 gap-y-1.5">
+            <div
+              class="experience-node absolute left-[8px] sm:left-[15px] top-6 w-[20px] h-[20px] rounded-full bg-[#F7F7F2] dark:bg-[#173A20] border-[4px] border-[#28552E] dark:border-[#C8D62C] z-20">
+            </div>
+            <div class="grid lg:grid-cols-12 gap-4 lg:gap-8 items-center">
+              <div class="lg:col-span-4 lg:pr-6 lg:text-right lg:order-1">
+                <div class="flex flex-wrap lg:justify-end gap-x-5 gap-y-2">
                   <span class="experience-tag text-[#171A18] dark:text-white">Live Tracking</span>
                   <span class="experience-tag text-[#171A18] dark:text-white">E-Bike Fleet</span>
                   <span class="experience-tag text-[#171A18] dark:text-white">Smart Lock</span>
                 </div>
               </div>
               <div class="lg:col-span-6 lg:order-2">
-                <div class="flex items-center gap-2 mb-1"><span class="text-[9px] font-mono font-bold tracking-[0.18em] text-[#28552E] dark:text-[#C8D62C]">SMART MOBILITY</span><span class="experience-mini-line block h-px w-7 bg-[#C8D62C]"></span></div>
-                <h3 class="experience-heading text-lg sm:text-xl font-display font-bold text-[#171A18] dark:text-white">Every ride became connected.</h3>
-                <p class="mt-1 text-xs sm:text-sm leading-relaxed text-[#171A18] dark:text-white">Real-time bike availability, battery monitoring, station intelligence and ride analytics introduced a completely connected mobility experience.</p>
+                <div class="flex items-center gap-2 mb-1"><span
+                    class="text-[9px] font-mono font-bold tracking-[0.18em] text-[#28552E] dark:text-[#C8D62C]">SMART
+                    MOBILITY</span><span class="experience-mini-line block h-px w-7 bg-[#C8D62C]"></span></div>
+                <h3
+                  class="experience-heading text-xl sm:text-2xl font-display font-bold text-[#171A18] dark:text-white">
+                  Every ride became connected.</h3>
+                <p class="mt-1 text-xs sm:text-sm leading-5 text-[#171A18] dark:text-white">Real-time bike availability,
+                  battery monitoring, station intelligence and ride analytics introduced a completely connected mobility
+                  experience.</p>
               </div>
-              <div class="lg:col-span-3 lg:order-3 lg:text-right">
+              <div class="lg:col-span-2 lg:order-3 lg:text-right">
                 <div class="experience-year-wrap flex lg:justify-end items-baseline gap-2">
-                  <span class="experience-year text-lg sm:text-xl lg:text-2xl font-display font-bold leading-none text-[#171A18] dark:text-white whitespace-nowrap">Year Three</span>
-                  <span class="text-[10px] sm:text-xs font-mono font-bold tracking-widest text-[#28552E] dark:text-[#C8D62C] shrink-0">2024</span>
+                  <span
+                    class="experience-year text-4xl sm:text-4xl font-display font-bold leading-none text-[#171A18] dark:text-white">Year
+                    Three</span>
+                  <span
+                    class="text-[10px] font-mono font-bold tracking-widest text-[#28552E] dark:text-[#C8D62C]">2024</span>
                 </div>
               </div>
             </div>
           </article>
 
           <article class="experience-row relative pl-11 sm:pl-16 py-4 sm:py-5 reveal-experience" data-year="2025">
-            <div class="experience-node absolute left-[8px] sm:left-[15px] top-6 w-[20px] h-[20px] rounded-full bg-[#F7F7F2] dark:bg-[#173A20] border-[4px] border-[#28552E] dark:border-[#C8D62C] z-20"></div>
-            <div class="grid lg:grid-cols-12 gap-3 lg:gap-6 items-center">
-              <div class="lg:col-span-3 lg:pr-4 lg:text-right lg:order-1">
-                <div class="flex flex-wrap lg:justify-end gap-x-4 gap-y-1.5">
+            <div
+              class="experience-node absolute left-[8px] sm:left-[15px] top-6 w-[20px] h-[20px] rounded-full bg-[#F7F7F2] dark:bg-[#173A20] border-[4px] border-[#28552E] dark:border-[#C8D62C] z-20">
+            </div>
+            <div class="grid lg:grid-cols-12 gap-4 lg:gap-8 items-center">
+              <div class="lg:col-span-4 lg:pr-6 lg:text-right lg:order-1">
+                <div class="flex flex-wrap lg:justify-end gap-x-5 gap-y-2">
                   <span class="experience-tag text-[#171A18] dark:text-white">Connected Hubs</span>
                   <span class="experience-tag text-[#171A18] dark:text-white">Expanded Fleet</span>
                   <span class="experience-tag text-[#171A18] dark:text-white">Full Access</span>
                 </div>
               </div>
               <div class="lg:col-span-6 lg:order-2">
-                <div class="flex items-center gap-2 mb-1"><span class="text-[9px] font-mono font-bold tracking-[0.18em] text-[#28552E] dark:text-[#C8D62C]">CITY NETWORK</span><span class="experience-mini-line block h-px w-7 bg-[#C8D62C]"></span></div>
-                <h3 class="experience-heading text-lg sm:text-xl font-display font-bold text-[#171A18] dark:text-white">The network found its rhythm.</h3>
-                <p class="mt-1 text-xs sm:text-sm leading-relaxed text-[#171A18] dark:text-white">Twenty-four connected hubs created a continuous mobility layer across railway stations, business districts, universities and waterfront routes.</p>
+                <div class="flex items-center gap-2 mb-1"><span
+                    class="text-[9px] font-mono font-bold tracking-[0.18em] text-[#28552E] dark:text-[#C8D62C]">CITY
+                    NETWORK</span><span class="experience-mini-line block h-px w-7 bg-[#C8D62C]"></span></div>
+                <h3
+                  class="experience-heading text-xl sm:text-2xl font-display font-bold text-[#171A18] dark:text-white">
+                  The network found its rhythm.</h3>
+                <p class="mt-1 text-xs sm:text-sm leading-5 text-[#171A18] dark:text-white">Twenty-four connected hubs
+                  created a continuous mobility layer across railway stations, business districts, universities and
+                  waterfront routes.</p>
               </div>
-              <div class="lg:col-span-3 lg:order-3 lg:text-right">
+              <div class="lg:col-span-2 lg:order-3 lg:text-right">
                 <div class="experience-year-wrap flex lg:justify-end items-baseline gap-2">
-                  <span class="experience-year text-lg sm:text-xl lg:text-2xl font-display font-bold leading-none text-[#171A18] dark:text-white whitespace-nowrap">Year Four</span>
-                  <span class="text-[10px] sm:text-xs font-mono font-bold tracking-widest text-[#28552E] dark:text-[#C8D62C] shrink-0">2025</span>
+                  <span
+                    class="experience-year text-4xl sm:text-5xl font-display font-bold leading-none text-[#171A18] dark:text-white">Year
+                    Four</span>
+                  <span
+                    class="text-[10px] font-mono font-bold tracking-widest text-[#28552E] dark:text-[#C8D62C]">2025</span>
                 </div>
               </div>
             </div>
           </article>
 
           <article class="experience-row relative pl-11 sm:pl-16 py-4 sm:py-5 reveal-experience" data-year="2026">
-            <div class="experience-node-current absolute left-[8px] sm:left-[15px] top-6 w-[20px] h-[20px] rounded-full bg-[#C8D62C] z-20"><span></span></div>
-            <div class="grid lg:grid-cols-12 gap-3 lg:gap-6 items-center">
-              <div class="lg:col-span-3 lg:pr-4 lg:text-right lg:order-1">
-                <div class="flex flex-wrap lg:justify-end gap-x-4 gap-y-1.5">
-                  <span class="experience-tag experience-tag-active text-[#171A18] dark:text-white">Available Bikes</span>
-                  <span class="experience-tag experience-tag-active text-[#171A18] dark:text-white">Connected Hubs</span>
-                  <span class="experience-tag experience-tag-active text-[#171A18] dark:text-white">Network Reliability</span>
+            <div
+              class="experience-node-current absolute left-[8px] sm:left-[15px] top-6 w-[20px] h-[20px] rounded-full bg-[#C8D62C] z-20">
+              <span></span>
+            </div>
+            <div class="grid lg:grid-cols-12 gap-4 lg:gap-8 items-center">
+              <div class="lg:col-span-4 lg:pr-6 lg:text-right lg:order-1">
+                <div class="flex flex-wrap lg:justify-end gap-x-5 gap-y-2">
+                  <span class="experience-tag experience-tag-active text-[#171A18] dark:text-white">Available
+                    Bikes</span>
+                  <span class="experience-tag experience-tag-active text-[#171A18] dark:text-white">Connected
+                    Hubs</span>
+                  <span class="experience-tag experience-tag-active text-[#171A18] dark:text-white">Network
+                    Reliability</span>
                 </div>
               </div>
               <div class="lg:col-span-6 lg:order-2">
-                <div class="flex items-center gap-2 mb-1"><span class="text-[9px] font-mono font-bold tracking-[0.18em] text-[#28552E] dark:text-[#C8D62C]">TODAY / LIVE</span><span class="experience-mini-line block h-px w-7 bg-[#C8D62C]"></span></div>
-                <h3 class="experience-heading text-lg sm:text-xl font-display font-bold text-[#171A18] dark:text-white">Built for the next city mile.</h3>
-                <p class="mt-1 text-xs sm:text-sm leading-relaxed text-[#171A18] dark:text-white">Today, every part of the experience works together — keyless access, connected hubs, flexible bikes, live availability and support whenever the city moves.</p>
+                <div class="flex items-center gap-2 mb-1"><span
+                    class="text-[9px] font-mono font-bold tracking-[0.18em] text-[#28552E] dark:text-[#C8D62C]">TODAY /
+                    LIVE</span><span class="experience-mini-line block h-px w-7 bg-[#C8D62C]"></span></div>
+                <h3
+                  class="experience-heading text-xl sm:text-2xl font-display font-bold text-[#171A18] dark:text-white">
+                  Built for the next city mile.</h3>
+                <p class="mt-1 text-xs sm:text-sm leading-5 text-[#171A18] dark:text-white">Today, every part of the
+                  experience works together — keyless access, connected hubs, flexible bikes, live availability and
+                  support whenever the city moves.</p>
               </div>
-              <div class="lg:col-span-3 lg:order-3 lg:text-right">
+              <div class="lg:col-span-2 lg:order-3 lg:text-right">
                 <div class="experience-year-wrap flex lg:justify-end items-baseline gap-2">
-                  <span class="experience-year text-lg sm:text-xl lg:text-2xl font-display font-bold leading-none text-[#171A18] dark:text-white whitespace-nowrap">Five Years</span>
-                  <span class="text-[10px] sm:text-xs font-mono font-bold tracking-widest text-[#28552E] dark:text-[#C8D62C] shrink-0">2026</span>
+                  <span
+                    class="experience-year text-4xl sm:text-5xl font-display font-bold leading-none text-[#171A18] dark:text-white">Five
+                    Years</span>
+                  <span
+                    class="text-[10px] font-mono font-bold tracking-widest text-[#28552E] dark:text-[#C8D62C]">2026</span>
                 </div>
               </div>
             </div>
           </article>
         </div>
 
-        <div class="mt-6 pt-5 border-t border-[#D9DDD8] dark:border-white/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 reveal-experience">
+        <div
+          class="mt-6 pt-5 border-t border-[#D9DDD8] dark:border-white/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 reveal-experience">
           <div class="flex items-center gap-3">
-            <div class="w-9 h-9 rounded-full flex items-center justify-center bg-[#173A20] dark:bg-[#C8D62C] text-[#C8D62C] dark:text-[#171A18] experience-icon"></div>
+            <div
+              class="w-9 h-9 rounded-full flex items-center justify-center bg-[#173A20] dark:bg-[#C8D62C] text-[#C8D62C] dark:text-[#171A18] experience-icon">
+            </div>
             <div>
-              <span class="block text-[9px] font-mono uppercase tracking-[0.18em] text-[#171A18] dark:text-white">Experience → Evolution</span>
-              <span class="text-xs font-semibold text-[#171A18] dark:text-white">Five years. One direction: better urban movement.</span>
+              <span
+                class="block text-[9px] font-mono uppercase tracking-[0.18em] text-[#171A18] dark:text-white">Experience
+                → Evolution</span>
+              <span class="text-xs font-semibold text-[#171A18] dark:text-white">Five years. One direction: better urban
+                movement.</span>
             </div>
           </div>
-          <div class="flex items-center gap-2 text-[10px] font-mono text-[#171A18] dark:text-white"><span class="w-2 h-2 rounded-full bg-[#C8D62C] animate-pulse"></span>NETWORK EVOLVING</div>
+          <div class="flex items-center gap-2 text-[10px] font-mono text-[#171A18] dark:text-white"><span
+              class="w-2 h-2 rounded-full bg-[#C8D62C] animate-pulse"></span>NETWORK EVOLVING</div>
         </div>
       </div>
     </section>
@@ -670,7 +858,8 @@
     <!-- ======================================================================= -->
     <!-- SECTION 5 — SERVICES & SIGNATURE TRAILS VISUAL LAYOUT                   -->
     <!-- ======================================================================= -->
-    <section id="trails-section" class="py-12 sm:py-14 lg:py-16 bg-[#F7F7F2] dark:bg-[#173A20] transition-colors duration-300">
+    <section id="trails-section"
+      class="py-12 sm:py-14 lg:py-16 bg-[#F7F7F2] dark:bg-[#173A20] transition-colors duration-300">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <!-- SECTION INTRO -->
@@ -678,10 +867,15 @@
           <div class="max-w-2xl">
             <div class="flex items-center gap-2 mb-2">
               <span class="w-7 h-px bg-[#C8D62C]"></span>
-              <span class="text-[10px] sm:text-xs font-mono font-bold tracking-[0.2em] text-[#28552E] dark:text-[#C8D62C] uppercase">Curated City Routes</span>
+              <span
+                class="text-[10px] sm:text-xs font-mono font-bold tracking-[0.2em] text-[#28552E] dark:text-[#C8D62C] uppercase">Curated
+                City Routes</span>
             </div>
-            <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl leading-tight text-[#171A18] dark:text-white">Signature Urban Trails</h2>
-            <p class="mt-2 text-sm text-[#171A18] dark:text-white max-w-xl leading-relaxed">Discover hand-picked routes designed for smooth city exploration, scenic commuting and effortless weekend rides.</p>
+            <h2
+              class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl leading-tight text-[#171A18] dark:text-white">
+              Signature Urban Trails</h2>
+            <p class="mt-2 text-sm text-[#171A18] dark:text-white max-w-xl leading-relaxed">Discover hand-picked routes
+              designed for smooth city exploration, scenic commuting and effortless weekend rides.</p>
           </div>
           <!-- QUICK STATS -->
           <div class="flex items-center gap-5 sm:gap-7 font-mono text-[10px] uppercase text-[#171A18] dark:text-white">
@@ -689,15 +883,22 @@
             <div class="w-px h-7 bg-[#D9DDD8] dark:bg-white/10"></div>
             <div><span class="block font-bold mb-1">GPX Ready</span><strong class="text-sm">Full Support</strong></div>
             <div class="w-px h-7 bg-[#D9DDD8] dark:bg-white/10"></div>
-            <div><span class="block font-bold mb-1">Offline</span><strong class="text-sm text-[#28552E] dark:text-[#C8D62C]">Included</strong></div>
+            <div><span class="block font-bold mb-1">Offline</span><strong
+                class="text-sm text-[#28552E] dark:text-[#C8D62C]">Included</strong></div>
           </div>
         </div>
 
         <!-- TRAIL SELECTOR -->
         <div class="flex items-center gap-2 sm:gap-3 mb-6 overflow-x-auto pb-2 reveal-on-scroll">
-          <button type="button" data-trail="river" class="trail-select-btn active shrink-0 px-4 sm:px-5 py-2.5 rounded-lg border border-[#C8D62C] bg-[#C8D62C] text-[#171A18] text-[10px] sm:text-xs font-mono font-bold uppercase whitespace-nowrap">Sunset River Promenade · 18.2 KM</button>
-          <button type="button" data-trail="cathedral" class="trail-select-btn shrink-0 px-4 sm:px-5 py-2.5 rounded-lg border border-[#D9DDD8] dark:border-white/10 text-[#171A18] dark:text-white text-[10px] sm:text-xs font-mono font-bold uppercase whitespace-nowrap hover:bg-white dark:hover:bg-[#0B2415] transition">Historic Cathedral Loop · 12.5 KM</button>
-          <button type="button" data-trail="skyline" class="trail-select-btn shrink-0 px-4 sm:px-5 py-2.5 rounded-lg border border-[#D9DDD8] dark:border-white/10 text-[#171A18] dark:text-white text-[10px] sm:text-xs font-mono font-bold uppercase whitespace-nowrap hover:bg-white dark:hover:bg-[#0B2415] transition">Panoramic Skyline Climb · 15.8 KM</button>
+          <button type="button" data-trail="river"
+            class="trail-select-btn active shrink-0 px-4 sm:px-5 py-2.5 rounded-lg border border-[#C8D62C] bg-[#C8D62C] text-[#171A18] text-[10px] sm:text-xs font-mono font-bold uppercase whitespace-nowrap">Sunset
+            River Promenade · 18.2 KM</button>
+          <button type="button" data-trail="cathedral"
+            class="trail-select-btn shrink-0 px-4 sm:px-5 py-2.5 rounded-lg border border-[#D9DDD8] dark:border-white/10 text-[#171A18] dark:text-white text-[10px] sm:text-xs font-mono font-bold uppercase whitespace-nowrap hover:bg-white dark:hover:bg-[#0B2415] transition">Historic
+            Cathedral Loop · 12.5 KM</button>
+          <button type="button" data-trail="skyline"
+            class="trail-select-btn shrink-0 px-4 sm:px-5 py-2.5 rounded-lg border border-[#D9DDD8] dark:border-white/10 text-[#171A18] dark:text-white text-[10px] sm:text-xs font-mono font-bold uppercase whitespace-nowrap hover:bg-white dark:hover:bg-[#0B2415] transition">Panoramic
+            Skyline Climb · 15.8 KM</button>
         </div>
 
         <!-- MAIN TRAIL AREA -->
@@ -706,60 +907,117 @@
             <div class="lg:col-span-7 space-y-4">
               <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-2">
                 <div>
-                  <div class="flex items-center gap-2 mb-2"><span class="inline-flex items-center gap-1.5 text-[9px] font-mono font-bold uppercase tracking-wider text-[#28552E] dark:text-[#C8D62C]"><span class="w-1.5 h-1.5 rounded-full bg-[#C8D62C] animate-pulse"></span>Featured Route</span></div>
-                  <h3 id="trail-disp-name" class="font-display font-bold text-2xl sm:text-3xl lg:text-4xl leading-tight text-[#171A18] dark:text-white">Sunset River Promenade</h3>
-                  <p id="trail-disp-location" class="mt-1 text-[10px] font-mono uppercase tracking-wider text-[#171A18] dark:text-white font-bold">Downtown → Riverside → Western Marina</p>
+                  <div class="flex items-center gap-2 mb-2"><span
+                      class="inline-flex items-center gap-1.5 text-[9px] font-mono font-bold uppercase tracking-wider text-[#28552E] dark:text-[#C8D62C]"><span
+                        class="w-1.5 h-1.5 rounded-full bg-[#C8D62C] animate-pulse"></span>Featured Route</span></div>
+                  <h3 id="trail-disp-name"
+                    class="font-display font-bold text-2xl sm:text-3xl lg:text-4xl leading-tight text-[#171A18] dark:text-white">
+                    Sunset River Promenade</h3>
+                  <p id="trail-disp-location"
+                    class="mt-1 text-[10px] font-mono uppercase tracking-wider text-[#171A18] dark:text-white font-bold">
+                    Downtown → Riverside → Western Marina</p>
                 </div>
                 <div class="shrink-0">
-                  <span class="block text-[9px] font-mono uppercase text-[#171A18] dark:text-white font-bold mb-1">Difficulty</span>
-                  <span id="trail-disp-level" class="inline-flex items-center gap-2 text-xs font-bold text-[#28552E] dark:text-[#C8D62C]">EASY</span>
+                  <span
+                    class="block text-[9px] font-mono uppercase text-[#171A18] dark:text-white font-bold mb-1">Difficulty</span>
+                  <span id="trail-disp-level"
+                    class="inline-flex items-center gap-2 text-xs font-bold text-[#28552E] dark:text-[#C8D62C]">EASY</span>
                 </div>
               </div>
-              <p id="trail-disp-desc" class="text-xs sm:text-sm text-[#171A18] dark:text-white leading-relaxed max-w-2xl mb-4">Glide alongside the riverbanks under illuminated willow trees. This protected cycling corridor connects the city centre with the western beach marina, making it ideal for relaxed evening rides, casual exploration and scenic commuting.</p>
-              <div class="grid grid-cols-2 sm:grid-cols-4 gap-x-5 gap-y-4 py-4 border-y border-[#D9DDD8] dark:border-white/10 text-[#171A18] dark:text-white">
-                <div><span class="text-[9px] font-mono uppercase font-bold block mb-1">Distance</span><strong id="trail-disp-dist" class="text-sm font-bold">18.2 km</strong></div>
-                <div><span class="text-[9px] font-mono uppercase font-bold block mb-1">Est. Time</span><strong id="trail-disp-time" class="text-sm font-bold">55 Minutes</strong></div>
-                <div><span class="text-[9px] font-mono uppercase font-bold block mb-1">Elevation</span><strong id="trail-disp-elev" class="text-sm font-bold text-[#28552E] dark:text-[#C8D62C]">+20m</strong></div>
-                <div><span class="text-[9px] font-mono uppercase font-bold block mb-1">Surface</span><strong id="trail-disp-surface" class="text-sm font-bold">Paved</strong></div>
+              <p id="trail-disp-desc"
+                class="text-xs sm:text-sm text-[#171A18] dark:text-white leading-relaxed max-w-2xl mb-4">Glide alongside
+                the riverbanks under illuminated willow trees. This protected cycling corridor connects the city centre
+                with the western beach marina, making it ideal for relaxed evening rides, casual exploration and scenic
+                commuting.</p>
+              <div
+                class="grid grid-cols-2 sm:grid-cols-4 gap-x-5 gap-y-4 py-4 border-y border-[#D9DDD8] dark:border-white/10 text-[#171A18] dark:text-white">
+                <div><span class="text-[9px] font-mono uppercase font-bold block mb-1">Distance</span><strong
+                    id="trail-disp-dist" class="text-sm font-bold">18.2 km</strong></div>
+                <div><span class="text-[9px] font-mono uppercase font-bold block mb-1">Est. Time</span><strong
+                    id="trail-disp-time" class="text-sm font-bold">55 Minutes</strong></div>
+                <div><span class="text-[9px] font-mono uppercase font-bold block mb-1">Elevation</span><strong
+                    id="trail-disp-elev" class="text-sm font-bold text-[#28552E] dark:text-[#C8D62C]">+20m</strong>
+                </div>
+                <div><span class="text-[9px] font-mono uppercase font-bold block mb-1">Surface</span><strong
+                    id="trail-disp-surface" class="text-sm font-bold">Paved</strong></div>
               </div>
               <div class="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-4 mt-4">
                 <div class="flex items-start gap-2.5">
-                  <div class="w-7 h-7 shrink-0 rounded-full bg-[#C8D62C]/20 flex items-center justify-center text-[#28552E] dark:text-[#C8D62C]">
-                    <svg class="w-3.5 h-3.5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <div
+                    class="w-7 h-7 shrink-0 rounded-full bg-[#C8D62C]/20 flex items-center justify-center text-[#28552E] dark:text-[#C8D62C]">
+                    <svg class="w-3.5 h-3.5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
                   </div>
-                  <div><span class="block text-[9px] font-mono uppercase text-[#171A18] dark:text-white font-bold">Best Time</span><strong id="trail-disp-besttime" class="text-xs text-[#171A18] dark:text-white">Evening Hours</strong></div>
+                  <div><span class="block text-[9px] font-mono uppercase text-[#171A18] dark:text-white font-bold">Best
+                      Time</span><strong id="trail-disp-besttime" class="text-xs text-[#171A18] dark:text-white">Evening
+                      Hours</strong></div>
                 </div>
                 <div class="flex items-start gap-2.5">
-                  <div class="w-7 h-7 shrink-0 rounded-full bg-[#C8D62C]/20 flex items-center justify-center text-[#28552E] dark:text-[#C8D62C]">
-                    <svg class="w-3.5 h-3.5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 11.5L9 6H4m11 11.5L12 9l3-3h3"/></svg>
+                  <div
+                    class="w-7 h-7 shrink-0 rounded-full bg-[#C8D62C]/20 flex items-center justify-center text-[#28552E] dark:text-[#C8D62C]">
+                    <svg class="w-3.5 h-3.5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                      <circle cx="5.5" cy="17.5" r="3.5" />
+                      <circle cx="18.5" cy="17.5" r="3.5" />
+                      <path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 11.5L9 6H4m11 11.5L12 9l3-3h3" />
+                    </svg>
                   </div>
-                  <div><span class="block text-[9px] font-mono uppercase text-[#171A18] dark:text-white font-bold">Recommended</span><strong id="trail-disp-bike" class="text-xs text-[#171A18] dark:text-white">City Cruiser</strong></div>
+                  <div><span
+                      class="block text-[9px] font-mono uppercase text-[#171A18] dark:text-white font-bold">Recommended</span><strong
+                      id="trail-disp-bike" class="text-xs text-[#171A18] dark:text-white">City Cruiser</strong></div>
                 </div>
                 <div class="flex items-start gap-2.5">
-                  <div class="w-7 h-7 shrink-0 rounded-full bg-[#C8D62C]/20 flex items-center justify-center text-[#28552E] dark:text-[#C8D62C]">
-                    <svg class="w-3.5 h-3.5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <div
+                    class="w-7 h-7 shrink-0 rounded-full bg-[#C8D62C]/20 flex items-center justify-center text-[#28552E] dark:text-[#C8D62C]">
+                    <svg class="w-3.5 h-3.5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
                   </div>
-                  <div><span class="block text-[9px] font-mono uppercase text-[#171A18] dark:text-white font-bold">Stops</span><strong id="trail-disp-stops" class="text-xs text-[#171A18] dark:text-white">Six Stops</strong></div>
+                  <div><span
+                      class="block text-[9px] font-mono uppercase text-[#171A18] dark:text-white font-bold">Stops</span><strong
+                      id="trail-disp-stops" class="text-xs text-[#171A18] dark:text-white">Six Stops</strong></div>
                 </div>
               </div>
-              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-5 pt-4 border-t border-[#D9DDD8] dark:border-white/10">
-                <div><span class="block text-[9px] font-mono uppercase text-[#171A18] dark:text-white font-bold mb-1">Route Status</span><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-[#C8D62C] animate-pulse"></span><span class="text-xs font-semibold text-[#171A18] dark:text-white">Open &amp; Ride Ready</span></div></div>
-                <a href="tours.html" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-[#28552E] hover:bg-[#173A20] text-white text-xs font-mono font-bold uppercase transition-all duration-300">Explore Route</a>
+              <div
+                class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-5 pt-4 border-t border-[#D9DDD8] dark:border-white/10">
+                <div><span
+                    class="block text-[9px] font-mono uppercase text-[#171A18] dark:text-white font-bold mb-1">Route
+                    Status</span>
+                  <div class="flex items-center gap-2"><span
+                      class="w-2 h-2 rounded-full bg-[#C8D62C] animate-pulse"></span><span
+                      class="text-xs font-semibold text-[#171A18] dark:text-white">Open &amp; Ride Ready</span></div>
+                </div>
+                <a href="tours.html"
+                  class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-[#28552E] hover:bg-[#173A20] text-white text-xs font-mono font-bold uppercase transition-all duration-300">Explore
+                  Route</a>
               </div>
             </div>
             <div class="lg:col-span-5">
-              <div class="relative w-full h-[320px] sm:h-[380px] lg:h-[460px] rounded-2xl overflow-hidden border border-[#D9DDD8] dark:border-white/10 shadow-lg group bg-[#F7F7F2] dark:bg-[#0B2415]">
-                <img id="trail-disp-img" src="assets/images/locations-marina-hub.jpg" alt="Sunset River Promenade" class="w-full h-full object-cover object-center transition-all duration-300 group-hover:scale-105" loading="lazy" />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
+              <div
+                class="relative w-full h-[320px] sm:h-[380px] lg:h-[460px] rounded-2xl overflow-hidden border border-[#D9DDD8] dark:border-white/10 shadow-lg group bg-[#F7F7F2] dark:bg-[#0B2415]">
+                <img id="trail-disp-img" src="assets/images/locations-marina-hub.jpg" alt="Sunset River Promenade"
+                  class="w-full h-full object-cover object-center transition-all duration-300 group-hover:scale-105"
+                  loading="lazy" />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none">
+                </div>
                 <div class="absolute top-4 left-4 right-4 flex items-center justify-between">
-                  <span class="px-2.5 py-1.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[9px] font-mono uppercase tracking-wider border border-white/10">Live Route Preview</span>
-                  <span class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-[#C8D62C] text-[#171A18] text-[9px] font-mono font-bold"><span class="w-1.5 h-1.5 rounded-full bg-[#171A18] animate-pulse"></span>OPEN</span>
+                  <span
+                    class="px-2.5 py-1.5 rounded-md bg-black/60 backdrop-blur-md text-white text-[9px] font-mono uppercase tracking-wider border border-white/10">Live
+                    Route Preview</span>
+                  <span
+                    class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-[#C8D62C] text-[#171A18] text-[9px] font-mono font-bold"><span
+                      class="w-1.5 h-1.5 rounded-full bg-[#171A18] animate-pulse"></span>OPEN</span>
                 </div>
                 <div class="absolute left-4 right-4 bottom-4">
                   <div class="flex items-end justify-between gap-3">
                     <div>
-                      <span class="block text-[9px] font-mono uppercase tracking-widest text-white/80 mb-1">Route Start</span>
-                      <strong id="trail-disp-start" class="text-sm sm:text-base font-bold text-white">Central Riverside Hub</strong>
+                      <span class="block text-[9px] font-mono uppercase tracking-widest text-white/80 mb-1">Route
+                        Start</span>
+                      <strong id="trail-disp-start" class="text-sm sm:text-base font-bold text-white">Central Riverside
+                        Hub</strong>
                     </div>
                     <div class="text-right">
                       <span class="block text-[9px] font-mono uppercase text-white/80 mb-1">Riders Today</span>
@@ -782,14 +1040,28 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-14 space-y-3 reveal-on-scroll">
           <div class="text-xs font-mono font-bold tracking-widest text-[#C8D62C] uppercase">Proven Urban Network</div>
-          <h2 class="font-display font-bold text-3xl sm:text-4xl text-white">Built for City Commuters &amp; Explorers</h2>
-          <p class="text-sm text-white">Real-time telemetry and verified rider benchmarks across all docking stations.</p>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-white">Built for City Commuters &amp; Explorers
+          </h2>
+          <p class="text-sm text-white">Real-time telemetry and verified rider benchmarks across all docking stations.
+          </p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6 reveal-on-scroll">
-          <div class="p-6 rounded-2xl bg-[#0B2415] border border-white/10 text-center space-y-2"><div class="font-display font-extrabold text-4xl sm:text-5xl text-[#C8D62C]">10,000+</div><span class="font-display font-bold text-sm text-white block">Safe Urban Rides</span></div>
-          <div class="p-6 rounded-2xl bg-[#0B2415] border border-white/10 text-center space-y-2"><div class="font-display font-extrabold text-4xl sm:text-5xl text-[#C8D62C]">99%</div><span class="font-display font-bold text-sm text-white block">Satisfaction</span></div>
-          <div class="p-6 rounded-2xl bg-[#0B2415] border border-white/10 text-center space-y-2"><div class="font-display font-extrabold text-4xl sm:text-5xl text-[#C8D62C]">15s</div><span class="font-display font-bold text-sm text-white block">Avg Unlock</span></div>
-          <div class="p-6 rounded-2xl bg-[#0B2415] border border-white/10 text-center space-y-2"><div class="font-display font-extrabold text-4xl sm:text-5xl text-[#C8D62C]">$0</div><span class="font-display font-bold text-sm text-white block">Deposit Fees</span></div>
+          <div class="p-6 rounded-2xl bg-[#0B2415] border border-white/10 text-center space-y-2">
+            <div class="font-display font-extrabold text-4xl sm:text-5xl text-[#C8D62C]">10,000+</div><span
+              class="font-display font-bold text-sm text-white block">Safe Urban Rides</span>
+          </div>
+          <div class="p-6 rounded-2xl bg-[#0B2415] border border-white/10 text-center space-y-2">
+            <div class="font-display font-extrabold text-4xl sm:text-5xl text-[#C8D62C]">99%</div><span
+              class="font-display font-bold text-sm text-white block">Satisfaction</span>
+          </div>
+          <div class="p-6 rounded-2xl bg-[#0B2415] border border-white/10 text-center space-y-2">
+            <div class="font-display font-extrabold text-4xl sm:text-5xl text-[#C8D62C]">15s</div><span
+              class="font-display font-bold text-sm text-white block">Avg Unlock</span>
+          </div>
+          <div class="p-6 rounded-2xl bg-[#0B2415] border border-white/10 text-center space-y-2">
+            <div class="font-display font-extrabold text-4xl sm:text-5xl text-[#C8D62C]">$0</div><span
+              class="font-display font-bold text-sm text-white block">Deposit Fees</span>
+          </div>
         </div>
       </div>
     </section>
@@ -798,25 +1070,44 @@
     <!-- ======================================================================= -->
     <!-- SECTION 7 — COMMUTER SUBSCRIPTIONS & PASSES                             -->
     <!-- ======================================================================= -->
-    <section id="passes-section" class="py-16 lg:py-24 bg-[#F7F7F2] dark:bg-[#173A20] border-y border-[#D9DDD8] dark:border-white/10 transition-colors duration-300">
+    <section id="passes-section"
+      class="py-16 lg:py-24 bg-[#F7F7F2] dark:bg-[#173A20] border-y border-[#D9DDD8] dark:border-white/10 transition-colors duration-300">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-14 space-y-3 reveal-on-scroll">
-          <div class="text-xs font-mono font-bold tracking-widest text-[#28552E] dark:text-[#C8D62C] uppercase">Commuter Subscriptions</div>
-          <h2 class="font-display font-bold text-3xl sm:text-4xl text-[#171A18] dark:text-white">Choose Your Mobility Pass</h2>
-          <p class="text-sm text-[#171A18] dark:text-white">From single-day leisure rides to full monthly unlimited commute passes.</p>
+          <div class="text-xs font-mono font-bold tracking-widest text-[#28552E] dark:text-[#C8D62C] uppercase">Commuter
+            Subscriptions</div>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-[#171A18] dark:text-white">Choose Your Mobility
+            Pass</h2>
+          <p class="text-sm text-[#171A18] dark:text-white">From single-day leisure rides to full monthly unlimited
+            commute passes.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-on-scroll">
           <div class="velo-card p-8 flex flex-col justify-between space-y-6">
-            <div><span class="text-xs font-mono font-bold text-[#171A18] dark:text-white uppercase">Single Day</span><h3 class="font-display font-bold text-2xl text-[#171A18] dark:text-white mt-1">Daily Explorer</h3><div class="font-display font-extrabold text-4xl text-[#171A18] dark:text-white mt-3">$18</div></div>
-            <a href="fleet.html" class="btn-secondary w-full py-3 rounded-lg text-xs font-bold text-center">Get Day Pass</a>
+            <div><span class="text-xs font-mono font-bold text-[#171A18] dark:text-white uppercase">Single Day</span>
+              <h3 class="font-display font-bold text-2xl text-[#171A18] dark:text-white mt-1">Daily Explorer</h3>
+              <div class="font-display font-extrabold text-4xl text-[#171A18] dark:text-white mt-3">$18</div>
+            </div>
+            <a href="fleet.html" class="btn-secondary w-full py-3 rounded-lg text-xs font-bold text-center">Get Day
+              Pass</a>
           </div>
-          <div class="velo-card p-8 flex flex-col justify-between space-y-6 border-[#C8D62C]/60 shadow-xl bg-white dark:bg-[#0B2415]">
-            <div><span class="text-xs font-mono font-bold text-[#28552E] dark:text-[#C8D62C] uppercase">Most Popular</span><h3 class="font-display font-bold text-2xl text-[#171A18] dark:text-white mt-1">E-Mobility Pro</h3><div class="font-display font-extrabold text-4xl text-[#28552E] dark:text-[#C8D62C] mt-3">$34</div></div>
-            <a href="fleet.html" class="btn-primary w-full py-3 rounded-lg text-xs font-bold text-center">Get E-Bike Pass</a>
+          <div
+            class="velo-card p-8 flex flex-col justify-between space-y-6 border-[#C8D62C]/60 shadow-xl bg-white dark:bg-[#0B2415]">
+            <div><span class="text-xs font-mono font-bold text-[#28552E] dark:text-[#C8D62C] uppercase">Most
+                Popular</span>
+              <h3 class="font-display font-bold text-2xl text-[#171A18] dark:text-white mt-1">E-Mobility Pro</h3>
+              <div class="font-display font-extrabold text-4xl text-[#28552E] dark:text-[#C8D62C] mt-3">$34</div>
+            </div>
+            <a href="fleet.html" class="btn-primary w-full py-3 rounded-lg text-xs font-bold text-center">Get E-Bike
+              Pass</a>
           </div>
           <div class="velo-card p-8 flex flex-col justify-between space-y-6">
-            <div><span class="text-xs font-mono font-bold text-[#171A18] dark:text-white uppercase">Monthly Commute</span><h3 class="font-display font-bold text-2xl text-[#171A18] dark:text-white mt-1">30-Day Commuter</h3><div class="font-display font-extrabold text-4xl text-[#171A18] dark:text-white mt-3">$89</div></div>
-            <a href="fleet.html" class="btn-secondary w-full py-3 rounded-lg text-xs font-bold text-center">Subscribe Monthly</a>
+            <div><span class="text-xs font-mono font-bold text-[#171A18] dark:text-white uppercase">Monthly
+                Commute</span>
+              <h3 class="font-display font-bold text-2xl text-[#171A18] dark:text-white mt-1">30-Day Commuter</h3>
+              <div class="font-display font-extrabold text-4xl text-[#171A18] dark:text-white mt-3">$89</div>
+            </div>
+            <a href="fleet.html" class="btn-secondary w-full py-3 rounded-lg text-xs font-bold text-center">Subscribe
+              Monthly</a>
           </div>
         </div>
       </div>
@@ -824,43 +1115,40 @@
 
 
     <!-- ======================================================================= -->
-<!-- SECTION 8 — CITY MOVEMENT MANIFESTO                                    -->
-<!-- ======================================================================= -->
-<section
-  id="final-manifesto"
-  class="relative overflow-hidden bg-[#C8D62C] dark:bg-[#173A20] transition-colors duration-500">
+    <!-- SECTION 8 — CITY MOVEMENT MANIFESTO                                    -->
+    <!-- ======================================================================= -->
+    <section id="final-manifesto"
+      class="relative overflow-hidden bg-[#C8D62C] dark:bg-[#173A20] transition-colors duration-500">
 
-  <!-- ================================================================ -->
-  <!-- BACKGROUND MOVEMENT                                              -->
-  <!-- ================================================================ -->
+      <!-- ================================================================ -->
+      <!-- BACKGROUND MOVEMENT                                              -->
+      <!-- ================================================================ -->
 
-  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+      <div class="absolute inset-0 pointer-events-none overflow-hidden">
 
-    <!-- Large Decorative Circle -->
-    <div
-      class="absolute -right-32 -top-32
+        <!-- Large Decorative Circle -->
+        <div class="absolute -right-32 -top-32
              w-[330px] h-[230px]
              rounded-full
              border-[70px]
              border-[#28552E]/10
              dark:border-[#C8D62C]/10
              animate-manifesto-orbit">
-    </div>
+        </div>
 
-    <!-- Moving Lines -->
-    <div class="absolute inset-0 manifesto-lines">
+        <!-- Moving Lines -->
+        <div class="absolute inset-0 manifesto-lines">
 
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
 
-    </div>
+        </div>
 
-    <!-- Giant Background Text -->
-    <div
-      class="absolute left-0 bottom-[-45px]
+        <!-- Giant Background Text -->
+        <div class="absolute left-0 bottom-[-45px]
              whitespace-nowrap
              font-display font-black
              text-[18vw]
@@ -869,125 +1157,114 @@
              text-[#28552E]/[0.055]
              dark:text-white/[0.035]
              select-none">
-      MOVE MOVE MOVE
-    </div>
+          MOVE MOVE MOVE
+        </div>
 
-  </div>
+      </div>
 
 
-  <!-- ================================================================ -->
-  <!-- MAIN CONTENT                                                     -->
-  <!-- ================================================================ -->
+      <!-- ================================================================ -->
+      <!-- MAIN CONTENT                                                     -->
+      <!-- ================================================================ -->
 
-  <div
-    class="relative z-10
+      <div class="relative z-10
            max-w-7xl mx-auto
            px-4 sm:px-6 lg:px-8
            py-14 sm:py-16 lg:py-20">
 
-    <!-- TOP META -->
-    <div
-      class="flex flex-col sm:flex-row
+        <!-- TOP META -->
+        <div class="flex flex-col sm:flex-row
              sm:items-center sm:justify-between
              gap-4 mb-10
              manifesto-reveal">
 
-      <div class="flex items-center gap-3">
+          <div class="flex items-center gap-3">
 
-        <span
-          class="w-8 h-8 rounded-full
+            <span class="w-8 h-8 rounded-full
                  border border-[#28552E]/30
                  dark:border-white/20
                  flex items-center justify-center
                  text-[#28552E]
                  dark:text-white">
 
-          <i class="fa-solid fa-arrow-right text-xs"></i>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
 
-        </span>
+            </span>
 
-        <span
-          class="text-[10px] font-mono font-bold
+            <span class="text-[10px] font-mono font-bold
                  uppercase tracking-[0.25em]
                  text-[#171A18] dark:text-white">
-          Urban mobility starts here
-        </span>
+              Urban mobility starts here
+            </span>
 
-      </div>
+          </div>
 
 
-      <span
-        class="text-[9px] font-mono
+          <span class="text-[9px] font-mono
                uppercase tracking-[0.2em]
                text-[#171A18]
                dark:text-white">
-        Ride beyond the ordinary
-      </span>
+            Ride beyond the ordinary
+          </span>
 
-    </div>
+        </div>
 
 
-    <!-- ================================================================ -->
-    <!-- HUGE MANIFESTO                                                   -->
-    <!-- ================================================================ -->
+        <!-- ================================================================ -->
+        <!-- HUGE MANIFESTO                                                   -->
+        <!-- ================================================================ -->
 
-    <div class="relative manifesto-reveal">
+        <div class="relative manifesto-reveal">
 
-      <h2
-        class="font-display font-black
+          <h2 class="font-display font-black
                text-[clamp(3.4rem,5vw,5rem)]
                leading-[0.78]
                tracking-[-0.065em]
                text-[#171A18]
                dark:text-white">
 
-        <span class="block manifesto-line">
-          Your city.
-        </span>
+            <span class="block manifesto-line">
+              Your city.
+            </span>
 
-        <span
-          class="block ml-[7vw]
+            <span class="block ml-[7vw]
                  text-[#28552E]
                  dark:text-[#C8D62C]
                  manifesto-line manifesto-outline">
-          Your rhythm.
-        </span>
+              Your rhythm.
+            </span>
 
-        <span class="block manifesto-line">
-          Your ride.
-        </span>
+            <span class="block manifesto-line">
+              Your ride.
+            </span>
 
-      </h2>
+          </h2>
 
 
-      <!-- ============================================================ -->
-      <!-- INLINE CTA                                                    -->
-      <!-- ============================================================ -->
+          <!-- ============================================================ -->
+          <!-- INLINE CTA                                                    -->
+          <!-- ============================================================ -->
 
-      <div
-        class="mt-9
+          <div class="mt-9
                flex flex-col md:flex-row
                md:items-center
                gap-6">
 
-        <p
-          class="max-w-lg
+            <p class="max-w-lg
                  text-sm sm:text-base
                  leading-relaxed
                  text-black
                  dark:text-white
                  manifesto-copy">
 
-          Leave the traffic behind and take the long way home.
-          Choose a bike, unlock from your phone and discover
-          a faster, cleaner way to experience the city.
+              Leave the traffic behind and take the long way home.
+              Choose a bike, unlock from your phone and discover
+              a faster, cleaner way to experience the city.
 
-        </p>
+            </p>
 
 
-        <a
-          href="fleet.html"
-          class="manifesto-main-btn
+            <a href="fleet.html" class="manifesto-main-btn
                  group shrink-0
                  inline-flex items-center
                  justify-between
@@ -1005,10 +1282,9 @@
                  hover:-translate-y-1
                  hover:shadow-2xl">
 
-          <span>Start Riding</span>
+              <span>Start Riding</span>
 
-          <span
-            class="w-8 h-8
+              <span class="w-8 h-8
                    rounded-full
                    bg-white/10
                    dark:bg-[#171A18]/10
@@ -1016,42 +1292,39 @@
                    transition-transform duration-300
                    group-hover:rotate-45">
 
-            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
 
-          </span>
+              </span>
 
-        </a>
+            </a>
 
-      </div>
+          </div>
 
-    </div>
+        </div>
 
 
-    <!-- ================================================================ -->
-    <!-- MOVING ROAD                                                     -->
-    <!-- ================================================================ -->
+        <!-- ================================================================ -->
+        <!-- MOVING ROAD                                                     -->
+        <!-- ================================================================ -->
 
-    <div
-      class="relative
+        <div class="relative
              mt-12 sm:mt-14
              h-[90px]
              overflow-hidden
              manifesto-road">
 
-      <!-- Road -->
-      <div
-        class="absolute left-0 right-0
+          <!-- Road -->
+          <div class="absolute left-0 right-0
                top-1/2
                -translate-y-1/2
                h-[2px]
                bg-[#28552E]/30
                dark:bg-white/20">
-      </div>
+          </div>
 
 
-      <!-- Dashed Moving Lane -->
-      <div
-        class="absolute left-0 right-0
+          <!-- Dashed Moving Lane -->
+          <div class="absolute left-0 right-0
                top-1/2
                -translate-y-1/2
                h-[7px]
@@ -1059,110 +1332,98 @@
                border-[#171A18]/35
                dark:border-white/25
                manifesto-road-dashes">
-      </div>
+          </div>
 
 
-      <!-- WAYPOINTS -->
+          <!-- WAYPOINTS -->
 
-      <span
-        class="manifesto-waypoint waypoint-one">
-      </span>
+          <span class="manifesto-waypoint waypoint-one">
+          </span>
 
-      <span
-        class="manifesto-waypoint waypoint-two">
-      </span>
+          <span class="manifesto-waypoint waypoint-two">
+          </span>
 
-      <span
-        class="manifesto-waypoint waypoint-three">
-      </span>
+          <span class="manifesto-waypoint waypoint-three">
+          </span>
 
 
-      <!-- MOVING BIKE -->
-      <div class="manifesto-bike">
+          <!-- MOVING BIKE -->
+          <div class="manifesto-bike">
 
-        <i
-          class="fa-solid fa-bicycle
+            <i class="fa-solid fa-bicycle
                  text-[#28552E]
                  dark:text-[#C8D62C]
                  text-xl">
-        </i>
+            </i>
 
-      </div>
+          </div>
 
 
-      <!-- ROAD LABELS -->
+          <!-- ROAD LABELS -->
 
-      <div
-        class="absolute left-0 top-0
+          <div class="absolute left-0 top-0
                text-xs font-mono font-bold
                uppercase tracking-widest
                text-[#171A18]
                dark:text-white">
-        City Centre
-      </div>
+            City Centre
+          </div>
 
-      <div
-        class="absolute left-1/2
+          <div class="absolute left-1/2
                -translate-x-1/2
                bottom-0
                text-xs font-mono font-bold
                uppercase tracking-widest
                text-[#171A18]
                dark:text-white">
-        Riverside
-      </div>
+            Riverside
+          </div>
 
-      <div
-        class="absolute right-0 top-0
+          <div class="absolute right-0 top-0
                text-xs font-mono font-bold
                uppercase tracking-widest
                text-[#171A18]
                dark:text-white">
-        Open Road
-      </div>
+            Open Road
+          </div>
 
-    </div>
+        </div>
 
 
-    <!-- ================================================================ -->
-    <!-- BOTTOM STATEMENT                                                 -->
-    <!-- ================================================================ -->
+        <!-- ================================================================ -->
+        <!-- BOTTOM STATEMENT                                                 -->
+        <!-- ================================================================ -->
 
-    <div
-      class="flex flex-col lg:flex-row
+        <div class="flex flex-col lg:flex-row
              lg:items-end
              lg:justify-between
              gap-6
              mt-5
              manifesto-reveal">
 
-      <div>
+          <div>
 
-        <span
-          class="block text-[9px]
+            <span class="block text-[9px]
                  font-mono uppercase
                  tracking-[0.2em]
                  text-black
                  dark:text-white mb-2">
-          Built around movement
-        </span>
+              Built around movement
+            </span>
 
-        <p
-          class="max-w-2xl
+            <p class="max-w-2xl
                  font-display font-bold
                  text-xl sm:text-2xl
                  leading-tight
                  text-black
                  dark:text-white">
-          Better streets begin with people choosing to move differently.
-        </p>
+              Better streets begin with people choosing to move differently.
+            </p>
 
-      </div>
+          </div>
 
 
-      <a
-        href="tours.html"
-        class="group
+          <a href="tours.html" class="group
                inline-flex items-center gap-3
                text-xs font-mono font-bold
                uppercase tracking-wider
@@ -1171,21 +1432,20 @@
                hover:opacity-60
                transition">
 
-        Explore the city
+            Explore the city
 
-        <i
-          class="fa-solid fa-arrow-right
+            <i class="fa-solid fa-arrow-right
                  transition-transform duration-300
                  group-hover:translate-x-2">
-        </i>
+            </i>
 
-      </a>
+          </a>
 
-    </div>
+        </div>
 
-  </div>
+      </div>
 
-</section>
+    </section>
 
 
 
@@ -1199,21 +1459,23 @@
   <!-- ========================================================================= -->
   <footer class="bg-[#0B2415] border-t border-white/10 pt-16 pb-12 text-white transition-colors duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
+
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
-        
+
         <div class="lg:col-span-4 space-y-4">
-          <a href="index.html" class="flex items-center gap-2.5 group">
+          <a href="index.html" class="flex items-center gap-3">
             <div class="w-8 h-8 rounded-lg bg-[#C8D62C] text-[#171A18] flex items-center justify-center font-bold">
-              <svg class="w-5 h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 11.5L9 6H4m11 11.5L12 9l3-3h3"/></svg>
+              <svg class="w-5 h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <circle cx="5.5" cy="17.5" r="3.5" />
+                <circle cx="18.5" cy="17.5" r="3.5" />
+                <path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 11.5L9 6H4m11 11.5L12 9l3-3h3" />
+              </svg>
             </div>
-            <div class="flex flex-col">
-              <span class="font-display font-bold text-lg tracking-tight uppercase text-white leading-none">VELO CITY</span>
-              <span class="text-[9px] font-mono tracking-widest text-[#C8D62C] uppercase font-semibold mt-0.5">Mobility &amp; Tours</span>
-            </div>
+            <span class="font-display font-bold text-lg tracking-tight uppercase text-white">VELO CITY</span>
           </a>
           <p class="text-sm text-white max-w-sm leading-relaxed">
-            Leading the clean urban mobility movement. Zero-emission e-bikes, tandem exploration, and smart city docking networks.
+            Leading the clean urban mobility movement. Zero-emission e-bikes, tandem exploration, and smart city docking
+            networks.
           </p>
         </div>
 
@@ -1221,7 +1483,8 @@
           <h4 class="font-display font-bold text-sm text-white uppercase tracking-wider">Pages</h4>
           <ul class="space-y-2 text-sm text-white">
             <li><a href="index.html" class="hover:text-[#C8D62C] transition-colors">Home 1 (Classic)</a></li>
-            <li><a href="home-2.html" class="hover:text-[#C8D62C] transition-colors font-bold text-[#C8D62C]">Home 2 (E-Mobility)</a></li>
+            <li><a href="home-2.html" class="hover:text-[#C8D62C] transition-colors font-bold text-[#C8D62C]">Home 2
+                (E-Mobility)</a></li>
             <li><a href="fleet.html" class="hover:text-[#C8D62C] transition-colors">Fleet Catalog</a></li>
             <li><a href="tours.html" class="hover:text-[#C8D62C] transition-colors">Guided Tours</a></li>
             <li><a href="locations.html" class="hover:text-[#C8D62C] transition-colors">Pickup Locations</a></li>
@@ -1252,37 +1515,36 @@
 
         <div class="lg:col-span-2 space-y-3">
           <div class="flex items-center gap-2">
-            
+
             <h4 class="font-display font-bold text-sm text-white uppercase tracking-wider">Concierge</h4>
           </div>
           <div class="space-y-4 text-xs font-mono text-white">
 
-  <!-- Hotline -->
-  <div>
-    <span class="flex items-center gap-2 text-white font-bold">
-      <i class="fa-solid fa-phone text-[#C8D62C]"></i>
-      24/7 ROADSIDE HOTLINE
-    </span>
+            <!-- Hotline -->
+            <div>
+              <span class="flex items-center gap-2 text-white font-bold">
+                <i class="fa-solid fa-phone text-[#C8D62C]"></i>
+                24/7 ROADSIDE HOTLINE
+              </span>
 
-    <a href="tel:+41442155000"
-       class="font-bold text-[#C8D62C] hover:underline block text-sm mt-1 pl-6">
-      +41 44 215 5000
-    </a>
-  </div>
+              <a href="tel:+41442155000" class="font-bold text-[#C8D62C] hover:underline block text-sm mt-1 pl-6">
+                +41 44 215 5000
+              </a>
+            </div>
 
-  <!-- Headquarters -->
-  <div>
-    <span class="flex items-center gap-2 text-white font-bold">
-      <i class="fa-solid fa-location-dot text-[#C8D62C]"></i>
-      HEADQUARTERS
-    </span>
+            <!-- Headquarters -->
+            <div>
+              <span class="flex items-center gap-2 text-white font-bold">
+                <i class="fa-solid fa-location-dot text-[#C8D62C]"></i>
+                HEADQUARTERS
+              </span>
 
-    <span class="text-white block mt-1 pl-6">
-      Bahnhofstrasse 42, 8001 City
-    </span>
-  </div>
+              <span class="text-white block mt-1 pl-6">
+                Bahnhofstrasse 42, 8001 City
+              </span>
+            </div>
 
-</div>
+          </div>
         </div>
 
       </div>
@@ -1304,4 +1566,5 @@
   <!-- Main JavaScript Engine -->
   <script src="assets/js/main.js"></script>
 </body>
+
 </html>
