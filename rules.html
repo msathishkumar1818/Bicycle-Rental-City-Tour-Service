@@ -318,90 +318,71 @@
 
 
     <!-- 3 Equal Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch reveal-on-scroll">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch reveal-on-scroll">
 
       <!-- =========================================
-           PLAN 1
+           PLAN 1: Basic Mobility Cover
       ========================================== -->
-      <div class="velo-card p-7 flex flex-col h-full shadow-sm relative">
+      <div class="velo-card p-6 sm:p-7 flex flex-col h-full shadow-sm relative">
 
-        <!-- Main Content -->
-        <div class="flex-1 space-y-4">
+        <!-- Top Content -->
+        <div class="flex-1 flex flex-col">
 
-          <div class="flex items-center justify-between gap-4">
-            <span class="px-2.5 py-1 rounded-md bg-[#F7F7F2] dark:bg-[#0B2415]
-              text-[#171A18] dark:text-white text-xs font-mono font-bold
-              uppercase border border-[#D9DDD8] dark:border-white/10">
+          <!-- Header: Tag & Price -->
+          <div class="flex items-center justify-between gap-3 min-h-[36px] mb-3">
+            <span class="px-2.5 py-1 rounded-md bg-[#F7F7F2] dark:bg-[#0B2415] text-[#171A18] dark:text-white text-xs font-mono font-bold uppercase border border-[#D9DDD8] dark:border-white/10 shrink-0">
               STANDARD (INCLUDED)
             </span>
-
             <span class="font-mono font-extrabold text-2xl text-[#171A18] dark:text-white whitespace-nowrap">
-              $0
-              <span class="text-xs font-normal text-[#171A18] dark:text-white">
-                / day
-              </span>
+              $0 <span class="text-xs font-normal text-[#171A18] dark:text-white">/ day</span>
             </span>
           </div>
 
-          <h3 class="font-display font-bold text-xl text-[#171A18] dark:text-white">
+          <!-- Title -->
+          <h3 class="font-display font-bold text-xl text-[#171A18] dark:text-white min-h-[28px] flex items-center mb-2">
             Basic Mobility Cover
           </h3>
 
-          <p class="text-xs text-[#171A18] dark:text-white leading-relaxed min-h-[60px]">
-            Standard statutory liability protection covering third-party
-            bodily injury and property damage.
+          <!-- Description -->
+          <p class="text-xs text-[#171A18] dark:text-white leading-relaxed min-h-[48px] flex items-start mb-4">
+            Standard statutory liability protection covering third-party bodily injury and property damage.
           </p>
 
-          <ul class="space-y-2.5 text-xs font-mono text-[#171A18] dark:text-white
-            pt-4 border-t border-[#D9DDD8] dark:border-white/10">
-
+          <!-- Divider & Features -->
+          <ul class="space-y-2.5 text-xs font-mono text-[#171A18] dark:text-white pt-4 border-t border-[#D9DDD8] dark:border-white/10 flex-1">
             <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0 mt-0.5"
-                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  stroke-width="2" d="M5 13l4 4L19 7"/>
+              <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
               </svg>
               <span>$5,000,000 Third-Party Liability</span>
             </li>
-
             <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0 mt-0.5"
-                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  stroke-width="2" d="M5 13l4 4L19 7"/>
+              <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
               </svg>
               <span>24/7 Roadside Mechanical Support</span>
             </li>
-
-            <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 shrink-0 mt-0.5"
-                fill="none" viewBox="0 0 24 24">
-                <line x1="18" y1="6" x2="6" y2="18"
-                  stroke="currentColor" stroke-width="2"/>
-                <line x1="6" y1="6" x2="18" y2="18"
-                  stroke="currentColor" stroke-width="2"/>
+            <li class="flex items-start gap-2 text-[#171A18]/60 dark:text-white/60">
+              <svg class="w-4 h-4 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24">
+                <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2"/>
+                <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2"/>
               </svg>
               <span>Theft Deductible: $150 Max</span>
             </li>
-
-            <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 shrink-0 mt-0.5"
-                fill="none" viewBox="0 0 24 24">
-                <line x1="18" y1="6" x2="6" y2="18"
-                  stroke="currentColor" stroke-width="2"/>
-                <line x1="6" y1="6" x2="18" y2="18"
-                  stroke="currentColor" stroke-width="2"/>
+            <li class="flex items-start gap-2 text-[#171A18]/60 dark:text-white/60">
+              <svg class="w-4 h-4 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24">
+                <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2"/>
+                <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2"/>
               </svg>
               <span>Accidental Rim / Frame Damage: $80</span>
             </li>
-
           </ul>
+
         </div>
 
         <!-- Bottom Area -->
-        <div class="mt-8 pt-4 border-t border-[#D9DDD8] dark:border-white/10">
-          <span class="block text-center text-xs font-mono text-[#171A18]
-            dark:text-white font-bold">
+        <div class="mt-6 pt-4 border-t border-[#D9DDD8] dark:border-white/10 min-h-[58px] flex items-center justify-center">
+          <span class="block text-center text-xs font-mono text-[#171A18] dark:text-white font-bold">
             Default included on all rentals
           </span>
         </div>
@@ -410,186 +391,141 @@
 
 
       <!-- =========================================
-           PLAN 2
+           PLAN 2: Zero Deductible Shield (Recommended)
       ========================================== -->
-      <div class="velo-card p-7 flex flex-col h-full shadow-lg relative
-        border-2 border-[#C8D62C]">
+      <div class="velo-card p-6 sm:p-7 flex flex-col h-full shadow-lg relative border-2 border-[#C8D62C] bg-white dark:bg-[#0B2415]">
 
         <!-- Recommended Badge -->
-        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2
-          bg-[#C8D62C] text-[#171A18] font-mono font-bold text-[10px]
-          uppercase px-3 py-1 rounded-full tracking-wider shadow-sm whitespace-nowrap">
+        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#C8D62C] text-[#171A18] font-mono font-bold text-[10px] uppercase px-3 py-1 rounded-full tracking-wider shadow-sm whitespace-nowrap">
           RECOMMENDED OPTION
         </div>
 
-        <!-- Main Content -->
-        <div class="flex-1 space-y-4">
+        <!-- Top Content -->
+        <div class="flex-1 flex flex-col">
 
-          <div class="flex items-center justify-between gap-4">
-            <span class="px-2.5 py-1 rounded-md bg-[#173A20]/10
-              dark:bg-[#C8D62C]/20 text-[#28552E] dark:text-[#C8D62C]
-              text-xs font-mono font-bold uppercase
-              border border-[#D9DDD8] dark:border-[#C8D62C]/30">
+          <!-- Header: Tag & Price -->
+          <div class="flex items-center justify-between gap-3 min-h-[36px] mb-3">
+            <span class="px-2.5 py-1 rounded-md bg-[#173A20]/10 dark:bg-[#C8D62C]/20 text-[#28552E] dark:text-[#C8D62C] text-xs font-mono font-bold uppercase border border-[#D9DDD8] dark:border-[#C8D62C]/30 shrink-0">
               PLUS SHIELD
             </span>
-
-            <span class="font-mono font-extrabold text-2xl
-              text-[#28552E] dark:text-[#C8D62C] whitespace-nowrap">
-              +$3
-              <span class="text-xs font-normal text-[#171A18] dark:text-white">
-                / day
-              </span>
+            <span class="font-mono font-extrabold text-2xl text-[#28552E] dark:text-[#C8D62C] whitespace-nowrap">
+              +$3 <span class="text-xs font-normal text-[#171A18] dark:text-white">/ day</span>
             </span>
           </div>
 
-          <h3 class="font-display font-bold text-xl text-[#171A18] dark:text-white">
+          <!-- Title -->
+          <h3 class="font-display font-bold text-xl text-[#171A18] dark:text-white min-h-[28px] flex items-center mb-2">
             Zero Deductible Shield
           </h3>
 
-          <p class="text-xs text-[#171A18] dark:text-white leading-relaxed min-h-[60px]">
-            Eliminates all out-of-pocket repair costs for punctured tires,
-            bent rims, brake wear, and paint scuffs.
+          <!-- Description -->
+          <p class="text-xs text-[#171A18] dark:text-white leading-relaxed min-h-[48px] flex items-start mb-4">
+            Eliminates all out-of-pocket repair costs for punctured tires, bent rims, brake wear, and paint scuffs.
           </p>
 
-          <ul class="space-y-2.5 text-xs font-mono text-[#171A18] dark:text-white
-            pt-4 border-t border-[#D9DDD8] dark:border-white/10">
-
+          <!-- Divider & Features -->
+          <ul class="space-y-2.5 text-xs font-mono text-[#171A18] dark:text-white pt-4 border-t border-[#D9DDD8] dark:border-white/10 flex-1">
             <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0 mt-0.5"
-                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  stroke-width="2" d="M5 13l4 4L19 7"/>
+              <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
               </svg>
               <span><strong>$0 Deductible</strong> on Accidental Damage</span>
             </li>
-
             <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0 mt-0.5"
-                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  stroke-width="2" d="M5 13l4 4L19 7"/>
+              <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
               </svg>
               <span>Free Puncture &amp; Flat Tire Swaps</span>
             </li>
-
             <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0 mt-0.5"
-                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  stroke-width="2" d="M5 13l4 4L19 7"/>
+              <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
               </svg>
               <span>Theft Deductible Capped at $50</span>
             </li>
-
             <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0 mt-0.5"
-                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  stroke-width="2" d="M5 13l4 4L19 7"/>
+              <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
               </svg>
               <span>Express Roadside Van Replacement</span>
             </li>
-
           </ul>
+
         </div>
 
         <!-- Bottom Button -->
-        <div class="mt-8 pt-4 border-t border-[#D9DDD8] dark:border-white/10">
-
-          <a href="fleet.html"
-            class="btn-primary w-full py-2.5 rounded-lg text-xs font-bold
-            inline-flex items-center justify-center gap-2 text-center">
+        <div class="mt-6 pt-4 border-t border-[#D9DDD8] dark:border-white/10 min-h-[58px] flex items-center">
+          <a href="fleet.html" class="btn-primary w-full py-2.5 rounded-lg text-xs font-bold inline-flex items-center justify-center gap-2 text-center shadow-md">
             <span>Select with Bicycle</span>
           </a>
-
         </div>
 
       </div>
 
 
       <!-- =========================================
-           PLAN 3
+           PLAN 3: Complete Total Shield
       ========================================== -->
-      <div class="velo-card p-7 flex flex-col h-full shadow-sm relative">
+      <div class="velo-card p-6 sm:p-7 flex flex-col h-full shadow-sm relative">
 
-        <!-- Main Content -->
-        <div class="flex-1 space-y-4">
+        <!-- Top Content -->
+        <div class="flex-1 flex flex-col">
 
-          <div class="flex items-center justify-between gap-4">
-            <span class="px-2.5 py-1 rounded-md bg-[#F7F7F2] dark:bg-[#0B2415]
-              text-[#171A18] dark:text-white text-xs font-mono font-bold
-              uppercase border border-[#D9DDD8] dark:border-white/10">
+          <!-- Header: Tag & Price -->
+          <div class="flex items-center justify-between gap-3 min-h-[36px] mb-3">
+            <span class="px-2.5 py-1 rounded-md bg-[#F7F7F2] dark:bg-[#0B2415] text-[#171A18] dark:text-white text-xs font-mono font-bold uppercase border border-[#D9DDD8] dark:border-white/10 shrink-0">
               TOTAL PEACE
             </span>
-
             <span class="font-mono font-extrabold text-2xl text-[#171A18] dark:text-white whitespace-nowrap">
-              +$6
-              <span class="text-xs font-normal text-[#171A18] dark:text-white">
-                / day
-              </span>
+              +$6 <span class="text-xs font-normal text-[#171A18] dark:text-white">/ day</span>
             </span>
           </div>
 
-          <h3 class="font-display font-bold text-xl text-[#171A18] dark:text-white">
+          <!-- Title -->
+          <h3 class="font-display font-bold text-xl text-[#171A18] dark:text-white min-h-[28px] flex items-center mb-2">
             Complete Total Shield
           </h3>
 
-          <p class="text-xs text-[#171A18] dark:text-white leading-relaxed min-h-[60px]">
-            Total zero-liability coverage including theft, accessories,
-            water immersion, and complimentary taxi transfer.
+          <!-- Description -->
+          <p class="text-xs text-[#171A18] dark:text-white leading-relaxed min-h-[48px] flex items-start mb-4">
+            Total zero-liability coverage including theft, accessories, water immersion, and complimentary taxi transfer.
           </p>
 
-          <ul class="space-y-2.5 text-xs font-mono text-[#171A18] dark:text-white
-            pt-4 border-t border-[#D9DDD8] dark:border-white/10">
-
+          <!-- Divider & Features -->
+          <ul class="space-y-2.5 text-xs font-mono text-[#171A18] dark:text-white pt-4 border-t border-[#D9DDD8] dark:border-white/10 flex-1">
             <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0 mt-0.5"
-                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  stroke-width="2" d="M5 13l4 4L19 7"/>
+              <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
               </svg>
               <span><strong>$0 Total Deductible</strong> (Even for Theft)</span>
             </li>
-
             <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0 mt-0.5"
-                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  stroke-width="2" d="M5 13l4 4L19 7"/>
+              <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
               </svg>
               <span>Full Helmet &amp; Accessory Coverage</span>
             </li>
-
             <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0 mt-0.5"
-                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  stroke-width="2" d="M5 13l4 4L19 7"/>
+              <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
               </svg>
               <span>Free Hotel Key Delivery Service</span>
             </li>
-
             <li class="flex items-start gap-2">
-              <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0 mt-0.5"
-                fill="none" viewBox="0 0 24 24">
-                <path d="M5 13l4 4L19 7"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  fill="none"/>
+              <svg class="w-4 h-4 text-[#28552E] dark:text-[#C8D62C] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
               </svg>
               <span>Emergency Ride-Home Taxi Reimbursement</span>
             </li>
-
           </ul>
+
         </div>
 
-        
-        <!-- Bottom Area -->
-        <div class="mt-8 pt-4 border-t border-[#D9DDD8] dark:border-white/10">
-          <span class="block text-center text-xs font-mono text-[#171A18]
-            dark:text-white font-bold">
-           total place finish
-          </span>
+        <!-- Bottom Button -->
+        <div class="mt-6 pt-4 border-t border-[#D9DDD8] dark:border-white/10 min-h-[58px] flex items-center">
+          <a href="fleet.html" class="border border-[#171A18] dark:border-white/30 text-[#171A18] dark:text-white hover:bg-[#171A18] hover:text-white dark:hover:bg-[#C8D62C] dark:hover:text-[#171A18] w-full py-2.5 rounded-lg text-xs font-bold inline-flex items-center justify-center gap-2 text-center transition-colors">
+            <span>Select Total Shield</span>
+          </a>
         </div>
 
       </div>
