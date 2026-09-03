@@ -120,7 +120,9 @@ function setTheme(dark) {
     moonIcons.forEach(icon => icon.classList.add('hidden'));
     themeLabels.forEach(lbl => lbl.textContent = 'Dark Mode');
     themeButtons.forEach(btn => {
-      btn.classList.add('border-[#C8D62C]', 'text-[#28552E]', 'dark:text-[#C8D62C]');
+      btn.classList.add('border-[#C8D62C]', 'text-[#C8D62C]');
+      btn.setAttribute('title', 'Switch to Light Mode');
+      btn.setAttribute('aria-label', 'Switch to Light Mode');
       btn.setAttribute('aria-pressed', 'true');
     });
   } else {
@@ -130,7 +132,9 @@ function setTheme(dark) {
     moonIcons.forEach(icon => icon.classList.remove('hidden'));
     themeLabels.forEach(lbl => lbl.textContent = 'Light Mode');
     themeButtons.forEach(btn => {
-      btn.classList.remove('border-[#C8D62C]', 'text-[#28552E]', 'dark:text-[#C8D62C]');
+      btn.classList.remove('border-[#C8D62C]', 'text-[#C8D62C]');
+      btn.setAttribute('title', 'Switch to Dark Mode');
+      btn.setAttribute('aria-label', 'Switch to Dark Mode');
       btn.setAttribute('aria-pressed', 'false');
     });
   }
@@ -165,9 +169,15 @@ function setDirection(dir) {
 
   dirButtons.forEach(btn => {
     if (dir === 'rtl') {
-      btn.classList.add('border-[#C8D62C]', 'text-[#28552E]', 'dark:text-[#C8D62C]');
+      btn.classList.add('border-[#C8D62C]', 'text-[#28552E]', 'dark:text-[#C8D62C]', 'bg-[#C8D62C]/10');
+      btn.setAttribute('title', 'Switch to LTR Direction');
+      btn.setAttribute('aria-label', 'Switch to LTR Direction');
+      btn.setAttribute('aria-pressed', 'true');
     } else {
-      btn.classList.remove('border-[#C8D62C]', 'text-[#28552E]', 'dark:text-[#C8D62C]');
+      btn.classList.remove('border-[#C8D62C]', 'text-[#28552E]', 'dark:text-[#C8D62C]', 'bg-[#C8D62C]/10');
+      btn.setAttribute('title', 'Switch to RTL Direction');
+      btn.setAttribute('aria-label', 'Switch to RTL Direction');
+      btn.setAttribute('aria-pressed', 'false');
     }
   });
 }
@@ -716,15 +726,15 @@ const fleetCatalogData = [
     price: 18,
     rating: '4.9 (420)',
     range: 'Unlimited',
-    weight: '12.4 kg',
-    gears: '7-Speed Shimano Nexus',
+    weight: '12.2 kg',
+    gears: '7-Speed Shimano Altus',
     heights: ['s', 'm', 'l'],
     badge: 'Urban Classic',
-    desc: 'Lightweight hydroformed alloy frame with upright geometry, puncture-resistant tires, and integrated rack for effortless everyday commuting.',
-    image: 'assets/images/fleet-city-classic-solo.jpg'
+    desc: 'Lightweight hydroformed alloy frame with upright geometry, puncture-resistant Continental tires, and integrated Shimano 7-speed shifting.',
+    image: 'assets/images/fleet-city-stepthru.jpg'
   },
   {
-    id: 'city-comfort',
+    id: 'city-stepthru',
     name: 'Velo City Step-Through Comfort',
     category: 'city',
     categoryName: 'City Step-Through',
@@ -734,9 +744,9 @@ const fleetCatalogData = [
     weight: '12.8 kg',
     gears: '7-Speed Nexus + Front Basket',
     heights: ['s', 'm'],
-    badge: 'Easy Step-Through',
+    badge: 'Step-Through',
     desc: 'Low step-through frame designed for effortless mounting with heavy-duty front porteur basket and plush suspension saddle.',
-    image: 'assets/images/fleet-city-stepthru.jpg'
+    image: 'assets/images/p15.jpg'
   },
   {
     id: 'city-dutch',
@@ -749,7 +759,7 @@ const fleetCatalogData = [
     weight: '13.5 kg',
     gears: '8-Speed Nexus + Enclosed Chaincase',
     heights: ['m', 'l'],
-    badge: 'Classic Dutch Style',
+    badge: 'Classic Dutch',
     desc: 'Timeless Dutch-style roadster with fully enclosed chaincase, skirt guards, dynamo LED lights, and genuine Brooks leather saddle.',
     image: 'assets/images/fleet-city-cruiser-7s.jpg'
   },
@@ -811,7 +821,7 @@ const fleetCatalogData = [
     weight: '19.4 kg',
     gears: 'Shimano Nexus 8E E-Bike Hub',
     heights: ['s', 'm'],
-    badge: 'Effortless Low Step',
+    badge: 'Low Step E-Bike',
     desc: 'Accessible low-step frame with smooth Bosch Active Line Plus motor, plush gel saddle, and ergonomic swept-back handlebars.',
     image: 'assets/images/fleet-ebike-urban-boost.jpg'
   },
@@ -826,7 +836,7 @@ const fleetCatalogData = [
     weight: '22.0 kg',
     gears: 'Pinion 12-Speed + 45km/h Motor',
     heights: ['m', 'l'],
-    badge: '45 km/h Speed Class',
+    badge: '45 km/h Speed',
     desc: 'High-speed commuter engineered for long intercity transit. Heavy-duty aluminum chassis, integrated brake lights, and radar sensor.',
     image: 'assets/images/fleet-ebike-cargo-family.jpg'
   },
@@ -858,7 +868,7 @@ const fleetCatalogData = [
     weight: '17.8 kg',
     gears: '2x11 Shimano GRX Gravel Tandem',
     heights: ['m', 'l'],
-    badge: 'Lightweight Sport',
+    badge: 'Sport Tandem',
     desc: 'Performance tandem built with hydroformed alloy tubing, gravel tires, and precision drop handlebars for spirited duo cycling.',
     image: 'assets/images/fleet-tandem-sport.jpg'
   },
@@ -873,7 +883,7 @@ const fleetCatalogData = [
     weight: '20.1 kg',
     gears: '8-Speed Internal Nexus Hub',
     heights: ['s', 'm'],
-    badge: 'Dual Step-Through',
+    badge: 'Step Tandem',
     desc: 'Twin low step-through openings for effortless mounting and comfortable upright cruising along beach and river promenades.',
     image: 'assets/images/fleet-tandem-vista.jpg'
   },
@@ -888,7 +898,7 @@ const fleetCatalogData = [
     weight: '19.8 kg',
     gears: 'Shimano Deore 9-Speed + Dual Racks',
     heights: ['m', 'l'],
-    badge: 'Grand Expedition',
+    badge: 'Expedition',
     desc: 'Equipped with front and rear Ortlieb pannier racks, heavy-duty 48-spoke wheels, and dual water bottle cages for full-day expeditions.',
     image: 'assets/images/fleet-tandem-electric.jpg'
   },
@@ -920,7 +930,7 @@ const fleetCatalogData = [
     weight: '34.0 kg',
     gears: 'Enviolo Stepless + 100kg Box',
     heights: ['s', 'm', 'l'],
-    badge: 'Front-Loading Box',
+    badge: 'Front Box Cargo',
     desc: 'Premium European front-loading wooden box cargo bike with 3-point seatbelts for 2 toddlers and transparent rain canopy.',
     image: 'assets/images/fleet-cargo-box-edrive.jpg'
   },
@@ -950,7 +960,7 @@ const fleetCatalogData = [
     weight: '28.0 kg',
     gears: 'Rohloff 14-Speed Electronic E-Shift',
     heights: ['s', 'm', 'l'],
-    badge: 'Heavy 120kg Payload',
+    badge: '120kg Payload',
     desc: 'Commercial-grade electric cargo hauler with dual battery capacity, reinforced four-piston Magura brakes, and heavy-duty centerstand.',
     image: 'assets/images/fleet-cargo-trailer.jpg'
   }
@@ -964,14 +974,19 @@ function initFleetPageCatalog() {
   const sortSelect = document.getElementById('fleet-sort-select');
   const gridContainer = document.getElementById('fleet-catalog-grid');
   const countIndicator = document.getElementById('fleet-count-indicator');
+  const paginationNav = document.getElementById('fleet-pagination-nav');
+  const paginationInfo = document.getElementById('fleet-pagination-info');
+  const paginationContainer = document.getElementById('fleet-pagination-container');
 
   if (!gridContainer) return;
 
   let currentCategory = 'all';
   let currentHeight = 'all';
   let currentSort = 'popular';
+  let currentPage = 1;
+  const itemsPerPage = 4; // Exactly 4 models per page in 4-column layout
 
-  function renderCatalog() {
+  function renderCatalog(scrollOnChange = false) {
     let filtered = fleetCatalogData.filter(item => {
       const matchCat = currentCategory === 'all' || item.category === currentCategory;
       const matchHeight = currentHeight === 'all' || item.heights.includes(currentHeight);
@@ -984,22 +999,38 @@ function initFleetPageCatalog() {
       filtered.sort((a, b) => b.price - a.price);
     }
 
+    const totalItems = filtered.length;
+    const totalPages = Math.ceil(totalItems / itemsPerPage) || 1;
+
+    if (currentPage > totalPages) currentPage = totalPages;
+    if (currentPage < 1) currentPage = 1;
+
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = Math.min(startIndex + itemsPerPage, totalItems);
+    const paginatedItems = filtered.slice(startIndex, endIndex);
+
     if (countIndicator) {
-      countIndicator.textContent = `Showing ${filtered.length} of ${fleetCatalogData.length} models`;
+      if (totalItems > 0) {
+        countIndicator.textContent = `Showing ${startIndex + 1}–${endIndex} of ${totalItems} models`;
+      } else {
+        countIndicator.textContent = `Showing 0 models`;
+      }
     }
 
-    if (filtered.length === 0) {
+    if (totalItems === 0) {
       gridContainer.innerHTML = `
         <div class="col-span-full py-16 text-center text-[#171A18] dark:text-white">
           <p class="text-base font-semibold">No bicycle models match the selected filter combination.</p>
           <button type="button" id="reset-fleet-filters" class="btn-secondary px-4 py-2 rounded-lg text-xs font-bold mt-4">Reset All Filters</button>
         </div>
       `;
+      if (paginationContainer) paginationContainer.classList.add('hidden');
       const resetBtn = document.getElementById('reset-fleet-filters');
       if (resetBtn) {
         resetBtn.addEventListener('click', () => {
           currentCategory = 'all';
           currentHeight = 'all';
+          currentPage = 1;
           if (heightSelect) heightSelect.value = 'all';
           filterBtns.forEach(b => b.classList.toggle('active', b.dataset.category === 'all'));
           renderCatalog();
@@ -1008,16 +1039,19 @@ function initFleetPageCatalog() {
       return;
     }
 
-    gridContainer.innerHTML = filtered.map(item => `
-      <article class="fleet-card p-6 shadow-sm relative overflow-hidden group bg-white dark:bg-[#173A20] border border-[#D9DDD8] dark:border-white/10 rounded-2xl">
+    if (paginationContainer) paginationContainer.classList.remove('hidden');
+
+    gridContainer.innerHTML = paginatedItems.map(item => `
+      <article class="fleet-card p-5 sm:p-6 shadow-sm relative overflow-hidden group bg-white dark:bg-[#173A20] border border-[#D9DDD8] dark:border-white/10 rounded-2xl flex flex-col justify-between h-full">
         <div>
-          <!-- Top Badge & Price -->
+          <!-- Top Badge & Price (Always 1 Single Line, Guaranteed No Wrap) -->
           <div class="flex items-center justify-between gap-2 mb-4">
-            <span class="px-2.5 py-1 rounded-md bg-[#173A20]/10 dark:bg-[#C8D62C]/20 text-[#28552E] dark:text-[#C8D62C] text-[11px] font-mono font-bold uppercase border border-[#28552E]/30 dark:border-[#C8D62C]/30">
+            <span class="px-2 sm:px-2.5 py-1 rounded-md bg-[#173A20]/10 dark:bg-[#C8D62C]/20 text-[#28552E] dark:text-[#C8D62C] text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-tight border border-[#28552E]/30 dark:border-[#C8D62C]/30 shrink min-w-0 truncate whitespace-nowrap" title="${item.badge}">
               ${item.badge}
             </span>
-            <div class="font-mono font-extrabold text-xl text-[#171A18] dark:text-white">
-              $${item.price} <span class="text-xs font-normal text-[#171A18] dark:text-white">/ day</span>
+            <div class="font-mono font-extrabold text-lg sm:text-xl text-[#171A18] dark:text-white shrink-0 whitespace-nowrap leading-none flex items-baseline gap-1">
+              <span>$${item.price}</span>
+              <span class="text-xs font-normal text-[#171A18]/70 dark:text-white/70">/day</span>
             </div>
           </div>
 
@@ -1028,10 +1062,10 @@ function initFleetPageCatalog() {
 
           <!-- Category & Model Title -->
           <div class="text-xs font-mono font-semibold text-[#28552E] dark:text-[#C8D62C] uppercase mb-1">${item.categoryName}</div>
-          <h3 class="font-display font-bold text-xl text-[#171A18] dark:text-white mb-2 group-hover:text-[#28552E] dark:group-hover:text-[#C8D62C] transition-colors">
+          <h3 class="font-display font-bold text-lg sm:text-xl text-[#171A18] dark:text-white mb-2 min-h-[3rem] flex items-start group-hover:text-[#28552E] dark:group-hover:text-[#C8D62C] transition-colors leading-snug" title="${item.name}">
             ${item.name}
           </h3>
-          <p class="text-xs text-[#171A18] dark:text-white leading-relaxed mb-4 line-clamp-2">
+          <p class="text-xs text-[#171A18]/80 dark:text-white/80 leading-relaxed mb-4 line-clamp-2 min-h-[2.5rem]">
             ${item.desc}
           </p>
 
@@ -1039,7 +1073,7 @@ function initFleetPageCatalog() {
           <div class="grid grid-cols-2 gap-2 text-xs font-mono border-t border-black/5 dark:border-white/5 pt-3 mb-4">
             <div class="p-2.5 rounded-lg bg-[#F7F7F2] dark:bg-[#0B2415]">
               <span class="block text-[10px] text-[#171A18] dark:text-white font-bold">RANGE</span>
-              <span class="font-semibold text-[#171A18] dark:text-white">${item.range}</span>
+              <span class="font-semibold text-[#171A18] dark:text-white truncate block">${item.range}</span>
             </div>
             <div class="p-2.5 rounded-lg bg-[#F7F7F2] dark:bg-[#0B2415]">
               <span class="block text-[10px] text-[#171A18] dark:text-white font-bold">GEARING</span>
@@ -1049,13 +1083,17 @@ function initFleetPageCatalog() {
         </div>
 
         <!-- Action Button -->
-        <button type="button" data-bike-id="${item.id}" class="open-booking-modal-btn btn-primary w-full py-3 rounded-lg text-xs font-bold inline-flex items-center justify-center gap-2 shadow-sm">
+        <button type="button" data-bike-id="${item.id}" class="open-booking-modal-btn btn-primary w-full py-3 rounded-lg text-xs font-bold inline-flex items-center justify-center gap-2 shadow-sm mt-auto">
           <span>Configure &amp; Rent</span>
           <svg class="w-3.5 h-3.5 rtl-flip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </button>
       </article>
     `).join('');
 
+    // Render Pagination Controls
+    renderPaginationControls(totalPages, totalItems, startIndex, endIndex);
+
+    // Reattach booking modal clicks
     document.querySelectorAll('.open-booking-modal-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const id = btn.dataset.bikeId;
@@ -1063,11 +1101,93 @@ function initFleetPageCatalog() {
         if (bike) openBookingModal(bike);
       });
     });
+
+    if (scrollOnChange) {
+      const section = document.getElementById('fleet-catalog-section');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  }
+
+  function renderPaginationControls(totalPages, totalItems, startIndex, endIndex) {
+    if (paginationInfo) {
+      paginationInfo.innerHTML = `
+        <span class="font-bold text-[#28552E] dark:text-[#C8D62C]">Page ${currentPage} of ${totalPages}</span>
+        <span class="text-[#171A18]/70 dark:text-white/70 ml-2">· Showing ${startIndex + 1}–${endIndex} of ${totalItems} models</span>
+      `;
+    }
+
+    if (!paginationNav) return;
+
+    let navHtml = '';
+
+    // Previous Button
+    const isPrevDisabled = currentPage === 1;
+    navHtml += `
+      <button type="button" id="fleet-page-prev" class="pagination-btn pagination-prev-next px-3 py-2 rounded-lg text-xs font-mono font-bold inline-flex items-center gap-1.5 border border-[#D9DDD8] dark:border-white/10 bg-white dark:bg-[#0B2415] text-[#171A18] dark:text-white hover:border-[#28552E] dark:hover:border-[#C8D62C] hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] transition-colors ${isPrevDisabled ? 'opacity-40 cursor-not-allowed pointer-events-none' : 'cursor-pointer'}" aria-label="Previous Page" ${isPrevDisabled ? 'disabled' : ''}>
+        <svg class="w-3.5 h-3.5 rtl-flip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        <span>Prev</span>
+      </button>
+    `;
+
+    // Page Numbers
+    for (let p = 1; p <= totalPages; p++) {
+      const isActive = p === currentPage;
+      navHtml += `
+        <button type="button" data-page="${p}" class="fleet-page-num-btn pagination-btn w-9 h-9 rounded-lg text-xs font-mono font-bold flex items-center justify-center transition-all ${isActive ? 'bg-[#28552E] text-[#C8D62C] dark:bg-[#C8D62C] dark:text-[#102C19] shadow-sm font-black ring-2 ring-[#28552E]/20' : 'bg-white dark:bg-[#0B2415] border border-[#D9DDD8] dark:border-white/10 text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] hover:border-[#28552E] dark:hover:border-[#C8D62C]'}" aria-label="Page ${p}" ${isActive ? 'aria-current="page"' : ''}>
+          ${p < 10 ? '0' + p : p}
+        </button>
+      `;
+    }
+
+    // Next Button
+    const isNextDisabled = currentPage === totalPages;
+    navHtml += `
+      <button type="button" id="fleet-page-next" class="pagination-btn pagination-prev-next px-3 py-2 rounded-lg text-xs font-mono font-bold inline-flex items-center gap-1.5 border border-[#D9DDD8] dark:border-white/10 bg-white dark:bg-[#0B2415] text-[#171A18] dark:text-white hover:border-[#28552E] dark:hover:border-[#C8D62C] hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] transition-colors ${isNextDisabled ? 'opacity-40 cursor-not-allowed pointer-events-none' : 'cursor-pointer'}" aria-label="Next Page" ${isNextDisabled ? 'disabled' : ''}>
+        <span>Next</span>
+        <svg class="w-3.5 h-3.5 rtl-flip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    `;
+
+    paginationNav.innerHTML = navHtml;
+
+    // Attach pagination click handlers
+    const prevBtn = document.getElementById('fleet-page-prev');
+    if (prevBtn && !isPrevDisabled) {
+      prevBtn.addEventListener('click', () => {
+        if (currentPage > 1) {
+          currentPage--;
+          renderCatalog(true);
+        }
+      });
+    }
+
+    const nextBtn = document.getElementById('fleet-page-next');
+    if (nextBtn && !isNextDisabled) {
+      nextBtn.addEventListener('click', () => {
+        if (currentPage < totalPages) {
+          currentPage++;
+          renderCatalog(true);
+        }
+      });
+    }
+
+    document.querySelectorAll('.fleet-page-num-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const pageNum = parseInt(btn.dataset.page, 10);
+        if (pageNum && pageNum !== currentPage) {
+          currentPage = pageNum;
+          renderCatalog(true);
+        }
+      });
+    });
   }
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       currentCategory = btn.dataset.category;
+      currentPage = 1;
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       renderCatalog();
@@ -1077,6 +1197,7 @@ function initFleetPageCatalog() {
   if (heightSelect) {
     heightSelect.addEventListener('change', (e) => {
       currentHeight = e.target.value;
+      currentPage = 1;
       renderCatalog();
     });
   }
@@ -1084,6 +1205,7 @@ function initFleetPageCatalog() {
   if (sortSelect) {
     sortSelect.addEventListener('change', (e) => {
       currentSort = e.target.value;
+      currentPage = 1;
       renderCatalog();
     });
   }
@@ -1391,14 +1513,58 @@ function initToursPage() {
   tourFilterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const cat = btn.dataset.tourCat;
-      tourFilterBtns.forEach(b => b.classList.remove('active', 'bg-[#C8D62C]', 'text-[#171A18]'));
-      btn.classList.add('active', 'bg-[#C8D62C]', 'text-[#171A18]');
 
-      tourCards.forEach(card => {
-        if (cat === 'all' || card.dataset.category === cat) {
-          card.style.display = 'flex';
+      // Update button active / inactive state using existing classes
+      tourFilterBtns.forEach(b => {
+        const isActive = b === btn;
+        b.classList.toggle('active', isActive);
+        if (isActive) {
+          b.classList.add('bg-[#C8D62C]', 'text-[#171A18]');
+          b.classList.remove('bg-[#F7F7F2]', 'dark:bg-[#0B2415]', 'dark:text-white');
         } else {
-          card.style.display = 'none';
+          b.classList.remove('active', 'bg-[#C8D62C]', 'text-[#171A18]');
+          b.classList.add('bg-[#F7F7F2]', 'dark:bg-[#0B2415]', 'text-[#171A18]', 'dark:text-white');
+        }
+      });
+
+      // Filter cards with smooth fade + translate transition
+      tourCards.forEach(card => {
+        const categories = (card.dataset.category || '').toLowerCase().split(/\s+/);
+        const shouldShow = cat === 'all' || categories.includes(cat);
+
+        if (shouldShow) {
+          if (card.style.display === 'none' || card.classList.contains('hidden')) {
+            card.style.display = 'flex';
+            card.classList.remove('hidden');
+            card.style.opacity = '0';
+            card.style.transform = 'scale(0.96) translateY(12px)';
+            card.style.transition = 'opacity 300ms cubic-bezier(0.16, 1, 0.3, 1), transform 300ms cubic-bezier(0.16, 1, 0.3, 1)';
+            
+            // Trigger animation in
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'scale(1) translateY(0)';
+              });
+            });
+          } else {
+            card.style.opacity = '1';
+            card.style.transform = 'scale(1) translateY(0)';
+          }
+        } else {
+          card.style.transition = 'opacity 250ms cubic-bezier(0.16, 1, 0.3, 1), transform 250ms cubic-bezier(0.16, 1, 0.3, 1)';
+          card.style.opacity = '0';
+          card.style.transform = 'scale(0.96) translateY(12px)';
+          
+          setTimeout(() => {
+            const currentActiveBtn = document.querySelector('.tour-filter-pill.active');
+            const currentCat = currentActiveBtn ? currentActiveBtn.dataset.tourCat : 'all';
+            const stillHide = currentCat !== 'all' && !categories.includes(currentCat);
+            if (stillHide) {
+              card.style.display = 'none';
+              card.classList.add('hidden');
+            }
+          }, 250);
         }
       });
     });
@@ -1528,7 +1694,7 @@ const allStationsNetwork = [
   },
   {
     id: 'waterfront-marina',
-    name: 'Waterfront Promenade & Marina Hub',
+    name: ' Promenade &Marina Hub',
     district: 'Lakeside District 2',
     address: 'Seestrasse 44 (Marina Pier 3)',
     cruisers: 15,
@@ -1652,6 +1818,9 @@ function initLocationsPage() {
   const searchInput = document.getElementById('station-search-input');
   const filterPills = document.querySelectorAll('.station-filter-pill');
   const totalCountEl = document.getElementById('stations-count-indicator');
+  const paginationNav = document.getElementById('locations-pagination-nav');
+  const paginationInfo = document.getElementById('locations-pagination-info');
+  const paginationContainer = document.getElementById('locations-pagination-container');
 
   const plannerDepSelect = document.getElementById('planner-dep-select');
   const plannerArrSelect = document.getElementById('planner-arr-select');
@@ -1664,8 +1833,10 @@ function initLocationsPage() {
 
   let currentFilter = 'all';
   let searchQuery = '';
+  let currentPage = 1;
+  const itemsPerPage = 3; // Exactly 3 stations per page in 3-column layout
 
-  function renderStations() {
+  function renderStations(scrollOnChange = false) {
     let filtered = allStationsNetwork.filter(station => {
       const matchSearch = station.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                           station.district.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -1680,25 +1851,38 @@ function initLocationsPage() {
       return matchSearch && matchFilter;
     });
 
-    // Display all cards under All Stations, but display only 3 cards for other filter categories
-    const displayedStations = currentFilter === 'all' ? filtered : filtered.slice(0, 3);
+    const totalItems = filtered.length;
+    const totalPages = Math.ceil(totalItems / itemsPerPage) || 1;
+
+    if (currentPage > totalPages) currentPage = totalPages;
+    if (currentPage < 1) currentPage = 1;
+
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = Math.min(startIndex + itemsPerPage, totalItems);
+    const paginatedStations = filtered.slice(startIndex, endIndex);
 
     if (totalCountEl) {
-      totalCountEl.textContent = `Showing ${displayedStations.length} of 24 Station Hubs`;
+      if (totalItems > 0) {
+        totalCountEl.textContent = `Showing ${startIndex + 1}–${endIndex} of ${totalItems} Station Hubs`;
+      } else {
+        totalCountEl.textContent = `Showing 0 Station Hubs`;
+      }
     }
 
-    if (displayedStations.length === 0) {
+    if (totalItems === 0) {
       directoryGrid.innerHTML = `
         <div class="col-span-full py-16 text-center text-[#171A18] dark:text-white">
           <p class="text-base font-semibold">No stations found matching "${searchQuery}".</p>
           <button type="button" id="reset-station-search" class="btn-secondary px-4 py-2 rounded-lg text-xs font-bold mt-4">Clear Search</button>
         </div>
       `;
+      if (paginationContainer) paginationContainer.classList.add('hidden');
       const reset = document.getElementById('reset-station-search');
       if (reset) {
         reset.addEventListener('click', () => {
           searchQuery = '';
           currentFilter = 'all';
+          currentPage = 1;
           if (searchInput) searchInput.value = '';
           filterPills.forEach(p => p.classList.toggle('active', p.dataset.filter === 'all'));
           renderStations();
@@ -1707,24 +1891,26 @@ function initLocationsPage() {
       return;
     }
 
-    directoryGrid.innerHTML = displayedStations.map(st => {
+    if (paginationContainer) paginationContainer.classList.remove('hidden');
+
+    directoryGrid.innerHTML = paginatedStations.map(st => {
       const totalBikes = st.cruisers + st.ebikes + st.tandems;
       return `
-        <article class="velo-card p-6 shadow-sm flex flex-col justify-between space-y-5 bg-white dark:bg-[#173A20] border border-[#D9DDD8] dark:border-white/10 rounded-2xl group">
+        <article class="velo-card p-6 shadow-sm flex flex-col justify-between space-y-5 bg-white dark:bg-[#173A20] border border-[#D9DDD8] dark:border-white/10 rounded-2xl group h-full">
           <div>
             <!-- Header Badges -->
             <div class="flex items-center justify-between gap-2 mb-3">
-              <span class="text-xs font-mono font-bold text-[#28552E] dark:text-[#C8D62C] uppercase">${st.district}</span>
-              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase ${st.is247 ? 'bg-[#173A20]/10 dark:bg-[#C8D62C]/20 text-[#28552E] dark:text-[#C8D62C]' : 'bg-[#F7F7F2] dark:bg-[#0B2415] text-[#171A18] dark:text-white'}">
+              <span class="text-xs font-mono font-bold text-[#28552E] dark:text-[#C8D62C] uppercase truncate">${st.district}</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase shrink-0 ${st.is247 ? 'bg-[#173A20]/10 dark:bg-[#C8D62C]/20 text-[#28552E] dark:text-[#C8D62C]' : 'bg-[#F7F7F2] dark:bg-[#0B2415] text-[#171A18] dark:text-white'}">
                 ${st.is247 ? 'Open 24/7' : 'All Day Hub'}
               </span>
             </div>
 
             <!-- Station Title & Address -->
-            <h3 class="font-display font-bold text-xl text-[#171A18] dark:text-white group-hover:text-[#28552E] dark:group-hover:text-[#C8D62C] transition-colors mb-1">
+            <h3 class="font-display font-bold text-xl text-[#171A18] dark:text-white group-hover:text-[#28552E] dark:group-hover:text-[#C8D62C] transition-colors mb-1 min-h-[3.25rem] flex items-start">
               ${st.name}
             </h3>
-            <p class="text-xs font-mono text-[#171A18] dark:text-white mb-4">${st.address}</p>
+            <p class="text-xs font-mono text-[#171A18]/75 dark:text-white/75 mb-4">${st.address}</p>
 
             <!-- Real-Time Dock Availability Grid -->
             <div class="grid grid-cols-3 gap-2 text-xs font-mono mb-4 text-center">
@@ -1749,7 +1935,7 @@ function initLocationsPage() {
           </div>
 
           <!-- Quick Reserve Button -->
-          <div class="pt-4 border-t border-black/5 dark:border-white/5">
+          <div class="pt-4 border-t border-black/5 dark:border-white/5 mt-auto">
             <a href="fleet.html" class="btn-primary w-full py-2.5 rounded-lg text-xs font-bold inline-flex items-center justify-center gap-2 shadow-sm">
               <span>Reserve at this Hub (${totalBikes} Ready)</span>
               <svg class="w-3.5 h-3.5 rtl-flip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -1758,11 +1944,96 @@ function initLocationsPage() {
         </article>
       `;
     }).join('');
+
+    // Render Pagination Controls
+    renderLocationsPagination(totalPages, totalItems, startIndex, endIndex);
+
+    if (scrollOnChange) {
+      const grid = document.getElementById('locations-directory-grid');
+      if (grid) {
+        grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  }
+
+  function renderLocationsPagination(totalPages, totalItems, startIndex, endIndex) {
+    if (paginationInfo) {
+      paginationInfo.innerHTML = `
+        <span class="font-bold text-[#28552E] dark:text-[#C8D62C]">Page ${currentPage} of ${totalPages}</span>
+        <span class="text-[#171A18]/70 dark:text-white/70 ml-2">· Showing ${startIndex + 1}–${endIndex} of ${totalItems} Station Hubs</span>
+      `;
+    }
+
+    if (!paginationNav) return;
+
+    let navHtml = '';
+
+    // Previous Button
+    const isPrevDisabled = currentPage === 1;
+    navHtml += `
+      <button type="button" id="locations-page-prev" class="pagination-btn pagination-prev-next px-3 py-2 rounded-lg text-xs font-mono font-bold inline-flex items-center gap-1.5 border border-[#D9DDD8] dark:border-white/10 bg-white dark:bg-[#0B2415] text-[#171A18] dark:text-white hover:border-[#28552E] dark:hover:border-[#C8D62C] hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] transition-colors ${isPrevDisabled ? 'opacity-40 cursor-not-allowed pointer-events-none' : 'cursor-pointer'}" aria-label="Previous Page" ${isPrevDisabled ? 'disabled' : ''}>
+        <svg class="w-3.5 h-3.5 rtl-flip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        <span>Prev</span>
+      </button>
+    `;
+
+    // Page Numbers
+    for (let p = 1; p <= totalPages; p++) {
+      const isActive = p === currentPage;
+      navHtml += `
+        <button type="button" data-loc-page="${p}" class="locations-page-num-btn pagination-btn w-9 h-9 rounded-lg text-xs font-mono font-bold flex items-center justify-center transition-all ${isActive ? 'bg-[#28552E] text-[#C8D62C] dark:bg-[#C8D62C] dark:text-[#102C19] shadow-sm font-black ring-2 ring-[#28552E]/20' : 'bg-white dark:bg-[#0B2415] border border-[#D9DDD8] dark:border-white/10 text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] hover:border-[#28552E] dark:hover:border-[#C8D62C]'}" aria-label="Page ${p}" ${isActive ? 'aria-current="page"' : ''}>
+          ${p < 10 ? '0' + p : p}
+        </button>
+      `;
+    }
+
+    // Next Button
+    const isNextDisabled = currentPage === totalPages;
+    navHtml += `
+      <button type="button" id="locations-page-next" class="pagination-btn pagination-prev-next px-3 py-2 rounded-lg text-xs font-mono font-bold inline-flex items-center gap-1.5 border border-[#D9DDD8] dark:border-white/10 bg-white dark:bg-[#0B2415] text-[#171A18] dark:text-white hover:border-[#28552E] dark:hover:border-[#C8D62C] hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] transition-colors ${isNextDisabled ? 'opacity-40 cursor-not-allowed pointer-events-none' : 'cursor-pointer'}" aria-label="Next Page" ${isNextDisabled ? 'disabled' : ''}>
+        <span>Next</span>
+        <svg class="w-3.5 h-3.5 rtl-flip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    `;
+
+    paginationNav.innerHTML = navHtml;
+
+    // Attach pagination click handlers
+    const prevBtn = document.getElementById('locations-page-prev');
+    if (prevBtn && !isPrevDisabled) {
+      prevBtn.addEventListener('click', () => {
+        if (currentPage > 1) {
+          currentPage--;
+          renderStations(true);
+        }
+      });
+    }
+
+    const nextBtn = document.getElementById('locations-page-next');
+    if (nextBtn && !isNextDisabled) {
+      nextBtn.addEventListener('click', () => {
+        if (currentPage < totalPages) {
+          currentPage++;
+          renderStations(true);
+        }
+      });
+    }
+
+    document.querySelectorAll('.locations-page-num-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const pageNum = parseInt(btn.dataset.locPage, 10);
+        if (pageNum && pageNum !== currentPage) {
+          currentPage = pageNum;
+          renderStations(true);
+        }
+      });
+    });
   }
 
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
       searchQuery = e.target.value;
+      currentPage = 1;
       renderStations();
     });
   }
@@ -1770,6 +2041,7 @@ function initLocationsPage() {
   filterPills.forEach(pill => {
     pill.addEventListener('click', () => {
       currentFilter = pill.dataset.filter;
+      currentPage = 1;
       filterPills.forEach(p => p.classList.remove('active', 'bg-[#C8D62C]', 'text-[#171A18]'));
       pill.classList.add('active', 'bg-[#C8D62C]', 'text-[#171A18]');
       renderStations();

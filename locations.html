@@ -118,7 +118,7 @@
         </a>
 
         <!-- Desktop Navigation Bar -->
-        <nav class="hidden lg:flex items-center gap-1 xl:gap-2 text-xs xl:text-sm font-semibold text-[#171A18] dark:text-white" aria-label="Main Navigation">
+        <nav class="hidden xl:flex items-center gap-1 xl:gap-2 text-xs xl:text-sm font-semibold text-[#171A18] dark:text-white" aria-label="Main Navigation">
           
           <!-- Home Dropdown Container -->
           <div class="relative home-dropdown-container">
@@ -160,7 +160,7 @@
         </nav>
 
         <!-- Right Side Actions: Login -> Theme/RTL Controls -->
-        <div class="hidden lg:flex items-center gap-2 xl:gap-2.5 shrink-0">
+        <div class="hidden xl:flex items-center gap-2 xl:gap-2.5 shrink-0">
           
           <!-- Login Button -->
           <a href="login.html" id="desktop-action-login" class="btn-primary inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold shadow-md">
@@ -169,19 +169,20 @@
           </a>
 
           <!-- Theme Toggle -->
-          <button type="button" class="theme-toggle-btn p-1.5 rounded-lg border border-[#D9DDD8] dark:border-white/20 hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] text-[#171A18] dark:text-white transition-colors" title="Toggle Dark/Light Mode" aria-label="Toggle theme">
-            <svg class="theme-icon-sun hidden w-4 h-4 text-amber-400 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-            <svg class="theme-icon-moon w-4 h-4 text-[#171A18] dark:text-white stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 0 1 1-9-9Z"/></svg>
+          <button type="button" class="theme-toggle-btn w-9 h-9 flex items-center justify-center rounded-lg border border-[#D9DDD8] dark:border-white/20 hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] text-[#171A18] dark:text-white transition-colors cursor-pointer" title="Switch to Dark Mode" aria-label="Toggle theme">
+            <i class="fa-solid fa-moon theme-icon-moon text-sm"></i>
+            <i class="fa-solid fa-sun theme-icon-sun hidden text-amber-400 text-sm"></i>
           </button>
 
           <!-- Direction Toggle -->
-          <button type="button" class="dir-toggle-btn inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-mono font-semibold rounded-lg border border-[#D9DDD8] dark:border-white/20 hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] text-[#171A18] dark:text-white transition-colors" title="Toggle Layout Direction (LTR/RTL)">
+          <button type="button" class="dir-toggle-btn inline-flex items-center gap-1.5 px-2.5 h-9 text-xs font-mono font-bold rounded-lg border border-[#D9DDD8] dark:border-white/20 hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] text-[#171A18] dark:text-white transition-colors cursor-pointer" title="Switch to RTL Direction" aria-label="Toggle layout direction">
+            <i class="fa-solid fa-right-left text-xs text-[#28552E] dark:text-[#C8D62C] dir-toggle-icon"></i>
             <span class="dir-toggle-label">LTR</span>
           </button>
         </div>
 
         <!-- Mobile Menu Trigger -->
-        <div class="flex items-center gap-2 lg:hidden">
+        <div class="flex items-center gap-2 xl:hidden">
           <button type="button" id="mobile-menu-open-btn" class="p-2 rounded-lg border border-[#D9DDD8] dark:border-white/20 text-[#171A18] dark:text-white hover:bg-[#F7F7F2]" aria-expanded="false" aria-label="Open Mobile Navigation Menu">
             <svg class="w-5 h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
           </button>
@@ -192,10 +193,10 @@
   </header>
 
   <!-- Mobile Drawer Backdrop -->
-  <div id="mobile-drawer-backdrop" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden"></div>
+  <div id="mobile-drawer-backdrop" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 xl:hidden"></div>
 
   <!-- Mobile Navigation Drawer -->
-  <div id="mobile-drawer" class="fixed top-0 right-0 bottom-0 z-50 w-full max-w-sm bg-white dark:bg-[#173A20] border-l border-[#D9DDD8] dark:border-white/10 p-6 flex flex-col justify-between translate-x-full pointer-events-none transition-transform duration-300 ease-in-out lg:hidden overflow-y-auto">
+  <div id="mobile-drawer" class="fixed top-0 right-0 bottom-0 z-50 w-full max-w-sm bg-white dark:bg-[#173A20] border-l border-[#D9DDD8] dark:border-white/10 p-6 flex flex-col justify-between translate-x-full pointer-events-none transition-transform duration-300 ease-in-out xl:hidden overflow-y-auto">
     <div>
       <div class="flex items-center justify-between pb-4 border-b border-[#D9DDD8] dark:border-white/10">
         <span class="font-display font-bold text-sm uppercase tracking-widest text-[#28552E] dark:text-[#C8D62C]">Menu Navigation</span>
@@ -339,6 +340,17 @@
           <!-- Populated by JavaScript -->
         </div>
 
+        <!-- Interactive Pagination Controls Container -->
+        <div id="locations-pagination-container" class="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-[#D9DDD8] dark:border-white/10 reveal-on-scroll">
+          <div class="text-xs font-mono text-[#171A18] dark:text-white" id="locations-pagination-info">
+            <!-- Populated by JS -->
+          </div>
+          
+          <nav class="flex items-center gap-1.5" aria-label="Station Hubs Pagination" id="locations-pagination-nav">
+            <!-- Populated by JS: Prev, 1, 2, 3, Next -->
+          </nav>
+        </div>
+
       </div>
     </section>
 
@@ -431,307 +443,137 @@
 
 
     <!-- ======================================================================= -->
-    <!-- SECTION 4 — FLAGSHIP MEGA-HUBS SHOWCASE                                 -->
-    <!-- ======================================================================= -->
-   
-<!-- =========================================================
-     FLAGSHIP LOCATIONS
-     LOCATION SELECTOR / URBAN HUB DIRECTORY
-========================================================= -->
-<section class="relative overflow-hidden
-                bg-[#EFE9DC] dark:bg-[#173A20]
-                py-16 lg:py-15">
+<!-- SECTION 4 — HOW YOUR RIDE WORKS                                        -->
+<!-- ======================================================================= -->
+
+<section
+  id="ride-experience"
+  class="relative overflow-hidden bg-[#F7F7F2] dark:bg-[#173A20] py-14 sm:py-16 lg:py-20"
+>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    <!-- =====================================================
-         INTRO
-    ====================================================== -->
-    <div class="max-w-5xl reveal-on-scroll">
+    <!-- ================================================================ -->
+    <!-- INTRO / TOP LABEL                                                -->
+    <!-- ================================================================ -->
 
-      <span class="text-xs font-mono font-bold uppercase
-                   tracking-[0.22em]
-                   text-[#28552E] dark:text-[#C8D62C]">
-        Flagship Locations
+    <div class="flex items-center gap-3 mb-8 reveal-on-scroll">
+
+      <span
+        class="w-12 h-[2px] bg-[#28552E] dark:bg-[#C8D62C]"
+      ></span>
+
+      <span
+        class="text-xs font-mono font-bold uppercase
+               tracking-[0.2em]
+               text-[#28552E] dark:text-[#C8D62C]"
+      >
+        Ride Experience
       </span>
-
-      <h2 class="mt-5 font-display font-bold
-                 text-4xl sm:text-5xl lg:text-5xl
-                 leading-[0.92]
-                 tracking-[-0.05em]
-                 text-[#171A18] dark:text-white">
-
-        Three launch points.
-        <br>
-
-        <span class="text-[#28552E] dark:text-[#C8D62C]">
-          Endless city routes.
-        </span>
-
-      </h2>
-
-      <p class="mt-7 max-w-2xl
-                text-sm sm:text-base
-                leading-8
-                text-black dark:text-white">
-
-        Choose your starting point based on how you want to experience
-        the city. Connect from the railway network, begin inside the
-        historic centre, or head directly toward the waterfront.
-
-      </p>
 
     </div>
 
 
-    <!-- =====================================================
-         MAIN LOCATION DIRECTORY
-    ====================================================== -->
-    <div class="mt-14 lg:mt-20
-                grid grid-cols-1 lg:grid-cols-12
-                gap-8 lg:gap-10
-                reveal-on-scroll">
+    <!-- ================================================================ -->
+    <!-- MAIN SPLIT LAYOUT                                                -->
+    <!-- ================================================================ -->
+
+    <div
+      class="grid lg:grid-cols-12
+             gap-10 lg:gap-16
+             items-center
+             reveal-on-scroll"
+    >
 
 
-      <!-- ===================================================
-           LEFT LOCATION SELECTOR
-      ==================================================== -->
-      <div class="lg:col-span-3">
+      <!-- ============================================================ -->
+      <!-- LEFT — IMAGE                                                   -->
+      <!-- ============================================================ -->
 
-        <p class="text-[10px] font-mono font-bold uppercase
-                  tracking-[0.2em]
-                  text-black dark:text-white mb-5">
-          Select a hub
-        </p>
+      <div class="lg:col-span-6">
 
-
-        <!-- LOCATION ITEM 01 -->
-        <button
-          type="button"
-          class="location-tab w-full text-left
-                 group py-5
-                 border-b border-[#28552E]/20
-                 dark:border-white/15
-                 active-location"
-          data-location="central"
+        <div
+          class="relative
+                 min-h-[420px] sm:min-h-[500px] lg:min-h-[570px]
+                 rounded-[2rem]
+                 overflow-hidden"
         >
 
-          <div class="flex items-start gap-4">
-
-            <span class="text-xs font-mono font-bold
-                         text-[#28552E] dark:text-[#C8D62C]">
-              01
-            </span>
-
-            <div>
-
-              <h3 class="font-display font-bold
-                         text-xl
-                         text-[#171A18] dark:text-white
-                         group-hover:text-[#28552E]
-                         dark:group-hover:text-[#C8D62C]
-                         transition-colors">
-                Central Railway
-              </h3>
-
-              <p class="mt-1 text-xs
-                        text-[#171A18] dark:text-white">
-                Transit connection
-              </p>
-
-            </div>
-
-          </div>
-
-        </button>
-
-
-        <!-- LOCATION ITEM 02 -->
-        <button
-          type="button"
-          class="location-tab w-full text-left
-                 group py-5
-                 border-b border-[#28552E]/20
-                 dark:border-white/15"
-          data-location="oldtown"
-        >
-
-          <div class="flex items-start gap-4">
-
-            <span class="text-xs font-mono font-bold
-                         text-[#28552E] dark:text-[#C8D62C]">
-              02
-            </span>
-
-            <div>
-
-              <h3 class="font-display font-bold
-                         text-xl
-                         text-[#171A18] dark:text-white
-                         group-hover:text-[#28552E]
-                         dark:group-hover:text-[#C8D62C]
-                         transition-colors">
-                Old Town Plaza
-              </h3>
-
-              <p class="mt-1 text-xs
-                        text-[#171A18] dark:text-white">
-                Historic district
-              </p>
-
-            </div>
-
-          </div>
-
-        </button>
-
-
-        <!-- LOCATION ITEM 03 -->
-        <button
-          type="button"
-          class="location-tab w-full text-left
-                 group py-5
-                 border-b border-[#28552E]/20
-                 dark:border-white/15"
-          data-location="marina"
-        >
-
-          <div class="flex items-start gap-4">
-
-            <span class="text-xs font-mono font-bold
-                         text-[#28552E] dark:text-[#C8D62C]">
-              03
-            </span>
-
-            <div>
-
-              <h3 class="font-display font-bold
-                         text-xl
-                         text-[#171A18] dark:text-white
-                         group-hover:text-[#28552E]
-                         dark:group-hover:text-[#C8D62C]
-                         transition-colors">
-                Waterfront Marina
-              </h3>
-
-              <p class="mt-1 text-xs
-                        text-[#171A18] dark:text-white">
-                Scenic waterfront
-              </p>
-
-            </div>
-
-          </div>
-
-        </button>
-
-
-        <!-- SMALL INFO -->
-        <div class="mt-8">
-
-          <div class="flex items-center gap-2">
-
-            <span class="w-2 h-2 rounded-full
-                         bg-[#28552E] dark:bg-[#C8D62C]"></span>
-
-            <span class="text-[10px] font-mono font-bold
-                         uppercase tracking-widest
-                         text-[#171A18] dark:text-white">
-              Network operational
-            </span>
-
-          </div>
-
-          <p class="mt-3 text-xs leading-6
-                    text-black dark:text-white">
-            All flagship hubs provide access to bicycles,
-            e-bikes and essential ride equipment.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <!-- ===================================================
-           CENTER — FEATURE IMAGE
-      ==================================================== -->
-      <div class="lg:col-span-5">
-
-        <div class="relative h-[430px] sm:h-[500px]
-                    lg:h-[590px]
-                    overflow-hidden">
-
-          <!-- IMAGE -->
           <img
-            id="locationImage"
-            src="assets/images/locations-central-hub.jpg"
-            alt="Central Railway Station Mega-Hub"
+            src="assets/images/p16.jpg"
+            alt="Cyclist enjoying a city ride"
             class="absolute inset-0
                    w-full h-full
                    object-cover
-                   transition-all duration-700"
+                   transition-transform duration-1000
+                   hover:scale-105"
+            loading="lazy"
           />
 
+
           <!-- IMAGE OVERLAY -->
-          <div class="absolute inset-0
-                      bg-gradient-to-t
-                      from-[#08100B]/80
-                      via-transparent
-                      to-transparent">
-          </div>
+          <div
+            class="absolute inset-0
+                   bg-gradient-to-t
+                   from-[#08100B]/80
+                   via-transparent
+                   to-transparent"
+          ></div>
 
 
           <!-- IMAGE LABEL -->
-          <div class="absolute top-5 left-5">
+          <div
+            class="absolute
+                   top-6 left-6
+                   inline-flex items-center gap-2
+                   px-4 py-2
+                   rounded-full
+                   bg-[#F7F7F2]/90
+                   dark:bg-[#173A20]/90
+                   backdrop-blur-md"
+          >
 
             <span
-              id="locationCategory"
+              class="w-2 h-2 rounded-full
+                     bg-[#28552E]
+                     dark:bg-[#C8D62C]"
+            ></span>
+
+            <span
               class="text-[10px] font-mono font-bold
-                     uppercase tracking-[0.18em]
-                     text-white">
-              Transit Connection
+                     uppercase tracking-widest
+                     text-[#28552E] dark:text-[#C8D62C]"
+            >
+              Simple by design
             </span>
 
           </div>
 
 
-          <!-- IMAGE BOTTOM -->
-          <div class="absolute bottom-6 left-6 right-6">
+          <!-- IMAGE BOTTOM CONTENT -->
+          <div
+            class="absolute bottom-7 left-7 right-7"
+          >
 
-            <div class="flex items-end justify-between gap-5">
+            <p
+              class="text-[10px] font-mono font-bold
+                     uppercase tracking-widest
+                     text-[#C8D62C]"
+            >
+              Designed around your journey
+            </p>
 
-              <div>
-
-                <p class="text-[10px] font-mono uppercase
-                          tracking-widest
-                          text-[#C8D62C]">
-                  Featured Hub
-                </p>
-
-                <h3
-                  id="locationShortTitle"
-                  class="mt-2 font-display font-bold
-                         text-2xl sm:text-3xl
-                         text-white">
-                  Central Railway Station
-                </h3>
-
-              </div>
-
-              <div class="hidden sm:flex
-                          w-10 h-10
-                          items-center justify-center
-                          rounded-full
-                          bg-[#C8D62C]">
-
-                <i class="fa-solid fa-arrow-up-right-from-square
-                          text-[#173A20] text-sm">
-                </i>
-
-              </div>
-
-            </div>
+            <h3
+              class="mt-2
+                     font-display font-bold
+                     text-3xl sm:text-4xl
+                     leading-tight
+                     text-white"
+            >
+              Pick a bike.
+              Find your rhythm.
+              Keep moving.
+            </h3>
 
           </div>
 
@@ -740,120 +582,104 @@
       </div>
 
 
-      <!-- ===================================================
-           RIGHT — LOCATION DETAILS
-      ==================================================== -->
-      <div class="lg:col-span-4
-                  flex flex-col
-                  justify-between
-                  py-1 lg:py-5">
+      <!-- ============================================================ -->
+      <!-- RIGHT — CONTENT                                                -->
+      <!-- ============================================================ -->
 
+      <div class="lg:col-span-6">
+
+        <!-- HEADING -->
         <div>
 
-          <span
-            id="locationNumber"
-            class="text-6xl font-display font-bold
-                   text-[#28552E]/15
-                   dark:text-[#C8D62C]/15">
-            01
-          </span>
-
-
-          <h3
-            id="locationTitle"
-            class="mt-2 font-display font-bold
-                   text-3xl sm:text-4xl
-                   leading-tight
-                   text-[#171A18] dark:text-white">
-            Central Railway Station Hub
-          </h3>
+          <h2
+            class="font-display font-bold
+                   text-4xl sm:text-5xl lg:text-6xl
+                   leading-[0.95]
+                   tracking-[-0.045em]
+                   text-[#171A18] dark:text-white"
+          >
+            Your ride,
+            <span class="text-[#28552E] dark:text-[#C8D62C]">
+              without the friction.
+            </span>
+          </h2>
 
 
           <p
-            id="locationDescription"
-            class="mt-6 text-sm sm:text-base
-                   leading-8
-                   text-[#171A18] dark:text-white">
-            Positioned opposite the Track 18 exit, this hub creates
-            a direct bridge between commuter rail and the city's
-            dedicated bicycle expressways.
+            class="mt-6 max-w-xl
+                   text-sm sm:text-base
+                   leading-7
+                   text-[#171A18] dark:text-white"
+          >
+            From your first booking to the final return, every step
+            is designed to stay simple. Choose your ride, unlock it,
+            explore at your own pace, and return it when you're done.
           </p>
 
         </div>
 
 
-        <!-- LOCATION DETAILS -->
-        <div class="mt-12">
+        <!-- ========================================================== -->
+        <!-- STEPS                                                        -->
+        <!-- ========================================================== -->
 
-          <div class="grid grid-cols-2 gap-y-8">
+        <div class="mt-10">
 
-            <div>
 
-              <p class="text-[10px] font-mono uppercase
-                        tracking-widest
-                        text-[#171A18]/45 dark:text-white/45">
-                Address
-              </p>
+          <!-- STEP 01 -->
+          <div
+            class="group
+                   relative
+                   flex gap-5
+                   pb-8"
+          >
 
-              <p
-                id="locationAddress"
-                class="mt-2 text-sm font-semibold
-                       text-[#171A18] dark:text-white">
-                Bahnhofplatz 1
-              </p>
-
+            <!-- NUMBER -->
+            <div
+              class="shrink-0
+                     w-12 h-12
+                     rounded-full
+                     flex items-center justify-center
+                     bg-[#28552E]
+                     dark:bg-[#C8D62C]
+                     text-white
+                     dark:text-[#173A20]
+                     font-mono font-bold text-sm
+                     transition-transform duration-300
+                     group-hover:scale-105"
+            >
+              01
             </div>
 
 
+            <!-- CONNECTOR -->
+            <div
+              class="absolute
+                     left-6 top-12
+                     w-px h-[calc(100%-20px)]
+                     bg-[#28552E]/20
+                     dark:bg-white/15"
+            ></div>
+
+
+            <!-- CONTENT -->
             <div>
 
-              <p class="text-[10px] font-mono uppercase
-                        tracking-widest
-                        text-[#171A18]/45 dark:text-white/45">
-                Access
-              </p>
+              <h3
+                class="font-display font-bold
+                       text-xl
+                       text-[#171A18] dark:text-white"
+              >
+                Choose your ride
+              </h3>
 
               <p
-                id="locationAccess"
-                class="mt-2 text-sm font-semibold
-                       text-[#171A18] dark:text-white">
-                Open 24/7
-              </p>
-
-            </div>
-
-
-            <div>
-
-              <p class="text-[10px] font-mono uppercase
-                        tracking-widest
-                        text-[#171A18]/45 dark:text-white/45">
-                Docking
-              </p>
-
-              <p
-                id="locationDock"
-                class="mt-2 text-sm font-semibold
-                       text-[#171A18] dark:text-white">
-                Full Dock Capacity
-              </p>
-
-            </div>
-
-
-            <div>
-
-              <p class="text-[10px] font-mono uppercase
-                        tracking-widest
-                        text-[#171A18]/45 dark:text-white/45">
-                Best For
-              </p>
-
-              <p
-                id="locationBest"
-                class="mt-2 text-sm font-semibold
-                       text-[#171A18] dark:text-white">
-                Commuter connections
+                class="mt-2
+                       text-sm leading-6
+                       text-[#171A18] dark:text-white"
+              >
+                Select the bike that matches your route,
+                distance and pace.
               </p>
 
             </div>
@@ -861,21 +687,212 @@
           </div>
 
 
-          <!-- HIGHLIGHT -->
-          <div class="mt-10
-                      py-5
-                      border-t border-[#28552E]/20
-                      dark:border-white/15">
+          <!-- STEP 02 -->
+          <div
+            class="group
+                   relative
+                   flex gap-5
+                   pb-8"
+          >
 
-            <p class="text-xs leading-6
-                      text-[#171A18]/65 dark:text-white/65">
+            <!-- NUMBER -->
+            <div
+              class="shrink-0
+                     w-12 h-12
+                     rounded-full
+                     flex items-center justify-center
+                     bg-[#C8D62C]
+                     dark:bg-[#28552E]
+                     text-[#173A20]
+                     dark:text-[#C8D62C]
+                     font-mono font-bold text-sm
+                     transition-transform duration-300
+                     group-hover:scale-105"
+            >
+              02
+            </div>
 
-              <i class="fa-solid fa-circle-info mr-2
-                        text-[#28552E] dark:text-[#C8D62C]"></i>
 
-              Each flagship hub includes practical support
-              facilities for a smoother start and return.
+            <!-- CONNECTOR -->
+            <div
+              class="absolute
+                     left-6 top-12
+                     w-px h-[calc(100%-20px)]
+                     bg-[#28552E]/20
+                     dark:bg-white/15"
+            ></div>
 
+
+            <!-- CONTENT -->
+            <div>
+
+              <h3
+                class="font-display font-bold
+                       text-xl
+                       text-[#171A18] dark:text-white"
+              >
+                Unlock &amp; go
+              </h3>
+
+              <p
+                class="mt-2
+                       text-sm leading-6
+                       text-[#171A18] dark:text-white"
+              >
+                Unlock directly from your phone and start
+                your journey in seconds.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- STEP 03 -->
+          <div
+            class="group
+                   flex gap-5"
+          >
+
+            <!-- NUMBER -->
+            <div
+              class="shrink-0
+                     w-12 h-12
+                     rounded-full
+                     flex items-center justify-center
+                     bg-[#28552E]
+                     dark:bg-[#C8D62C]
+                     text-white
+                     dark:text-[#173A20]
+                     font-mono font-bold text-sm
+                     transition-transform duration-300
+                     group-hover:scale-105"
+            >
+              03
+            </div>
+
+
+            <!-- CONTENT -->
+            <div>
+
+              <h3
+                class="font-display font-bold
+                       text-xl
+                       text-[#171A18] dark:text-white"
+              >
+                Ride &amp; return
+              </h3>
+
+              <p
+                class="mt-2
+                       text-sm leading-6
+                       text-[#171A18] dark:text-white"
+              >
+                Explore freely, then return your bike to
+                any available network location.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ========================================================== -->
+        <!-- BOTTOM INFO STRIP                                           -->
+        <!-- ========================================================== -->
+
+        <div
+          class="mt-10 pt-6
+                 border-t border-black/10
+                 dark:border-white/10
+                 grid grid-cols-2 sm:grid-cols-3 gap-5"
+        >
+
+
+          <!-- INFO 01 -->
+          <div>
+
+            <div
+              class="flex items-center gap-2
+                     text-[#28552E] dark:text-[#C8D62C]"
+            >
+
+              <i class="fa-solid fa-bolt text-sm"></i>
+
+              <span
+                class="text-[10px] font-mono font-bold
+                       uppercase tracking-widest"
+              >
+                Fast
+              </span>
+
+            </div>
+
+            <p
+              class="mt-2 text-sm font-bold
+                     text-[#171A18] dark:text-white"
+            >
+              Instant unlock
+            </p>
+
+          </div>
+
+
+          <!-- INFO 02 -->
+          <div>
+
+            <div
+              class="flex items-center gap-2
+                     text-[#28552E] dark:text-[#C8D62C]"
+            >
+
+              <i class="fa-solid fa-location-dot text-sm"></i>
+
+              <span
+                class="text-[10px] font-mono font-bold
+                       uppercase tracking-widest"
+              >
+                Flexible
+              </span>
+
+            </div>
+
+            <p
+              class="mt-2 text-sm font-bold
+                     text-[#171A18] dark:text-white"
+            >
+              Multiple hubs
+            </p>
+
+          </div>
+
+
+          <!-- INFO 03 -->
+          <div>
+
+            <div
+              class="flex items-center gap-2
+                     text-[#28552E] dark:text-[#C8D62C]"
+            >
+
+              <i class="fa-solid fa-shield-halved text-sm"></i>
+
+              <span
+                class="text-[10px] font-mono font-bold
+                       uppercase tracking-widest"
+              >
+                Secure
+              </span>
+
+            </div>
+
+            <p
+              class="mt-2 text-sm font-bold
+                     text-[#171A18] dark:text-white"
+            >
+              Fully supported
             </p>
 
           </div>
@@ -886,252 +903,16 @@
 
     </div>
 
-
-    <!-- =====================================================
-         FACILITIES — HORIZONTAL SERVICE LINE
-    ====================================================== -->
-    <div class="mt-16 lg:mt-20
-                pt-8
-                border-t border-[#28552E]/20
-                dark:border-white/15
-                reveal-on-scroll">
-
-      <div class="flex flex-col lg:flex-row
-                  lg:items-center
-                  justify-between gap-8">
-
-        <div>
-
-          <p class="text-[10px] font-mono font-bold
-                    uppercase tracking-[0.2em]
-                    text-[#28552E] dark:text-[#C8D62C]">
-            Available at flagship hubs
-          </p>
-
-          <h3 class="mt-2 font-display font-bold
-                     text-2xl
-                     text-[#171A18] dark:text-white">
-            Everything is ready when you arrive.
-          </h3>
-
-        </div>
-
-
-        <div class="grid grid-cols-2 sm:grid-cols-4
-                    gap-x-8 gap-y-6">
-
-          <div class="flex items-center gap-3">
-
-            <i class="fa-solid fa-screwdriver-wrench
-                      text-[#28552E] dark:text-[#C8D62C]">
-            </i>
-
-            <span class="text-xs font-semibold
-                         text-[#171A18] dark:text-white">
-              On-site Mechanics
-            </span>
-
-          </div>
-
-
-          <div class="flex items-center gap-3">
-
-            <i class="fa-solid fa-battery-full
-                      text-[#28552E] dark:text-[#C8D62C]">
-            </i>
-
-            <span class="text-xs font-semibold
-                         text-[#171A18] dark:text-white">
-              Battery Swap
-            </span>
-
-          </div>
-
-
-          <div class="flex items-center gap-3">
-
-            <i class="fa-solid fa-wind
-                      text-[#28552E] dark:text-[#C8D62C]">
-            </i>
-
-            <span class="text-xs font-semibold
-                         text-[#171A18] dark:text-white">
-              Free Air Pumps
-            </span>
-
-          </div>
-
-
-          <div class="flex items-center gap-3">
-
-            <i class="fa-solid fa-helmet-safety
-                      text-[#28552E] dark:text-[#C8D62C]">
-            </i>
-
-            <span class="text-xs font-semibold
-                         text-[#171A18] dark:text-white">
-              Helmet Sanitizers
-            </span>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
   </div>
+
 </section>
-
-
-<!-- =========================================================
-     LOCATION SELECTOR SCRIPT
-========================================================= -->
-<script>
-  const locationData = {
-
-    central: {
-      number: "01",
-      image: "assets/images/locations-central-hub.jpg",
-      alt: "Central Railway Station Mega-Hub",
-      category: "Transit Connection",
-      shortTitle: "Central Railway Station",
-      title: "Central Railway Station Hub",
-      description:
-        "Positioned opposite the Track 18 exit, this hub creates a direct bridge between commuter rail and the city's dedicated bicycle expressways.",
-      address: "Bahnhofplatz 1",
-      access: "Open 24/7",
-      dock: "Full Dock Capacity",
-      best: "Commuter connections"
-    },
-
-    oldtown: {
-      number: "02",
-      image: "assets/images/locations-oldtown-hub.jpg",
-      alt: "Historic Old Town Plaza Hub",
-      category: "Historic District",
-      shortTitle: "Old Town Plaza",
-      title: "Historic Old Town Plaza Hub",
-      description:
-        "A central launch point surrounded by cathedral towers, traditional guildhouses and pedestrian-friendly streets. Ideal for riders exploring the historic heart of the city.",
-      address: "Münsterhof 8",
-      access: "Daily Access",
-      dock: "Full Dock Capacity",
-      best: "Historic exploration"
-    },
-
-    marina: {
-      number: "03",
-      image: "assets/images/locations-marina-hub.jpg",
-      alt: "Waterfront Marina Hub",
-      category: "Waterfront Connection",
-      shortTitle: "Waterfront Marina",
-      title: "Waterfront Marina Hub",
-      description:
-        "A scenic waterfront terminal connecting riders with riverside pathways, lakeside recreation areas and relaxed sunset routes across the city.",
-      address: "Seestrasse 44",
-      access: "Open 24/7",
-      dock: "Full Dock Capacity",
-      best: "Scenic city rides"
-    }
-
-  };
-
-
-  const tabs = document.querySelectorAll(".location-tab");
-
-  const image = document.getElementById("locationImage");
-  const category = document.getElementById("locationCategory");
-  const shortTitle = document.getElementById("locationShortTitle");
-
-  const number = document.getElementById("locationNumber");
-  const title = document.getElementById("locationTitle");
-  const description = document.getElementById("locationDescription");
-
-  const address = document.getElementById("locationAddress");
-  const access = document.getElementById("locationAccess");
-  const dock = document.getElementById("locationDock");
-  const best = document.getElementById("locationBest");
-
-
-  tabs.forEach(tab => {
-
-    tab.addEventListener("click", () => {
-
-      const key = tab.dataset.location;
-      const data = locationData[key];
-
-      /* Active state */
-      tabs.forEach(item => {
-        item.classList.remove("active-location");
-      });
-
-      tab.classList.add("active-location");
-
-
-      /* Fade image */
-      image.classList.add("opacity-0", "scale-105");
-
-      setTimeout(() => {
-
-        image.src = data.image;
-        image.alt = data.alt;
-
-        category.textContent = data.category;
-        shortTitle.textContent = data.shortTitle;
-
-        number.textContent = data.number;
-        title.textContent = data.title;
-        description.textContent = data.description;
-
-        address.textContent = data.address;
-        access.textContent = data.access;
-        dock.textContent = data.dock;
-        best.textContent = data.best;
-
-        image.classList.remove("opacity-0", "scale-105");
-
-      }, 250);
-
-    });
-
-  });
-</script>
-
-
-<!-- =========================================================
-     ACTIVE TAB STYLE
-========================================================= -->
-<style>
-  .location-tab {
-    opacity: 0.55;
-    transform: translateX(0);
-    transition:
-      opacity 0.3s ease,
-      transform 0.3s ease;
-  }
-
-  .location-tab:hover,
-  .location-tab.active-location {
-    opacity: 1;
-    transform: translateX(8px);
-  }
-
-  .location-tab.active-location h3 {
-    color: #28552E;
-  }
-
-  .dark .location-tab.active-location h3 {
-    color: #C8D62C;
-  }
-</style>
+   
 
 
     <!-- ======================================================================= -->
     <!-- SECTION 5 — STATION FACILITIES & SMART AMENITIES MATRIX                 -->
     <!-- ======================================================================= -->
-    <section class="py-16 lg:py-24 bg-[#F7F7F2] dark:bg-[#173A20] border-y border-[#D9DDD8] dark:border-white/10 transition-colors duration-300">
+    <section class="py-16 lg:py-18 bg-[#F7F7F2] dark:bg-[#173A20] border-y border-[#D9DDD8] dark:border-white/10 transition-colors duration-300">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center max-w-2xl mx-auto mb-16 space-y-3 reveal-on-scroll">
@@ -1193,18 +974,12 @@
 
 
     <!-- ======================================================================= -->
-    <!-- SECTION 6 — OPERATING RULES & FULL-STATION GRACE POLICY                 -->
-    <!-- ======================================================================= -->
-    <!-- =========================================================
-     FLAGSHIP LOCATIONS
-     TRANSIT CONTROL / SERVICE FLOW
-========================================================= -->
-<section class="relative overflow-hidden bg-[#F7F7F2] dark:bg-[#173A20] py-16 lg:py-24">
+<section class="relative overflow-hidden bg-[#F7F7F2] dark:bg-[#173A20] pt-14 lg:pt-20 pb-8 lg:pb-10">
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <!-- HEADER -->
-    <div class="mb-14 reveal-on-scroll">
+    <div class="mb-12 reveal-on-scroll">
 
       <div class="flex items-center gap-3">
         <span class="w-12 h-[2px] bg-[#28552E] dark:bg-[#C8D62C]"></span>
@@ -1225,9 +1000,9 @@
                    tracking-[-0.045em]
                    text-[#171A18] dark:text-white">
 
-          Three places.
+          Connected hubs.
           <span class="text-[#28552E] dark:text-[#C8D62C]">
-            One connected network.
+            One seamless network.
           </span>
 
         </h2>
@@ -1239,7 +1014,7 @@
 
           Every flagship location is positioned around a different
           rhythm of the city — rail connections for commuters,
-          historic streets for explorers and waterfront paths for
+          historic streets for explorers, and waterfront paths for
           relaxed scenic rides.
 
         </p>
@@ -1251,28 +1026,34 @@
 
     <!-- =====================================================
          NETWORK VISUAL
+         ONLY 3 LOCATIONS
     ====================================================== -->
-    <div class="relative mb-16 reveal-on-scroll">
 
-      <!-- LINE -->
+    <div class="relative mb-10 reveal-on-scroll">
+
+      <!-- CONNECTOR LINE -->
       <div class="hidden md:block absolute
-                  left-[7%] right-[7%] top-8
+                  left-[8%] right-[8%] top-8
                   h-[2px]
                   bg-[#28552E]/20
                   dark:bg-white/15">
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+
 
         <!-- NODE 01 -->
-        <div class="relative">
+        <div class="relative group">
 
           <div class="relative z-10
                       w-16 h-16
                       rounded-full
                       flex items-center justify-center
                       bg-[#28552E]
-                      dark:bg-[#C8D62C]">
+                      dark:bg-[#C8D62C]
+                      shadow-md
+                      group-hover:scale-105
+                      transition-transform duration-300">
 
             <i class="fa-solid fa-train
                       text-white dark:text-[#173A20] text-lg"></i>
@@ -1289,14 +1070,21 @@
 
             <h3 class="mt-2 font-display font-bold
                        text-2xl
-                       text-[#171A18] dark:text-white">
+                       text-[#171A18] dark:text-white
+                       group-hover:text-[#28552E]
+                       dark:group-hover:text-[#C8D62C]
+                       transition-colors">
+
               Central Railway
+
             </h3>
 
             <p class="mt-3 text-sm leading-7
                       text-[#171A18] dark:text-white">
+
               The fastest connection between arriving trains and
               the city's dedicated cycling corridors.
+
             </p>
 
           </div>
@@ -1305,14 +1093,17 @@
 
 
         <!-- NODE 02 -->
-        <div class="relative md:pt-20">
+        <div class="relative group">
 
           <div class="relative z-10
                       w-16 h-16
                       rounded-full
                       flex items-center justify-center
                       bg-[#C8D62C]
-                      dark:bg-[#28552E]">
+                      dark:bg-[#28552E]
+                      shadow-md
+                      group-hover:scale-105
+                      transition-transform duration-300">
 
             <i class="fa-solid fa-landmark
                       text-[#173A20] dark:text-[#C8D62C] text-lg"></i>
@@ -1329,14 +1120,21 @@
 
             <h3 class="mt-2 font-display font-bold
                        text-2xl
-                       text-[#171A18] dark:text-white">
+                       text-[#171A18] dark:text-white
+                       group-hover:text-[#28552E]
+                       dark:group-hover:text-[#C8D62C]
+                       transition-colors">
+
               Old Town Plaza
+
             </h3>
 
             <p class="mt-3 text-sm leading-7
                       text-[#171A18] dark:text-white">
+
               A natural meeting point for riders exploring
               cathedral lanes, guildhouses and the historic centre.
+
             </p>
 
           </div>
@@ -1345,14 +1143,17 @@
 
 
         <!-- NODE 03 -->
-        <div class="relative">
+        <div class="relative group">
 
           <div class="relative z-10
                       w-16 h-16
                       rounded-full
                       flex items-center justify-center
                       bg-[#28552E]
-                      dark:bg-[#C8D62C]">
+                      dark:bg-[#C8D62C]
+                      shadow-md
+                      group-hover:scale-105
+                      transition-transform duration-300">
 
             <i class="fa-solid fa-water
                       text-white dark:text-[#173A20] text-lg"></i>
@@ -1369,14 +1170,21 @@
 
             <h3 class="mt-2 font-display font-bold
                        text-2xl
-                       text-[#171A18] dark:text-white">
+                       text-[#171A18] dark:text-white
+                       group-hover:text-[#28552E]
+                       dark:group-hover:text-[#C8D62C]
+                       transition-colors">
+
               Marina Pier
+
             </h3>
 
             <p class="mt-3 text-sm leading-7
                       text-[#171A18] dark:text-white">
+
               The scenic launch point for riverside paths,
               lakeside stops and long sunset rides.
+
             </p>
 
           </div>
@@ -1389,14 +1197,15 @@
 
 
     <!-- =====================================================
-         LOCATION DETAILS — DIFFERENT VISUAL TREATMENT
+         LOCATION DETAILS
     ====================================================== -->
+
     <div class="grid lg:grid-cols-12 gap-8
                 reveal-on-scroll">
 
       <!-- LEFT IMAGE -->
-      <div class="lg:col-span-5 relative min-h-[430px]
-                  overflow-hidden">
+      <div class="lg:col-span-5 relative min-h-[380px] lg:min-h-[400px]
+                  rounded-2xl overflow-hidden shadow-sm">
 
         <img
           src="assets/images/locations-central-hub.jpg"
@@ -1422,7 +1231,7 @@
             Central Railway Station
           </span>
 
-          <p class="mt-2 text-white text-sm leading-6">
+          <p class="mt-2 text-white text-sm leading-6 font-medium">
             Bahnhofplatz 1 · Sector A
           </p>
 
@@ -1434,7 +1243,7 @@
       <!-- RIGHT INFORMATION -->
       <div class="lg:col-span-7
                   flex flex-col justify-between
-                  py-2 lg:py-5">
+                  py-1 lg:py-3">
 
         <div>
 
@@ -1444,22 +1253,24 @@
             Built for continuous movement
           </p>
 
-          <h3 class="mt-4 font-display font-bold
-                     text-3xl sm:text-4xl
+          <h3 class="mt-3 font-display font-bold
+                     text-2xl sm:text-3xl lg:text-4xl
                      text-[#171A18] dark:text-white">
+
             Everything you need
             before the first pedal.
+
           </h3>
 
-          <p class="mt-5 max-w-2xl
+          <p class="mt-4 max-w-2xl
                     text-sm sm:text-base
-                    leading-8
+                    leading-7
                     text-[#171A18] dark:text-white">
 
             Flagship hubs are more than places to collect and return
             bicycles. Each location is designed as a practical support
             point where riders can prepare, recharge, maintain and
-            continue their journey with less friction.
+            continue their journey with zero friction.
 
           </p>
 
@@ -1467,52 +1278,49 @@
 
 
         <!-- FACILITIES -->
-        <div class="mt-12">
+        <div class="mt-6 sm:mt-8">
 
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-y-8">
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
 
             <div>
               <i class="fa-solid fa-screwdriver-wrench
                         text-lg
                         text-[#28552E] dark:text-[#C8D62C]"></i>
 
-              <p class="mt-3 text-xs font-bold
+              <p class="mt-2 text-xs font-bold
                         text-[#171A18] dark:text-white">
                 On-site Mechanics
               </p>
             </div>
-
 
             <div>
               <i class="fa-solid fa-battery-full
                         text-lg
                         text-[#28552E] dark:text-[#C8D62C]"></i>
 
-              <p class="mt-3 text-xs font-bold
+              <p class="mt-2 text-xs font-bold
                         text-[#171A18] dark:text-white">
                 Battery Swap
               </p>
             </div>
-
 
             <div>
               <i class="fa-solid fa-wind
                         text-lg
                         text-[#28552E] dark:text-[#C8D62C]"></i>
 
-              <p class="mt-3 text-xs font-bold
+              <p class="mt-2 text-xs font-bold
                         text-[#171A18] dark:text-white">
                 Free Air Pumps
               </p>
             </div>
-
 
             <div>
               <i class="fa-solid fa-helmet-safety
                         text-lg
                         text-[#28552E] dark:text-[#C8D62C]"></i>
 
-              <p class="mt-3 text-xs font-bold
+              <p class="mt-2 text-xs font-bold
                         text-[#171A18] dark:text-white">
                 Helmet Sanitizers
               </p>
@@ -1524,10 +1332,11 @@
 
 
         <!-- LOCATION ACCESS -->
-        <div class="mt-12
+        <div class="mt-6 pt-4
+                    border-t border-black/5 dark:border-white/5
                     flex flex-col sm:flex-row
                     sm:items-center
-                    justify-between gap-5">
+                    justify-between gap-4">
 
           <div>
 
@@ -1537,14 +1346,14 @@
               Station Access
             </span>
 
-            <p class="mt-1 text-sm font-bold
+            <p class="mt-0.5 text-sm font-bold
                       text-[#171A18] dark:text-white">
               Full Dock Capacity · Open 24/7
             </p>
 
           </div>
 
-          <div class="flex items-center gap-3
+          <div class="flex items-center gap-2.5
                       text-xs font-mono font-bold
                       text-[#28552E] dark:text-[#C8D62C]">
 
@@ -1565,60 +1374,73 @@
 
 
     <!-- FINAL LOCATION STRIP -->
-    <div class="mt-14
+    <div class="mt-8 pt-6
+                border-t border-black/5 dark:border-white/5
                 grid sm:grid-cols-3
-                gap-6
+                gap-4 sm:gap-6
                 reveal-on-scroll">
 
-      <div class="py-5">
+      <div class="py-1">
+
         <p class="text-[10px] font-mono uppercase
                   tracking-widest
                   text-[#28552E] dark:text-[#C8D62C]">
           Historic Core
         </p>
-        <p class="mt-2 text-sm font-bold
+
+        <p class="mt-1 text-sm font-bold
                   text-[#171A18] dark:text-white">
           Münsterhof 8
         </p>
+
       </div>
 
-      <div class="py-5">
+
+      <div class="py-1">
+
         <p class="text-[10px] font-mono uppercase
                   tracking-widest
                   text-[#28552E] dark:text-[#C8D62C]">
           Waterfront
         </p>
-        <p class="mt-2 text-sm font-bold
+
+        <p class="mt-1 text-sm font-bold
                   text-[#171A18] dark:text-white">
           Seestrasse 44 · Marina Pier 3
         </p>
+
       </div>
 
-      <div class="py-5">
+
+      <div class="py-1">
+
         <p class="text-[10px] font-mono uppercase
                   tracking-widest
                   text-[#28552E] dark:text-[#C8D62C]">
           City Network
         </p>
-        <p class="mt-2 text-sm font-bold
+
+        <p class="mt-1 text-sm font-bold
                   text-[#171A18] dark:text-white">
           Connected cycling access
         </p>
+
       </div>
 
     </div>
 
   </div>
+
 </section>
 
 
     <!-- ======================================================================= -->
     <!-- SECTION 7 — STATION NETWORK FAQS (ACCORDION)                            -->
     <!-- ======================================================================= -->
-    <section class="py-16 lg:py-24 bg-[#F7F7F2] dark:bg-[#173A20] border-y border-[#D9DDD8] dark:border-white/10 transition-colors duration-300">
+    <section class="pt-8 pb-16 lg:pt-10 lg:pb-20 bg-[#F7F7F2] dark:bg-[#173A20] border-b border-[#D9DDD8] dark:border-white/10 transition-colors duration-300">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="text-center mb-14 space-y-3 reveal-on-scroll">
+        <div class="text-center mb-8 space-y-2 reveal-on-scroll">
           <div class="text-xs font-mono font-bold tracking-widest text-[#28552E] dark:text-[#C8D62C] uppercase">Frequently Asked Questions</div>
           <h2 class="font-display font-bold text-3xl sm:text-4xl text-[#171A18] dark:text-white">
             Station &amp; Pickup Guidelines

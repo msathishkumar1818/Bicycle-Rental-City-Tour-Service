@@ -118,7 +118,7 @@
         </a>
 
         <!-- Desktop Navigation Bar -->
-        <nav class="hidden lg:flex items-center gap-1 xl:gap-2 text-xs xl:text-sm font-semibold text-[#171A18] dark:text-white" aria-label="Main Navigation">
+        <nav class="hidden xl:flex items-center gap-1 xl:gap-2 text-xs xl:text-sm font-semibold text-[#171A18] dark:text-white" aria-label="Main Navigation">
           
           <!-- Home Dropdown Container -->
           <div class="relative home-dropdown-container">
@@ -160,7 +160,7 @@
         </nav>
 
         <!-- Right Side Actions: Login -> Theme/RTL Controls -->
-        <div class="hidden lg:flex items-center gap-2 xl:gap-2.5 shrink-0">
+        <div class="hidden xl:flex items-center gap-2 xl:gap-2.5 shrink-0">
           
           <!-- Login Button -->
           <a href="login.html" id="desktop-action-login" class="btn-primary inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold shadow-md">
@@ -169,19 +169,20 @@
           </a>
 
           <!-- Theme Toggle -->
-          <button type="button" class="theme-toggle-btn p-1.5 rounded-lg border border-[#D9DDD8] dark:border-white/20 hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] text-[#171A18] dark:text-white transition-colors" title="Toggle Dark/Light Mode" aria-label="Toggle theme">
-            <svg class="theme-icon-sun hidden w-4 h-4 text-amber-400 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-            <svg class="theme-icon-moon w-4 h-4 text-[#171A18] dark:text-white stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 0 1 1-9-9Z"/></svg>
+          <button type="button" class="theme-toggle-btn w-9 h-9 flex items-center justify-center rounded-lg border border-[#D9DDD8] dark:border-white/20 hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] text-[#171A18] dark:text-white transition-colors cursor-pointer" title="Switch to Dark Mode" aria-label="Toggle theme">
+            <i class="fa-solid fa-moon theme-icon-moon text-sm"></i>
+            <i class="fa-solid fa-sun theme-icon-sun hidden text-amber-400 text-sm"></i>
           </button>
 
           <!-- Direction Toggle -->
-          <button type="button" class="dir-toggle-btn inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-mono font-semibold rounded-lg border border-[#D9DDD8] dark:border-white/20 hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] text-[#171A18] dark:text-white transition-colors" title="Toggle Layout Direction (LTR/RTL)">
+          <button type="button" class="dir-toggle-btn inline-flex items-center gap-1.5 px-2.5 h-9 text-xs font-mono font-bold rounded-lg border border-[#D9DDD8] dark:border-white/20 hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] text-[#171A18] dark:text-white transition-colors cursor-pointer" title="Switch to RTL Direction" aria-label="Toggle layout direction">
+            <i class="fa-solid fa-right-left text-xs text-[#28552E] dark:text-[#C8D62C] dir-toggle-icon"></i>
             <span class="dir-toggle-label">LTR</span>
           </button>
         </div>
 
         <!-- Mobile Menu Trigger -->
-        <div class="flex items-center gap-2 lg:hidden">
+        <div class="flex items-center gap-2 xl:hidden">
           <button type="button" id="mobile-menu-open-btn" class="p-2 rounded-lg border border-[#D9DDD8] dark:border-white/20 text-[#171A18] dark:text-white hover:bg-[#F7F7F2]" aria-expanded="false" aria-label="Open Mobile Navigation Menu">
             <svg class="w-5 h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
           </button>
@@ -192,10 +193,10 @@
   </header>
 
   <!-- Mobile Drawer Backdrop -->
-  <div id="mobile-drawer-backdrop" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden"></div>
+  <div id="mobile-drawer-backdrop" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 xl:hidden"></div>
 
   <!-- Mobile Navigation Drawer -->
-  <div id="mobile-drawer" class="fixed top-0 right-0 bottom-0 z-50 w-full max-w-sm bg-white dark:bg-[#173A20] border-l border-[#D9DDD8] dark:border-white/10 p-6 flex flex-col justify-between translate-x-full pointer-events-none transition-transform duration-300 ease-in-out lg:hidden overflow-y-auto">
+  <div id="mobile-drawer" class="fixed top-0 right-0 bottom-0 z-50 w-full max-w-sm bg-white dark:bg-[#173A20] border-l border-[#D9DDD8] dark:border-white/10 p-6 flex flex-col justify-between translate-x-full pointer-events-none transition-transform duration-300 ease-in-out xl:hidden overflow-y-auto">
     <div>
       <div class="flex items-center justify-between pb-4 border-b border-[#D9DDD8] dark:border-white/10">
         <span class="font-display font-bold text-sm uppercase tracking-widest text-[#28552E] dark:text-[#C8D62C]">Menu Navigation</span>
@@ -229,17 +230,18 @@
     <!-- Mobile Controls (Dark Mode + RTL inside drawer) -->
     <div class="pt-4 border-t border-[#D9DDD8] dark:border-white/10 space-y-2.5">
       <div class="flex items-center justify-between">
-        <span class="text-xs font-medium text-[#171A18] dark:text-white">Theme Display</span>
-        <button type="button" class="theme-toggle-btn inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-[#D9DDD8] dark:border-white/20 text-xs font-mono font-semibold text-[#171A18] dark:text-white">
-          <svg class="theme-icon-sun hidden w-3.5 h-3.5 text-amber-400 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2"/></svg>
-          <svg class="theme-icon-moon w-3.5 h-3.5 stroke-current text-[#171A18] dark:text-white" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 0 1 1-9-9Z"/></svg>
-          <span class="theme-status-label">Theme</span>
+        <span class="text-xs font-medium text-[#171A18] dark:text-white">Theme Mode</span>
+        <button type="button" class="theme-toggle-btn inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-[#D9DDD8] dark:border-white/20 text-xs font-mono font-semibold text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5 transition-colors">
+          <i class="fa-solid fa-moon theme-icon-moon text-xs"></i>
+          <i class="fa-solid fa-sun theme-icon-sun hidden text-amber-400 text-xs"></i>
+          <span class="theme-status-label">Light Mode</span>
         </button>
       </div>
 
       <div class="flex items-center justify-between">
         <span class="text-xs font-medium text-[#171A18] dark:text-white">Direction (LTR / RTL)</span>
-        <button type="button" class="dir-toggle-btn inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-mono font-semibold rounded-lg border border-[#D9DDD8] dark:border-white/20 text-[#171A18] dark:text-white">
+        <button type="button" class="dir-toggle-btn inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-semibold rounded-lg border border-[#D9DDD8] dark:border-white/20 text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5 transition-colors">
+          <i class="fa-solid fa-right-left text-xs text-[#28552E] dark:text-[#C8D62C] dir-toggle-icon"></i>
           <span class="dir-toggle-label">LTR</span>
         </button>
       </div>
@@ -759,12 +761,12 @@
     ====================================================== -->
     <div
       class="tour-bottom mt-8 lg:mt-10
-             grid grid-cols-1 md:grid-cols-12
-             gap-8 items-center"
+             grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12
+             gap-6 lg:gap-8 items-center"
     >
 
       <!-- Intro -->
-      <div class="md:col-span-5">
+      <div class="md:col-span-2 lg:col-span-5">
 
         <p
           class="text-xs font-mono uppercase
@@ -790,7 +792,7 @@
 
       <!-- Stats -->
       <div
-        class="md:col-span-4
+        class="md:col-span-1 lg:col-span-4
                grid grid-cols-2
                border-y md:border-y-0
                md:border-l md:border-r
@@ -798,11 +800,11 @@
                dark:border-white/10"
       >
 
-        <div class="py-5 px-5">
+        <div class="py-4 sm:py-5 px-4 sm:px-5">
 
           <div
             class="tour-stat-number
-                   text-3xl sm:text-4xl
+                   text-2xl sm:text-3xl lg:text-4xl
                    font-display font-black
                    text-[#171A18] dark:text-white"
           >
@@ -823,14 +825,14 @@
 
 
         <div
-          class="py-5 px-5
+          class="py-4 sm:py-5 px-4 sm:px-5
                  border-l border-[#D9DDD8]
                  dark:border-white/10"
         >
 
           <div
             class="tour-stat-number
-                   text-3xl sm:text-4xl
+                   text-2xl sm:text-3xl lg:text-4xl
                    font-display font-black
                    text-[#171A18] dark:text-white"
           >
@@ -854,16 +856,16 @@
 
       <!-- CTA -->
       <div
-        class="md:col-span-3
-               md:flex md:justify-end"
+        class="md:col-span-1 lg:col-span-3
+               flex md:justify-end"
       >
 
         <a
           href="tours.html"
           class="tour-button group
                  inline-flex items-center
-                 gap-4
-                 px-6 py-4
+                 gap-3 sm:gap-4
+                 px-5 py-3.5 sm:px-6 sm:py-4
                  rounded-full
                  bg-[#28552E]
                  dark:bg-[#C8D62C]
@@ -871,7 +873,7 @@
                  dark:text-[#173A20]
                  text-xs font-bold
                  uppercase tracking-wider
-                 overflow-hidden"
+                 overflow-hidden shrink-0"
         >
 
           <span>
@@ -879,7 +881,7 @@
           </span>
 
           <span
-            class="w-8 h-8 rounded-full
+            class="w-7 h-7 sm:w-8 sm:h-8 rounded-full
                    bg-white/15
                    dark:bg-[#173A20]/15
                    flex items-center justify-center
@@ -977,18 +979,21 @@
     <div
       class="absolute
              left-1/2
-             bottom-[-30px]
+             top-1/2
              -translate-x-1/2
+             -translate-y-1/2
              whitespace-nowrap
-             text-[110px]
-             sm:text-[160px]
-             lg:text-[250px]
+             text-[90px]
+             sm:text-[130px]
+             md:text-[160px]
+             lg:text-[200px]
+             xl:text-[240px]
              font-display font-black
              leading-none
              tracking-[-0.08em]
-             text-[#28552E]/[0.035]
-             dark:text-[#C8D62C]/[0.035]
-             select-none"
+             text-[#28552E]/[0.025]
+             dark:text-[#C8D62C]/[0.025]
+             select-none pointer-events-none"
     >
       RIDE
     </div>
@@ -1079,8 +1084,8 @@
     <div
       class="relative
              grid grid-cols-1
-             lg:grid-cols-[260px_1fr_300px]
-             gap-7 lg:gap-10
+             lg:grid-cols-12
+             gap-8 lg:gap-6 xl:gap-10
              items-center
              min-h-0"
     >
@@ -1092,6 +1097,7 @@
 
       <div
         class="hidden lg:block
+               lg:col-span-4 xl:col-span-3
                ride-side-left"
       >
 
@@ -1106,7 +1112,7 @@
         </div>
 
 
-        <div class="mt-4 space-y-5">
+        <div class="mt-4 space-y-4 xl:space-y-5">
 
           <!-- Fact -->
           <div>
@@ -1117,7 +1123,7 @@
 
               <span
                 class="font-display font-black
-                       text-3xl
+                       text-2xl xl:text-3xl
                        text-[#28552E]
                        dark:text-[#C8D62C]"
               >
@@ -1167,7 +1173,7 @@
 
               <span
                 class="font-display font-black
-                       text-3xl
+                       text-2xl xl:text-3xl
                        text-[#28552E]
                        dark:text-[#C8D62C]"
               >
@@ -1218,7 +1224,7 @@
 
               <span
                 class="font-display font-black
-                       text-3xl
+                       text-2xl xl:text-3xl
                        text-[#28552E]
                        dark:text-[#C8D62C]"
               >
@@ -1262,14 +1268,17 @@
 
       <div
         class="flex justify-center
-               ride-timer-area"
+               lg:col-span-4 xl:col-span-5
+               ride-timer-area py-2"
       >
 
         <div
           class="relative
-                 w-[255px] h-[255px]
-                 sm:w-[310px] sm:h-[310px]
-                 lg:w-[360px] lg:h-[360px]
+                 w-[240px] h-[240px]
+                 sm:w-[280px] sm:h-[280px]
+                 md:w-[290px] md:h-[290px]
+                 lg:w-[280px] lg:h-[280px]
+                 xl:w-[360px] xl:h-[360px]
                  flex items-center justify-center
                  timer-wrapper"
         >
@@ -1341,9 +1350,11 @@
               id="timerNumber"
               class="mt-1
                      font-display font-black
-                     text-[76px]
-                     sm:text-[90px]
-                     lg:text-[105px]
+                     text-[68px]
+                     sm:text-[80px]
+                     md:text-[84px]
+                     lg:text-[80px]
+                     xl:text-[105px]
                      leading-none
                      tracking-[-0.08em]
                      text-[#171A18]
@@ -1404,7 +1415,8 @@
       <!-- =============================================================== -->
 
       <div
-        class="ride-side-right"
+        class="lg:col-span-4 xl:col-span-4
+               ride-side-right"
       >
 
         <div
@@ -1414,7 +1426,7 @@
           <span
             id="activeStepNumber"
             class="font-mono font-black
-                   text-4xl
+                   text-3xl xl:text-4xl
                    leading-none
                    text-[#28552E]
                    dark:text-[#C8D62C]"
@@ -1449,7 +1461,7 @@
           id="activeStepTitle"
           class="mt-3
                  font-display font-bold
-                 text-3xl sm:text-4xl
+                 text-2xl sm:text-3xl xl:text-4xl
                  leading-tight
                  tracking-tight
                  text-[#171A18]
@@ -1463,8 +1475,8 @@
           id="activeStepDescription"
           class="mt-3
                  max-w-md
-                 text-sm
-                 leading-6
+                 text-xs sm:text-sm
+                 leading-5 sm:leading-6
                  text-[#171A18] dark:text-white"
         >
           Choose your ideal bicycle from city cruisers,
@@ -1474,7 +1486,7 @@
 
         <!-- Active Meta -->
         <div
-          class="mt-5
+          class="mt-4 xl:mt-5
                  flex flex-wrap
                  gap-x-5 gap-y-2"
         >
@@ -1495,10 +1507,10 @@
 
         <!-- Small Benefits -->
         <div
-          class="mt-6
+          class="mt-5 xl:mt-6
                  grid grid-cols-2
-                 gap-x-6
-                 gap-y-4
+                 gap-x-4 xl:gap-x-6
+                 gap-y-3 xl:gap-y-4
                  max-w-sm"
         >
 
@@ -1680,9 +1692,10 @@
     <!-- ================================================================= -->
 
     <div
-      class="mt-7
+      class="mt-8
              flex items-center
-             justify-center"
+             justify-center
+             relative z-10"
     >
 
       <div
@@ -1698,7 +1711,7 @@
         </button>
 
         <span
-          class="w-7 sm:w-12 h-px
+          class="w-6 sm:w-10 md:w-12 h-px
                  bg-[#D9DDD8]
                  dark:bg-white/10"
         ></span>
@@ -1712,7 +1725,7 @@
         </button>
 
         <span
-          class="w-7 sm:w-12 h-px
+          class="w-6 sm:w-10 md:w-12 h-px
                  bg-[#D9DDD8]
                  dark:bg-white/10"
         ></span>
@@ -1726,7 +1739,7 @@
         </button>
 
         <span
-          class="w-7 sm:w-12 h-px
+          class="w-6 sm:w-10 md:w-12 h-px
                  bg-[#D9DDD8]
                  dark:bg-white/10"
         ></span>
@@ -2318,11 +2331,11 @@
                  dark:border-white/10"
         >
 
-          <div class="px-4 py-4">
+          <div class="px-2.5 sm:px-4 py-3 sm:py-4 text-center">
 
             <div
               class="font-display font-black
-                     text-2xl
+                     text-xl sm:text-2xl
                      text-[#28552E]
                      dark:text-[#C8D62C]"
             >
@@ -2330,8 +2343,8 @@
             </div>
 
             <div
-              class="mt-1
-                     text-[8px]
+              class="mt-0.5 sm:mt-1
+                     text-[8px] sm:text-[9px]
                      font-mono
                      uppercase
                      tracking-wider
@@ -2345,7 +2358,7 @@
 
 
           <div
-            class="px-4 py-4
+            class="px-2.5 sm:px-4 py-3 sm:py-4 text-center
                    border-x
                    border-[#D9DDD8]
                    dark:border-white/10"
@@ -2353,7 +2366,7 @@
 
             <div
               class="font-display font-black
-                     text-2xl
+                     text-xl sm:text-2xl
                      text-[#28552E]
                      dark:text-[#C8D62C]"
             >
@@ -2361,8 +2374,8 @@
             </div>
 
             <div
-              class="mt-1
-                     text-[8px]
+              class="mt-0.5 sm:mt-1
+                     text-[8px] sm:text-[9px]
                      font-mono
                      uppercase
                      tracking-wider
@@ -2375,11 +2388,11 @@
           </div>
 
 
-          <div class="px-4 py-4">
+          <div class="px-2.5 sm:px-4 py-3 sm:py-4 text-center">
 
             <div
               class="font-display font-black
-                     text-2xl
+                     text-xl sm:text-2xl
                      text-[#28552E]
                      dark:text-[#C8D62C]"
             >
@@ -2387,8 +2400,8 @@
             </div>
 
             <div
-              class="mt-1
-                     text-[8px]
+              class="mt-0.5 sm:mt-1
+                     text-[8px] sm:text-[9px]
                      font-mono
                      uppercase
                      tracking-wider
@@ -2414,15 +2427,16 @@
         class="lg:col-span-5
                flex flex-col
                justify-between
-               min-h-[470px]
-               sm:min-h-[500px]
-               lg:min-h-[520px]
+               min-h-[440px]
+               sm:min-h-[480px]
+               lg:min-h-[500px]
+               xl:min-h-[520px]
                bg-white
                dark:bg-[#0B2415]
                border
                border-[#D9DDD8]
                dark:border-white/10
-               p-6 sm:p-7 lg:p-8
+               p-5 sm:p-6 lg:p-5 xl:p-8
                reveal-on-scroll"
       >
 

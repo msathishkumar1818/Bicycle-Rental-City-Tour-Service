@@ -131,7 +131,7 @@
         </a>
 
         <!-- Desktop Navigation Bar -->
-        <nav class="hidden lg:flex items-center gap-1 xl:gap-2 text-xs xl:text-sm font-semibold text-[#171A18] dark:text-white"
+        <nav class="hidden xl:flex items-center gap-1 xl:gap-2 text-xs xl:text-sm font-semibold text-[#171A18] dark:text-white"
           aria-label="Main Navigation">
 
           <!-- Home Dropdown Container -->
@@ -191,7 +191,7 @@
         </nav>
 
         <!-- Right Side Actions: Login -> Theme/RTL Controls -->
-        <div class="hidden lg:flex items-center gap-2 xl:gap-2.5 shrink-0">
+        <div class="hidden xl:flex items-center gap-2 xl:gap-2.5 shrink-0">
 
           <!-- Login Button -->
           <a href="login.html" id="desktop-action-login"
@@ -206,30 +206,23 @@
 
           <!-- Theme Toggle -->
           <button type="button"
-            class="theme-toggle-btn p-1.5 rounded-lg border border-[#D9DDD8] dark:border-white/20 hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] text-[#171A18] dark:text-white transition-colors"
-            title="Toggle Dark/Light Mode" aria-label="Toggle theme">
-            <svg class="theme-icon-sun hidden w-4 h-4 text-amber-400 stroke-current" viewBox="0 0 24 24" fill="none"
-              stroke-width="2">
-              <circle cx="12" cy="12" r="4" />
-              <path
-                d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
-            </svg>
-            <svg class="theme-icon-moon w-4 h-4 text-[#171A18] dark:text-white stroke-current" viewBox="0 0 24 24"
-              fill="none" stroke-width="2">
-              <path d="M12 3a6 6 0 0 0 9 9 9 0 1 1-9-9Z" />
-            </svg>
+            class="theme-toggle-btn w-9 h-9 flex items-center justify-center rounded-lg border border-[#D9DDD8] dark:border-white/20 hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] text-[#171A18] dark:text-white transition-colors cursor-pointer"
+            title="Switch to Dark Mode" aria-label="Toggle theme">
+            <i class="fa-solid fa-moon theme-icon-moon text-sm"></i>
+            <i class="fa-solid fa-sun theme-icon-sun hidden text-amber-400 text-sm"></i>
           </button>
 
           <!-- Direction Toggle -->
           <button type="button"
-            class="dir-toggle-btn inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-mono font-semibold rounded-lg border border-[#D9DDD8] dark:border-white/20 hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] text-[#171A18] dark:text-white transition-colors"
-            title="Toggle Layout Direction (LTR/RTL)">
+            class="dir-toggle-btn inline-flex items-center gap-1.5 px-2.5 h-9 text-xs font-mono font-bold rounded-lg border border-[#D9DDD8] dark:border-white/20 hover:bg-[#F7F7F2] dark:hover:bg-[#173A20] text-[#171A18] dark:text-white transition-colors cursor-pointer"
+            title="Switch to RTL Direction" aria-label="Toggle layout direction">
+            <i class="fa-solid fa-right-left text-xs text-[#28552E] dark:text-[#C8D62C] dir-toggle-icon"></i>
             <span class="dir-toggle-label">LTR</span>
           </button>
         </div>
 
         <!-- Mobile Menu Trigger -->
-        <div class="flex items-center gap-2 lg:hidden">
+        <div class="flex items-center gap-2 xl:hidden">
           <button type="button" id="mobile-menu-open-btn"
             class="p-2 rounded-lg border border-[#D9DDD8] dark:border-white/20 text-[#171A18] dark:text-white hover:bg-[#F7F7F2]"
             aria-expanded="false" aria-label="Open Mobile Navigation Menu">
@@ -247,12 +240,12 @@
 
   <!-- Mobile Drawer Backdrop -->
   <div id="mobile-drawer-backdrop"
-    class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden">
+    class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 xl:hidden">
   </div>
 
   <!-- Mobile Navigation Drawer -->
   <div id="mobile-drawer"
-    class="fixed top-0 right-0 bottom-0 z-50 w-full max-w-sm bg-white dark:bg-[#173A20] border-l border-[#D9DDD8] dark:border-white/10 p-6 flex flex-col justify-between translate-x-full pointer-events-none transition-transform duration-300 ease-in-out lg:hidden overflow-y-auto">
+    class="fixed top-0 right-0 bottom-0 z-50 w-full max-w-sm bg-white dark:bg-[#173A20] border-l border-[#D9DDD8] dark:border-white/10 p-6 flex flex-col justify-between translate-x-full pointer-events-none transition-transform duration-300 ease-in-out xl:hidden overflow-y-auto">
     <div>
       <div class="flex items-center justify-between pb-5 border-b border-[#D9DDD8] dark:border-white/10">
         <span class="font-display font-bold text-sm uppercase tracking-widest text-[#28552E] dark:text-[#C8D62C]">Menu Navigation</span>
@@ -311,25 +304,20 @@
     <!-- Mobile Controls (Dark Mode + RTL inside drawer) -->
     <div class="pt-5 border-t border-[#D9DDD8] dark:border-white/10 space-y-3">
       <div class="flex items-center justify-between">
-        <span class="text-xs font-medium text-[#171A18] dark:text-white">Theme Display</span>
+        <span class="text-xs font-medium text-[#171A18] dark:text-white">Theme Mode</span>
         <button type="button"
-          class="theme-toggle-btn inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-[#D9DDD8] dark:border-white/20 text-xs font-mono font-semibold text-[#171A18] dark:text-white">
-          <svg class="theme-icon-sun hidden w-3.5 h-3.5 text-amber-400 stroke-current" viewBox="0 0 24 24" fill="none"
-            stroke-width="2">
-            <circle cx="12" cy="12" r="4" />
-            <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
-          </svg>
-          <svg class="theme-icon-moon w-3.5 h-3.5 stroke-current text-[#171A18] dark:text-white" viewBox="0 0 24 24" fill="none" stroke-width="2">
-            <path d="M12 3a6 6 0 0 0 9 9 9 0 1 1-9-9Z" />
-          </svg>
-          <span class="theme-status-label">Theme</span>
+          class="theme-toggle-btn inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-[#D9DDD8] dark:border-white/20 text-xs font-mono font-semibold text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5 transition-colors">
+          <i class="fa-solid fa-moon theme-icon-moon text-xs"></i>
+          <i class="fa-solid fa-sun theme-icon-sun hidden text-amber-400 text-xs"></i>
+          <span class="theme-status-label">Light Mode</span>
         </button>
       </div>
 
       <div class="flex items-center justify-between">
         <span class="text-xs font-medium text-[#171A18] dark:text-white">Direction (LTR / RTL)</span>
         <button type="button"
-          class="dir-toggle-btn inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-semibold rounded-lg border border-[#D9DDD8] dark:border-white/20 text-[#171A18] dark:text-white">
+          class="dir-toggle-btn inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-semibold rounded-lg border border-[#D9DDD8] dark:border-white/20 text-[#171A18] dark:text-white hover:bg-[#F7F7F2] dark:hover:bg-white/5 transition-colors">
+          <i class="fa-solid fa-right-left text-xs text-[#28552E] dark:text-[#C8D62C] dir-toggle-icon"></i>
           <span class="dir-toggle-label">LTR</span>
         </button>
       </div>
@@ -407,10 +395,7 @@
               class="tour-filter-pill px-4 py-2 rounded-lg bg-[#F7F7F2] dark:bg-[#0B2415] text-[#171A18] dark:text-white text-xs font-mono font-bold uppercase whitespace-nowrap hover:bg-[#C8D62C]/20">
               Sunset &amp; River Lights
             </button>
-            <button type="button" data-tour-cat="wine"
-              class="tour-filter-pill px-4 py-2 rounded-lg bg-[#F7F7F2] dark:bg-[#0B2415] text-[#171A18] dark:text-white text-xs font-mono font-bold uppercase whitespace-nowrap hover:bg-[#C8D62C]/20">
-              Vineyards &amp; Tasting
-            </button>
+           
           </div>
           <span class="text-xs font-mono text-[#171A18] dark:text-white font-bold">Headsets &amp; Helmets Included with
             Every Ticket</span>
@@ -420,7 +405,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
           <!-- Card 1: Historic Old Town -->
-          <article data-category="historic"
+          <article data-category="architecture"
             class="tour-catalog-card velo-card p-6 sm:p-7 flex flex-col justify-between shadow-sm relative overflow-hidden group">
             <div>
               <div class="flex items-center justify-between mb-4">
@@ -480,7 +465,7 @@
           </article>
 
           <!-- Card 2: Modernist Architecture -->
-          <article data-category="historic"
+          <article data-category="architecture"
             class="tour-catalog-card velo-card p-6 sm:p-7 flex flex-col justify-between shadow-sm relative overflow-hidden group">
             <div>
               <div class="flex items-center justify-between mb-4">
@@ -540,7 +525,7 @@
           </article>
 
           <!-- Card 3: Sunset River Promenade -->
-          <article data-category="sunset"
+          <article data-category="sunset wine"
             class="tour-catalog-card velo-card p-6 sm:p-7 flex flex-col justify-between shadow-sm relative overflow-hidden group">
             <div>
               <div class="flex items-center justify-between mb-4">
@@ -600,7 +585,7 @@
           </article>
 
           <!-- Card 4: Alpine Skyline E-Bike -->
-          <article data-category="alpine"
+          <article data-category="sunset wine"
             class="tour-catalog-card velo-card p-6 sm:p-7 flex flex-col justify-between shadow-sm relative overflow-hidden group">
             <div>
               <div class="flex items-center justify-between mb-4">
@@ -1151,7 +1136,7 @@
               </div>
             </div>
             <p class="text-xs text-[#171A18] dark:text-white leading-relaxed">
-              Curates our evening sunset rides with private wine grower connections along the lakeside slopes.
+              Curates our evening sunset rides with private wine grower and Renaissance stone architecture connections along the lakeside slopes.
             </p>
             <div
               class="pt-2 border-t border-[#D9DDD8] dark:border-white/10 text-[11px] font-mono text-[#28552E] dark:text-[#C8D62C] font-bold">

@@ -69,6 +69,12 @@
     }
   </script>
 
+  <!-- Font Awesome Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
   <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
@@ -121,14 +127,15 @@
     <div class="flex items-center gap-2 sm:gap-2.5">
       
       <!-- Theme Toggle -->
-      <button type="button" class="theme-toggle-btn p-1.5 sm:p-2 rounded-xl border border-[#D9DDD8] dark:border-white/20 hover:bg-[#F7F7F2] dark:hover:bg-[#0B2415] text-[#171A18] dark:text-white transition-colors" title="Toggle Dark/Light Mode" aria-label="Toggle theme">
-        <svg class="theme-icon-sun hidden w-4 h-4 text-amber-400 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-        <svg class="theme-icon-moon w-4 h-4 text-[#171A18] dark:text-white stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 0 1 1-9-9Z"/></svg>
+      <button type="button" class="theme-toggle-btn w-9 h-9 flex items-center justify-center rounded-xl border border-[#D9DDD8] dark:border-white/20 hover:bg-[#F7F7F2] dark:hover:bg-[#0B2415] text-[#171A18] dark:text-white transition-colors cursor-pointer" title="Switch to Dark Mode" aria-label="Toggle theme">
+        <i class="fa-solid fa-moon theme-icon-moon text-sm"></i>
+        <i class="fa-solid fa-sun theme-icon-sun hidden text-amber-400 text-sm"></i>
       </button>
 
       <!-- Direction Toggle -->
-      <button type="button" class="dir-toggle-btn inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-mono font-semibold rounded-xl border border-[#D9DDD8] dark:border-white/20 hover:bg-[#F7F7F2] dark:hover:bg-[#0B2415] text-[#171A18] dark:text-white transition-colors" title="Toggle Layout Direction (LTR/RTL)">
-        <span class="dir-toggle-label">RTL</span>
+      <button type="button" class="dir-toggle-btn inline-flex items-center gap-1.5 px-2.5 h-9 text-xs font-mono font-bold rounded-xl border border-[#D9DDD8] dark:border-white/20 hover:bg-[#F7F7F2] dark:hover:bg-[#0B2415] text-[#171A18] dark:text-white transition-colors cursor-pointer" title="Switch to RTL Direction" aria-label="Toggle layout direction">
+        <i class="fa-solid fa-right-left text-xs text-[#28552E] dark:text-[#C8D62C] dir-toggle-icon"></i>
+        <span class="dir-toggle-label">LTR</span>
       </button>
 
       <!-- User Profile Header Dropdown Menu -->

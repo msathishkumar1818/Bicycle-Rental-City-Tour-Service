@@ -3516,4 +3516,225 @@ html.dark[dir="rtl"] #mobile-drawer {
   border-right-color: rgba(255, 255, 255, 0.1);
 }
 
+/* ========================================================================== */
+/* IPAD PRO & TABLET RESPONSIVE EXCELLENCE (768px - 1366px)                   */
+/* ========================================================================== */
+
+/* Tablet & iPad Portrait / Landscape (768px - 1194px) */
+@media (min-width: 768px) and (max-width: 1194px) {
+  /* Prevent horizontal overflow */
+  body, html {
+    overflow-x: hidden;
+  }
+
+  /* Section 5: How Renting Works Tablet Refinement */
+  .ride-timer-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ride-step-button {
+    min-width: 44px;
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+
+  /* Section 6: Connected City Hubs Map & Station Card */
+  #locations-section .grid {
+    align-items: stretch;
+  }
+
+  .map-hotspot {
+    min-width: 40px;
+    min-height: 40px;
+  }
+
+  /* Tour Bottom Bar */
+  .tour-bottom {
+    gap: 1.5rem;
+  }
+
+  .tour-button {
+    white-space: nowrap;
+  }
+
+  /* Floating Back to Top Button on Tablet */
+  #back-to-top-btn {
+    bottom: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* iPad Pro 12.9" Specific (1024px - 1366px) */
+@media (min-width: 1024px) and (max-width: 1366px) {
+  /* Section 5: How Renting Works Spacious Balanced Proportions */
+  .timer-wrapper {
+    margin: 0 auto;
+  }
+
+  .ride-side-left {
+    padding-right: 0.5rem;
+  }
+
+  .ride-side-right {
+    padding-left: 0.5rem;
+  }
+
+  /* Section 6: Pickup Locations Balanced Padding */
+  #locations-section .lg\:col-span-5 {
+    padding: 1.5rem;
+  }
+}
+
+/* Mobile & Tablet Step Alignments */
+@media (max-width: 1023px) {
+  .ride-side-right .grid {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+}
+
+/* ========================================================================== */
+/* FLEET CATALOG PAGINATION STYLES                                            */
+/* ========================================================================== */
+
+.pagination-btn {
+  user-select: none;
+  touch-action: manipulation;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pagination-btn:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.pagination-btn[disabled] {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.fleet-page-num-btn,
+.locations-page-num-btn {
+  min-width: 38px;
+  height: 38px;
+}
+
+.pagination-prev-next {
+  min-height: 38px;
+}
+
+[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1);
+}
+
+/* ========================================================================== */
+/* TOUR CATALOG FILTER ANIMATIONS                                             */
+/* ========================================================================== */
+
+.tour-catalog-card {
+  transition: opacity 300ms cubic-bezier(0.16, 1, 0.3, 1), transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+/* ========================================================================== */
+/* THEME & DIRECTION (DARK MODE & RTL/LTR) TOGGLE STYLES                      */
+/* ========================================================================== */
+
+.theme-toggle-btn,
+.dir-toggle-btn {
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  user-select: none;
+}
+
+.theme-toggle-btn:active,
+.dir-toggle-btn:active {
+  transform: scale(0.92);
+}
+
+.theme-icon-sun {
+  animation: sunAppear 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.theme-icon-moon {
+  animation: moonAppear 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes sunAppear {
+  0% {
+    transform: rotate(-90deg) scale(0.6);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes moonAppear {
+  0% {
+    transform: rotate(90deg) scale(0.6);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+.theme-toggle-btn:hover .theme-icon-moon {
+  transform: rotate(-20deg) scale(1.1);
+}
+
+.theme-toggle-btn:hover .theme-icon-sun {
+  transform: rotate(45deg) scale(1.1);
+}
+
+.dir-toggle-icon {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.dir-toggle-btn:hover .dir-toggle-icon {
+  transform: scale(1.2);
+}
+
+[dir="rtl"] .dir-toggle-icon {
+  transform: rotate(180deg);
+}
+
+[dir="rtl"] .dir-toggle-btn:hover .dir-toggle-icon {
+  transform: rotate(180deg) scale(1.2);
+}
+
+/* RTL Layout Direction Enhancements */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .text-left {
+  text-align: right;
+}
+
+[dir="rtl"] .text-right {
+  text-align: left;
+}
+
+[dir="rtl"] #mobile-drawer.translate-x-full {
+  transform: translateX(-100%) !important;
+}
+
+[dir="rtl"] #mobile-drawer:not(.translate-x-full) {
+  transform: translateX(0) !important;
+}
+
+[dir="rtl"] .home-dropdown-menu {
+  left: auto !important;
+  right: 0 !important;
+}
+
+
 
