@@ -1660,7 +1660,7 @@ function initTourBookingModal() {
 const allStationsNetwork = [
   {
     id: 'central-station',
-    name: 'Central Railway Station Mega-Hub',
+    name: 'Central Railway Station ',
     district: 'Downtown District 1',
     address: 'Bahnhofplatz 1 (Track 18 Exit)',
     cruisers: 22,
@@ -1677,7 +1677,7 @@ const allStationsNetwork = [
   },
   {
     id: 'old-town-plaza',
-    name: 'Historic Old Town Plaza Hub',
+    name: 'Historic Old Town Plaza ',
     district: 'Altstadt District 1',
     address: 'Münsterhof 8 (Cathedral Square)',
     cruisers: 10,
@@ -1796,9 +1796,9 @@ const allStationsNetwork = [
   },
   {
     id: 'funicular-polybahn',
-    name: 'Polybahn & Panorama Ridge Hub',
+    name: 'Polybahn & Panorama ',
     district: 'Ridge District 7',
-    address: 'Polybahnplatz 3 (Upper Cable Station)',
+    address: 'Polybahnplatz 3 (Upper Station)',
     cruisers: 10,
     ebikes: 14,
     tandems: 2,
