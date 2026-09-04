@@ -812,7 +812,7 @@ const fleetCatalogData = [
   },
   {
     id: 'ebike-stepthrough',
-    name: 'Velo E-Step-Through Low-Step',
+    name: 'Velo E-Step-through',
     category: 'ebike',
     categoryName: 'Low-Step Electric',
     price: 32,
