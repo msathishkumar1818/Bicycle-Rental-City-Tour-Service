@@ -859,7 +859,7 @@ const fleetCatalogData = [
   },
   {
     id: 'tandem-sport',
-    name: 'Velo Sport Synchronized Tandem',
+    name: 'Velo Sport Synchronized ',
     category: 'tandem',
     categoryName: 'Sport Tandem',
     price: 32,
