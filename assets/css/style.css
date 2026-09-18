@@ -112,6 +112,28 @@ blockquote, input, select, textarea {
 }
 
 /* -------------------------------------------------------------------------- */
+/* Heading Font Weight (up to 600) & Subheading Hierarchy (400–550)          */
+/* -------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6,
+.font-display {
+  font-weight: 600 !important;
+}
+
+h1.font-extrabold, h2.font-extrabold, h3.font-extrabold, h4.font-extrabold,
+h1.font-black, h2.font-black, h3.font-black, h4.font-black,
+h1.font-bold, h2.font-bold, h3.font-bold, h4.font-bold {
+  font-weight: 600 !important;
+}
+
+section p.text-base,
+section p.text-lg,
+section p.text-xl,
+.subheading,
+.lead-text {
+  font-weight: 450 !important;
+}
+
+/* -------------------------------------------------------------------------- */
 /* Global Page Loader                                                         */
 /* -------------------------------------------------------------------------- */
 #pageLoader,
@@ -323,6 +345,15 @@ body:has(.nav-sky-header) {
   transform: translateY(-2px);
 }
 
+html.dark .btn-secondary:hover,
+html.dark .btn-secondary:hover * {
+  border-color: var(--lime-accent);
+  color: #FFFFFF !important;
+  background-color: rgba(200, 214, 44, 0.18);
+  box-shadow: 0 4px 14px -2px rgba(200, 214, 44, 0.25);
+  transform: translateY(-2px);
+}
+
 /* -------------------------------------------------------------------------- */
 /* Cards & Containers (Equal Default, Highlight on Hover)                     */
 /* -------------------------------------------------------------------------- */
@@ -403,11 +434,34 @@ html.dark .guide-card-footer {
   color: var(--green-deep-forest);
 }
 
+html.dark .fleet-filter-btn:not(.active):hover {
+  border-color: var(--lime-accent);
+  color: #FFFFFF !important;
+  background-color: rgba(200, 214, 44, 0.18);
+}
+
 .fleet-filter-btn.active {
   background-color: var(--lime-accent) !important;
   color: #171A18 !important;
   border-color: var(--lime-accent) !important;
   box-shadow: 0 4px 14px -2px var(--primary-accent-glow);
+}
+
+/* Station Filter Pills */
+.station-filter-pill {
+  transition: all 0.2s ease;
+}
+
+html.dark .station-filter-pill:not(.active):hover {
+  border-color: var(--lime-accent);
+  color: #FFFFFF !important;
+  background-color: rgba(200, 214, 44, 0.18);
+}
+
+/* Dashboard Sidebar Nav SVGs inherit color */
+.dash-sidebar-btn svg {
+  color: inherit !important;
+  stroke: currentColor !important;
 }
 
 /* Sizing Range Slider */
@@ -447,6 +501,77 @@ input[type="range"].sizing-slider::-webkit-slider-thumb:hover {
 @keyframes heroBgZoom {
   0% { transform: scale(1); }
   100% { transform: scale(1.07); }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Unified Subpage Hero Banner System                                         */
+/* -------------------------------------------------------------------------- */
+.subpage-hero {
+  position: relative;
+  min-height: 440px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+@media (min-width: 1024px) {
+  .subpage-hero {
+    min-height: 480px;
+    padding-top: 5.5rem;
+    padding-bottom: 5.5rem;
+  }
+}
+
+.subpage-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  pointer-events-none;
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+html.dark .subpage-hero-bg {
+  opacity: 0.75;
+}
+
+.subpage-hero-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events-none;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.65) 60%, rgba(255, 255, 255, 0.30) 100%);
+}
+
+@media (min-width: 768px) {
+  .subpage-hero-overlay {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.80) 45%, rgba(255, 255, 255, 0.15) 100%);
+  }
+}
+
+html.dark .subpage-hero-overlay {
+  background: linear-gradient(180deg, rgba(8, 16, 11, 0.90) 0%, rgba(8, 16, 11, 0.70) 60%, rgba(8, 16, 11, 0.35) 100%);
+}
+
+@media (min-width: 768px) {
+  html.dark .subpage-hero-overlay {
+    background: linear-gradient(90deg, rgba(8, 16, 11, 0.94) 0%, rgba(8, 16, 11, 0.80) 45%, rgba(8, 16, 11, 0.20) 100%);
+  }
+}
+
+.subpage-hero-overlay.center-overlay {
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.90) 0%, rgba(255, 255, 255, 0.70) 50%, rgba(255, 255, 255, 0.20) 100%);
+}
+
+html.dark .subpage-hero-overlay.center-overlay {
+  background: radial-gradient(circle at center, rgba(8, 16, 11, 0.92) 0%, rgba(8, 16, 11, 0.75) 50%, rgba(8, 16, 11, 0.25) 100%);
 }
 
 /* -------------------------------------------------------------------------- */

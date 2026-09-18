@@ -100,7 +100,7 @@
   <!-- ========================================================================= -->
   <header class="sticky top-0 z-50 nav-sky-header" id="main-header">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="h-16 sm:h-[68px] flex items-center justify-between gap-2 lg:gap-4">
+      <div class="h-14 sm:h-[60px] flex items-center justify-between gap-2 lg:gap-4">
         
         <!-- Brand Logo -->
         <a href="index.html" class="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C8D62C] rounded-lg p-1 shrink-0" aria-label="Velo City Homepage">
@@ -113,7 +113,7 @@
           </div>
           <div class="flex flex-col">
             <span class="font-display font-bold text-base sm:text-lg tracking-tight uppercase text-[#171A18] dark:text-white leading-none">VELO CITY</span>
-            <span class="text-[9px] font-mono tracking-widest text-[#28552E] dark:text-[#C8D62C] uppercase font-semibold mt-0.5">Concierge</span>
+            <span class="text-[9px] font-mono tracking-widest text-[#28552E] dark:text-[#C8D62C] uppercase font-semibold mt-0.5">Mobility &amp; Tours</span>
           </div>
         </a>
 
@@ -261,11 +261,14 @@
     <!-- ======================================================================= -->
     <!-- SECTION 1 — HERO & 3 DIRECT CONCIERGE PILLARS                           -->
     <!-- ======================================================================= -->
-    <section class="py-16 lg:py-24 bg-[#F7F7F2] dark:bg-[#173A20] border-b border-[#D9DDD8] dark:border-white/10 transition-colors duration-300">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        
-        <div class="text-center max-w-3xl mx-auto space-y-4 reveal-on-scroll">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#173A20]/10 dark:bg-[#C8D62C]/20 border border-[#28552E]/30 text-[#173A20] dark:text-[#C8D62C] text-xs font-mono font-bold uppercase tracking-wider">
+    <section class="subpage-hero">
+      <!-- Background Image with Zoom & High-Contrast Overlay -->
+      <div class="subpage-hero-bg hero-bg-zoom" style="background-image: url('assets/images/contact-hub-marina.jpg');"></div>
+      <div class="subpage-hero-overlay center-overlay"></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
+        <div class="max-w-3xl mx-auto space-y-4 reveal-on-scroll">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#173A20]/10 dark:bg-[#C8D62C]/20 border border-[#28552E]/30 dark:border-[#C8D62C]/30 text-[#173A20] dark:text-[#C8D62C] text-xs font-mono font-bold uppercase tracking-wider">
             <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
             <span>24/7 Mobile Concierge &bull; Dispatch Standby</span>
           </div>
@@ -277,10 +280,29 @@
           <p class="text-base sm:text-lg text-[#171A18] dark:text-white leading-relaxed">
             Need emergency roadside assistance, a quick battery swap, or custom corporate fleet rentals? Our citywide concierge and mobile mechanic vans are ready to assist.
           </p>
-        </div>
 
+          <!-- Status pills -->
+          <div class="pt-2 flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-[#171A18] dark:text-white">
+            <span class="flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-[#C8D62C]"></span>
+              <strong class="text-[#171A18] dark:text-white">Avg Response &lt;15m</strong>
+            </span>
+            <span>&bull;</span>
+            <span>Multilingual Concierge Desk</span>
+            <span>&bull;</span>
+            <span>Zero Call Surcharges</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- SECTION 1B — 3 DIRECT CONCIERGE PILLARS                                 -->
+    <!-- ======================================================================= -->
+    <section class="py-12 lg:py-16 bg-[#F7F7F2] dark:bg-[#173A20] border-b border-[#D9DDD8] dark:border-white/10 transition-colors duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- 3 Direct Contact Pillar Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal-on-scroll">
+        <div class="grid grid-cols-1 lg:grid-cols-3 max-w-xl lg:max-w-none mx-auto gap-6 reveal-on-scroll">
           
           <!-- Pillar 1: Roadside Hotline -->
           <div class="velo-card p-6 sm:p-8 space-y-4 border-2 border-[#C8D62C] bg-white dark:bg-[#0B2415]">
@@ -289,7 +311,7 @@
             </div>
             <div>
               <span class="text-[11px] font-mono font-bold uppercase text-[#28552E] dark:text-[#C8D62C]">24/7 ROADSIDE EMERGENCY</span>
-              <h3 class="font-display font-bold text-2xl text-[#171A18] dark:text-white mt-1">+41 44 215 5000</h3>
+              <h3 class="font-display font-bold text-2xl text-[#171A18] dark:text-white mt-1 break-words">+41 44 215 5000</h3>
             </div>
             <p class="text-xs text-[#171A18] dark:text-white leading-relaxed font-sans">
               Immediate mobile mechanic dispatch. Average on-scene arrival time under 15 minutes within city limits.
@@ -303,7 +325,7 @@
             </div>
             <div>
               <span class="text-[11px] font-mono font-bold uppercase text-[#171A18] dark:text-white">EMAIL SUPPORT &amp; INVOICING</span>
-              <h3 class="font-display font-bold text-xl text-[#171A18] dark:text-white mt-1">support@velocity.ch</h3>
+              <h3 class="font-display font-bold text-xl text-[#171A18] dark:text-white mt-1 break-words">support@velocity.ch</h3>
             </div>
             <p class="text-xs text-[#171A18] dark:text-white leading-relaxed font-sans">
               VAT receipt questions, account verification, pass management, and tour reschedule assistance.
@@ -317,7 +339,7 @@
             </div>
             <div>
               <span class="text-[11px] font-mono font-bold uppercase text-[#171A18] dark:text-white">CORPORATE &amp; HOTEL FLEETS</span>
-              <h3 class="font-display font-bold text-xl text-[#171A18] dark:text-white mt-1">corporate@velocity.ch</h3>
+              <h3 class="font-display font-bold text-xl text-[#171A18] dark:text-white mt-1 break-words">corporate@velocity.ch</h3>
             </div>
             <p class="text-xs text-[#171A18] dark:text-white leading-relaxed font-sans">
               Dedicated company e-bike leasing, hotel guest fleets, and private custom group guided excursions.
@@ -438,8 +460,8 @@
               </div>
 
               <div class="pt-2">
-                <button type="submit" class="btn-secondary w-full py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2">
-                  <span>Submit Corporate Proposal Request</span>
+                <button type="submit" class="btn-secondary w-full py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 dark:hover:text-white dark:hover:bg-[#C8D62C]/20 dark:hover:border-[#C8D62C] transition-all duration-200">
+                  <span class="dark:group-hover:text-white">Submit Corporate Proposal Request</span>
                 </button>
               </div>
             </form>
@@ -467,7 +489,7 @@
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch reveal-on-scroll">
+        <div class="grid grid-cols-1 lg:grid-cols-3 max-w-xl lg:max-w-none mx-auto gap-6 lg:gap-8 items-stretch reveal-on-scroll">
           
           <!-- Hub 1 -->
           <article class="velo-card overflow-hidden bg-white dark:bg-[#0B2415] border border-[#D9DDD8] dark:border-white/10 rounded-2xl shadow-sm flex flex-col h-full">
@@ -769,38 +791,39 @@
         </div>
 
         <div class="lg:col-span-2 space-y-3">
-          <div class="flex items-center gap-2">
-            
-            <h4 class="font-display font-bold text-sm text-white uppercase tracking-wider">Concierge</h4>
-          </div>
+          <h4 class="font-display font-bold text-sm text-white uppercase tracking-wider">Concierge</h4>
           <div class="space-y-4 text-xs font-mono text-white">
 
-  <!-- Hotline -->
-  <div>
-    <span class="flex items-center gap-2 text-white font-bold">
-      <i class="fa-solid fa-phone text-[#C8D62C]"></i>
-      24/7 ROADSIDE HOTLINE
-    </span>
+            <!-- Roadside Hotline -->
+            <div class="flex items-start gap-2.5">
+              <span class="mt-0.5 text-[#C8D62C] shrink-0">
+                <svg class="w-4 h-4 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </span>
+              <div>
+                <span class="block text-white font-bold tracking-wide">24/7 ROADSIDE HOTLINE</span>
+                <a href="tel:+41442155000" class="font-bold text-[#C8D62C] hover:underline block mt-1">
+                  +41 44 215 5000
+                </a>
+              </div>
+            </div>
 
-    <a href="tel:+41442155000"
-       class="font-bold text-[#C8D62C] hover:underline block text-sm mt-1 pl-6">
-      +41 44 215 5000
-    </a>
-  </div>
+            <!-- Headquarters -->
+            <div class="flex items-start gap-2.5">
+              <span class="mt-0.5 text-[#C8D62C] shrink-0">
+                <svg class="w-4 h-4 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </span>
+              <div>
+                <span class="block text-white font-bold tracking-wide">HEADQUARTERS</span>
+                <span class="text-white block mt-1">Bahnhofstrasse 42, 8001 City</span>
+              </div>
+            </div>
 
-  <!-- Headquarters -->
-  <div>
-    <span class="flex items-center gap-2 text-white font-bold">
-      <i class="fa-solid fa-location-dot text-[#C8D62C]"></i>
-      HEADQUARTERS
-    </span>
-
-    <span class="text-white block mt-1 pl-6">
-      Bahnhofstrasse 42, 8001 City
-    </span>
-  </div>
-
-</div>
+          </div>
         </div>
 
       </div>

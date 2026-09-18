@@ -100,7 +100,7 @@
   <!-- ========================================================================= -->
   <header class="sticky top-0 z-50 nav-sky-header" id="main-header">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="h-16 sm:h-[68px] flex items-center justify-between gap-2 lg:gap-4">
+      <div class="h-14 sm:h-[60px] flex items-center justify-between gap-2 lg:gap-4">
         
         <!-- Brand Logo -->
         <a href="index.html" class="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C8D62C] rounded-lg p-1 shrink-0" aria-label="Velo City Homepage">
@@ -261,8 +261,13 @@
     <!-- ======================================================================= -->
     <!-- SECTION 1 — ASYMMETRIC HERO WITH FOREST & LIME ACCENT                   -->
     <!-- ======================================================================= -->
-    <section id="hero-section" class="relative pt-6 pb-16 lg:pt-16 lg:pb-20 overflow-hidden border-b border-[#D9DDD8] dark:border-white/10">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="hero-section" class="relative min-h-[85vh] flex items-center pt-8 pb-16 lg:pt-12 lg:pb-16 overflow-hidden border-b border-[#D9DDD8] dark:border-white/10">
+      <!-- Ambient Background Photography & Overlay -->
+      <div class="absolute inset-0 bg-cover bg-center hero-bg-zoom opacity-80 dark:opacity-70 pointer-events-none"
+        style="background-image: url('assets/images/home-hero.jpg');"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/20 dark:from-[#08100B]/95 dark:via-[#08100B]/80 dark:to-[#08100B]/25 pointer-events-none"></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
           <!-- Narrative Left Column -->
@@ -434,21 +439,21 @@
     <section id="fleet-section" class="py-16 lg:py-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4 reveal-on-scroll">
-          <div>
-            <div class="text-xs font-mono font-bold tracking-widest text-[#28552E] dark:text-[#C8D62C] uppercase mb-2">Fleet Preview</div>
-            <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-[#171A18] dark:text-white">
-              Precision Bicycle Classes
-            </h2>
+        <div class="text-center max-w-2xl mx-auto mb-10 space-y-3 reveal-on-scroll">
+          <div class="text-xs font-mono font-bold tracking-widest text-[#28552E] dark:text-[#C8D62C] uppercase">Fleet Preview</div>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-[#171A18] dark:text-white">
+            Precision Bicycle Classes
+          </h2>
+          <div class="pt-1">
+            <a href="fleet.html" class="text-xs font-mono font-bold text-[#28552E] dark:text-[#C8D62C] inline-flex items-center gap-1.5 hover:underline">
+              <span>Explore All 16 Models</span>
+              <svg class="w-3.5 h-3.5 rtl-flip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
           </div>
-          <a href="fleet.html" class="text-xs font-mono font-bold text-[#28552E] dark:text-[#C8D62C] inline-flex items-center gap-1.5 hover:underline">
-            <span>Explore All 16 Models</span>
-            <svg class="w-3.5 h-3.5 rtl-flip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
         </div>
 
         <!-- Fleet Tab Buttons -->
-        <div class="flex items-center gap-2 overflow-x-auto pb-3 mb-8 reveal-on-scroll" role="tablist">
+        <div class="flex items-center justify-center gap-2 overflow-x-auto pb-3 mb-8 reveal-on-scroll" role="tablist">
           <button type="button" data-model="city" class="fleet-tab-btn active px-5 py-2.5 rounded-lg border border-[#C8D62C] text-xs font-mono font-bold uppercase whitespace-nowrap bg-[#C8D62C] text-[#171A18]">
             01 &bull; City Cruiser Classic
           </button>
@@ -881,14 +886,17 @@
           </span>
 
           <span
-            class="w-7 h-7 sm:w-8 sm:h-8 rounded-full
-                   bg-white/15
-                   dark:bg-[#173A20]/15
+            class="w-8 h-8 sm:w-9 sm:h-9 rounded-full
+                   bg-white/20
+                   dark:bg-[#173A20]/20
                    flex items-center justify-center
-                   transition-transform duration-500
-                   group-hover:translate-x-1"
+                   transition-transform duration-300
+                   group-hover:translate-x-1.5 shrink-0"
           >
-            →
+            <svg class="w-4 h-4 sm:w-5 sm:h-5 rtl-flip stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
           </span>
 
         </a>
@@ -1018,61 +1026,37 @@
     <!-- HEADER -->
     <!-- ================================================================= -->
 
-    <div
-      class="flex flex-col
-             md:flex-row
-             md:items-end
-             justify-between
-             gap-5
-             mb-8 lg:mb-9
-             ride-header"
-    >
-
-      <div>
-
-        <div
-          class="ride-eyebrow
-                 flex items-center gap-3
-                 text-[10px]
-                 font-mono font-bold
-                 tracking-[0.25em]
-                 uppercase
-                 text-[#28552E]
-                 dark:text-[#C8D62C]"
-        >
-
-          <span class="w-9 h-px bg-current"></span>
-
-          Seamless Contactless Flow
-
-        </div>
-
-
-        <h2
-          class="ride-title mt-3
-                 font-display font-black
-                 text-4xl sm:text-5xl
-                 lg:text-[64px]
-                 leading-[0.9]
-                 tracking-[-0.055em]
-                 text-[#171A18]
-                 dark:text-white"
-        >
-          How Renting
-          <span class="text-[#28552E] dark:text-[#C8D62C]">
-            Works.
-          </span>
-        </h2>
-
+    <div class="text-center max-w-2xl mx-auto mb-10 lg:mb-12 ride-header">
+      <div
+        class="ride-eyebrow
+               inline-flex items-center justify-center gap-3
+               text-[10px]
+               font-mono font-bold
+               tracking-[0.25em]
+               uppercase
+               text-[#28552E]
+               dark:text-[#C8D62C]"
+      >
+        <span class="w-9 h-px bg-current"></span>
+        Seamless Contactless Flow
+        <span class="w-9 h-px bg-current"></span>
       </div>
 
-
-      <div class="max-w-xl md:pb-1">
-
-       
-
-      </div>
-
+      <h2
+        class="ride-title mt-3
+               font-display font-black
+               text-4xl sm:text-5xl
+               lg:text-[64px]
+               leading-[0.9]
+               tracking-[-0.055em]
+               text-[#171A18]
+               dark:text-white"
+      >
+        How Renting
+        <span class="text-[#28552E] dark:text-[#C8D62C]">
+          Works.
+        </span>
+      </h2>
     </div>
 
 
@@ -1872,67 +1856,45 @@
     <!-- SECTION HEADER -->
     <!-- ================================================================= -->
 
-    <div
-      class="flex flex-col
-             md:flex-row
-             md:items-end
-             justify-between
-             gap-5
-             mb-8 lg:mb-10
-             reveal-on-scroll"
-    >
-
-      <div>
-
-        <div
-          class="flex items-center gap-3
-                 text-[10px]
-                 font-mono font-bold
-                 tracking-[0.22em]
-                 text-[#28552E]
-                 dark:text-[#C8D62C]
-                 uppercase"
-        >
-
-          <span class="w-8 h-px bg-current"></span>
-
-          Station Network
-
-        </div>
-
-
-        <h2
-          class="mt-3
-                 font-display font-bold
-                 text-3xl sm:text-4xl lg:text-5xl
-                 leading-none
-                 tracking-tight
-                 text-[#171A18]
-                 dark:text-white"
-        >
-          24 Connected
-          <span class="text-[#28552E] dark:text-[#C8D62C]">
-            City Hubs
-          </span>
-        </h2>
-
+    <div class="text-center max-w-2xl mx-auto mb-10 lg:mb-12 space-y-3 reveal-on-scroll">
+      <div
+        class="inline-flex items-center justify-center gap-3
+               text-[10px]
+               font-mono font-bold
+               tracking-[0.22em]
+               text-[#28552E]
+               dark:text-[#C8D62C]
+               uppercase"
+      >
+        <span class="w-8 h-px bg-current"></span>
+        Station Network
+        <span class="w-8 h-px bg-current"></span>
       </div>
 
+      <h2
+        class="mt-3
+               font-display font-bold
+               text-3xl sm:text-4xl lg:text-5xl
+               leading-none
+               tracking-tight
+               text-[#171A18]
+               dark:text-white"
+      >
+        24 Connected
+        <span class="text-[#28552E] dark:text-[#C8D62C]">
+          City Hubs
+        </span>
+      </h2>
 
-      <div class="max-w-lg">
-
-        <p
-          class="text-sm
-                 leading-6
-                 text-[#171A18] dark:text-white"
-        >
-          Find the nearest Velo City station, check available
-          bicycles in real time and start your journey from
-          wherever the city takes you.
-        </p>
-
-      </div>
-
+      <p
+        class="text-sm
+               leading-6
+               text-[#171A18] dark:text-white max-w-lg mx-auto"
+      >
+        Find the nearest Velo City station, check available
+        bicycles in real time and start your journey from
+        wherever the city takes you.
+      </p>
     </div>
 
 
@@ -3157,48 +3119,39 @@
         </div>
 
         <div class="lg:col-span-2 space-y-3">
-          <div class="flex items-center gap-2">
-           
-            <h4 class="font-display font-bold text-sm text-white uppercase tracking-wider">Concierge</h4>
-          </div>
+          <h4 class="font-display font-bold text-sm text-white uppercase tracking-wider">Concierge</h4>
           <div class="space-y-4 text-xs font-mono text-white">
 
-  <!-- Roadside Hotline -->
-  <div class="flex items-start gap-3">
-    <div class="mt-0.5 text-[#C8D62C] text-sm">
-      <i class="fa-solid fa-phone"></i>
-    </div>
+            <!-- Roadside Hotline -->
+            <div class="flex items-start gap-2.5">
+              <span class="mt-0.5 text-[#C8D62C] shrink-0">
+                <svg class="w-4 h-4 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </span>
+              <div>
+                <span class="block text-white font-bold tracking-wide">24/7 ROADSIDE HOTLINE</span>
+                <a href="tel:+41442155000" class="font-bold text-[#C8D62C] hover:underline block mt-1">
+                  +41 44 215 5000
+                </a>
+              </div>
+            </div>
 
-    <div>
-      <span class="block text-white font-bold tracking-wide">
-        24/7 ROADSIDE HOTLINE
-      </span>
+            <!-- Headquarters -->
+            <div class="flex items-start gap-2.5">
+              <span class="mt-0.5 text-[#C8D62C] shrink-0">
+                <svg class="w-4 h-4 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </span>
+              <div>
+                <span class="block text-white font-bold tracking-wide">HEADQUARTERS</span>
+                <span class="text-white block mt-1">Bahnhofstrasse 42, 8001 City</span>
+              </div>
+            </div>
 
-      <a href="tel:+41442155000"
-         class="font-semibold text-[#C8D62C] hover:underline block mt-1">
-        +41 44 215 5000
-      </a>
-    </div>
-  </div>
-
-  <!-- Headquarters -->
-  <div class="flex items-start gap-3">
-    <div class="mt-0.5 text-[#C8D62C] text-sm">
-      <i class="fa-solid fa-location-dot"></i>
-    </div>
-
-    <div>
-      <span class="block text-white font-bold tracking-wide">
-        HEADQUARTERS
-      </span>
-
-      <span class="text-white block mt-1">
-        Bahnhofstrasse 42, 8001 City
-      </span>
-    </div>
-  </div>
-
-</div>
+          </div>
         </div>
 
       </div>
