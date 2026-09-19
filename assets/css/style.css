@@ -421,41 +421,88 @@ html.dark .guide-card-footer {
   box-shadow: 0 16px 36px -6px rgba(40, 85, 46, 0.25);
 }
 
-/* Filter Pills */
-.fleet-filter-btn {
-  background-color: var(--bg-surface);
-  color: var(--text-muted);
-  border: 1px solid var(--border-medium);
-  transition: all 0.2s ease;
+/* ========================================================================== */
+/* UNIFIED TAB & FILTER BUTTON DESIGN SYSTEM (LIGHT & DARK MODE + HOVER)      */
+/* ========================================================================== */
+
+/* Inactive Base State & Smooth Transitions */
+.fleet-tab-btn,
+.tour-filter-pill,
+.tour-visualizer-tab,
+.station-filter-pill,
+.fleet-filter-btn,
+.auth-tab-btn {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  cursor: pointer;
 }
 
-.fleet-filter-btn:hover {
-  border-color: var(--lime-accent);
-  color: var(--green-deep-forest);
-}
-
-html.dark .fleet-filter-btn:not(.active):hover {
-  border-color: var(--lime-accent);
-  color: #FFFFFF !important;
-  background-color: rgba(200, 214, 44, 0.18);
-}
-
-.fleet-filter-btn.active {
-  background-color: var(--lime-accent) !important;
+/* Light Mode: Inactive Default & Hover */
+.fleet-tab-btn:not(.active),
+.tour-filter-pill:not(.active),
+.tour-visualizer-tab:not(.active),
+.station-filter-pill:not(.active),
+.fleet-filter-btn:not(.active),
+.auth-tab-btn:not(.active) {
   color: #171A18 !important;
-  border-color: var(--lime-accent) !important;
-  box-shadow: 0 4px 14px -2px var(--primary-accent-glow);
 }
 
-/* Station Filter Pills */
-.station-filter-pill {
-  transition: all 0.2s ease;
+.fleet-tab-btn:not(.active):hover,
+.tour-filter-pill:not(.active):hover,
+.tour-visualizer-tab:not(.active):hover,
+.station-filter-pill:not(.active):hover,
+.fleet-filter-btn:not(.active):hover,
+.auth-tab-btn:not(.active):hover {
+  background-color: #F7F7F2 !important;
+  color: #171A18 !important;
+  border-color: var(--lime-accent, #C8D62C) !important;
 }
 
-html.dark .station-filter-pill:not(.active):hover {
-  border-color: var(--lime-accent);
+/* Dark Mode: Inactive Default (Ensures high contrast white text) */
+html.dark .fleet-tab-btn:not(.active),
+html.dark .tour-filter-pill:not(.active),
+html.dark .tour-visualizer-tab:not(.active),
+html.dark .station-filter-pill:not(.active),
+html.dark .fleet-filter-btn:not(.active),
+html.dark .auth-tab-btn:not(.active) {
   color: #FFFFFF !important;
-  background-color: rgba(200, 214, 44, 0.18);
+}
+
+/* Dark Mode: Inactive Hover (High visibility lime glow with bright white text) */
+html.dark .fleet-tab-btn:not(.active):hover,
+html.dark .tour-filter-pill:not(.active):hover,
+html.dark .tour-visualizer-tab:not(.active):hover,
+html.dark .station-filter-pill:not(.active):hover,
+html.dark .fleet-filter-btn:not(.active):hover,
+html.dark .auth-tab-btn:not(.active):hover {
+  background-color: rgba(200, 214, 44, 0.20) !important;
+  color: #FFFFFF !important;
+  border-color: var(--lime-accent, #C8D62C) !important;
+}
+
+/* Active State (Light & Dark Mode: High-contrast black text on bright lime) */
+.fleet-tab-btn.active,
+.tour-filter-pill.active,
+.tour-visualizer-tab.active,
+.station-filter-pill.active,
+.fleet-filter-btn.active,
+.auth-tab-btn.active {
+  background-color: var(--lime-accent, #C8D62C) !important;
+  color: #171A18 !important;
+  border-color: var(--lime-accent, #C8D62C) !important;
+  box-shadow: 0 4px 14px -2px var(--primary-accent-glow, rgba(200, 214, 44, 0.40)) !important;
+}
+
+/* Active State on Hover: NEVER turns dark green; stays high-contrast with glowing bright yellow-lime */
+.fleet-tab-btn.active:hover,
+.tour-filter-pill.active:hover,
+.tour-visualizer-tab.active:hover,
+.station-filter-pill.active:hover,
+.fleet-filter-btn.active:hover,
+.auth-tab-btn.active:hover {
+  background-color: var(--yellow-bright, #F4D21F) !important;
+  color: #171A18 !important;
+  border-color: var(--yellow-bright, #F4D21F) !important;
+  box-shadow: 0 6px 18px -2px rgba(244, 210, 31, 0.50) !important;
 }
 
 /* Dashboard Sidebar Nav SVGs inherit color */
